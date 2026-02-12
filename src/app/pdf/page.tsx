@@ -11,13 +11,15 @@ function generatePDF(year: number) {
     // Dynamic import to avoid SSR issues
     return import("jspdf").then(({ default: jsPDF }) => {
         const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
-        const pageWidth = doc.internal.pageSize.getWidth();
-        const pageHeight = doc.internal.pageSize.getHeight();
+        const pageWidth = doc.internal.pageSize.getWidth(); // ~210mm
+        const pageHeight = doc.internal.pageSize.getHeight(); // ~297mm
         const margin = 20;
         const contentWidth = pageWidth - margin * 2;
         let y = margin;
 
         const yearQuestions = questions.filter((q) => q.year === year);
+        
+        // Define standard structure usually followed
         const mcqs = yearQuestions.filter((q) => q.type === "MCQ");
         const shorts2 = yearQuestions.filter((q) => q.type === "Short" && q.marks === 2);
         const shorts3 = yearQuestions.filter((q) => q.type === "Short" && q.marks === 3);
@@ -31,191 +33,187 @@ function generatePDF(year: number) {
             }
         };
 
-        const drawLine = () => {
-            doc.setDrawColor(200, 200, 200);
-            doc.line(margin, y, pageWidth - margin, y);
-            y += 4;
+        const setFont = (type: "normal" | "bold" | "italic" | "bolditalic" = "normal", size = 10) => {
+            doc.setFont("times", type);
+            doc.setFontSize(size);
+            doc.setTextColor(0, 0, 0); // Always black
         };
 
-        // ────────── Title Page ──────────
-        doc.setFillColor(15, 15, 20);
-        doc.rect(0, 0, pageWidth, pageHeight, "F");
-
-        doc.setTextColor(180, 130, 255);
-        doc.setFontSize(36);
-        doc.setFont("helvetica", "bold");
-        doc.text("PhysEd Pro", pageWidth / 2, 80, { align: "center" });
-
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "normal");
-        doc.text("CBSE Class XII — Physical Education", pageWidth / 2, 95, { align: "center" });
-
-        doc.setFontSize(48);
-        doc.setFont("helvetica", "bold");
-        doc.text(String(year), pageWidth / 2, 130, { align: "center" });
-
-        doc.setFontSize(11);
-        doc.setFont("helvetica", "normal");
-        doc.setTextColor(180, 180, 180);
-        doc.text("Board Examination Paper", pageWidth / 2, 145, { align: "center" });
-        doc.text("with Answers & Marking Scheme", pageWidth / 2, 153, { align: "center" });
-
-        doc.setFontSize(10);
-        doc.setTextColor(140, 140, 140);
-        doc.text(`Total Questions: ${yearQuestions.length}`, pageWidth / 2, 175, { align: "center" });
-        doc.text("Time Allowed: 3 Hours | Maximum Marks: 70", pageWidth / 2, 183, { align: "center" });
-
-        // ────────── Questions Section ──────────
-        doc.addPage();
-        doc.setFillColor(255, 255, 255);
-        doc.rect(0, 0, pageWidth, pageHeight, "F");
-        y = margin;
-
-        doc.setTextColor(80, 40, 160);
-        doc.setFontSize(18);
-        doc.setFont("helvetica", "bold");
-        doc.text("QUESTION PAPER", pageWidth / 2, y, { align: "center" });
-        y += 10;
-
-        doc.setTextColor(100, 100, 100);
+        // ────────── FRONT PAGE / HEADER ──────────
+        
+        // Top instruction
+        setFont("bold", 10);
+        doc.text("Roll No.", margin, y + 5);
+        doc.rect(margin + 16, y, 60, 8); // Roll no box
+        
         doc.setFontSize(9);
-        doc.setFont("helvetica", "normal");
-        doc.text("Time Allowed: 3 Hours | Maximum Marks: 70", pageWidth / 2, y, { align: "center" });
-        y += 10;
-        drawLine();
+        doc.text("Q.P. Code 75/1/1", pageWidth - margin, y + 5, { align: "right" });
+        y += 15;
 
-        const renderSection = (title: string, qs: typeof yearQuestions, marksLabel: string) => {
+        // Centered Header
+        setFont("bold", 11);
+        doc.text("CANDIDATES MUST WRITE THE Q.P. CODE", pageWidth / 2, y, { align: "center" });
+        y += 5;
+        doc.text("ON THE TITLE PAGE OF THE ANSWER-BOOK", pageWidth / 2, y, { align: "center" });
+        y += 12;
+
+        setFont("bold", 16);
+        doc.text("PHYSICAL EDUCATION (048)", pageWidth / 2, y, { align: "center" });
+        y += 7;
+
+        setFont("bold", 12);
+        doc.text("CLASS XII", pageWidth / 2, y, { align: "center" });
+        y += 10;
+
+        // Time / Marks
+        setFont("bold", 10);
+        doc.text("Time Allowed: 3 Hours", margin, y);
+        doc.text("Maximum Marks: 70", pageWidth - margin, y, { align: "right" });
+        y += 8;
+
+        // Line separator
+        doc.setLineWidth(0.5);
+        doc.line(margin, y, pageWidth - margin, y);
+        y += 6;
+
+        // General Instructions
+        setFont("bold", 10);
+        doc.text("General Instructions:", margin, y);
+        y += 5;
+        
+        setFont("normal", 9);
+        const instructions = [
+            "1. The question paper contains 5 sections: A, B, C, D and E.",
+            "2. Section A has 18 MCQ questions carrying 1 mark each.",
+            "3. Section B has 5 questions carrying 2 marks each.",
+            "4. Section C has 5 questions carrying 3 marks each.",
+            "5. Section D has 3 Case Study questions carrying 4 marks each.",
+            "6. Section E has 3 questions carrying 5 marks each.",
+            "7. All questions are compulsory."
+        ];
+        
+        instructions.forEach(inst => {
+            doc.text(inst, margin, y);
+            y += 5;
+        });
+
+        y += 5;
+        doc.setLineWidth(0.5);
+        doc.line(margin, y, pageWidth - margin, y);
+        y += 8;
+
+        // ────────── RENDER SECTIONS ──────────
+
+        const renderSection = (title: string, qs: typeof yearQuestions) => {
             if (qs.length === 0) return;
 
             checkPage(20);
-            doc.setTextColor(80, 40, 160);
-            doc.setFontSize(13);
-            doc.setFont("helvetica", "bold");
-            doc.text(title, margin, y);
-            y += 4;
-
-            doc.setTextColor(120, 120, 120);
-            doc.setFontSize(9);
-            doc.setFont("helvetica", "italic");
-            doc.text(marksLabel, margin, y);
-            y += 7;
-
-            qs.forEach((q, i) => {
-                checkPage(25);
-                doc.setTextColor(40, 40, 40);
-                doc.setFontSize(10);
-                doc.setFont("helvetica", "bold");
-                const qNum = `Q${i + 1}.`;
-                doc.text(qNum, margin, y);
-
-                doc.setFont("helvetica", "normal");
-                const lines = doc.splitTextToSize(q.question, contentWidth - 12);
-                doc.text(lines, margin + 12, y);
-                y += lines.length * 5 + 2;
-
-                doc.setFontSize(8);
-                doc.setTextColor(130, 130, 130);
-                doc.text(`[${q.marks} Mark${q.marks > 1 ? "s" : ""}] • ${q.chapter}`, margin + 12, y);
-                y += 8;
-            });
-        };
-
-        renderSection("Section A — Multiple Choice Questions", mcqs, `${mcqs.length} questions × 1 mark = ${mcqs.length} marks`);
-        renderSection("Section B — Short Answer Questions (2 Marks)", shorts2, `${shorts2.length} questions × 2 marks = ${shorts2.length * 2} marks`);
-        renderSection("Section C — Short Answer Questions (3 Marks)", shorts3, `${shorts3.length} questions × 3 marks = ${shorts3.length * 3} marks`);
-        renderSection("Section D — Case Study Questions (4 Marks)", caseStudies, `${caseStudies.length} questions × 4 marks = ${caseStudies.length * 4} marks`);
-        renderSection("Section E — Long Answer Questions (5 Marks)", longs, `${longs.length} questions × 5 marks = ${longs.length * 5} marks`);
-
-        // ────────── Answer Key & Marking Scheme ──────────
-        doc.addPage();
-        y = margin;
-
-        doc.setTextColor(80, 40, 160);
-        doc.setFontSize(18);
-        doc.setFont("helvetica", "bold");
-        doc.text("ANSWER KEY & MARKING SCHEME", pageWidth / 2, y, { align: "center" });
-        y += 12;
-        drawLine();
-
-        const renderAnswerSection = (title: string, qs: typeof yearQuestions) => {
-            if (qs.length === 0) return;
-
-            checkPage(15);
-            doc.setTextColor(80, 40, 160);
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "bold");
-            doc.text(title, margin, y);
+            
+            // Section Header
+            setFont("bold", 11);
+            doc.text(title.toUpperCase(), pageWidth / 2, y, { align: "center" });
             y += 8;
 
             qs.forEach((q, i) => {
                 checkPage(30);
+                
+                // Question Number
+                setFont("bold", 10);
+                
+                // Determine absolute question number logic if needed, but relative per section or global?
+                // Usually global. Let's find index in total list or just use q.id logic if it was numeric.
+                // For now, simpler to find index in the yearQuestions array.
+                const absoluteIndex = yearQuestions.findIndex(yq => yq.id === q.id) + 1;
+                
+                doc.text(`${absoluteIndex}.`, margin, y);
 
-                doc.setTextColor(40, 40, 40);
-                doc.setFontSize(10);
-                doc.setFont("helvetica", "bold");
-                doc.text(`Q${i + 1}. [${q.marks}M]`, margin, y);
-                y += 5;
+                // Question Text
+                setFont("normal", 10);
+                // Indent text slightly
+                const qTextX = margin + 8;
+                const qTextWidth = contentWidth - 15; // Space for marks on right?
+                
+                const lines = doc.splitTextToSize(q.question, qTextWidth);
+                doc.text(lines, qTextX, y);
+                
+                // Draw Marks aligned to right of the first line or bottom?
+                // CBSE usually puts marks in brackets at the end of the line or right aligned.
+                // Let's go with right aligned on the first line.
+                setFont("bold", 10);
+                const marksStr = `[${q.marks}]`;
+                doc.text(marksStr, pageWidth - margin, y, { align: "right" });
 
-                doc.setFont("helvetica", "normal");
-                doc.setFontSize(9);
-                doc.setTextColor(60, 60, 60);
-                const questionLines = doc.splitTextToSize(q.question, contentWidth - 5);
-                doc.text(questionLines, margin + 5, y);
-                y += questionLines.length * 4 + 3;
-
-                doc.setTextColor(20, 100, 50);
-                doc.setFont("helvetica", "bold");
-                doc.setFontSize(9);
-                doc.text("Answer:", margin + 5, y);
-                y += 4;
-
-                doc.setFont("helvetica", "normal");
-                doc.setTextColor(30, 30, 30);
-                const answerText = q.answer.replace(/\\n/g, "\n");
-                const answerLines = doc.splitTextToSize(answerText, contentWidth - 10);
-                doc.text(answerLines, margin + 10, y);
-                y += answerLines.length * 4 + 3;
-
-                // Marking note
-                doc.setFontSize(8);
-                doc.setTextColor(150, 100, 50);
-                doc.setFont("helvetica", "italic");
-                if (q.type === "MCQ") {
-                    doc.text(`Award ${q.marks} mark for correct option.`, margin + 10, y);
-                } else if (q.marks === 2) {
-                    doc.text(`Award 1 mark for each valid point (max ${q.marks}).`, margin + 10, y);
-                } else if (q.marks === 3) {
-                    doc.text(`Award 1 mark per point explained with example (max ${q.marks}).`, margin + 10, y);
-                } else if (q.marks === 4) {
-                    doc.text(`Award 1 mark per sub-part answered correctly (max ${q.marks}).`, margin + 10, y);
-                } else {
-                    doc.text(`Award marks for procedure/definition (2M) + points/explanation (3M) = ${q.marks}M total.`, margin + 10, y);
-                }
-                y += 6;
-
-                doc.setDrawColor(230, 230, 230);
-                doc.line(margin + 5, y, pageWidth - margin - 5, y);
-                y += 5;
+                y += lines.length * 5 + 3;
             });
+            
+            y += 5; // Extra spacing between sections
         };
 
-        renderAnswerSection("Section A — MCQ Answers", mcqs);
-        renderAnswerSection("Section B — Short Answers (2M)", shorts2);
-        renderAnswerSection("Section C — Short Answers (3M)", shorts3);
-        renderAnswerSection("Section D — Case Study Answers (4M)", caseStudies);
-        renderAnswerSection("Section E — Long Answers (5M)", longs);
+        renderSection("Section A", mcqs);
+        renderSection("Section B", shorts2);
+        renderSection("Section C", shorts3);
+        renderSection("Section D", caseStudies);
+        renderSection("Section E", longs);
 
-        // Footer on last page
-        checkPage(15);
-        y += 5;
-        drawLine();
-        doc.setTextColor(150, 150, 150);
-        doc.setFontSize(8);
-        doc.setFont("helvetica", "italic");
-        doc.text("Generated by PhysEd Pro • CBSE Class XII Physical Education Archive", pageWidth / 2, y, { align: "center" });
+        // ────────── MARKING SCHEME ──────────
+        
+        doc.addPage();
+        y = margin;
 
-        doc.save(`PhysEd_Pro_${year}_CBSE_Paper.pdf`);
+        setFont("bold", 14);
+        doc.text("MARKING SCHEME", pageWidth / 2, y, { align: "center" });
+        y += 7;
+        setFont("bold", 12);
+        doc.text("PHYSICAL EDUCATION (048)", pageWidth / 2, y, { align: "center" });
+        y += 7;
+        doc.text(`CLASS XII (${year})`, pageWidth / 2, y, { align: "center" });
+        y += 15;
+
+        // Render Answer Keys
+        const renderAnswers = (qs: typeof yearQuestions) => {
+            qs.forEach((q) => {
+                const absoluteIndex = yearQuestions.findIndex(yq => yq.id === q.id) + 1;
+                
+                checkPage(25);
+
+                // Q No.
+                setFont("bold", 10);
+                doc.text(`${absoluteIndex}.`, margin, y);
+
+                // Answer styling: Value points usually bulleted or plain text.
+                setFont("normal", 10);
+                const ansX = margin + 8;
+                
+                // Clean up answer text
+                let cleanAns = q.answer.replace(/\(A\)/gi, "").replace(/\(B\)/gi, "").replace(/\(C\)/gi, "").replace(/\(D\)/gi, "").trim();
+                // If MCQ, keep the option label if present in original, but user said "exact style".
+                // Actually CBSE MS usually says: "(a) Option Text" or just "Option Text".
+                // My data has "(D) Maintenance of field". I should print it as is mostly.
+                
+                if (q.type === "MCQ") {
+                    cleanAns = q.answer; // Keep (A), (B) etc for MCQs
+                }
+
+                const lines = doc.splitTextToSize(cleanAns, contentWidth - 15);
+                doc.text(lines, ansX, y);
+
+                // Marks split
+                setFont("bold", 10);
+                doc.text(`${q.marks}`, pageWidth - margin, y, { align: "right" });
+
+                y += lines.length * 5 + 2;
+                
+                // Add separator line lightly
+                doc.setDrawColor(200);
+                doc.setLineWidth(0.1);
+                doc.line(margin + 5, y, pageWidth - margin - 5, y);
+                y += 4;
+            });
+        };
+        
+        renderAnswers(yearQuestions);
+
+        doc.save(`CBSE_PE_Paper_${year}.pdf`);
     });
 }
 
