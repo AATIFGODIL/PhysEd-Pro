@@ -88,9 +88,6 @@ export function FloatingDock() {
         item.href === "/" ? pathname === "/" : pathname.startsWith(item.href)
     );
 
-    // Hide on test page
-    if (pathname.startsWith("/test")) return null;
-
     const getRef = (index: number) => (el: HTMLAnchorElement | null) => {
         itemRefs.current[index] = el;
     };
@@ -345,6 +342,9 @@ export function FloatingDock() {
 
         dragStartInfo.current = null;
     };
+
+    // Hide on test page - MOVED AFTER HOOKS
+    if (pathname.startsWith("/test")) return null;
 
     return (
         <motion.div

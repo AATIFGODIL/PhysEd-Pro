@@ -16,7 +16,7 @@ function TestPageContent() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [started, setStarted] = useState(showAnswers);
     const [timeLeft, setTimeLeft] = useState(3 * 60 * 60);
-    const [showAnswer, setShowAnswer] = useState(showAnswers);
+    const [showAnswer, setShowAnswer] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [statusMap, setStatusMap] = useState<Record<number, QuestionStatus>>({});
     const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -232,12 +232,12 @@ function TestPageContent() {
                             key={idx}
                             onClick={() => goTo(idx)}
                             className={`flex-shrink-0 w-8 h-8 rounded-lg text-[11px] font-semibold transition-all ${isCurrent
-                                    ? "bg-gradient-to-br from-purple-500 to-fuchsia-500 text-white ring-2 ring-purple-400/50 scale-110"
-                                    : status === "attempted"
-                                        ? "bg-blue-500/20 text-blue-300 border border-blue-400/20"
-                                        : status === "seen"
-                                            ? "bg-amber-500/15 text-amber-300 border border-amber-400/20"
-                                            : "bg-white/[0.04] text-purple-300/80 border border-white/[0.06] hover:border-purple-400/30"
+                                ? "bg-gradient-to-br from-purple-500 to-fuchsia-500 text-white ring-2 ring-purple-400/50 scale-110"
+                                : status === "attempted"
+                                    ? "bg-blue-500/20 text-blue-300 border border-blue-400/20"
+                                    : status === "seen"
+                                        ? "bg-amber-500/15 text-amber-300 border border-amber-400/20"
+                                        : "bg-white/[0.04] text-purple-300/80 border border-white/[0.06] hover:border-purple-400/30"
                                 }`}
                         >
                             {idx + 1}
@@ -291,13 +291,13 @@ function TestPageContent() {
                                                 key={opt.label}
                                                 onClick={() => handleSelectOption(opt.label)}
                                                 className={`text-left p-4 rounded-xl border transition-all flex items-start gap-3 ${selectedOption === opt.label
-                                                        ? "bg-purple-500/15 border-purple-400/40 ring-1 ring-purple-400/20"
-                                                        : "bg-white/[0.02] border-white/[0.08] hover:border-purple-400/20 hover:bg-white/[0.04]"
+                                                    ? "bg-purple-500/15 border-purple-400/40 ring-1 ring-purple-400/20"
+                                                    : "bg-white/[0.02] border-white/[0.08] hover:border-purple-400/20 hover:bg-white/[0.04]"
                                                     }`}
                                             >
                                                 <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${selectedOption === opt.label
-                                                        ? "bg-purple-500 text-white"
-                                                        : "bg-white/[0.06] text-purple-300/80"
+                                                    ? "bg-purple-500 text-white"
+                                                    : "bg-white/[0.06] text-purple-300/80"
                                                     }`}>
                                                     {opt.label}
                                                 </span>
@@ -310,7 +310,7 @@ function TestPageContent() {
                                 )}
 
                                 {/* Answer Section */}
-                                {showAnswer && (
+                                {showAnswers && showAnswer && (
                                     <motion.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -331,15 +331,17 @@ function TestPageContent() {
                     {/* Bottom Control Bar */}
                     <div className="flex items-center justify-between px-6 py-4 border-t border-white/[0.06] bg-white/[0.02]">
                         <div className="flex items-center gap-3">
-                            <label className="flex items-center gap-2 cursor-pointer select-none">
-                                <div
-                                    onClick={() => setShowAnswer(!showAnswer)}
-                                    className={`w-10 h-5 rounded-full transition-colors relative ${showAnswer ? "bg-emerald-500" : "bg-white/[0.1]"}`}
-                                >
-                                    <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${showAnswer ? "translate-x-5" : "translate-x-0.5"}`} />
-                                </div>
-                                <span className="text-xs text-purple-300/80">Show Answer</span>
-                            </label>
+                            {showAnswers && (
+                                <label className="flex items-center gap-2 cursor-pointer select-none">
+                                    <div
+                                        onClick={() => setShowAnswer(!showAnswer)}
+                                        className={`w-10 h-5 rounded-full transition-colors relative ${showAnswer ? "bg-emerald-500" : "bg-white/[0.1]"}`}
+                                    >
+                                        <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${showAnswer ? "translate-x-5" : "translate-x-0.5"}`} />
+                                    </div>
+                                    <span className="text-xs text-purple-300/80">Show Answer</span>
+                                </label>
+                            )}
                         </div>
 
                         <div className="flex items-center gap-2">
@@ -355,8 +357,8 @@ function TestPageContent() {
                                 onClick={() => goTo(currentIndex - 1)}
                                 disabled={currentIndex === 0}
                                 className={`px-5 py-2 rounded-lg text-xs font-medium transition-colors ${currentIndex === 0
-                                        ? "bg-white/[0.02] text-purple-300/40 border border-white/[0.04] cursor-not-allowed"
-                                        : "bg-white/[0.06] text-white border border-white/[0.08] hover:bg-white/[0.1]"
+                                    ? "bg-white/[0.02] text-purple-300/40 border border-white/[0.04] cursor-not-allowed"
+                                    : "bg-white/[0.06] text-white border border-white/[0.08] hover:bg-white/[0.1]"
                                     }`}
                             >
                                 Previous
@@ -365,8 +367,8 @@ function TestPageContent() {
                                 onClick={() => goTo(currentIndex + 1)}
                                 disabled={currentIndex >= yearQuestions.length - 1}
                                 className={`px-5 py-2 rounded-lg text-xs font-medium transition-colors ${currentIndex >= yearQuestions.length - 1
-                                        ? "bg-white/[0.02] text-purple-300/40 border border-white/[0.04] cursor-not-allowed"
-                                        : "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white hover:brightness-110"
+                                    ? "bg-white/[0.02] text-purple-300/40 border border-white/[0.04] cursor-not-allowed"
+                                    : "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white hover:brightness-110"
                                     }`}
                             >
                                 Next
@@ -432,8 +434,8 @@ function TestPageContent() {
                                             key={idx}
                                             onClick={() => goTo(idx)}
                                             className={`w-full aspect-square rounded-lg text-[11px] font-semibold transition-all ${isCurrent
-                                                    ? "ring-2 ring-purple-400 bg-purple-500/30 text-white"
-                                                    : getStatusColor(status)
+                                                ? "ring-2 ring-purple-400 bg-purple-500/30 text-white"
+                                                : getStatusColor(status)
                                                 }`}
                                         >
                                             {idx + 1}
