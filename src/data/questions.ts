@@ -38,7 +38,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Which of the following is NOT a responsibility of a sports event manager?",
+            "Which of the following is NOT a responsibility of a sports event manager? (a) Planning (b) Organizing (c) Budgeting (d) Maintenance of the field",
         answer: "(D) Maintenance of the field",
         source: "CBSE 2025 Board Exam",
     },
@@ -49,7 +49,7 @@ export const questions: Question[] = [
         topic: "Intramural & Extramural",
         type: "MCQ",
         marks: 1,
-        question: "What is the main objective of intramural activities?",
+        question: "What is the main objective of intramural activities? (a) To identify talent (b) To provide exposure (c) To earn revenue (d) To promote health and recreation at the institution.",
         answer:
             "(D) To promote health and recreation at the institution.",
         source: "CBSE 2025 Board Exam",
@@ -62,7 +62,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Lateral curvature of the spine is known as ___.",
+            "Lateral curvature of the spine is known as ___. (a) Kyphosis (b) Scoliosis (c) Lordosis (d) Round shoulders",
         answer: "(B) Scoliosis",
         source: "CBSE 2025 Board Exam",
     },
@@ -74,7 +74,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Which type of activities are most recommended for elderly individuals?",
+            "Which type of activities are most recommended for elderly individuals? (a) Heavy weight training (b) High impact aerobics (c) Endurance activities (d) Sprinting",
         answer: "(C) Endurance activities",
         source: "CBSE 2025 Board Exam",
     },
@@ -86,7 +86,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "A condition where body weight is significantly above the normal weight for height is termed as:",
+            "A condition where body weight is significantly above the normal weight for height is termed as: (a) Obesity (b) Diabetes (c) Hypertension (d) Anemia",
         answer: "(A) Obesity",
         source: "CBSE 2025 Board Exam",
     },
@@ -98,7 +98,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Which asana is beneficial for curing diabetes?",
+            "Which asana is beneficial for curing diabetes? (a) Tadasana (b) Dhanurasana (c) Shavasana (d) Garudasana",
         answer: "(B) Dhanurasana",
         source: "CBSE 2025 Board Exam",
     },
@@ -110,7 +110,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Assertion (A): Newton's first law is the law of inertia. Reason (R): A body at rest tends to remain at rest and a body in motion tends to remain in motion unless acted upon by an external force.",
+            "Assertion (A): Newton's first law is the law of inertia. Reason (R): A body at rest tends to remain at rest and a body in motion tends to remain in motion unless acted upon by an external force. (a) Both A and R are true and R is correct explanation of A (b) Both A and R are true but R is NOT correct explanation of A (c) A is true but R is false (d) A is false but R is true",
         answer:
             "(A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of the Assertion (A).",
         source: "CBSE 2025 Board Exam",
@@ -123,7 +123,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Which colours are present in the Olympic rings?",
+            "Which colours are present in the Olympic rings? (a) Red, blue, yellow, black, orange (b) Red, white, blue, green, yellow (c) Red, blue, yellow and green (d) Pink, blue, yellow, green",
         answer: "(C) Red, blue, yellow and green",
         source: "CBSE 2025 Board Exam",
     },
@@ -135,7 +135,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "In the human body, the calf raise exercise works on which class of lever?",
+            "In the human body, the calf raise exercise works on which class of lever? (a) First class lever (b) Second class lever (c) Third class lever (d) None of these",
         answer: "(B) Second class lever",
         source: "CBSE 2025 Board Exam",
     },
@@ -146,7 +146,7 @@ export const questions: Question[] = [
         topic: "Vitamins & Minerals",
         type: "MCQ",
         marks: 1,
-        question: "Vitamin C is also known as:",
+        question: "Vitamin C is also known as: (a) Retinol (b) Ascorbic acid (c) Calciferol (d) Tocopherol",
         answer: "(B) Ascorbic acid",
         source: "CBSE 2025 Board Exam",
     },
@@ -158,7 +158,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Assertion (A): BMI is calculated by dividing weight in kilograms by height in metres squared. Reason (R): BMI gives an accurate measure of body composition.",
+            "Assertion (A): BMI is calculated by dividing weight in kilograms by height in metres squared. Reason (R): BMI gives an accurate measure of body composition. (a) Both A and R are true and R is correct explanation of A (b) Both A and R are true but R is NOT correct explanation of A (c) A is true but R is false (d) A is false but R is true",
         answer:
             "(B) Both Assertion (A) and Reason (R) are true, but Reason (R) is not the correct explanation of Assertion (A)",
         source: "CBSE 2025 Board Exam",
@@ -171,7 +171,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Which test measures the flexibility of the lower back and hamstrings?",
+            "Which test measures the flexibility of the lower back and hamstrings? (a) Push-ups (b) Partial curl-up (c) Sit and reach test (d) 600m Run/Walk",
         answer: "(C) Sit and reach test",
         source: "CBSE 2025 Board Exam",
     },
@@ -183,7 +183,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Match the following: a) First class lever b) Second class lever c) Third class lever d) Equilibrium",
+            "Match the following: a) First class lever b) Second class lever c) Third class lever d) Equilibrium. (a) a-i, b-ii, c-iii, d-iv (b) a-iii, b-i, c-iv, d-ii (c) a-ii, b-iii, c-i, d-iv (d) a-iv, b-ii, c-iii, d-i",
         answer: "(B) a – (iii), b – (i), c – (iv), d – (ii)",
         source: "CBSE 2025 Board Exam",
     },
@@ -195,7 +195,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Newton's First Law of Motion is also known as:",
+            "Newton's First Law of Motion is also known as: (a) Law of Inertia (b) Law of Acceleration (c) Law of Reaction (d) Law of Momentum",
         answer: "(A) Law of Inertia",
         source: "CBSE 2025 Board Exam",
     },
@@ -207,7 +207,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Match the following training methods with their characteristics.",
+            "Match the following training methods with their characteristics. (a) a-i, b-ii, c-iii, d-iv (b) a-iii, b-i, c-ii, d-iv (c) a-ii, b-iv, c-i, d-iii (d) a-iv, b-iii, c-ii, d-i",
         answer: "(B) a - (iii), b - (i), c - (ii), d - (iv)",
         source: "CBSE 2025 Board Exam",
     },
@@ -219,7 +219,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "A person's subjective evaluation of their own worth is called:",
+            "A person's subjective evaluation of their own worth is called: (a) Self-efficacy (b) Self-esteem (c) Self-regulation (d) Self-talk",
         answer: "(B) Self-esteem",
         source: "CBSE 2025 Board Exam",
     },
@@ -231,7 +231,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Which training method involves continuous running with varying speed and terrain?",
+            "Which training method involves continuous running with varying speed and terrain? (a) Fartlek training (b) Interval training (c) Pace runs (d) Acceleration runs",
         answer: "(A) Fartlek training",
         source: "CBSE 2025 Board Exam",
     },
@@ -243,7 +243,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "An exercise where the muscle contracts without any change in the length of the muscle is called:",
+            "An exercise where the muscle contracts without any change in the length of the muscle is called: (a) Isotonic exercise (b) Isokinetic exercise (c) Iso-metric exercise (d) Ballistic exercise",
         answer: "(C) Iso-metric exercise",
         source: "CBSE 2025 Board Exam",
     },
@@ -519,7 +519,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Which pranayama is helpful for activating the sympathetic nervous system?",
+            "Which pranayama is helpful for activating the sympathetic nervous system? (a) Ujjayi (b) Bhastrika (c) Suryabhedan Pranayama (d) Sheetali",
         answer: "(C) Suryabhedan Pranayama",
         source: "CBSE 2024 Board Exam",
     },
@@ -530,7 +530,7 @@ export const questions: Question[] = [
         topic: "Special Olympics",
         type: "MCQ",
         marks: 1,
-        question: "Special Olympics World Games started in the year:",
+        question: "Special Olympics World Games started in the year: (a) 1968 (b) 1978 (c) 1989 (d) 1999",
         answer: "(C) 1989",
         source: "CBSE 2024 Board Exam",
     },
@@ -541,7 +541,7 @@ export const questions: Question[] = [
         topic: "Nutritional Elements",
         type: "MCQ",
         marks: 1,
-        question: "Which nutrient is also known as roughage?",
+        question: "Which nutrient is also known as roughage? (a) Protein (b) Fats (c) Roughage (Fibre) (d) Vitamins",
         answer: "(C) Roughage (Fibre)",
         source: "CBSE 2024 Board Exam",
     },
@@ -553,7 +553,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Assertion (A): Force is a push or pull. Reason (R): Newton's second law defines force = mass × acceleration.",
+            "Assertion (A): Force is a push or pull. Reason (R): Newton's second law defines force = mass × acceleration. (a) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation. (b) Both A and R are true but R is NOT correct explanation (c) A is true but R is false (d) A is false but R is true",
         answer:
             "(A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation.",
         source: "CBSE 2024 Board Exam",
@@ -566,7 +566,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Match the following training methods with their descriptions.",
+            "Match the following training methods with their descriptions. (a) I-1, II-2, III-3, IV-4 (b) I-3, II-1, III-4, IV-2 (c) I-2, II-4, III-1, IV-3 (d) I-4, II-3, III-2, IV-1",
         answer: "(C) I-2, II-4, III-1, IV-3",
         source: "CBSE 2024 Board Exam",
     },
@@ -578,7 +578,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Assertion (A): Motivation is the driving force behind behaviour. Reason (R): Intrinsic motivation comes from within the individual.",
+            "Assertion (A): Motivation is the driving force behind behaviour. Reason (R): Intrinsic motivation comes from within the individual. (a) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation. (b) Both A and R are true but R is NOT correct explanation (c) A is true but R is false (d) A is false but R is true",
         answer:
             "(A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation.",
         source: "CBSE 2024 Board Exam",
@@ -591,7 +591,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "The ability to perform an activity for a prolonged period of time without undue fatigue is known as:",
+            "The ability to perform an activity for a prolonged period of time without undue fatigue is known as: (a) Strength (b) Speed (c) Endurance (d) Agility",
         answer: "(C) Endurance",
         source: "CBSE 2024 Board Exam",
     },
@@ -602,7 +602,7 @@ export const questions: Question[] = [
         topic: "Centre of Gravity",
         type: "MCQ",
         marks: 1,
-        question: "Which factor decreases stability?",
+        question: "Which factor decreases stability? (a) Lower COG (b) Wider base (c) More friction (d) Higher centre of gravity",
         answer: "(D) Higher centre of gravity",
         source: "CBSE 2024 Board Exam",
     },
@@ -614,7 +614,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "A person who is primarily focused on their own thoughts, feelings and experiences is known as:",
+            "A person who is primarily focused on their own thoughts, feelings and experiences is known as: (a) Extrovert (b) Self-Centered (c) Ambivert (d) Agreeable",
         answer: "(B) Self-Centered",
         source: "CBSE 2024 Board Exam",
     },
@@ -626,7 +626,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "The ability to exert maximum force in a single effort is known as:",
+            "The ability to exert maximum force in a single effort is known as: (a) Maximum strength (b) Strength endurance (c) Explosive strength (d) Static strength",
         answer: "(C) Explosive strength",
         source: "CBSE 2024 Board Exam",
     },
@@ -637,7 +637,7 @@ export const questions: Question[] = [
         topic: "Objectives of PE",
         type: "MCQ",
         marks: 1,
-        question: "One of the main objectives of physical education is:",
+        question: "One of the main objectives of physical education is: (a) To win (b) To earn money (c) To promote health and fitness (d) To become famous",
         answer: "(C) To promote health and fitness",
         source: "CBSE 2024 Board Exam",
     },
@@ -649,7 +649,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "At which age do children typically develop fundamental motor skills?",
+            "At which age do children typically develop fundamental motor skills? (a) 1-2 years (b) 2-3 years (c) 3-4 years (d) 5-6 years",
         answer: "(C) 3-4 years",
         source: "CBSE 2024 Board Exam",
     },
@@ -661,7 +661,7 @@ export const questions: Question[] = [
         type: "MCQ",
         marks: 1,
         question:
-            "Which asana strengthens the back muscles?",
+            "Which asana strengthens the back muscles? (a) Padmasana (b) Vajrasana (c) Tadasana (d) Shalbhasana",
         answer: "(D) Shalbhasana",
         source: "CBSE 2024 Board Exam",
     },
@@ -672,7 +672,7 @@ export const questions: Question[] = [
         topic: "Deaflympics",
         type: "MCQ",
         marks: 1,
-        question: "ICSD stands for:",
+        question: "ICSD stands for: (a) International Council of Sports for the Deaf (b) International Center of Sports for the Deaf (c) International Club of Sports for the Deaf (d) International Committee of Sports for the Deaf",
         answer: "(D) International Committee of Sports for the Deaf",
         source: "CBSE 2024 Board Exam",
     },
@@ -683,7 +683,7 @@ export const questions: Question[] = [
         topic: "BMI",
         type: "MCQ",
         marks: 1,
-        question: "Normal BMI range for adults is:",
+        question: "Normal BMI range for adults is: (a) <18.5 (b) 25-29.9 (c) 18.5 – 24.9 (d) >30",
         answer: "(C) 18.5 – 24.9",
         source: "CBSE 2024 Board Exam",
     },
@@ -694,7 +694,7 @@ export const questions: Question[] = [
         topic: "Fitness Tests",
         type: "MCQ",
         marks: 1,
-        question: "In the sit and reach test, the box height is:",
+        question: "In the sit and reach test, the box height is: (a) 4 inches (b) 8 inches (c) 6 inches (d) 12 inches",
         answer: "(C) 6 inches",
         source: "CBSE 2024 Board Exam",
     },
@@ -705,7 +705,7 @@ export const questions: Question[] = [
         topic: "Learning Stages",
         type: "MCQ",
         marks: 1,
-        question: "The first stage of motor learning is:",
+        question: "The first stage of motor learning is: (a) Cognitive (b) Associative (c) Autonomous (d) Professional",
         answer: "(A) Cognitive",
         source: "CBSE 2024 Board Exam",
     },
@@ -716,7 +716,7 @@ export const questions: Question[] = [
         topic: "Senior Citizen Tests",
         type: "MCQ",
         marks: 1,
-        question: "Chair sit and reach test measures:",
+        question: "Chair sit and reach test measures: (a) Upper body flexibility (b) Abdominal strength (c) Lower body flexibility (d) Agility",
         answer: "(C) Lower body flexibility",
         source: "CBSE 2024 Board Exam",
     },
