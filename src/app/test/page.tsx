@@ -18,7 +18,7 @@ function TestPageContent() {
     const [started, setStarted] = useState(showAnswers);
     const [questionTimes, setQuestionTimes] = useState<Record<number, number>>({});
     const [statusMap, setStatusMap] = useState<Record<number, QuestionStatus>>({});
-    const [showAnswer, setShowAnswer] = useState(showAnswers);
+    const [showAnswer, setShowAnswer] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [sidebarOpen, setSidebarOpen] = useState(true);
 
@@ -81,7 +81,7 @@ function TestPageContent() {
     const goTo = useCallback((idx: number) => {
         if (idx >= 0 && idx < yearQuestions.length) {
             setCurrentIndex(idx);
-            setShowAnswer(showAnswers);
+            setShowAnswer(false);
             setSelectedOption(null);
         }
     }, [yearQuestions.length, showAnswers]);
