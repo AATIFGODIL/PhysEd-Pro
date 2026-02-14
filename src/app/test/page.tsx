@@ -74,7 +74,7 @@ function TestPageContent() {
 
     // Timer Logic
     useEffect(() => {
-        if (!started) return;
+        if (!started || showAnswer) return;
 
         const interval = setInterval(() => {
             setQuestionTimes((prev) => ({
@@ -88,7 +88,7 @@ function TestPageContent() {
         }, 1000);
 
         return () => clearInterval(interval);
-    }, [started, showAnswers, currentIndex]);
+    }, [started, showAnswers, currentIndex, showAnswer]);
 
     // Mark as seen
     useEffect(() => {
@@ -118,13 +118,40 @@ function TestPageContent() {
         const newState = !showAnswer;
         setShowAnswer(newState);
 
-        // Practice Mode trigger for non-MCQs
-        if (showAnswers && newState && currentQ.type !== "MCQ") {
-            setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
-            updateQuestionStat(currentQ.id, {
-                attempted: true,
-                timeSpent: questionTimes[currentIndex] || 0
-            });
+        if (showAnswers && newState) {
+            if (currentQ.type !== "MCQ") {
+                setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
+                updateQuestionStat(currentQ.id, {
+                    attempted: true,
+                    timeSpent: questionTimes[currentIndex] || 0
+                });
+            } else if (selectedOption) {
+                const ans = currentQ.answer.trim();
+                let correctLabel = "";
+                const match = ans.match(/^\(([a-d])\)/i) || ans.match(/^([a-d])\)/i);
+                if (match) correctLabel = match[1].toUpperCase();
+                else if (ans.startsWith("(A)") || ans.startsWith("A)")) correctLabel = "A";
+                else if (ans.startsWith("(B)") || ans.startsWith("B)")) correctLabel = "B";
+                else if (ans.startsWith("(C)") || ans.startsWith("C)")) correctLabel = "C";
+                else if (ans.startsWith("(D)") || ans.startsWith("D)")) correctLabel = "D";
+
+                if (correctLabel) {
+                    const isCorrect = selectedOption === correctLabel;
+                    setStatusMap((prev) => ({ ...prev, [currentIndex]: isCorrect ? "correct" : "wrong" }));
+                    updateQuestionStat(currentQ.id, {
+                        attempted: true,
+                        correct: isCorrect,
+                        selectedOption: selectedOption || undefined,
+                        timeSpent: questionTimes[currentIndex] || 0
+                    });
+                }
+            } else {
+                // MCQ but no option selected
+                setStatusMap((prev) => {
+                    if (prev[currentIndex] === 'correct' || prev[currentIndex] === 'wrong' || prev[currentIndex] === 'attempted') return prev;
+                    return { ...prev, [currentIndex]: "seen" };
+                });
+            }
         }
     };
 
@@ -149,40 +176,6 @@ function TestPageContent() {
         // Actually, for MCQ it should only be attempted if they SELECT an option.
     };
 
-    const handleCheckAnswer = () => {
-        if (!selectedOption || !currentQ) return;
-
-        if (currentQ.type !== "MCQ") {
-            setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
-            setShowAnswer(true);
-            updateQuestionStat(currentQ.id, {
-                attempted: true,
-                timeSpent: questionTimes[currentIndex] || 0
-            });
-            return;
-        }
-
-        const ans = currentQ.answer.trim();
-        let correctLabel = "";
-        const match = ans.match(/^\(([a-d])\)/i) || ans.match(/^([a-d])\)/i);
-        if (match) correctLabel = match[1].toUpperCase();
-        else if (ans.startsWith("(A)") || ans.startsWith("A)")) correctLabel = "A";
-        else if (ans.startsWith("(B)") || ans.startsWith("B)")) correctLabel = "B";
-        else if (ans.startsWith("(C)") || ans.startsWith("C)")) correctLabel = "C";
-        else if (ans.startsWith("(D)") || ans.startsWith("D)")) correctLabel = "D";
-
-        if (correctLabel) {
-            const isCorrect = selectedOption === correctLabel;
-            setStatusMap((prev) => ({ ...prev, [currentIndex]: isCorrect ? "correct" : "wrong" }));
-            setShowAnswer(true);
-            updateQuestionStat(currentQ.id, {
-                attempted: true,
-                correct: isCorrect,
-                selectedOption: selectedOption,
-                timeSpent: questionTimes[currentIndex] || 0
-            });
-        }
-    };
 
     const counts = useMemo(() => {
         const c = { correct: 0, wrong: 0, attempted: 0, seen: 0, notSeen: 0 };
@@ -261,14 +254,6 @@ function TestPageContent() {
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5" /><polyline points="12 19 5 12 12 5" /></svg>
                 </button>
                 <h1 className="text-sm font-semibold text-gray-900 dark:text-white flex-1 truncate">{currentChapter}</h1>
-                <div className="flex items-center gap-2">
-                    <span className={`text-[10px] px-2.5 py-1 rounded-full border ${showAnswers ? "bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-500/20" : "bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-500/20"}`}>
-                        {showAnswers ? "Stopwatch" : "Time Left"}
-                    </span>
-                    <span className={`text-xs font-mono px-3 py-1.5 rounded-lg border ${showAnswers ? "text-emerald-700 dark:text-emerald-300/80 bg-emerald-50 dark:bg-white/[0.04] border-emerald-200 dark:border-white/[0.08]" : "text-purple-700 dark:text-purple-300/80 bg-purple-50 dark:bg-white/[0.04] border-purple-200 dark:border-white/[0.08]"}`}>
-                        {formatTime(showAnswers ? (questionTimes[currentIndex] || 0) : timeLeft)}
-                    </span>
-                </div>
                 <button onClick={() => setSidebarOpen(!sidebarOpen)} className="text-gray-500 dark:text-purple-300/70 hover:text-gray-900 dark:hover:text-white transition-colors">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>
                 </button>
@@ -288,7 +273,7 @@ function TestPageContent() {
                 <div className="flex-1 flex flex-col overflow-y-auto p-6">
                     <div className="flex items-center gap-2 mb-4">
                         <span className="text-[10px] font-bold px-2 py-1 rounded-md bg-purple-500/15 text-white">Q{currentIndex + 1}</span>
-                        <span className="text-[10px] text-gray-500 dark:text-purple-300/70">{formatTime(questionTimes[currentIndex] || 0)}</span>
+                        <span className="text-[10px] text-gray-500 dark:text-purple-300/70 font-mono">{formatTime(showAnswers ? (questionTimes[currentIndex] || 0) : timeLeft)}</span>
                         <span className="text-[10px] px-2 py-0.5 rounded-full bg-fuchsia-500/10 text-purple-300/90">+{currentQ.marks}</span>
                         <div className="ml-auto flex gap-1.5">
                             <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-300">{currentQ.source}</span>
@@ -356,14 +341,6 @@ function TestPageContent() {
                     )}
                 </div>
                 <div className="flex items-center gap-2">
-                    {showAnswers && currentQ.type === "MCQ" && (
-                        <>
-                            <button onClick={() => { setSelectedOption(null); setStatusMap(prev => ({ ...prev, [currentIndex]: "seen" })); }} disabled={statusMap[currentIndex] === 'correct' || statusMap[currentIndex] === 'wrong'} className="px-4 py-2 rounded-lg bg-gray-100 dark:bg-white/[0.04] text-gray-600 dark:text-purple-300/80 text-xs disabled:opacity-50">Clear</button>
-                            {!showAnswer && statusMap[currentIndex] !== 'correct' && statusMap[currentIndex] !== 'wrong' && (
-                                <button onClick={handleCheckAnswer} disabled={!selectedOption} className="px-4 py-2 rounded-lg bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs disabled:opacity-50">Check</button>
-                            )}
-                        </>
-                    )}
                     <button onClick={() => goTo(currentIndex - 1)} disabled={currentIndex === 0} className="px-5 py-2 rounded-lg text-xs bg-white dark:bg-white/[0.06] dark:text-white border dark:border-white/[0.08] disabled:opacity-50">Previous</button>
                     <button onClick={handleNext} disabled={currentIndex >= yearQuestions.length - 1} className="px-5 py-2 rounded-lg text-xs bg-purple-600 dark:bg-purple-500 text-white disabled:opacity-30">Next</button>
                 </div>
