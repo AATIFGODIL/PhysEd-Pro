@@ -61,9 +61,15 @@ export function SearchBar() {
                         type="text"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        onFocus={() => setFocused(true)}
+                        onFocus={() => {
+                            setFocused(true);
+                            if (query) {
+                                setQuery("");
+                                setResults([]);
+                            }
+                        }}
                         onBlur={() => setTimeout(() => setFocused(false), 200)}
-                        placeholder='Search questions... e.g. "2024 yoga" or "biomechanics 5 marks"'
+                        placeholder={focused ? "" : 'Search questions... e.g. "2024 yoga" or "biomechanics 5 marks"'}
                         className="flex-1 bg-transparent text-lg font-medium bg-gradient-to-r from-purple-700 to-indigo-600 dark:from-purple-200 dark:to-indigo-300 bg-clip-text text-transparent placeholder:text-gray-400 dark:placeholder:text-purple-300/50 outline-none"
                     />
 
