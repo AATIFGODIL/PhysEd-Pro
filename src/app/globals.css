@@ -30,8 +30,6 @@
 }
 
 body {
-  background: #000000;
-  color: #ffffff;
   font-family: 'Inter', -apple-system, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;

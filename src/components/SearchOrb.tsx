@@ -37,7 +37,7 @@ export function SearchBar() {
             <motion.div
                 animate={{ scale: focused ? 1.01 : 1 }}
                 transition={{ type: "spring", damping: 20 }}
-                className="relative rounded-full backdrop-blur-[24px] bg-white/[0.04] border border-white/[0.1] shadow-[0_4px_30px_rgba(124,58,237,0.08),inset_0_1px_0_rgba(255,255,255,0.05)] overflow-hidden"
+                className="relative rounded-full backdrop-blur-[24px] bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] shadow-[0_4px_30px_rgba(124,58,237,0.08),inset_0_1px_0_rgba(255,255,255,0.05)] overflow-hidden"
             >
                 <div className="flex items-center px-5 py-4 gap-3">
                     {/* Search icon */}
@@ -50,7 +50,7 @@ export function SearchBar() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="text-purple-300/80 flex-shrink-0"
+                        className="text-purple-400 dark:text-purple-300/80 flex-shrink-0"
                     >
                         <circle cx="11" cy="11" r="8" />
                         <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -64,13 +64,13 @@ export function SearchBar() {
                         onFocus={() => setFocused(true)}
                         onBlur={() => setTimeout(() => setFocused(false), 200)}
                         placeholder='Search questions... e.g. "2024 yoga" or "biomechanics 5 marks"'
-                        className="flex-1 bg-transparent text-white placeholder:text-purple-300/50 text-sm font-light outline-none"
+                        className="flex-1 bg-transparent text-lg font-medium bg-gradient-to-r from-purple-700 to-indigo-600 dark:from-purple-200 dark:to-indigo-300 bg-clip-text text-transparent placeholder:text-gray-400 dark:placeholder:text-purple-300/50 outline-none"
                     />
 
                     {query && (
                         <button
                             onClick={() => { setQuery(""); setResults([]); }}
-                            className="text-purple-300/70 hover:text-white transition-colors"
+                            className="text-gray-400 dark:text-purple-300/70 hover:text-gray-600 dark:hover:text-white transition-colors"
                         >
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -91,27 +91,27 @@ export function SearchBar() {
                         initial={{ opacity: 0, y: -4, scale: 0.99 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -4, scale: 0.99 }}
-                        className="absolute top-full mt-2 z-20 w-full max-h-[380px] overflow-y-auto rounded-2xl backdrop-blur-[24px] bg-black/80 border border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-3 space-y-1.5"
+                        className="absolute top-full mt-2 z-20 w-full max-h-[380px] overflow-y-auto rounded-2xl backdrop-blur-[24px] bg-white/90 dark:bg-black/80 border border-gray-200 dark:border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-3 space-y-1.5"
                     >
                         {results.map((q) => (
                             <Link key={q.id} href={`/yearly?year=${q.year}`}>
                                 <motion.div
                                     initial={{ opacity: 0, x: -8 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.04] hover:border-purple-500/20 hover:bg-white/[0.05] transition-all cursor-pointer"
+                                    className="p-3 rounded-xl bg-gray-50 dark:bg-white/[0.03] border border-gray-100 dark:border-white/[0.04] hover:border-purple-500/30 hover:bg-purple-50 dark:hover:bg-white/[0.05] transition-all cursor-pointer"
                                 >
                                     <div className="flex items-center gap-2 mb-1.5">
-                                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-purple-500/15 text-white">
+                                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-500/15 text-purple-700 dark:text-white">
                                             {q.year}
                                         </span>
-                                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-fuchsia-500/10 text-white">
+                                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-fuchsia-100 dark:bg-fuchsia-500/10 text-fuchsia-700 dark:text-white">
                                             {q.marks}M
                                         </span>
-                                        <span className="text-[10px] text-purple-300/60 truncate">
+                                        <span className="text-[10px] text-gray-500 dark:text-purple-300/60 truncate">
                                             {q.chapter}
                                         </span>
                                     </div>
-                                    <p className="text-xs text-purple-300/90 line-clamp-2">
+                                    <p className="text-xs text-gray-800 dark:text-purple-300/90 line-clamp-2">
                                         {q.question}
                                     </p>
                                 </motion.div>

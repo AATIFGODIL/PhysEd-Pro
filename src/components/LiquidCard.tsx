@@ -43,9 +43,9 @@ export function LiquidCard({
             className={`
         relative overflow-hidden rounded-2xl
         backdrop-blur-[24px]
-        bg-white/[0.03]
-        border border-white/[0.08]
-        shadow-[0_4px_20px_rgba(0,0,0,0.3)]
+        bg-gray-100 dark:bg-white/[0.03]
+        border border-gray-200 dark:border-white/[0.08]
+        shadow-[0_4px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]
         transition-shadow duration-500
         ${glowing ? "animate-pulse-glow" : ""}
         ${onClick ? "cursor-pointer" : ""}

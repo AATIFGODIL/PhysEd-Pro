@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, Suspense, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams, useRouter } from "next/navigation";
 import { questions } from "@/data/questions";
+import { useQuiz } from "@/context/QuizContext";
 
 type QuestionStatus = "not-seen" | "seen" | "attempted" | "correct" | "wrong";
 
@@ -15,11 +16,13 @@ function TestPageContent() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [started, setStarted] = useState(showAnswers);
-    const [timeLeft, setTimeLeft] = useState(3 * 60 * 60);
+    const [elapsedTime, setElapsedTime] = useState(0);
+    const [statusMap, setStatusMap] = useState<Record<number, QuestionStatus>>({});
     const [showAnswer, setShowAnswer] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
-    const [statusMap, setStatusMap] = useState<Record<number, QuestionStatus>>({});
     const [sidebarOpen, setSidebarOpen] = useState(true);
+
+    const { bookmarks, toggleBookmark } = useQuiz();
 
     const yearQuestions = useMemo(
         () => questions.filter((q) => q.year === year),
@@ -27,12 +30,36 @@ function TestPageContent() {
     );
 
     const currentQ = yearQuestions[currentIndex];
-
-    // Hooks must be before any returns
-
     const currentChapter = currentQ?.chapter || "Physics";
     const totalMarks = yearQuestions.reduce((s, q) => s + q.marks, 0);
 
+    const [timeLeft, setTimeLeft] = useState(3 * 60 * 60); // 3 hours (10800s)
+
+    // Timer Logic
+    useEffect(() => {
+        if (!started) return;
+
+        const interval = setInterval(() => {
+            if (showAnswers) {
+                // Practice Mode: Stopwatch (Count Up)
+                setElapsedTime((prev) => prev + 1);
+            } else {
+                // Full Test Mode: Countdown (Count Down)
+                setTimeLeft((prev) => {
+                    if (prev <= 0) {
+                        clearInterval(interval);
+                        // Optional: Auto-submit logic here
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [started, showAnswers]);
+
+    // Mark as seen
     useEffect(() => {
         if (!started || !currentQ) return;
         setStatusMap((prev) => {
@@ -40,14 +67,6 @@ function TestPageContent() {
             return { ...prev, [currentIndex]: "seen" };
         });
     }, [currentIndex, started, currentQ]);
-
-    useEffect(() => {
-        if (!started || showAnswers) return;
-        const interval = setInterval(() => {
-            setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
-        }, 1000);
-        return () => clearInterval(interval);
-    }, [started, showAnswers]);
 
     const formatTime = (seconds: number) => {
         const h = Math.floor(seconds / 3600);
@@ -65,6 +84,7 @@ function TestPageContent() {
     }, [yearQuestions.length, showAnswers]);
 
     const handleSelectOption = (opt: string) => {
+        if (statusMap[currentIndex] === 'correct' || statusMap[currentIndex] === 'wrong') return;
         setSelectedOption(opt);
         setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
     };
@@ -89,17 +109,27 @@ function TestPageContent() {
 
     const getStatusColor = (status: QuestionStatus) => {
         switch (status) {
-            case "correct": return "bg-emerald-500 text-white";
-            case "wrong": return "bg-red-500 text-white";
-            case "attempted": return "bg-blue-500 text-white";
-            case "seen": return "bg-amber-500 text-white";
-            default: return "bg-white/[0.06] text-purple-300/80";
+            case "correct": return "bg-emerald-100 dark:bg-emerald-500 text-emerald-700 dark:text-white";
+            case "wrong": return "bg-red-100 dark:bg-red-500 text-red-700 dark:text-white";
+            case "attempted": return "bg-blue-100 dark:bg-blue-500 text-blue-700 dark:text-white";
+            case "seen": return "bg-amber-100 dark:bg-amber-500 text-amber-700 dark:text-white";
+            default: return "bg-gray-100 dark:bg-white/[0.06] text-gray-500 dark:text-purple-300/80";
         }
     };
 
-    // Parse MCQ options from question text - MOVED UP
+    // Use provided options or fallback to parsing (though parsing shouldn't be needed with new data)
     const mcqOptions = useMemo(() => {
         if (!currentQ || currentQ.type !== "MCQ") return null;
+
+        // Use the explicit options array if available (Preferred)
+        if (currentQ.options && currentQ.options.length > 0) {
+            return currentQ.options.map((text, idx) => ({
+                label: String.fromCharCode(65 + idx), // A, B, C, D...
+                text: text
+            }));
+        }
+
+        // Fallback parsing (legacy)
         const text = currentQ.question;
         const patterns = [
             /\(a\)\s*(.*?)\s*\(b\)\s*(.*?)\s*\(c\)\s*(.*?)\s*\(d\)\s*(.*)/is,
@@ -120,23 +150,65 @@ function TestPageContent() {
         return null;
     }, [currentQ]);
 
-    // Extract question stem - MOVED UP
+    // Extract question stem (only needed if using legacy parsing, but harmless to keep safe)
     const questionStem = useMemo(() => {
         if (!mcqOptions || !currentQ || currentQ.type !== "MCQ") return currentQ?.question;
+        // If we have explicit options, the question field is just the question stem
+        if (currentQ.options && currentQ.options.length > 0) return currentQ.question;
+
         const text = currentQ.question;
         const optStart = text.search(/\(a\)|^a\)|A\./im);
         return optStart > 0 ? text.substring(0, optStart).trim() : text;
     }, [currentQ, mcqOptions]);
 
+    const handleCheckAnswer = () => {
+        if (!selectedOption || !currentQ) return;
+
+        // Simple heuristic to find correct answer label from answer string
+        // e.g. "(c) Efficiency of Lungs" -> "C"
+        const ans = currentQ.answer.trim();
+        let correctLabel = "";
+
+        const match = ans.match(/^\(([a-d])\)/i) || ans.match(/^([a-d])\)/i);
+        if (match) {
+            correctLabel = match[1].toUpperCase();
+        } else if (ans.startsWith("(A)") || ans.startsWith("A)")) correctLabel = "A";
+        else if (ans.startsWith("(B)") || ans.startsWith("B)")) correctLabel = "B";
+        else if (ans.startsWith("(C)") || ans.startsWith("C)")) correctLabel = "C";
+        else if (ans.startsWith("(D)") || ans.startsWith("D)")) correctLabel = "D";
+
+        if (correctLabel) {
+            const isCorrect = selectedOption === correctLabel;
+            setStatusMap((prev) => ({
+                ...prev,
+                [currentIndex]: isCorrect ? "correct" : "wrong"
+            }));
+            setShowAnswer(true); // Reveal the detailed answer
+        } else {
+            // Fallback if parsing fails: just mark attempted and show answer
+            setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
+            setShowAnswer(true);
+        }
+    };
 
     if (!started) {
-        const sections = [
-            { type: "MCQ", count: yearQuestions.filter(q => q.type === "MCQ").length },
-            { type: "Short Answer", count: yearQuestions.filter(q => q.type === "Short").length },
-            { type: "Case Study", count: yearQuestions.filter(q => q.type === "Case Study").length },
-            { type: "Long Answer", count: yearQuestions.filter(q => q.type === "Long").length },
-        ].filter(s => s.count > 0);
+        // ... (startup screen code remains same, omitted for brevity, but since I'm replacing the whole component I need to include it or target smaller range)
+        // Wait, I should target a smaller range to avoid re-writing the whole startup logic if it hasn't changed.
+        // But the previous `if (!started)` block was inside the main component.
+        // Let's just return the startup check here if I replace the whole function content.
+        // Actually, let's target the render return for the main UI.
+    }
 
+    // ... (Keeping the startup screen same)
+    const sections = [
+        { type: "MCQ", count: yearQuestions.filter(q => q.type === "MCQ").length },
+        { type: "Short Answer", count: yearQuestions.filter(q => q.type === "Short").length },
+        { type: "Case Study", count: yearQuestions.filter(q => q.type === "Case Study").length },
+        { type: "Long Answer", count: yearQuestions.filter(q => (q.type === "Long" || q.marks === 3 || q.marks === 4) && q.type !== "Case Study").length },
+        { type: "Very Long Answer", count: yearQuestions.filter(q => q.marks === 5).length },
+    ].filter(s => s.count > 0);
+
+    if (!started) {
         return (
             <div className="min-h-screen flex items-center justify-center px-4">
                 <motion.div
@@ -144,37 +216,37 @@ function TestPageContent() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="max-w-md w-full"
                 >
-                    <div className="rounded-2xl backdrop-blur-[24px] bg-white/[0.04] border border-white/[0.08] p-8 text-center">
-                        <p className="text-[10px] uppercase tracking-[0.3em] text-purple-300/70 mb-3">
+                    <div className="rounded-2xl backdrop-blur-[24px] bg-white dark:bg-white/[0.04] border border-gray-200 dark:border-white/[0.08] p-8 text-center shadow-xl dark:shadow-none">
+                        <p className="text-[10px] uppercase tracking-[0.3em] text-purple-600/70 dark:text-purple-300/70 mb-3">
                             CBSE Board Examination
                         </p>
-                        <h1 className="text-4xl font-bold text-white mb-2">{year}</h1>
-                        <p className="text-sm text-purple-300/80 mb-1">Physical Education — Class XII</p>
-                        <p className="text-xs text-purple-300/60 mb-8">
-                            {yearQuestions.length} questions • {totalMarks} marks • 3 hours
+                        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">{year}</h1>
+                        <p className="text-sm text-purple-600/80 dark:text-purple-300/80 mb-1">Physical Education — Class XII</p>
+                        <p className="text-xs text-purple-600/60 dark:text-purple-300/60 mb-8">
+                            {yearQuestions.length} questions • {totalMarks} marks • {showAnswers ? "Stopwatch Mode" : "3 Hours"}
                         </p>
 
                         <div className="space-y-2 mb-8 text-left">
                             {sections.map((sec) => (
                                 <div
                                     key={sec.type}
-                                    className="flex items-center justify-between text-[11px] px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.06]"
+                                    className="flex items-center justify-between text-[11px] px-3 py-2 rounded-lg bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06]"
                                 >
-                                    <span className="text-purple-300/90">{sec.type}</span>
-                                    <span className="text-purple-300/60">{sec.count} Q</span>
+                                    <span className="text-gray-700 dark:text-purple-300/90">{sec.type}</span>
+                                    <span className="text-gray-500 dark:text-purple-300/60">{sec.count} Q</span>
                                 </div>
                             ))}
                         </div>
 
                         <button
                             onClick={() => setStarted(true)}
-                            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-500/30 to-fuchsia-500/30 border border-purple-400/25 hover:border-purple-400/50 text-white font-medium text-sm transition-all hover:scale-[1.02]"
+                            className="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600/30 to-fuchsia-600/30 dark:from-purple-500/30 dark:to-fuchsia-500/30 border border-purple-400/25 hover:border-purple-400/50 text-purple-900 dark:text-white font-medium text-sm transition-all hover:scale-[1.02]"
                         >
                             Start Test
                         </button>
                         <button
                             onClick={() => router.back()}
-                            className="w-full mt-3 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-purple-300/70 text-xs transition-all hover:text-purple-300/90"
+                            className="w-full mt-3 py-2.5 rounded-xl bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] text-gray-600 dark:text-purple-300/70 text-xs transition-all hover:text-gray-900 dark:hover:text-purple-300/90"
                         >
                             Go Back
                         </button>
@@ -189,31 +261,40 @@ function TestPageContent() {
     return (
         <div className="min-h-screen flex flex-col">
             {/* Top Header Bar */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-white/[0.06] bg-white/[0.02]">
+            <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02]">
                 <button
                     onClick={() => router.back()}
-                    className="text-purple-300/80 hover:text-white transition-colors"
+                    className="text-gray-500 dark:text-purple-300/80 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M19 12H5" /><polyline points="12 19 5 12 12 5" />
                     </svg>
                 </button>
-                <h1 className="text-sm font-semibold text-white flex-1 truncate">
+                <h1 className="text-sm font-semibold text-gray-900 dark:text-white flex-1 truncate">
                     {currentChapter}
                 </h1>
-                {showAnswers && (
-                    <span className="text-[10px] px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
-                        Solutions Mode
-                    </span>
-                )}
-                {!showAnswers && (
-                    <span className="text-xs font-mono text-purple-300/80 bg-white/[0.04] px-3 py-1.5 rounded-lg border border-white/[0.08]">
-                        {formatTime(timeLeft)}
-                    </span>
+                {showAnswers ? (
+                    <div className="flex items-center gap-2">
+                        <span className="text-[10px] px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/20">
+                            Solutions Mode
+                        </span>
+                        <span className="text-xs font-mono text-emerald-700 dark:text-emerald-300/80 bg-emerald-50 dark:bg-white/[0.04] px-3 py-1.5 rounded-lg border border-emerald-200 dark:border-white/[0.08]">
+                            {formatTime(elapsedTime)}
+                        </span>
+                    </div>
+                ) : (
+                    <div className="flex items-center gap-2">
+                        <span className="text-[10px] px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-500/20">
+                            Time Left
+                        </span>
+                        <span className="text-xs font-mono text-purple-700 dark:text-purple-300/80 bg-purple-50 dark:bg-white/[0.04] px-3 py-1.5 rounded-lg border border-purple-200 dark:border-white/[0.08]">
+                            {formatTime(timeLeft)}
+                        </span>
+                    </div>
                 )}
                 <button
                     onClick={() => setSidebarOpen(!sidebarOpen)}
-                    className="text-purple-300/70 hover:text-white transition-colors"
+                    className="text-gray-500 dark:text-purple-300/70 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" />
@@ -223,7 +304,7 @@ function TestPageContent() {
             </div>
 
             {/* Question Number Navigation Bar */}
-            <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/[0.06] overflow-x-auto bg-white/[0.01]">
+            <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-gray-200 dark:border-white/[0.06] overflow-x-auto bg-gray-50 dark:bg-white/[0.01]">
                 {yearQuestions.map((_, idx) => {
                     const status = statusMap[idx] || "not-seen";
                     const isCurrent = idx === currentIndex;
@@ -232,12 +313,16 @@ function TestPageContent() {
                             key={idx}
                             onClick={() => goTo(idx)}
                             className={`flex-shrink-0 w-8 h-8 rounded-lg text-[11px] font-semibold transition-all ${isCurrent
-                                ? "bg-gradient-to-br from-purple-500 to-fuchsia-500 text-white ring-2 ring-purple-400/50 scale-110"
+                                ? "bg-gradient-to-br from-purple-600 to-fuchsia-600 dark:from-purple-500 dark:to-fuchsia-500 text-white ring-2 ring-purple-400/50 scale-110"
                                 : status === "attempted"
-                                    ? "bg-blue-500/20 text-blue-300 border border-blue-400/20"
-                                    : status === "seen"
-                                        ? "bg-amber-500/15 text-amber-300 border border-amber-400/20"
-                                        : "bg-white/[0.04] text-purple-300/80 border border-white/[0.06] hover:border-purple-400/30"
+                                    ? "bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-400/20"
+                                    : status === "correct"
+                                        ? "bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-400/20"
+                                        : status === "wrong"
+                                            ? "bg-red-100 dark:bg-red-500/20 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-400/20"
+                                            : status === "seen"
+                                                ? "bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-400/20"
+                                                : "bg-white dark:bg-white/[0.04] text-gray-400 dark:text-purple-300/80 border border-gray-200 dark:border-white/[0.06] hover:border-purple-400/30"
                                 }`}
                         >
                             {idx + 1}
@@ -256,7 +341,7 @@ function TestPageContent() {
                             <span className="text-[10px] font-bold px-2 py-1 rounded-md bg-purple-500/15 text-white">
                                 Q{currentIndex + 1}
                             </span>
-                            <span className="text-[10px] text-purple-300/70">{formatTime(timeLeft)}</span>
+                            <span className="text-[10px] text-gray-500 dark:text-purple-300/70">{formatTime(elapsedTime)}</span>
                             <span className="text-[10px] px-2 py-0.5 rounded-full bg-fuchsia-500/10 text-purple-300/90">
                                 +{currentQ.marks}
                             </span>
@@ -267,6 +352,14 @@ function TestPageContent() {
                                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300/80">
                                     {currentQ.type}{currentQ.type === "MCQ" ? " Single Answer" : ""}
                                 </span>
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); toggleBookmark(currentQ.id); }}
+                                    className={`p-1.5 rounded-lg transition-all ml-2 ${bookmarks.has(currentQ.id) ? "text-amber-400 bg-amber-400/10" : "text-purple-300/50 hover:text-amber-400/60"}`}
+                                >
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill={bookmarks.has(currentQ.id) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
+                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
 
@@ -279,8 +372,8 @@ function TestPageContent() {
                                 exit={{ opacity: 0, x: -20 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                <p className="text-[15px] text-white leading-relaxed mb-6">
-                                    {mcqOptions ? questionStem : currentQ.question}
+                                <p className="text-[15px] text-gray-800 dark:text-white leading-relaxed mb-6 whitespace-pre-line">
+                                    {questionStem}
                                 </p>
 
                                 {/* MCQ Options */}
@@ -289,19 +382,22 @@ function TestPageContent() {
                                         {mcqOptions.map((opt) => (
                                             <button
                                                 key={opt.label}
-                                                onClick={() => handleSelectOption(opt.label)}
+                                                onClick={() => {
+                                                    if (statusMap[currentIndex] === "correct" || statusMap[currentIndex] === "wrong") return; // Prevent changing if already checked
+                                                    handleSelectOption(opt.label);
+                                                }}
                                                 className={`text-left p-4 rounded-xl border transition-all flex items-start gap-3 ${selectedOption === opt.label
-                                                    ? "bg-purple-500/15 border-purple-400/40 ring-1 ring-purple-400/20"
-                                                    : "bg-white/[0.02] border-white/[0.08] hover:border-purple-400/20 hover:bg-white/[0.04]"
+                                                    ? "bg-purple-100 dark:bg-purple-500/15 border-purple-300 dark:border-purple-400/40 ring-1 ring-purple-400/20"
+                                                    : "bg-white dark:bg-white/[0.02] border-gray-200 dark:border-white/[0.08] hover:border-purple-300 dark:hover:border-purple-400/20 hover:bg-gray-50 dark:hover:bg-white/[0.04]"
                                                     }`}
                                             >
                                                 <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${selectedOption === opt.label
-                                                    ? "bg-purple-500 text-white"
-                                                    : "bg-white/[0.06] text-purple-300/80"
+                                                    ? "bg-purple-600 dark:bg-purple-500 text-white"
+                                                    : "bg-gray-100 dark:bg-white/[0.06] text-gray-500 dark:text-purple-300/80"
                                                     }`}>
                                                     {opt.label}
                                                 </span>
-                                                <span className="text-sm text-white mt-1.5">
+                                                <span className="text-sm text-gray-700 dark:text-white mt-1.5">
                                                     {opt.text}
                                                 </span>
                                             </button>
@@ -310,16 +406,16 @@ function TestPageContent() {
                                 )}
 
                                 {/* Answer Section */}
-                                {showAnswers && showAnswer && (
+                                {(showAnswers || showAnswer) && (
                                     <motion.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        className="mt-4 p-5 rounded-xl bg-emerald-500/[0.06] border border-emerald-400/15"
+                                        className={`mt-4 p-5 rounded-xl border ${statusMap[currentIndex] === 'correct' ? 'bg-emerald-50 dark:bg-emerald-500/[0.06] border-emerald-200 dark:border-emerald-400/15' : statusMap[currentIndex] === 'wrong' ? 'bg-red-50 dark:bg-red-500/[0.06] border-red-200 dark:border-red-400/15' : 'bg-purple-50 dark:bg-purple-500/[0.06] border-purple-200 dark:border-purple-400/15'}`}
                                     >
-                                        <p className="text-[10px] uppercase tracking-wider text-emerald-400/70 mb-2 font-semibold">
+                                        <p className={`text-[10px] uppercase tracking-wider mb-2 font-semibold ${statusMap[currentIndex] === 'correct' ? 'text-emerald-700 dark:text-emerald-400/70' : statusMap[currentIndex] === 'wrong' ? 'text-red-700 dark:text-red-400/70' : 'text-purple-700 dark:text-purple-400/70'}`}>
                                             Answer & Solution
                                         </p>
-                                        <p className="text-sm text-white leading-relaxed whitespace-pre-line">
+                                        <p className="text-sm text-gray-800 dark:text-white leading-relaxed whitespace-pre-line">
                                             {currentQ.answer}
                                         </p>
                                     </motion.div>
@@ -329,36 +425,47 @@ function TestPageContent() {
                     </div>
 
                     {/* Bottom Control Bar */}
-                    <div className="flex items-center justify-between px-6 py-4 border-t border-white/[0.06] bg-white/[0.02]">
+                    <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02]">
                         <div className="flex items-center gap-3">
-                            {showAnswers && (
-                                <label className="flex items-center gap-2 cursor-pointer select-none">
-                                    <div
-                                        onClick={() => setShowAnswer(!showAnswer)}
-                                        className={`w-10 h-5 rounded-full transition-colors relative ${showAnswer ? "bg-emerald-500" : "bg-white/[0.1]"}`}
-                                    >
-                                        <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${showAnswer ? "translate-x-5" : "translate-x-0.5"}`} />
-                                    </div>
-                                    <span className="text-xs text-purple-300/80">Show Answer</span>
-                                </label>
-                            )}
+                            <label className="flex items-center gap-2 cursor-pointer select-none">
+                                <div
+                                    onClick={() => setShowAnswer(!showAnswer)}
+                                    className={`w-10 h-5 rounded-full transition-colors relative ${showAnswer ? "bg-emerald-500" : "bg-gray-200 dark:bg-white/[0.1]"}`}
+                                >
+                                    <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${showAnswer ? "translate-x-5" : "translate-x-0.5"}`} />
+                                </div>
+                                <span className="text-xs text-gray-500 dark:text-purple-300/80">Show Answer</span>
+                            </label>
                         </div>
 
                         <div className="flex items-center gap-2">
                             {currentQ.type === "MCQ" && (
-                                <button
-                                    onClick={handleClearResponse}
-                                    className="px-4 py-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-purple-300/80 text-xs hover:text-white transition-colors"
-                                >
-                                    Clear Response
-                                </button>
+                                <>
+                                    <button
+                                        onClick={handleClearResponse}
+                                        disabled={statusMap[currentIndex] === 'correct' || statusMap[currentIndex] === 'wrong'} // Disable clear if checked
+                                        className="px-4 py-2 rounded-lg bg-gray-100 dark:bg-white/[0.04] border border-gray-200 dark:border-white/[0.08] text-gray-600 dark:text-purple-300/80 text-xs hover:text-gray-900 dark:hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        Clear
+                                    </button>
+                                    {!showAnswer && statusMap[currentIndex] !== 'correct' && statusMap[currentIndex] !== 'wrong' && (
+                                        <button
+                                            onClick={handleCheckAnswer}
+                                            disabled={!selectedOption}
+                                            className="px-4 py-2 rounded-lg bg-emerald-100 dark:bg-emerald-500/20 border border-emerald-200 dark:border-emerald-400/30 text-emerald-700 dark:text-emerald-300 text-xs hover:bg-emerald-200 dark:hover:bg-emerald-500/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                        >
+                                            Check
+                                        </button>
+                                    )}
+                                </>
                             )}
+                            <div className="w-px h-6 bg-gray-200 dark:bg-white/[0.1] mx-2" />
                             <button
                                 onClick={() => goTo(currentIndex - 1)}
                                 disabled={currentIndex === 0}
                                 className={`px-5 py-2 rounded-lg text-xs font-medium transition-colors ${currentIndex === 0
-                                    ? "bg-white/[0.02] text-purple-300/40 border border-white/[0.04] cursor-not-allowed"
-                                    : "bg-white/[0.06] text-white border border-white/[0.08] hover:bg-white/[0.1]"
+                                    ? "bg-gray-50 dark:bg-white/[0.02] text-gray-300 dark:text-purple-300/40 border border-gray-100 dark:border-white/[0.04] cursor-not-allowed"
+                                    : "bg-white dark:bg-white/[0.06] text-gray-700 dark:text-white border border-gray-200 dark:border-white/[0.08] hover:bg-gray-50 dark:hover:bg-white/[0.1]"
                                     }`}
                             >
                                 Previous
@@ -367,8 +474,8 @@ function TestPageContent() {
                                 onClick={() => goTo(currentIndex + 1)}
                                 disabled={currentIndex >= yearQuestions.length - 1}
                                 className={`px-5 py-2 rounded-lg text-xs font-medium transition-colors ${currentIndex >= yearQuestions.length - 1
-                                    ? "bg-white/[0.02] text-purple-300/40 border border-white/[0.04] cursor-not-allowed"
-                                    : "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white hover:brightness-110"
+                                    ? "bg-gray-50 dark:bg-white/[0.02] text-gray-300 dark:text-purple-300/40 border border-gray-100 dark:border-white/[0.04] cursor-not-allowed"
+                                    : "bg-gradient-to-r from-purple-600 to-fuchsia-600 dark:from-purple-500 dark:to-fuchsia-500 text-white hover:brightness-110"
                                     }`}
                             >
                                 Next
@@ -383,44 +490,44 @@ function TestPageContent() {
                         initial={{ width: 0, opacity: 0 }}
                         animate={{ width: 220, opacity: 1 }}
                         exit={{ width: 0, opacity: 0 }}
-                        className="border-l border-white/[0.06] bg-white/[0.02] overflow-y-auto hidden md:block"
+                        className="border-l border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02] overflow-y-auto hidden md:block"
                     >
                         <div className="p-4">
                             {/* Legend */}
                             <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-4">
                                 <div className="flex items-center gap-1.5">
                                     <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                                    <span className="text-[9px] text-purple-300/80">Correct</span>
+                                    <span className="text-[9px] text-gray-500 dark:text-purple-300/80">Correct</span>
                                 </div>
                                 <div className="flex items-center gap-1.5">
                                     <div className="w-3 h-3 rounded-full bg-red-500" />
-                                    <span className="text-[9px] text-purple-300/80">Wrong</span>
+                                    <span className="text-[9px] text-gray-500 dark:text-purple-300/80">Wrong</span>
                                 </div>
                                 <div className="flex items-center gap-1.5">
                                     <div className="w-3 h-3 rounded-full bg-blue-500" />
-                                    <span className="text-[9px] text-purple-300/80">Attempted</span>
+                                    <span className="text-[9px] text-gray-500 dark:text-purple-300/80">Attempted</span>
                                 </div>
                                 <div className="flex items-center gap-1.5">
                                     <div className="w-3 h-3 rounded-full bg-amber-500" />
-                                    <span className="text-[9px] text-purple-300/80">Seen</span>
+                                    <span className="text-[9px] text-gray-500 dark:text-purple-300/80">Seen</span>
                                 </div>
                                 <div className="flex items-center gap-1.5">
-                                    <div className="w-3 h-3 rounded-full bg-white/[0.15]" />
-                                    <span className="text-[9px] text-purple-300/80">Not Seen</span>
+                                    <div className="w-3 h-3 rounded-full bg-gray-200 dark:bg-white/[0.15]" />
+                                    <span className="text-[9px] text-gray-500 dark:text-purple-300/80">Not Seen</span>
                                 </div>
                             </div>
 
                             {/* Counts */}
                             <div className="flex items-center gap-2 mb-4 text-[10px]">
-                                <span className="text-emerald-400">●</span><span className="text-purple-300/70">{counts.correct}</span>
-                                <span className="text-red-400">●</span><span className="text-purple-300/70">{counts.wrong}</span>
-                                <span className="text-blue-400">●</span><span className="text-purple-300/70">{counts.attempted}</span>
-                                <span className="text-amber-400">●</span><span className="text-purple-300/70">{counts.seen}</span>
-                                <span className="text-purple-300/40">{counts.notSeen}</span>
+                                <span className="text-emerald-400">●</span><span className="text-gray-500 dark:text-purple-300/70">{counts.correct}</span>
+                                <span className="text-red-400">●</span><span className="text-gray-500 dark:text-purple-300/70">{counts.wrong}</span>
+                                <span className="text-blue-400">●</span><span className="text-gray-500 dark:text-purple-300/70">{counts.attempted}</span>
+                                <span className="text-amber-400">●</span><span className="text-gray-500 dark:text-purple-300/70">{counts.seen}</span>
+                                <span className="text-gray-300 dark:text-purple-300/40">{counts.notSeen}</span>
                             </div>
 
                             {/* Chapter label */}
-                            <p className="text-[10px] text-purple-300/70 uppercase tracking-wider mb-3">
+                            <p className="text-[10px] text-gray-400 dark:text-purple-300/70 uppercase tracking-wider mb-3">
                                 {currentChapter}
                             </p>
 
