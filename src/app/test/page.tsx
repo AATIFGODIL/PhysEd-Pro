@@ -12,6 +12,7 @@ function TestPageContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const year = parseInt(searchParams.get("year") || "2025");
+    const type = searchParams.get("type") || "Main";
     const showAnswers = searchParams.get("answers") === "true";
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -26,8 +27,13 @@ function TestPageContent() {
     const { bookmarks, toggleBookmark, stats, updateQuestionStat } = useQuiz();
 
     const yearQuestions = useMemo(
-        () => questions.filter((q) => q.year === year),
-        [year]
+        () => questions.filter((q) => {
+            const isMatch = q.year === year;
+            if (!isMatch) return false;
+            if (type === "Compartment") return q.source.toLowerCase().includes("compartment");
+            return !q.source.toLowerCase().includes("compartment");
+        }),
+        [year, type]
     );
 
     const currentQ = yearQuestions[currentIndex];
@@ -239,7 +245,7 @@ function TestPageContent() {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="max-w-md w-full">
                     <div className={`rounded-2xl backdrop-blur-[24px] border p-8 text-center shadow-xl dark:shadow-none transition-colors duration-500 ${showAnswers ? "bg-white dark:bg-white/[0.04] border-gray-200 dark:border-white/[0.08]" : "bg-white/80 dark:bg-white/[0.04] border-purple-200 dark:border-purple-500/20"}`}>
                         <p className="text-[10px] uppercase tracking-[0.3em] text-purple-600/70 dark:text-purple-300/70 mb-3">CBSE Board Examination</p>
-                        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">{year}</h1>
+                        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">{year} {type === "Compartment" ? "C" : ""}</h1>
                         <p className="text-sm text-purple-600/80 dark:text-purple-300/80 mb-1">Physical Education — Class XII</p>
                         <p className="text-xs text-purple-600/60 dark:text-purple-300/60 mb-8">{yearQuestions.length} questions • {totalMarks} marks • {showAnswers ? "Stopwatch Mode" : "3 Hours"}</p>
                         <div className="space-y-2 mb-8 text-left">

@@ -19,6 +19,7 @@ function ChaptersContent() {
     );
     const [yearFilter, setYearFilter] = useState<number | null>(null);
     const [marksFilter, setMarksFilter] = useState<number | null>(null);
+    const [examTypeFilter, setExamTypeFilter] = useState<'Main' | 'Compartment' | null>(null);
     const [statusFilter, setStatusFilter] = useState<'attempted' | null>(null);
 
     const filteredQuestions = useMemo(() => {
@@ -27,13 +28,19 @@ function ChaptersContent() {
             if (yearFilter && q.year !== yearFilter) return false;
             if (marksFilter && q.marks !== marksFilter) return false;
 
+            if (examTypeFilter) {
+                const isCompartment = q.source.toLowerCase().includes("compartment");
+                if (examTypeFilter === 'Compartment' && !isCompartment) return false;
+                if (examTypeFilter === 'Main' && isCompartment) return false;
+            }
+
             if (statusFilter === 'attempted') {
                 const stat = stats[q.id];
                 if (!stat?.attempted) return false;
             }
             return true;
         });
-    }, [selectedChapter, yearFilter, marksFilter, statusFilter, stats]);
+    }, [selectedChapter, yearFilter, marksFilter, statusFilter, examTypeFilter, stats]);
 
     // Calculate stats for current view (or current chapter)
     const currentStats = useMemo(() => {
@@ -206,15 +213,48 @@ function ChaptersContent() {
                             </button>
                         ))}
                     </div>
-                    {/* Active Filter Badge */}
-                    {statusFilter === 'attempted' && (
-                        <div className="flex items-center gap-1.5 rounded-xl bg-purple-500/10 border border-purple-500/20 px-3 py-2">
-                            <span className="text-[11px] text-purple-700 dark:text-purple-300 font-medium">
-                                Showing Attempted
-                            </span>
-                            <button onClick={() => setStatusFilter(null)} className="ml-1 text-purple-500 hover:text-purple-700">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+
+                    <div className="flex items-center gap-1.5 rounded-xl bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] px-3 py-2">
+                        <span className="text-[11px] text-gray-500 dark:text-purple-300/50 mr-1">Exam:</span>
+                        {["Main", "Compartment"].map((e) => (
+                            <button
+                                key={e}
+                                onClick={() => setExamTypeFilter(e === examTypeFilter ? null : e as any)}
+                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${examTypeFilter === e
+                                    ? "bg-purple-500/20 text-purple-700 dark:text-white"
+                                    : "bg-white dark:bg-white/[0.04] text-gray-500 dark:text-purple-300/50 hover:text-gray-900 dark:hover:text-purple-300/70"
+                                    }`}
+                            >
+                                {e}
                             </button>
+                        ))}
+                    </div>
+                    {/* Active Filter Badge */}
+                    {(statusFilter === 'attempted' || examTypeFilter || yearFilter || marksFilter) && (
+                        <div className="flex items-center gap-2">
+                            {statusFilter === 'attempted' && (
+                                <div className="flex items-center gap-1.5 rounded-xl bg-purple-500/10 border border-purple-500/20 px-3 py-2">
+                                    <span className="text-[11px] text-purple-700 dark:text-purple-300 font-medium">
+                                        Attempted
+                                    </span>
+                                    <button onClick={() => setStatusFilter(null)} className="ml-1 text-purple-500 hover:text-purple-700">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                    </button>
+                                </div>
+                            )}
+                            {(yearFilter || marksFilter || examTypeFilter || statusFilter) && (
+                                <button
+                                    onClick={() => {
+                                        setYearFilter(null);
+                                        setMarksFilter(null);
+                                        setExamTypeFilter(null);
+                                        setStatusFilter(null);
+                                    }}
+                                    className="text-[11px] px-3 py-2 rounded-xl bg-red-500/8 text-purple-300/90 hover:bg-red-500/15 transition-colors"
+                                >
+                                    Clear All
+                                </button>
+                            )}
                         </div>
                     )}
                 </div>

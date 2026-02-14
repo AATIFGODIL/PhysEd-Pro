@@ -8,16 +8,18 @@ export default function PDFPage() {
 
     // Updated to include 2022-2025 as requested
     const pdfCards = [
-        { year: 2025, badge: "Latest", badgeColor: "bg-fuchsia-500/20 text-fuchsia-300" },
-        { year: 2024, badge: null, badgeColor: "" },
-        { year: 2023, badge: null, badgeColor: "" },
-        { year: 2022, badge: null, badgeColor: "" },
+        { year: 2025, type: "Main", badge: "Latest", badgeColor: "bg-fuchsia-500/20 text-fuchsia-300" },
+        { year: 2025, type: "Compartment", badge: "New", badgeColor: "bg-purple-500/20 text-purple-300" },
+        { year: 2024, type: "Main", badge: null, badgeColor: "" },
+        { year: 2024, type: "Compartment", badge: "MCQs", badgeColor: "bg-blue-500/20 text-blue-300" },
+        { year: 2023, type: "Main", badge: null, badgeColor: "" },
+        { year: 2023, type: "Compartment", badge: null, badgeColor: "" },
+        { year: 2022, type: "Main", badge: null, badgeColor: "" },
     ];
 
-    const handleDownload = (year: number) => {
+    const handleDownload = (year: number, type: string) => {
         // Construct the filename based on the pattern in public folder
-        // Files are named "PE 2022 Paper.pdf", "PE 2023 Paper.pdf", etc.
-        const fileName = `PE ${year} Paper.pdf`;
+        const fileName = type === "Compartment" ? `PE C ${year}.pdf` : `PE ${year} Paper.pdf`;
         const link = document.createElement("a");
         link.href = `/${fileName}`; // Path relative to public folder
         link.download = fileName;
@@ -53,39 +55,39 @@ export default function PDFPage() {
             {/* PDF Cards */}
             <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 {pdfCards.map((card, i) => {
-                    const yearQs = questions.filter((q) => q.year === card.year);
-                    // Minimal stats as these are just static files now, but we can still show metadata if available
-                    // If 2022 is not in questions.ts, this might show 0 questions.
-                    // Assuming existing data covers 2022? Yes, viewer worked for it.
-
                     return (
                         <motion.div
-                            key={card.year}
+                            key={`${card.year}-${card.type}`}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.1 + 0.3 }}
+                            transition={{ delay: i * 0.05 + 0.3 }}
                         >
-                            <LiquidCard glowing={card.year === 2025} className="h-full">
+                            <LiquidCard glowing={card.badge === "Latest" || card.badge === "New"} className="h-full">
                                 <div className="p-6 flex flex-col items-center text-center h-full justify-between">
-                                    <div>
+                                    <div className="w-full">
                                         {/* Year */}
                                         <div className="flex flex-col items-center gap-2 mb-4">
                                             <span className="text-3xl font-bold text-gray-900 dark:text-white">{card.year}</span>
-                                            {card.badge && (
-                                                <span className={`text-[9px] uppercase tracking-wider px-2 py-1 rounded-full ${card.badgeColor} animate-pulse`}>
-                                                    {card.badge}
+                                            <div className="flex flex-wrap justify-center gap-1.5 min-h-[24px]">
+                                                <span className={`text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full ${card.type === "Compartment" ? "bg-amber-500/10 text-amber-600 dark:text-amber-400" : "bg-purple-500/10 text-purple-600 dark:text-purple-300"}`}>
+                                                    {card.type} Exam
                                                 </span>
-                                            )}
+                                                {card.badge && (
+                                                    <span className={`text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full ${card.badgeColor} animate-pulse font-medium`}>
+                                                        {card.badge}
+                                                    </span>
+                                                )}
+                                            </div>
                                         </div>
 
-                                        <p className="text-[10px] text-gray-400 dark:text-purple-300/60 mb-6">
-                                            Official Board Paper
+                                        <p className="text-[10px] text-gray-400 dark:text-purple-300/60 mb-6 italic">
+                                            CBSE Official Paper
                                         </p>
                                     </div>
 
                                     {/* Download button */}
                                     <button
-                                        onClick={() => handleDownload(card.year)}
+                                        onClick={() => handleDownload(card.year, card.type)}
                                         className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-fuchsia-500/10 dark:from-purple-500/20 dark:to-fuchsia-500/20 border border-purple-500/20 dark:border-purple-400/20 hover:border-purple-500/40 dark:hover:border-purple-400/40 text-purple-700 dark:text-white text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 group"
                                     >
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:scale-110 transition-transform text-purple-600 dark:text-white">

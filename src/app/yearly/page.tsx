@@ -21,6 +21,7 @@ function YearlyPageContent() {
     const [selectedYear, setSelectedYear] = useState<number | null>(initialYear);
     const [marksFilter, setMarksFilter] = useState<number | null>(null);
     const [typeFilter, setTypeFilter] = useState<string | null>(null);
+    const [examTypeFilter, setExamTypeFilter] = useState<'Main' | 'Compartment' | null>(null);
     const [statusFilter, setStatusFilter] = useState<'attempted' | null>(null);
     const [showBookmarksOnly, setShowBookmarksOnly] = useState(false);
 
@@ -35,6 +36,13 @@ function YearlyPageContent() {
             if (statusFilter === 'attempted') {
                 const stat = stats[q.id];
                 if (!stat?.attempted) return false;
+            }
+
+            // Logic for Exam Type
+            if (examTypeFilter) {
+                const isCompartment = q.source.toLowerCase().includes("compartment");
+                if (examTypeFilter === 'Compartment' && !isCompartment) return false;
+                if (examTypeFilter === 'Main' && isCompartment) return false;
             }
 
             // Logic for Type Filter
@@ -53,7 +61,7 @@ function YearlyPageContent() {
             }
             return true;
         });
-    }, [selectedYear, marksFilter, typeFilter, showBookmarksOnly, statusFilter, bookmarks, stats]);
+    }, [selectedYear, marksFilter, typeFilter, examTypeFilter, showBookmarksOnly, statusFilter, bookmarks, stats]);
 
     return (
         <div className="min-h-screen px-4 md:px-6 pt-8">
@@ -72,29 +80,61 @@ function YearlyPageContent() {
             </motion.div>
 
             {/* Take Test Cards */}
+            {/* Take Test Cards */}
             <div className="max-w-6xl mx-auto mb-8">
-                <p className="text-[10px] uppercase tracking-wider text-gray-500 dark:text-purple-300/50 mb-3">Take Full Test (3 Hours, With Solutions)</p>
-                <div className="flex gap-3 overflow-x-auto pb-2">
-                    {[2025, 2024, 2023].map((year, i) => (
-                        <Link key={year} href={`/test?year=${year}`}>
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1 }}
-                                whileHover={{ scale: 1.03 }}
-                                className="flex-shrink-0 px-5 py-3 rounded-xl backdrop-blur-sm bg-purple-50 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-400/15 hover:border-purple-400/30 transition-all duration-500 flex items-center gap-3 cursor-pointer"
-                            >
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-purple-600 dark:text-purple-300/90">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <polyline points="12 6 12 12 16 14" />
-                                </svg>
-                                <span className="text-sm font-medium text-gray-900 dark:text-white">{year} Test</span>
-                                <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-purple-300">
-                                    3hr
-                                </span>
-                            </motion.div>
-                        </Link>
-                    ))}
+                <p className="text-[10px] uppercase tracking-wider text-gray-500 dark:text-purple-300/50 mb-3">Take Full Test (With Solutions)</p>
+                <div className="flex flex-col gap-4">
+                    <div className="flex gap-3 overflow-x-auto pb-2">
+                        {[2025, 2024, 2023].map((year, i) => (
+                            <Link key={`${year}-main`} href={`/test?year=${year}`}>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: i * 0.1 }}
+                                    whileHover={{ scale: 1.03 }}
+                                    className="flex-shrink-0 px-5 py-3 rounded-xl backdrop-blur-sm bg-purple-50 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-400/15 hover:border-purple-400/30 transition-all duration-500 flex items-center gap-3 cursor-pointer"
+                                >
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-purple-600 dark:text-purple-300/90">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    <div className="flex flex-col">
+                                        <span className="text-sm font-medium text-gray-900 dark:text-white">{year} Board Exam</span>
+                                        <span className="text-[9px] text-purple-600/60 dark:text-purple-300/50">Full Length Test</span>
+                                    </div>
+                                    <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-purple-300">
+                                        3hr
+                                    </span>
+                                </motion.div>
+                            </Link>
+                        ))}
+                    </div>
+
+                    <div className="flex gap-3 overflow-x-auto pb-2">
+                        {[2025, 2024, 2023].map((year, i) => (
+                            <Link key={`${year}-comp`} href={`/test?year=${year}&type=Compartment`}>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: (i + 3) * 0.1 }}
+                                    whileHover={{ scale: 1.03 }}
+                                    className="flex-shrink-0 px-5 py-3 rounded-xl backdrop-blur-sm bg-amber-50/50 dark:bg-amber-500/5 border border-amber-200/50 dark:border-amber-400/10 hover:border-amber-400/30 transition-all duration-500 flex items-center gap-3 cursor-pointer"
+                                >
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-amber-600 dark:text-amber-400/90">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                    <div className="flex flex-col">
+                                        <span className="text-sm font-medium text-gray-900 dark:text-white">{year} Compartment</span>
+                                        <span className="text-[9px] text-amber-600/60 dark:text-amber-400/50">Practice Test</span>
+                                    </div>
+                                    <span className={`text-[9px] px-1.5 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-300`}>
+                                        {year === 2024 ? "45m" : "3hr"}
+                                    </span>
+                                </motion.div>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             </div>
 
@@ -153,6 +193,22 @@ function YearlyPageContent() {
                         ))}
                     </div>
 
+                    <div className="flex items-center gap-1.5 rounded-xl bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] px-3 py-2">
+                        <span className="text-[11px] text-gray-500 dark:text-purple-300/80 mr-1">Exam:</span>
+                        {["Main", "Compartment"].map((e) => (
+                            <button
+                                key={e}
+                                onClick={() => setExamTypeFilter(e === examTypeFilter ? null : e as any)}
+                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${examTypeFilter === e
+                                    ? "bg-fuchsia-500/20 text-fuchsia-700 dark:text-white"
+                                    : "bg-white dark:bg-white/[0.04] text-gray-500 dark:text-purple-300/80 hover:text-gray-900 dark:hover:text-white"
+                                    }`}
+                            >
+                                {e}
+                            </button>
+                        ))}
+                    </div>
+
                     {/* Status Filters Display (Optional, or integrated into clear all) */}
                     {statusFilter && (
                         <div className="flex items-center gap-1.5 rounded-xl bg-purple-500/10 border border-purple-500/20 px-3 py-2">
@@ -166,13 +222,14 @@ function YearlyPageContent() {
                     )}
 
 
-                    {(marksFilter || typeFilter || selectedYear || statusFilter) && (
+                    {(marksFilter || typeFilter || selectedYear || statusFilter || examTypeFilter) && (
                         <button
                             onClick={() => {
                                 setMarksFilter(null);
                                 setTypeFilter(null);
                                 setSelectedYear(null);
                                 setStatusFilter(null);
+                                setExamTypeFilter(null);
                             }}
                             className="text-[11px] px-3 py-2 rounded-xl bg-red-500/8 text-purple-300/90 hover:bg-red-500/15 transition-colors"
                         >

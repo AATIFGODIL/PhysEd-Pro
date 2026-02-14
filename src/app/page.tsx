@@ -58,7 +58,7 @@ export default function Dashboard() {
             />
           </div>
           <p className="text-purple-800/90 dark:text-purple-300/90 text-sm max-w-md mx-auto font-light">
-            Master archive with solutions from CBSE board exams 2022–2025
+            Master archive with solutions from CBSE Board and Compartment exams 2022–2025
           </p>
         </motion.div>
 
