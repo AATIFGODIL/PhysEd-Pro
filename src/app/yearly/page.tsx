@@ -75,7 +75,7 @@ function YearlyPageContent() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
                                 whileHover={{ scale: 1.03 }}
-                                className="flex-shrink-0 px-5 py-3 rounded-xl backdrop-blur-sm bg-purple-50 dark:bg-gradient-to-r dark:from-purple-500/10 dark:to-fuchsia-500/10 border border-purple-200 dark:border-purple-400/15 hover:border-purple-400/30 transition-all flex items-center gap-3 cursor-pointer"
+                                className="flex-shrink-0 px-5 py-3 rounded-xl backdrop-blur-sm bg-purple-50 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-400/15 hover:border-purple-400/30 transition-all duration-500 flex items-center gap-3 cursor-pointer"
                             >
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-purple-600 dark:text-purple-300/90">
                                     <circle cx="12" cy="12" r="10" />
