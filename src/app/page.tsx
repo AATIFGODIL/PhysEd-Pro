@@ -5,6 +5,7 @@ import { SearchBar } from "@/components/SearchOrb";
 import { LiquidCard } from "@/components/LiquidCard";
 import { questions, chapters } from "@/data/questions";
 import Link from "next/link";
+import Image from "next/image";
 
 const years = [2025, 2024, 2023, 2022];
 
@@ -38,9 +39,16 @@ export default function Dashboard() {
           >
             CBSE Class XII • Physical Education
           </motion.p>
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-700 via-fuchsia-600 to-purple-800 dark:from-purple-300 dark:via-fuchsia-300 dark:to-purple-400 bg-clip-text text-transparent mb-3">
-            PhysEd Pro
-          </h1>
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/Banner.png"
+              alt="PhysEd Pro Banner"
+              width={866}
+              height={288}
+              className="w-full max-w-[500px] h-auto object-contain drop-shadow-2xl"
+              priority
+            />
+          </div>
           <p className="text-purple-800/90 dark:text-purple-300/90 text-sm max-w-md mx-auto font-light">
             Master archive with solutions from CBSE board exams 2022–2025
           </p>

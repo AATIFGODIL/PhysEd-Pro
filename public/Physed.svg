@@ -102,7 +102,7 @@
   <!-- Modern Typography -->
   <text x="320" y="260" class="heading" letter-spacing="-4">hysEd-Pro</text>
   
-  <text x="330" y="310" class="subtitle" opacity="0.8">CBSE Class XII Master Archive</text>
+
 
   <!-- Foreground Gloss/Shine -->
   <path d="M 0 0 L 1200 0 L 1200 400 L 0 400 Z" fill="url(#gridPattern)" opacity="0.1" style="mix-blend-mode: overlay;" />
