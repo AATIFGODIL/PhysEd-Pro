@@ -21,6 +21,7 @@ function YearlyPageContent() {
     const [selectedYear, setSelectedYear] = useState<number | null>(initialYear);
     const [marksFilter, setMarksFilter] = useState<number | null>(null);
     const [typeFilter, setTypeFilter] = useState<string | null>(null);
+    const [statusFilter, setStatusFilter] = useState<'attempted' | null>(null);
     const [showBookmarksOnly, setShowBookmarksOnly] = useState(false);
 
     const { bookmarks, stats } = useQuiz();
@@ -29,6 +30,12 @@ function YearlyPageContent() {
         return questions.filter((q) => {
             if (showBookmarksOnly && !bookmarks.has(q.id)) return false;
             if (selectedYear && q.year !== selectedYear) return false;
+
+            // Simple Status Filter Logic
+            if (statusFilter === 'attempted') {
+                const stat = stats[q.id];
+                if (!stat?.attempted) return false;
+            }
 
             // Logic for Type Filter
             if (typeFilter) {
@@ -46,11 +53,11 @@ function YearlyPageContent() {
             }
             return true;
         });
-    }, [selectedYear, marksFilter, typeFilter, showBookmarksOnly, bookmarks]);
+    }, [selectedYear, marksFilter, typeFilter, showBookmarksOnly, statusFilter, bookmarks, stats]);
 
     return (
         <div className="min-h-screen px-4 md:px-6 pt-8">
-            {/* Header */}
+            {/* ... (Header and Test Cards remain same) ... */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -146,12 +153,26 @@ function YearlyPageContent() {
                         ))}
                     </div>
 
-                    {(marksFilter || typeFilter || selectedYear) && (
+                    {/* Status Filters Display (Optional, or integrated into clear all) */}
+                    {statusFilter && (
+                        <div className="flex items-center gap-1.5 rounded-xl bg-purple-500/10 border border-purple-500/20 px-3 py-2">
+                            <span className="text-[11px] text-purple-700 dark:text-purple-300">
+                                Showing: <span className="font-bold uppercase">{statusFilter}</span>
+                            </span>
+                            <button onClick={() => setStatusFilter(null)} className="ml-1 text-purple-500 hover:text-purple-700">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </button>
+                        </div>
+                    )}
+
+
+                    {(marksFilter || typeFilter || selectedYear || statusFilter) && (
                         <button
                             onClick={() => {
                                 setMarksFilter(null);
                                 setTypeFilter(null);
                                 setSelectedYear(null);
+                                setStatusFilter(null);
                             }}
                             className="text-[11px] px-3 py-2 rounded-xl bg-red-500/8 text-purple-300/90 hover:bg-red-500/15 transition-colors"
                         >
@@ -163,50 +184,61 @@ function YearlyPageContent() {
 
             {/* Stats */}
             <div className="max-w-6xl mx-auto mb-6">
-                <LiquidCard className="!rounded-xl">
-                    <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 px-5 py-4">
-                        {/* Left: Quick Counts */}
-                        <div className="flex flex-col gap-2">
-                            <div className="flex items-center gap-2">
-                                <div className="p-1.5 rounded bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                                </div>
-                                <span className="text-xs font-medium text-gray-900 dark:text-white">
-                                    {Object.values(stats).filter(s => s.correct).length} Correct
-                                </span>
-                                <span className="text-[10px] text-gray-400 dark:text-purple-300/40">/ {Object.values(stats).filter(s => s.attempted).length} Attempted</span>
-                            </div>
-                            <div className="text-[10px] text-gray-400 dark:text-purple-300/50 flex gap-2">
-                                <span>Avg Time: {
-                                    (() => {
-                                        const attempted = Object.values(stats).filter(s => s.timeSpent > 0);
-                                        if (attempted.length === 0) return "0s";
-                                        const total = attempted.reduce((acc, curr) => acc + curr.timeSpent, 0);
-                                        return Math.round(total / attempted.length) + "s";
-                                    })()
-                                }</span>
-                            </div>
-                        </div>
+                <div onClick={() => setStatusFilter(prev => prev === 'attempted' ? null : 'attempted')}>
+                    <LiquidCard className={`!rounded-xl cursor-pointer transition-all ${statusFilter === 'attempted' ? 'ring-2 ring-purple-500/50' : 'hover:ring-1 hover:ring-purple-500/30'}`}>
+                        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 px-5 py-4">
+                            {/* Left: Quick Counts */}
+                            <div className="flex flex-col gap-2">
+                                <div className="flex items-center gap-3">
+                                    <div className="flex items-center gap-2 px-2 py-1 rounded-lg">
+                                        <div className="p-1 rounded bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                                        </div>
+                                        <span className="text-xs font-medium text-gray-900 dark:text-white">
+                                            {Object.values(stats).filter(s => s.correct).length}
+                                        </span>
+                                        <span className="text-[10px] text-gray-400 dark:text-purple-300/40 uppercase tracking-wide">Correct</span>
+                                    </div>
 
-                        {/* Right: Filters */}
-                        <div className="flex items-center gap-3">
-                            <button
-                                onClick={() => setShowBookmarksOnly(!showBookmarksOnly)}
-                                className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all text-xs font-medium ${showBookmarksOnly
-                                    ? "bg-amber-100 dark:bg-amber-500/10 border-amber-300 dark:border-amber-500/30 text-amber-700 dark:text-amber-300"
-                                    : "bg-white dark:bg-white/[0.04] border-gray-200 dark:border-white/[0.08] text-gray-500 dark:text-purple-300/70 hover:text-gray-900 dark:hover:text-white"}`}
-                            >
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill={showBookmarksOnly ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
-                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-                                </svg>
-                                Bookmarked ({bookmarks.size})
-                            </button>
-                            <div className="text-[11px] text-gray-400 dark:text-purple-300/50">
-                                {filteredQuestions.length} Questions
+                                    <div className="w-px h-4 bg-white/10 mx-1" />
+
+                                    <div className="flex items-center gap-1 text-xs text-gray-400 dark:text-purple-300/40 transition-colors">
+                                        <span>/ {Object.values(stats).filter(s => s.attempted).length} Attempted</span>
+                                    </div>
+                                </div>
+
+                                <div className="text-[10px] text-gray-400 dark:text-purple-300/50 flex gap-2 mt-1">
+                                    <span>Avg Time: {
+                                        (() => {
+                                            const attempted = Object.values(stats).filter(s => s.timeSpent > 0);
+                                            if (attempted.length === 0) return "0s";
+                                            const total = attempted.reduce((acc, curr) => acc + curr.timeSpent, 0);
+                                            return Math.round(total / attempted.length) + "s";
+                                        })()
+                                    }</span>
+                                </div>
+                            </div>
+
+                            {/* Right: Filters */}
+                            <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
+                                <button
+                                    onClick={() => setShowBookmarksOnly(!showBookmarksOnly)}
+                                    className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all text-xs font-medium ${showBookmarksOnly
+                                        ? "bg-amber-100 dark:bg-amber-500/10 border-amber-300 dark:border-amber-500/30 text-amber-700 dark:text-amber-300"
+                                        : "bg-white dark:bg-white/[0.04] border-gray-200 dark:border-white/[0.08] text-gray-500 dark:text-purple-300/70 hover:text-gray-900 dark:hover:text-white"}`}
+                                >
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill={showBookmarksOnly ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
+                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                                    </svg>
+                                    Bookmarked ({bookmarks.size})
+                                </button>
+                                <div className="text-[11px] text-gray-400 dark:text-purple-300/50">
+                                    {filteredQuestions.length} Questions
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </LiquidCard>
+                    </LiquidCard>
+                </div>
             </div>
 
             {/* Questions */}

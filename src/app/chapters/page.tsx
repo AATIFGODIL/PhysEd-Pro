@@ -5,25 +5,46 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { questions, chapters } from "@/data/questions";
 import { QuestionCard } from "@/components/QuestionCard";
+import { LiquidCard } from "@/components/LiquidCard"; // Added import
+import { useQuiz } from "@/context/QuizContext";
 
 function ChaptersContent() {
     const searchParams = useSearchParams();
     const initialChapter = searchParams.get("chapter") || null;
+
+    const { bookmarks, stats } = useQuiz();
 
     const [selectedChapter, setSelectedChapter] = useState<string | null>(
         initialChapter
     );
     const [yearFilter, setYearFilter] = useState<number | null>(null);
     const [marksFilter, setMarksFilter] = useState<number | null>(null);
+    const [statusFilter, setStatusFilter] = useState<'attempted' | null>(null);
 
     const filteredQuestions = useMemo(() => {
         return questions.filter((q) => {
             if (selectedChapter && q.chapter !== selectedChapter) return false;
             if (yearFilter && q.year !== yearFilter) return false;
             if (marksFilter && q.marks !== marksFilter) return false;
+
+            if (statusFilter === 'attempted') {
+                const stat = stats[q.id];
+                if (!stat?.attempted) return false;
+            }
             return true;
         });
-    }, [selectedChapter, yearFilter, marksFilter]);
+    }, [selectedChapter, yearFilter, marksFilter, statusFilter, stats]);
+
+    // Calculate stats for current view (or current chapter)
+    const currentStats = useMemo(() => {
+        const relevantQuestions = questions.filter(q =>
+            selectedChapter ? q.chapter === selectedChapter : true
+        );
+        const total = relevantQuestions.length;
+        const attempts = relevantQuestions.filter(q => stats[q.id]?.attempted).length;
+        const correct = relevantQuestions.filter(q => stats[q.id]?.correct).length;
+        return { total, attempts, correct };
+    }, [selectedChapter, stats]);
 
     const topics = useMemo(() => {
         if (!selectedChapter) return [];
@@ -121,18 +142,38 @@ function ChaptersContent() {
                     </select>
                 </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mb-6"
-                >
-                    <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-                        {selectedChapter || "All Chapters"}
-                    </h1>
-                    <p className="text-[11px] text-gray-500 dark:text-purple-300/50 mt-1">
-                        {filteredQuestions.length} questions found
-                    </p>
-                </motion.div>
+                <div className="flex flex-col md:flex-row md:items-end gap-4 mb-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="" // Removed flex-1 to allow it to shrink/grow naturally next to bar if needed, or keeping block.
+                    >
+                        <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+                            {selectedChapter || "All Chapters"}
+                        </h1>
+                        <p className="text-[11px] text-gray-500 dark:text-purple-300/50 mt-1">
+                            {filteredQuestions.length} questions found
+                        </p>
+                    </motion.div>
+
+                    {/* Summary Bar */}
+                    <div onClick={() => setStatusFilter(prev => prev === 'attempted' ? null : 'attempted')}>
+                        <LiquidCard className={`!rounded-xl !p-0 cursor-pointer transition-all ${statusFilter === 'attempted' ? 'ring-2 ring-purple-500/50' : 'hover:ring-1 hover:ring-purple-500/30'}`}>
+                            <div className="px-4 py-2 flex items-center gap-4">
+                                <div className="flex items-center gap-2">
+                                    <div className="p-1 rounded bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                                    </div>
+                                    <span className="text-xs font-bold text-gray-900 dark:text-white">{currentStats.correct}</span>
+                                </div>
+                                <div className="w-px h-3 bg-gray-200 dark:bg-white/[0.1]" />
+                                <div className="flex items-center gap-2">
+                                    <span className="text-[10px] text-gray-500 dark:text-purple-300/60 font-medium">{currentStats.attempts} Attempted</span>
+                                </div>
+                            </div>
+                        </LiquidCard>
+                    </div>
+                </div>
 
                 <div className="flex flex-wrap gap-2 mb-6">
                     <div className="flex items-center gap-1.5 rounded-xl bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] px-3 py-2">
@@ -165,6 +206,17 @@ function ChaptersContent() {
                             </button>
                         ))}
                     </div>
+                    {/* Active Filter Badge */}
+                    {statusFilter === 'attempted' && (
+                        <div className="flex items-center gap-1.5 rounded-xl bg-purple-500/10 border border-purple-500/20 px-3 py-2">
+                            <span className="text-[11px] text-purple-700 dark:text-purple-300 font-medium">
+                                Showing Attempted
+                            </span>
+                            <button onClick={() => setStatusFilter(null)} className="ml-1 text-purple-500 hover:text-purple-700">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </button>
+                        </div>
+                    )}
                 </div>
 
                 <div className="space-y-3 pb-16">

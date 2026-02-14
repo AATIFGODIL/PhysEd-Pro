@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 
 interface QuestionStat {
     id: string;
@@ -46,16 +46,16 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem("physed-stats", JSON.stringify(stats));
     }, [bookmarks, stats, loaded]);
 
-    const toggleBookmark = (id: string) => {
+    const toggleBookmark = useCallback((id: string) => {
         setBookmarks((prev) => {
             const next = new Set(prev);
             if (next.has(id)) next.delete(id);
             else next.add(id);
             return next;
         });
-    };
+    }, []);
 
-    const updateQuestionStat = (id: string, data: Partial<QuestionStat>) => {
+    const updateQuestionStat = useCallback((id: string, data: Partial<QuestionStat>) => {
         setStats((prev) => {
             const current = prev[id] || { id, attempted: false, timeSpent: 0 };
             return {
@@ -63,11 +63,11 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
                 [id]: { ...current, ...data },
             };
         });
-    };
+    }, []);
 
-    const resetStats = () => {
+    const resetStats = useCallback(() => {
         setStats({});
-    };
+    }, []);
 
     return (
         <QuizContext.Provider

@@ -108,6 +108,19 @@ export function QuestionCard({ question, index }: QuestionCardProps) {
         router.push(`/test?year=${question.year}&answers=true`);
     };
 
+    // Determine card styling based on status
+    const getStatusStyles = () => {
+        if (!questionStat?.attempted) return "bg-gray-100 dark:bg-white/[0.03] border-gray-200 dark:border-white/[0.08] hover:border-purple-500/30 dark:hover:border-purple-400/20";
+
+        // Subjective questions (Non-MCQ) get very slight yellow hint
+        if (question.type !== "MCQ") {
+            return "bg-amber-500/[0.03] border-amber-500/20 hover:border-amber-500/40";
+        }
+
+        if (questionStat.correct) return "bg-emerald-500/[0.08] border-emerald-500/30 hover:border-emerald-500/50";
+        return "bg-red-500/[0.08] border-red-500/30 hover:border-red-500/50";
+    };
+
     return (
         <motion.div
             layout
@@ -116,7 +129,7 @@ export function QuestionCard({ question, index }: QuestionCardProps) {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             onClick={handleCardClick}
-            className="relative rounded-2xl backdrop-blur-[24px] bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] overflow-hidden cursor-pointer hover:border-purple-500/30 dark:hover:border-purple-400/20 transition-colors"
+            className={`relative rounded-2xl backdrop-blur-[24px] border overflow-hidden cursor-pointer transition-colors ${getStatusStyles()}`}
         >
             <div className="p-5">
                 {/* Header badges + actions */}
