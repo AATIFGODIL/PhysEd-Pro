@@ -201,8 +201,8 @@ function TestPageContent() {
         switch (status) {
             case "correct": return "bg-emerald-100 dark:bg-emerald-500 text-emerald-700 dark:text-white";
             case "wrong": return "bg-red-100 dark:bg-red-500 text-red-700 dark:text-white";
-            case "attempted": return "bg-blue-100 dark:bg-blue-500 text-blue-700 dark:text-white";
-            case "seen": return "bg-amber-100 dark:bg-amber-500 text-amber-700 dark:text-white";
+            case "attempted": return "bg-amber-100 dark:bg-amber-500 text-amber-700 dark:text-white";
+            case "seen": return "bg-purple-100 dark:bg-white/[0.12] text-purple-700 dark:text-purple-300";
             default: return "bg-gray-100 dark:bg-white/[0.06] text-gray-500 dark:text-purple-300/80";
         }
     };
