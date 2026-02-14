@@ -203,6 +203,17 @@ export function QuestionCard({ question, index }: QuestionCardProps) {
                     </p>
                 </div>
 
+                {question.imageUrl && (
+                    <div className="mt-4 mb-2 ml-10 rounded-xl overflow-hidden border border-gray-200 dark:border-white/[0.1] bg-gray-50 dark:bg-white/[0.02]">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                            src={question.imageUrl}
+                            alt="Question Image"
+                            className="w-full h-auto max-h-[300px] object-contain mx-auto"
+                        />
+                    </div>
+                )}
+
 
 
                 {/* Topic tag */}

@@ -176,6 +176,20 @@ function TestPageContent() {
         // Actually, for MCQ it should only be attempted if they SELECT an option.
     };
 
+    // Keyboard navigation
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "ArrowRight") {
+                handleNext();
+            } else if (e.key === "ArrowLeft") {
+                if (currentIndex > 0) goTo(currentIndex - 1);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [currentIndex, goTo, handleNext]);
+
 
     const counts = useMemo(() => {
         const c = { correct: 0, wrong: 0, attempted: 0, seen: 0, notSeen: 0 };
@@ -287,6 +301,16 @@ function TestPageContent() {
                     <AnimatePresence mode="wait">
                         <motion.div key={currentIndex} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
                             <p className="text-[15px] dark:text-white leading-relaxed mb-6 whitespace-pre-line">{currentQ.question}</p>
+                            {currentQ.imageUrl && (
+                                <div className="mb-6 rounded-xl overflow-hidden border border-gray-200 dark:border-white/[0.1] bg-gray-50 dark:bg-white/[0.02]">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={currentQ.imageUrl}
+                                        alt="Question Image"
+                                        className="w-full h-auto max-h-[400px] object-contain mx-auto"
+                                    />
+                                </div>
+                            )}
                             {mcqOptions && (
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
                                     {mcqOptions.map((opt) => (

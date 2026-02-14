@@ -410,6 +410,7 @@ Ardhamatsyendrasana: Sit on mat, extend legs. Bend left knee and place left foot
         type: "MCQ",
         marks: 1,
         question: `Identify the asana shown in the image.`,
+        imageUrl: "/PE_2023_qs_1.png",
         answer: `(a) Bhujangasana
 (For visually impaired: Bhujangasana)`,
         source: "CBSE 2023 Board Exam",
@@ -864,6 +865,7 @@ Corrective measures (any 4):
 (b) What is the formula to calculate the number of matches?
 (c) On what basis is the winner decided in a League or Round Robin Tournament?
 (d) If 7 teams participate in a league tournament, how many matches will be played?`,
+        imageUrl: "/PE_2023_qs_31.png",
         answer: `(a) Staircase method
 (b) N(N-1) / 2
 (c) Points scored by teams / number of matches won / American method / British method
@@ -882,6 +884,7 @@ Corrective measures (any 4):
 (b) In illustration B, which force is acting upon the ball to slow it down?
 (c) Which law of motion determines the quality of bounce?
 (d) The _________ of an object directly depends upon the mass of the object and the net force applied on it.`,
+        imageUrl: "/PE_2023_qs_32.png",
         answer: `(a) Law of Inertia / Newton's first law of motion
 (b) Friction
 (c) Third law — law of action and reaction
@@ -901,6 +904,7 @@ OR: Newton's second law of motion / Law of acceleration`,
 (b) Who was the founder of Special Olympics?
 (c) The hand shapes of 'OK', 'Good' and 'Great' that overlap each other in a circle represent the original sign for which event?
 (d) How many countries participated in the first Paralympic Games in Rome (Italy) in 1960?`,
+        imageUrl: "/PE_2023_qs_33.png",
         answer: `(a) C
 (b) Eunice Kennedy Shriver
 (c) Deaf Olympics / Deaflympics
@@ -1164,6 +1168,7 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         type: "MCQ",
         marks: 1,
         question: `Identify the asana shown in the image.`,
+        imageUrl: "/PE_2024_qs_13.png",
         answer: `(d) Shalbhasana
 (For visually impaired: (b) Shavasana)`,
         source: "CBSE 2024 Board Exam",
@@ -1225,6 +1230,7 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         type: "MCQ",
         marks: 1,
         question: `Which component of fitness does the Chair Sit and Reach Test measure in senior citizens?`,
+        imageUrl: "/PE_2024_qs_18.png",
         answer: `(c) Lower body flexibility
 (For visually impaired: (c) Arm Curl Test)`,
         source: "CBSE 2024 Board Exam",
@@ -1441,6 +1447,7 @@ Tadasana, Vakrasana, Sarala Matsyendrasana, Urdhwahastottanasana, Ardha Chakrasa
 (b) Participation of students with disabilities in regular physical education classes is known as _________.
 (c) Enlist any two strategies to make physical activities accessible for children with special needs.
 (d) The motto of Special Olympics is _________.`,
+        imageUrl: "/PE_2024_qs_31.png",
         answer: `(a) Long Jump
 (b) Inclusion / Adaptive Physical Education
 (c) Any two from: Create specific environment, assess physical and mental ability, modified rules, use of modified equipment, plan activity as per need, plan additional support of parents and trained assistants, extra care for safety
@@ -1461,6 +1468,7 @@ OR: The motto of Paralympics is "Spirit in motion."`,
 (b) When a bone breaks diagonally as shown in Image 2, it is known as _________.
 (c) _________ fracture occurs when the broken ends of the bones are jammed together by the force of injury.
 (d) In which type of fracture is the bone broken, splintered or crushed into a number of pieces?`,
+        imageUrl: "/PE_2024_qs_32.png",
         answer: `(a) Transverse fracture
 (b) Oblique fracture
 (c) Impacted fracture
@@ -1479,6 +1487,7 @@ OR: The motto of Paralympics is "Spirit in motion."`,
 (b) If the winner team plays the least number of matches, which serial number team is the winner?
 (c) What is the formula to calculate the number of matches in a knockout tournament?
 (d) If 16 teams are participating in a knockout tournament, how many byes will be given?`,
+        imageUrl: "/PE_2024_qs_33.png",
         answer: `(a) 4 (four)
 (b) Serial no. 15
 (c) Number of matches = N – 1 (where N = Number of teams)
@@ -1639,6 +1648,7 @@ Types on the basis of duration:
         type: "MCQ",
         marks: 1,
         question: `Identify the asana shown in the image.`,
+        imageUrl: "/PE_2025_qs_6.png",
         answer: `(B) Dhanurasana
 (For visually impaired: Forward bending in the sitting position)`,
         source: "CBSE 2025 Board Exam",
@@ -2029,6 +2039,7 @@ Self-justification: Hostile — athlete offers self-justification; Instrumental 
 (ii) If the above fixture had been of 48 teams, then the number of byes would have been _________.
 (iii) Which two teams will play in round 3?
 (iv) Which method is used for seeding in knockout tournaments?`,
+        imageUrl: "/PE_2025_qs_31.png",
         answer: `(i) (A) 06
 (ii) 16
 (iii) 10 and 11 (OR) Determined by formula NB + 1 / 2
