@@ -224,7 +224,7 @@ function YearlyPageContent() {
                                 <button
                                     onClick={() => setShowBookmarksOnly(!showBookmarksOnly)}
                                     className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all text-xs font-medium ${showBookmarksOnly
-                                        ? "bg-amber-100 dark:bg-amber-500/10 border-amber-300 dark:border-amber-500/30 text-amber-700 dark:text-amber-300"
+                                        ? "bg-blue-100 dark:bg-blue-500/10 border-blue-300 dark:border-blue-500/30 text-blue-700 dark:text-blue-300"
                                         : "bg-white dark:bg-white/[0.04] border-gray-200 dark:border-white/[0.08] text-gray-500 dark:text-purple-300/70 hover:text-gray-900 dark:hover:text-white"}`}
                                 >
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill={showBookmarksOnly ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">

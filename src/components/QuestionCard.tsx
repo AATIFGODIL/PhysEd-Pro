@@ -110,7 +110,12 @@ export function QuestionCard({ question, index }: QuestionCardProps) {
 
     // Determine card styling based on status
     const getStatusStyles = () => {
-        if (!questionStat?.attempted) return "bg-gray-100 dark:bg-white/[0.03] border-gray-200 dark:border-white/[0.08] hover:border-purple-500/30 dark:hover:border-purple-400/20";
+        if (!questionStat?.attempted) {
+            if (isBookmarked) {
+                return "bg-blue-500/[0.03] border-blue-400/20 hover:border-blue-400/40 dark:bg-blue-400/[0.03]";
+            }
+            return "bg-gray-100 dark:bg-white/[0.03] border-gray-200 dark:border-white/[0.08] hover:border-purple-500/30 dark:hover:border-purple-400/20";
+        }
 
         // Subjective questions (Non-MCQ) get very slight yellow hint
         if (question.type !== "MCQ") {
@@ -180,7 +185,7 @@ export function QuestionCard({ question, index }: QuestionCardProps) {
                     {/* Bookmark */}
                     <button
                         onClick={(e) => { e.stopPropagation(); toggleBookmark(question.id); }}
-                        className={`p-1.5 rounded-lg transition-all ${isBookmarked ? "text-amber-500 dark:text-amber-400 bg-amber-500/10" : "text-purple-400/50 dark:text-purple-300/50 hover:text-amber-500/60 dark:hover:text-amber-400/60"}`}
+                        className={`p-1.5 rounded-lg transition-all ${isBookmarked ? "text-blue-500 dark:text-blue-400 bg-blue-500/10" : "text-purple-400/50 dark:text-purple-300/50 hover:text-blue-500/60 dark:hover:text-blue-400/60"}`}
                     >
                         <svg width="14" height="14" viewBox="0 0 24 24" fill={isBookmarked ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
                             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
