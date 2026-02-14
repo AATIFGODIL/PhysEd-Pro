@@ -51,7 +51,7 @@
     
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&amp;display=swap');
-      .heading { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 140px; fill: url(#textGradient); filter: url(#glow); }
+      .heading { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 140px; fill: url(#mainGradient); filter: url(#glow); }
       .subtitle { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 20px; fill: #a855f7; letter-spacing: 6px; text-transform: uppercase; }
     </style>
   </defs>

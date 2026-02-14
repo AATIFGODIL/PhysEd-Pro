@@ -39,13 +39,21 @@ export default function Dashboard() {
           >
             CBSE Class XII • Physical Education
           </motion.p>
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-6 relative h-[200px] sm:h-[150px] w-full max-w-[500px] mx-auto">
+            {/* Dark Mode Banner (Light Text) */}
             <Image
               src="/Banner.png"
               alt="PhysEd Pro Banner"
-              width={866}
-              height={288}
-              className="w-full max-w-[500px] h-auto object-contain drop-shadow-2xl"
+              fill
+              className="object-contain drop-shadow-2xl hidden dark:block"
+              priority
+            />
+            {/* Light Mode Banner (Dark Text) */}
+            <Image
+              src="/banner dark.png"
+              alt="PhysEd Pro Banner"
+              fill
+              className="object-contain drop-shadow-2xl block dark:hidden"
               priority
             />
           </div>
