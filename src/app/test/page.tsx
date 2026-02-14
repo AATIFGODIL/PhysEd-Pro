@@ -16,9 +16,9 @@ function TestPageContent() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [started, setStarted] = useState(showAnswers);
-    const [elapsedTime, setElapsedTime] = useState(0);
+    const [questionTimes, setQuestionTimes] = useState<Record<number, number>>({});
     const [statusMap, setStatusMap] = useState<Record<number, QuestionStatus>>({});
-    const [showAnswer, setShowAnswer] = useState(false);
+    const [showAnswer, setShowAnswer] = useState(showAnswers);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [sidebarOpen, setSidebarOpen] = useState(true);
 
@@ -40,11 +40,14 @@ function TestPageContent() {
         if (!started) return;
 
         const interval = setInterval(() => {
-            if (showAnswers) {
-                // Practice Mode: Stopwatch (Count Up)
-                setElapsedTime((prev) => prev + 1);
-            } else {
-                // Full Test Mode: Countdown (Count Down)
+            // ALWAYS track per-question time (Stopwatch per question)
+            setQuestionTimes((prev) => ({
+                ...prev,
+                [currentIndex]: (prev[currentIndex] || 0) + 1
+            }));
+
+            if (!showAnswers) {
+                // Full Test Mode: ALSO Countdown (Count Down)
                 setTimeLeft((prev) => {
                     if (prev <= 0) {
                         clearInterval(interval);
@@ -57,7 +60,7 @@ function TestPageContent() {
         }, 1000);
 
         return () => clearInterval(interval);
-    }, [started, showAnswers]);
+    }, [started, showAnswers, currentIndex]); // depend on currentIndex to switch timers
 
     // Mark as seen
     useEffect(() => {
@@ -210,13 +213,16 @@ function TestPageContent() {
 
     if (!started) {
         return (
-            <div className="min-h-screen flex items-center justify-center px-4">
+            <div className={`min-h-screen flex items-center justify-center px-4 transition-colors duration-500 ${showAnswers ? "bg-white dark:bg-black" : "bg-purple-50/50 dark:bg-black"}`}>
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="max-w-md w-full"
                 >
-                    <div className="rounded-2xl backdrop-blur-[24px] bg-white dark:bg-white/[0.04] border border-gray-200 dark:border-white/[0.08] p-8 text-center shadow-xl dark:shadow-none">
+                    <div className={`rounded-2xl backdrop-blur-[24px] border p-8 text-center shadow-xl dark:shadow-none transition-colors duration-500 ${showAnswers
+                        ? "bg-white dark:bg-white/[0.04] border-gray-200 dark:border-white/[0.08]"
+                        : "bg-white/80 dark:bg-white/[0.04] border-purple-200 dark:border-purple-500/20"
+                        }`}>
                         <p className="text-[10px] uppercase tracking-[0.3em] text-purple-600/70 dark:text-purple-300/70 mb-3">
                             CBSE Board Examination
                         </p>
@@ -259,9 +265,12 @@ function TestPageContent() {
     if (!currentQ) return null;
 
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className={`min-h-screen flex flex-col transition-colors duration-500 ${showAnswers ? "bg-white dark:bg-black" : "bg-[#fcfaff] dark:bg-black"}`}>
             {/* Top Header Bar */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02]">
+            <div className={`flex items-center gap-3 px-4 py-3 border-b transition-colors duration-500 ${showAnswers
+                ? "border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02]"
+                : "border-purple-100 dark:border-white/[0.06] bg-white/60 backdrop-blur-md dark:bg-white/[0.02]"
+                }`}>
                 <button
                     onClick={() => router.back()}
                     className="text-gray-500 dark:text-purple-300/80 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -276,10 +285,10 @@ function TestPageContent() {
                 {showAnswers ? (
                     <div className="flex items-center gap-2">
                         <span className="text-[10px] px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/20">
-                            Solutions Mode
+                            Stopwatch
                         </span>
                         <span className="text-xs font-mono text-emerald-700 dark:text-emerald-300/80 bg-emerald-50 dark:bg-white/[0.04] px-3 py-1.5 rounded-lg border border-emerald-200 dark:border-white/[0.08]">
-                            {formatTime(elapsedTime)}
+                            {formatTime(questionTimes[currentIndex] || 0)}
                         </span>
                     </div>
                 ) : (
@@ -304,7 +313,10 @@ function TestPageContent() {
             </div>
 
             {/* Question Number Navigation Bar */}
-            <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-gray-200 dark:border-white/[0.06] overflow-x-auto bg-gray-50 dark:bg-white/[0.01]">
+            <div className={`flex items-center gap-1.5 px-4 py-2.5 border-b overflow-x-auto transition-colors duration-500 ${showAnswers
+                ? "border-gray-200 dark:border-white/[0.06] bg-gray-50 dark:bg-white/[0.01]"
+                : "border-purple-100 dark:border-white/[0.06] bg-purple-50/30 dark:bg-white/[0.01]"
+                }`}>
                 {yearQuestions.map((_, idx) => {
                     const status = statusMap[idx] || "not-seen";
                     const isCurrent = idx === currentIndex;
@@ -322,7 +334,9 @@ function TestPageContent() {
                                             ? "bg-red-100 dark:bg-red-500/20 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-400/20"
                                             : status === "seen"
                                                 ? "bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-400/20"
-                                                : "bg-white dark:bg-white/[0.04] text-gray-400 dark:text-purple-300/80 border border-gray-200 dark:border-white/[0.06] hover:border-purple-400/30"
+                                                : showAnswers
+                                                    ? "bg-white dark:bg-white/[0.04] text-gray-400 dark:text-purple-300/80 border border-gray-200 dark:border-white/[0.06] hover:border-purple-400/30"
+                                                    : "bg-white/50 dark:bg-white/[0.04] text-purple-900/40 dark:text-purple-300/80 border border-purple-100 dark:border-white/[0.06] hover:border-purple-300/50 hover:bg-white/80"
                                 }`}
                         >
                             {idx + 1}
@@ -341,7 +355,7 @@ function TestPageContent() {
                             <span className="text-[10px] font-bold px-2 py-1 rounded-md bg-purple-500/15 text-white">
                                 Q{currentIndex + 1}
                             </span>
-                            <span className="text-[10px] text-gray-500 dark:text-purple-300/70">{formatTime(elapsedTime)}</span>
+                            <span className="text-[10px] text-gray-500 dark:text-purple-300/70">{formatTime(questionTimes[currentIndex] || 0)}</span>
                             <span className="text-[10px] px-2 py-0.5 rounded-full bg-fuchsia-500/10 text-purple-300/90">
                                 +{currentQ.marks}
                             </span>
@@ -406,7 +420,7 @@ function TestPageContent() {
                                 )}
 
                                 {/* Answer Section */}
-                                {(showAnswers || showAnswer) && (
+                                {(showAnswer) && (
                                     <motion.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -425,21 +439,26 @@ function TestPageContent() {
                     </div>
 
                     {/* Bottom Control Bar */}
-                    <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02]">
+                    <div className={`flex items-center justify-between px-6 py-4 border-t transition-colors duration-500 ${showAnswers
+                        ? "border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02]"
+                        : "border-purple-100 dark:border-white/[0.06] bg-white/60 backdrop-blur-md dark:bg-white/[0.02]"
+                        }`}>
                         <div className="flex items-center gap-3">
-                            <label className="flex items-center gap-2 cursor-pointer select-none">
-                                <div
-                                    onClick={() => setShowAnswer(!showAnswer)}
-                                    className={`w-10 h-5 rounded-full transition-colors relative ${showAnswer ? "bg-emerald-500" : "bg-gray-200 dark:bg-white/[0.1]"}`}
-                                >
-                                    <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${showAnswer ? "translate-x-5" : "translate-x-0.5"}`} />
-                                </div>
-                                <span className="text-xs text-gray-500 dark:text-purple-300/80">Show Answer</span>
-                            </label>
+                            {showAnswers && (
+                                <label className="flex items-center gap-2 cursor-pointer select-none">
+                                    <div
+                                        onClick={() => setShowAnswer(!showAnswer)}
+                                        className={`w-10 h-5 rounded-full transition-colors relative ${showAnswer ? "bg-emerald-500" : "bg-gray-200 dark:bg-white/[0.1]"}`}
+                                    >
+                                        <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${showAnswer ? "translate-x-5" : "translate-x-0.5"}`} />
+                                    </div>
+                                    <span className="text-xs text-gray-500 dark:text-purple-300/80">Show Answer</span>
+                                </label>
+                            )}
                         </div>
 
                         <div className="flex items-center gap-2">
-                            {currentQ.type === "MCQ" && (
+                            {showAnswers && currentQ.type === "MCQ" && (
                                 <>
                                     <button
                                         onClick={handleClearResponse}
