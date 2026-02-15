@@ -63,8 +63,14 @@ function TestPageContent() {
             return questions.filter((q) => {
                 const isMatch = q.year === year;
                 if (!isMatch) return false;
-                if (type === "Compartment") return q.source.toLowerCase().includes("compartment");
-                return !q.source.toLowerCase().includes("compartment");
+
+                const source = q.source.toLowerCase();
+
+                if (type === "Compartment") return source.includes("compartment");
+                if (type === "Sample") return source.includes("sample");
+
+                // Main (Default): Exclude both Compartment and Sample
+                return !source.includes("compartment") && !source.includes("sample");
             });
         }
 
@@ -105,7 +111,7 @@ function TestPageContent() {
 
     // Sync with global stats (Always sync to local for navigation colors)
     useEffect(() => {
-        if (!isLoaded) return;
+        if (!isLoaded || !testQuestions) return;
 
         const newStatusMap = { ...statusMap };
         const newQuestionTimes = { ...questionTimes };
@@ -116,7 +122,12 @@ function TestPageContent() {
             if (stat) {
                 if (stat.attempted && !newStatusMap[idx]) {
                     if (stat.correct !== undefined) {
-                        newStatusMap[idx] = stat.correct ? "correct" : "wrong";
+                        // In Test Mode (showAnswers=false), hide correct/wrong status on sidebar
+                        if (!showAnswers) {
+                            newStatusMap[idx] = "attempted";
+                        } else {
+                            newStatusMap[idx] = stat.correct ? "correct" : "wrong";
+                        }
                     } else {
                         newStatusMap[idx] = "attempted";
                     }
@@ -133,7 +144,8 @@ function TestPageContent() {
             setStatusMap(newStatusMap);
             setQuestionTimes(newQuestionTimes);
         }
-    }, [isLoaded, stats, testQuestions]); // Removed showAnswers check to allow Test Mode to see progress
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLoaded, stats, showAnswers, testQuestions]);
 
     // Timer Logic
     useEffect(() => {
@@ -177,26 +189,46 @@ function TestPageContent() {
         }
     }, [testQuestions.length]);
 
+    const getCorrectOptionLabel = (q: typeof currentQ) => {
+        if (!q || q.type !== "MCQ") return null;
+        const ans = q.answer.trim();
+
+        // 1. Try prefix matching
+        const match = ans.match(/^\(([a-d])\)/i) || ans.match(/^([a-d])\)/i);
+        if (match) return match[1].toUpperCase();
+        if (ans.startsWith("(A)") || ans.startsWith("A)")) return "A";
+        if (ans.startsWith("(B)") || ans.startsWith("B)")) return "B";
+        if (ans.startsWith("(C)") || ans.startsWith("C)")) return "C";
+        if (ans.startsWith("(D)") || ans.startsWith("D)")) return "D";
+
+        // 2. Try text matching with options
+        if (q.options) {
+            // Clean the answer text a bit for better matching
+            const cleanAns = ans.toLowerCase().replace(/[().]/g, "").trim();
+
+            const index = q.options.findIndex(opt => {
+                const cleanOpt = opt.toLowerCase().trim();
+                return cleanAns === cleanOpt || cleanAns.includes(cleanOpt) || cleanOpt.includes(cleanAns);
+            });
+
+            if (index !== -1) return String.fromCharCode(65 + index); // 0->A, 1->B...
+        }
+        return null;
+    };
+
     const handleToggleShowAnswer = () => {
         const newState = !showAnswer;
         setShowAnswer(newState);
 
         if (showAnswers && newState) {
-            if (currentQ.type !== "MCQ") {
+            if (currentQ.type.toUpperCase() !== "MCQ") {
                 setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
                 updateQuestionStat(currentQ.id, {
                     attempted: true,
                     timeSpent: questionTimes[currentIndex] || 0
                 });
             } else if (selectedOption) {
-                const ans = currentQ.answer.trim();
-                let correctLabel = "";
-                const match = ans.match(/^\(([a-d])\)/i) || ans.match(/^([a-d])\)/i);
-                if (match) correctLabel = match[1].toUpperCase();
-                else if (ans.startsWith("(A)") || ans.startsWith("A)")) correctLabel = "A";
-                else if (ans.startsWith("(B)") || ans.startsWith("B)")) correctLabel = "B";
-                else if (ans.startsWith("(C)") || ans.startsWith("C)")) correctLabel = "C";
-                else if (ans.startsWith("(D)") || ans.startsWith("D)")) correctLabel = "D";
+                const correctLabel = getCorrectOptionLabel(currentQ);
 
                 if (correctLabel) {
                     const isCorrect = selectedOption === correctLabel;
@@ -219,24 +251,53 @@ function TestPageContent() {
     };
 
     const handleNext = () => {
-        // Test Mode trigger for non-MCQs
-        if (!showAnswers && currentQ.type !== "MCQ") {
-            setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
-            updateQuestionStat(currentQ.id, {
-                attempted: true,
-                timeSpent: questionTimes[currentIndex] || 0
-            });
+        // Evaluate and update stats when clicking Next
+        if (!showAnswers) {
+            // Safe type check
+            const isMCQ = currentQ.type.trim().toUpperCase() === "MCQ";
+
+            if (isMCQ) {
+                if (selectedOption) {
+                    const correctLabel = getCorrectOptionLabel(currentQ);
+
+                    if (correctLabel) {
+                        const isCorrect = selectedOption === correctLabel;
+                        // For Test Mode: Mark as 'attempted' locally so sidebar doesn't spoil answer
+                        setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
+                        // But update GLOBAL stats with actual result for Dashboard
+                        updateQuestionStat(currentQ.id, {
+                            attempted: true,
+                            correct: isCorrect,
+                            selectedOption: selectedOption || undefined,
+                            timeSpent: questionTimes[currentIndex] || 0
+                        });
+                    }
+                } else {
+                    // MCQ skipped (no option selected)
+                }
+
+            } else {
+                // Non-MCQ: Mark as attempted
+                setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
+                updateQuestionStat(currentQ.id, {
+                    attempted: true,
+                    timeSpent: questionTimes[currentIndex] || 0
+                });
+            }
         }
         goTo(currentIndex + 1);
     };
 
     const handleSelectOption = (opt: string) => {
+        // Allow changing option until result is locked (correct/wrong)
+        // In Test Mode (showAnswers=false), we allowing changing freely until Next/Check confirms it.
+        // Once confirmed (statusMap has correct/wrong), we lock it?
+        // Actually, for Test Mode, verification happens on Next. So until then, user can change mind.
+        // Once verified (e.g. going back to previous question), it should be locked IF we want that.
+        // Let's lock it if it is already graded.
+
         if (statusMap[currentIndex] === 'correct' || statusMap[currentIndex] === 'wrong') return;
         setSelectedOption(opt);
-        // Important: selecting an option doesn't mark as attempted in Test Mode until "Next" or "Check"
-        // But in Test Mode, the user wants "Next" to trigger it.
-        // For MCQ in Test Mode, we don't have a "Check" button, so "Next" should also trigger it?
-        // Actually, for MCQ it should only be attempted if they SELECT an option.
     };
 
     // Keyboard navigation

@@ -91,7 +91,7 @@ function YearlyPageContent() {
                     {/* Main Board Exams */}
                     <div className="flex gap-3 overflow-x-auto pb-2">
                         {[2025, 2024, 2023].map((year, i) => (
-                            <Link key={`${year}-main`} href={`/test?year=${year}`}>
+                            <Link key={`${year}-main`} href={`/test?year=${year}&type=Main`}>
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -145,7 +145,7 @@ function YearlyPageContent() {
                     {/* Sample Papers */}
                     <div className="flex gap-3 overflow-x-auto pb-2">
                         {[2026, 2025, 2024, 2023].map((year, i) => (
-                            <Link key={`${year}-sample`} href={`/test?search=${year} Sample`}>
+                            <Link key={`${year}-sample`} href={`/test?year=${year}&type=Sample`}>
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
