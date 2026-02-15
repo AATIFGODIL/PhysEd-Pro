@@ -9,9 +9,10 @@ import { useQuiz } from "@/context/QuizContext";
 interface QuestionCardProps {
     question: Question;
     index: number;
+    onClick?: (question: Question) => void;
 }
 
-export function QuestionCard({ question, index }: QuestionCardProps) {
+export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
     const router = useRouter();
     const [showAnswer, setShowAnswer] = useState(false);
 
@@ -105,7 +106,11 @@ export function QuestionCard({ question, index }: QuestionCardProps) {
     };
 
     const handleCardClick = () => {
-        router.push(`/test?year=${question.year}&answers=true`);
+        if (onClick) {
+            onClick(question);
+        } else {
+            router.push(`/test?year=${question.year}&answers=true`);
+        }
     };
 
     // Determine card styling based on status

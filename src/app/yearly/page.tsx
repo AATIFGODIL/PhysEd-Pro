@@ -12,7 +12,10 @@ const years = [2025, 2024, 2023, 2022];
 
 import { useQuiz } from "@/context/QuizContext";
 
+import { useRouter } from "next/navigation"; // Added import
+
 function YearlyPageContent() {
+    const router = useRouter(); // Added router hook
     const searchParams = useSearchParams();
     const initialYear = searchParams.get("year")
         ? parseInt(searchParams.get("year")!)
@@ -129,7 +132,7 @@ function YearlyPageContent() {
                                         <span className="text-[9px] text-amber-600/60 dark:text-amber-400/50">Practice Test</span>
                                     </div>
                                     <span className={`text-[9px] px-1.5 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-300`}>
-                                        {year === 2024 ? "45m" : "3hr"}
+                                        3hr
                                     </span>
                                 </motion.div>
                             </Link>
@@ -302,7 +305,12 @@ function YearlyPageContent() {
             <div className="max-w-6xl mx-auto space-y-3">
                 <AnimatePresence mode="popLayout">
                     {filteredQuestions.map((q, i) => (
-                        <QuestionCard key={q.id} question={q} index={i} />
+                        <QuestionCard
+                            key={q.id}
+                            question={q}
+                            index={i}
+                            onClick={() => router.push(`/test?year=${q.year}&questionId=${q.id}&mode=practice`)}
+                        />
                     ))}
                 </AnimatePresence>
 

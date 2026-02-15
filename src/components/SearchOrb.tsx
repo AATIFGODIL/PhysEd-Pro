@@ -100,7 +100,7 @@ export function SearchBar() {
                         className="absolute top-full mt-2 z-20 w-full max-h-[380px] overflow-y-auto rounded-2xl backdrop-blur-[24px] bg-white/90 dark:bg-black/80 border border-gray-200 dark:border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-3 space-y-1.5"
                     >
                         {results.map((q) => (
-                            <Link key={q.id} href={`/yearly?year=${q.year}`}>
+                            <Link key={q.id} href={`/test?search=${encodeURIComponent(query)}&questionId=${q.id}&mode=practice`}>
                                 <motion.div
                                     initial={{ opacity: 0, x: -8 }}
                                     animate={{ opacity: 1, x: 0 }}

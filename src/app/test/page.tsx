@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, Suspense, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams, useRouter } from "next/navigation";
 import { questions } from "@/data/questions";
+import { searchQuestions, parseSearchQuery } from "@/lib/search"; // Added import
 import { useQuiz } from "@/context/QuizContext";
 
 type QuestionStatus = "not-seen" | "seen" | "attempted" | "correct" | "wrong";
@@ -11,12 +12,77 @@ type QuestionStatus = "not-seen" | "seen" | "attempted" | "correct" | "wrong";
 function TestPageContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
-    const year = parseInt(searchParams.get("year") || "2025");
+
+    // Params
+    const yearParam = searchParams.get("year");
+    const year = yearParam ? parseInt(yearParam) : null;
     const type = searchParams.get("type") || "Main";
-    const showAnswers = searchParams.get("answers") === "true";
+    const chapter = searchParams.get("chapter");
+    const questionId = searchParams.get("questionId");
+
+    // Search Mode Logic
+    const searchParam = searchParams.get("search");
+
+    // Mode Logic (Backward compatibility: answers=true -> mode=practice)
+    const modeParam = searchParams.get("mode");
+    const answersParam = searchParams.get("answers");
+    const isPracticeMode = modeParam === "practice" || answersParam === "true";
+    const showAnswers = isPracticeMode;
+
+    // Filter Questions
+    const testQuestions = useMemo(() => {
+        if (searchParam) {
+            const searchResults = searchQuestions(decodeURIComponent(searchParam));
+            // Reorder if questionId is present
+            if (questionId && isPracticeMode) {
+                const clickedIndex = searchResults.findIndex(q => q.id === questionId);
+                if (clickedIndex > -1) {
+                    const clickedQ = searchResults[clickedIndex];
+                    const others = searchResults.filter(q => q.id !== questionId);
+                    return [clickedQ, ...others];
+                }
+            }
+            return searchResults;
+        }
+
+        if (chapter) {
+            const chQuestions = questions.filter(q => q.chapter === chapter);
+            // Reorder if questionId is present (Chapters Practice Mode)
+            if (questionId && isPracticeMode) {
+                const clickedIndex = chQuestions.findIndex(q => q.id === questionId);
+                if (clickedIndex > -1) {
+                    const clickedQ = chQuestions[clickedIndex];
+                    const others = chQuestions.filter(q => q.id !== questionId);
+                    return [clickedQ, ...others];
+                }
+            }
+            return chQuestions;
+        }
+
+        if (year) {
+            return questions.filter((q) => {
+                const isMatch = q.year === year;
+                if (!isMatch) return false;
+                if (type === "Compartment") return q.source.toLowerCase().includes("compartment");
+                return !q.source.toLowerCase().includes("compartment");
+            });
+        }
+
+        return [];
+    }, [year, type, chapter, questionId, isPracticeMode, searchParam]);
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [started, setStarted] = useState(showAnswers);
+
+    // Initial Index Logic for Yearly Practice Mode (No reordering, just jump to index)
+    useEffect(() => {
+        if (year && questionId && testQuestions.length > 0) {
+            const idx = testQuestions.findIndex(q => q.id === questionId);
+            if (idx > -1) setCurrentIndex(idx);
+        }
+    }, [year, questionId, testQuestions]);
+
+    const [started, setStarted] = useState(isPracticeMode); // Auto-start in practice mode
+
     const [questionTimes, setQuestionTimes] = useState<Record<number, number>>({});
     const [statusMap, setStatusMap] = useState<Record<number, QuestionStatus>>({});
     const [showAnswer, setShowAnswer] = useState(false);
@@ -26,21 +92,12 @@ function TestPageContent() {
 
     const { bookmarks, toggleBookmark, stats, updateQuestionStat } = useQuiz();
 
-    const yearQuestions = useMemo(
-        () => questions.filter((q) => {
-            const isMatch = q.year === year;
-            if (!isMatch) return false;
-            if (type === "Compartment") return q.source.toLowerCase().includes("compartment");
-            return !q.source.toLowerCase().includes("compartment");
-        }),
-        [year, type]
-    );
-
-    const currentQ = yearQuestions[currentIndex];
+    const currentQ = testQuestions[currentIndex];
     const currentChapter = currentQ?.chapter || "Physics";
-    const totalMarks = yearQuestions.reduce((s, q) => s + q.marks, 0);
+    const totalMarks = testQuestions.reduce((s, q) => s + q.marks, 0);
 
-    const [timeLeft, setTimeLeft] = useState(3 * 60 * 60);
+    const [timeLeft, setTimeLeft] = useState(testQuestions.length > 30 ? 3 * 60 * 60 : testQuestions.length * 3 * 60); // Dynamic time based on question count approx? Or just keep 3 hours for full test.
+    // Actually for chapters practice, timer isn't critical but good to have.
 
     useEffect(() => {
         setIsLoaded(true);
@@ -54,7 +111,7 @@ function TestPageContent() {
         const newQuestionTimes = { ...questionTimes };
         let hasUpdates = false;
 
-        yearQuestions.forEach((q, idx) => {
+        testQuestions.forEach((q, idx) => {
             const stat = stats[q.id];
             if (stat) {
                 if (stat.attempted && !newStatusMap[idx]) {
@@ -76,7 +133,7 @@ function TestPageContent() {
             setStatusMap(newStatusMap);
             setQuestionTimes(newQuestionTimes);
         }
-    }, [isLoaded, stats, yearQuestions]); // Removed showAnswers check to allow Test Mode to see progress
+    }, [isLoaded, stats, testQuestions]); // Removed showAnswers check to allow Test Mode to see progress
 
     // Timer Logic
     useEffect(() => {
@@ -113,12 +170,12 @@ function TestPageContent() {
     };
 
     const goTo = useCallback((idx: number) => {
-        if (idx >= 0 && idx < yearQuestions.length) {
+        if (idx >= 0 && idx < testQuestions.length) {
             setCurrentIndex(idx);
             setShowAnswer(false);
             setSelectedOption(null);
         }
-    }, [yearQuestions.length]);
+    }, [testQuestions.length]);
 
     const handleToggleShowAnswer = () => {
         const newState = !showAnswer;
@@ -199,7 +256,7 @@ function TestPageContent() {
 
     const counts = useMemo(() => {
         const c = { correct: 0, wrong: 0, attempted: 0, seen: 0, notSeen: 0 };
-        for (let i = 0; i < yearQuestions.length; i++) {
+        for (let i = 0; i < testQuestions.length; i++) {
             const s = statusMap[i] || "not-seen";
             if (s === "correct") c.correct++;
             else if (s === "wrong") c.wrong++;
@@ -208,7 +265,7 @@ function TestPageContent() {
             else c.notSeen++;
         }
         return c;
-    }, [statusMap, yearQuestions.length]);
+    }, [statusMap, testQuestions.length]);
 
     const getStatusColor = (status: QuestionStatus) => {
         switch (status) {
@@ -231,13 +288,60 @@ function TestPageContent() {
         return null;
     }, [currentQ]);
 
+
+    // Grouping Logic
+    const groupedQuestions = useMemo(() => {
+        if (!testQuestions || testQuestions.length === 0) return null;
+
+        // Determine grouping mode
+        let groupBy: "year" | "marks" | null = null;
+
+        if (searchParam) {
+            const { year, marks } = parseSearchQuery(decodeURIComponent(searchParam));
+            // If searching for MARKS and NOT Year -> Group by Year
+            if (marks && !year) {
+                groupBy = "year";
+            }
+            // If searching for CHAPTER (or context is chapter) -> Group by Marks
+        }
+
+        if (chapter) {
+            groupBy = "marks";
+        }
+
+        if (!groupBy) return null;
+
+        const groups: Record<string, number[]> = {};
+
+        testQuestions.forEach((q, idx) => {
+            let key = "";
+            if (groupBy === "year") {
+                key = q.year.toString();
+            } else if (groupBy === "marks") {
+                key = `${q.marks} Mark${q.marks > 1 ? 's' : ''}`;
+            }
+            if (!groups[key]) groups[key] = [];
+            groups[key].push(idx);
+        });
+
+        // Sort keys
+        const sortedKeys = Object.keys(groups).sort((a, b) => {
+            if (groupBy === "year") return parseInt(b) - parseInt(a); // Descending Year
+            if (groupBy === "marks") return parseInt(a) - parseInt(b); // Ascending Marks
+            return 0;
+        });
+
+        return { groupBy, groups, sortedKeys };
+
+    }, [testQuestions, searchParam, chapter]);
+
     if (!started) {
         const sections = [
-            { type: "MCQ", count: yearQuestions.filter(q => q.type === "MCQ").length },
-            { type: "Short Answer", count: yearQuestions.filter(q => q.type === "Short").length },
-            { type: "Case Study", count: yearQuestions.filter(q => q.type === "Case Study").length },
-            { type: "Long Answer", count: yearQuestions.filter(q => (q.type === "Long" || q.marks === 3 || q.marks === 4) && q.type !== "Case Study").length },
-            { type: "Very Long Answer", count: yearQuestions.filter(q => q.marks === 5).length },
+            { type: "MCQ", count: testQuestions.filter(q => q.type === "MCQ").length },
+            { type: "Short Answer", count: testQuestions.filter(q => q.type === "Short").length },
+            { type: "Case Study", count: testQuestions.filter(q => q.type === "Case Study").length },
+            { type: "Long Answer", count: testQuestions.filter(q => (q.type === "Long" || q.marks === 3 || q.marks === 4) && q.type !== "Case Study").length },
+            { type: "Very Long Answer", count: testQuestions.filter(q => q.marks === 5).length },
         ].filter(s => s.count > 0);
 
         return (
@@ -245,9 +349,9 @@ function TestPageContent() {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="max-w-md w-full">
                     <div className={`rounded-2xl backdrop-blur-[24px] border p-8 text-center shadow-xl dark:shadow-none transition-colors duration-500 ${showAnswers ? "bg-white dark:bg-white/[0.04] border-gray-200 dark:border-white/[0.08]" : "bg-white/80 dark:bg-white/[0.04] border-purple-200 dark:border-purple-500/20"}`}>
                         <p className="text-[10px] uppercase tracking-[0.3em] text-purple-600/70 dark:text-purple-300/70 mb-3">CBSE Board Examination</p>
-                        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">{year} {type === "Compartment" ? "C" : ""}</h1>
+                        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">{searchParam ? `Search: "${searchParam}"` : (chapter ? (chapter === "All Chapters" ? "Practice Mode" : chapter) : `${year} ${type === "Compartment" ? "C" : ""}`)}</h1>
                         <p className="text-sm text-purple-600/80 dark:text-purple-300/80 mb-1">Physical Education — Class XII</p>
-                        <p className="text-xs text-purple-600/60 dark:text-purple-300/60 mb-8">{yearQuestions.length} questions • {totalMarks} marks • {showAnswers ? "Stopwatch Mode" : "3 Hours"}</p>
+                        <p className="text-xs text-purple-600/60 dark:text-purple-300/60 mb-8">{testQuestions.length} questions • {totalMarks} marks • {showAnswers ? "Practice Mode" : "3 Hours"}</p>
                         <div className="space-y-2 mb-8 text-left">
                             {sections.map((sec) => (
                                 <div key={sec.type} className="flex items-center justify-between text-[11px] px-3 py-2 rounded-lg bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06]">
@@ -270,7 +374,18 @@ function TestPageContent() {
         <div className={`min-h-screen flex flex-col transition-colors duration-500 ${showAnswers ? "bg-white dark:bg-black" : "bg-[#fcfaff] dark:bg-black"}`}>
             {/* Header */}
             <div className={`flex items-center gap-3 px-4 py-3 border-b transition-colors duration-500 ${showAnswers ? "border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02]" : "border-purple-100 dark:border-white/[0.06] bg-white/60 backdrop-blur-md dark:bg-white/[0.02]"}`}>
-                <button onClick={() => router.push('/yearly')} className="text-gray-500 dark:text-purple-300/80 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <button
+                    onClick={() => {
+                        if (searchParam) {
+                            router.back();
+                        } else if (chapter) {
+                            router.push(`/chapters?chapter=${encodeURIComponent(chapter)}`);
+                        } else {
+                            router.push(`/yearly?year=${year}`);
+                        }
+                    }}
+                    className="text-gray-500 dark:text-purple-300/80 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5" /><polyline points="12 19 5 12 12 5" /></svg>
                 </button>
                 <h1 className="text-sm font-semibold text-gray-900 dark:text-white flex-1 truncate">{currentChapter}</h1>
@@ -281,7 +396,7 @@ function TestPageContent() {
 
             {/* Navigation Bar */}
             <div className={`flex items-center gap-1.5 px-4 py-2.5 border-b overflow-x-auto ${showAnswers ? "bg-gray-50 dark:bg-white/[0.01]" : "bg-purple-50/30 dark:bg-white/[0.01]"}`}>
-                {yearQuestions.map((_, idx) => (
+                {testQuestions.map((_, idx) => (
                     <button key={idx} onClick={() => goTo(idx)} className={`flex-shrink-0 w-8 h-8 rounded-lg text-[11px] font-semibold transition-all ${idx === currentIndex ? "bg-gradient-to-br from-purple-600 to-fuchsia-600 text-white ring-2 ring-purple-400/50 scale-110" : getStatusColor(statusMap[idx] || "not-seen")}`}>
                         {idx + 1}
                     </button>
@@ -339,7 +454,7 @@ function TestPageContent() {
 
                 {/* Sidebar */}
                 {sidebarOpen && (
-                    <motion.div initial={{ width: 0 }} animate={{ width: 220 }} className="border-l border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02] hidden md:block p-4">
+                    <motion.div initial={{ width: 0 }} animate={{ width: 220 }} className="border-l border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02] hidden md:block p-4 overflow-y-auto">
                         <div className="flex items-center gap-2 mb-4 text-[10px]">
                             <span className="text-emerald-400">●</span><span className="dark:text-purple-300/70">{counts.correct}</span>
                             <span className="text-red-400">●</span><span className="dark:text-purple-300/70">{counts.wrong}</span>
@@ -347,13 +462,33 @@ function TestPageContent() {
                             <span className="text-amber-400">●</span><span className="dark:text-purple-300/70">{counts.seen}</span>
                             <span className="dark:text-purple-300/40">{counts.notSeen}</span>
                         </div>
-                        <div className="grid grid-cols-6 gap-1.5">
-                            {yearQuestions.map((_, idx) => (
-                                <button key={idx} onClick={() => goTo(idx)} className={`w-full aspect-square rounded-lg text-[11px] font-semibold ${idx === currentIndex ? "ring-2 ring-purple-400 bg-purple-500/30" : getStatusColor(statusMap[idx] || "not-seen")}`}>
-                                    {idx + 1}
-                                </button>
-                            ))}
-                        </div>
+
+                        {groupedQuestions ? (
+                            <div className="space-y-4">
+                                {groupedQuestions.sortedKeys.map((key) => (
+                                    <div key={key}>
+                                        <h3 className="text-[10px] uppercase font-bold text-gray-400 dark:text-purple-300/40 mb-2 sticky top-0 bg-[#fff]/90 dark:bg-[#000]/90 backdrop-blur-sm z-10 py-1">
+                                            {key}
+                                        </h3>
+                                        <div className="grid grid-cols-5 gap-1.5">
+                                            {groupedQuestions.groups[key].map((idx) => (
+                                                <button key={idx} onClick={() => goTo(idx)} className={`w-full aspect-square rounded-lg text-[10px] font-semibold flex items-center justify-center transition-all ${idx === currentIndex ? "ring-2 ring-purple-400 bg-purple-500/30 text-purple-700 dark:text-white" : getStatusColor(statusMap[idx] || "not-seen")}`}>
+                                                    {idx + 1}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="grid grid-cols-6 gap-1.5">
+                                {testQuestions.map((_, idx) => (
+                                    <button key={idx} onClick={() => goTo(idx)} className={`w-full aspect-square rounded-lg text-[11px] font-semibold ${idx === currentIndex ? "ring-2 ring-purple-400 bg-purple-500/30" : getStatusColor(statusMap[idx] || "not-seen")}`}>
+                                        {idx + 1}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
                     </motion.div>
                 )}
             </div>
@@ -371,8 +506,62 @@ function TestPageContent() {
                     )}
                 </div>
                 <div className="flex items-center gap-2">
+                    {/* Check Button: Only for Practice Mode and MCQs */}
+                    {isPracticeMode && currentQ.type === "MCQ" && (
+                        <button
+                            onClick={() => {
+                                // Logic: If MCQ, validate. Even if already correct, maybe re-check?
+                                // Let's just trigger show answer logic which handles validation
+                                setShowAnswer(true);
+
+                                // If it's an MCQ and option selected, validation happens in handleToggleShowAnswer/helper
+                                if (currentQ.type === "MCQ") {
+                                    if (selectedOption) {
+                                        const ans = currentQ.answer.trim();
+                                        let correctLabel = "";
+                                        const match = ans.match(/^\(([a-d])\)/i) || ans.match(/^([a-d])\)/i);
+                                        if (match) correctLabel = match[1].toUpperCase();
+                                        else if (ans.startsWith("(A)") || ans.startsWith("A)")) correctLabel = "A";
+                                        else if (ans.startsWith("(B)") || ans.startsWith("B)")) correctLabel = "B";
+                                        else if (ans.startsWith("(C)") || ans.startsWith("C)")) correctLabel = "C";
+                                        else if (ans.startsWith("(D)") || ans.startsWith("D)")) correctLabel = "D";
+
+                                        if (correctLabel) {
+                                            const isCorrect = selectedOption === correctLabel;
+                                            setStatusMap((prev) => ({ ...prev, [currentIndex]: isCorrect ? "correct" : "wrong" }));
+                                            updateQuestionStat(currentQ.id, {
+                                                attempted: true,
+                                                correct: isCorrect,
+                                                selectedOption: selectedOption || undefined,
+                                                timeSpent: questionTimes[currentIndex] || 0
+                                            });
+                                        }
+                                    } else {
+                                        // No option selected for MCQ
+                                        // Maybe alert user? Or just show answer?
+                                        // For now, let's just mark seen/attempted
+                                        setStatusMap((prev) => {
+                                            if (prev[currentIndex] === 'correct' || prev[currentIndex] === 'wrong') return prev;
+                                            return { ...prev, [currentIndex]: "attempted" }; // Mark as attempted so they know they checked it
+                                        });
+                                    }
+                                } else {
+                                    // Subjective
+                                    setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
+                                    updateQuestionStat(currentQ.id, {
+                                        attempted: true,
+                                        timeSpent: questionTimes[currentIndex] || 0
+                                    });
+                                }
+                            }}
+                            className="px-5 py-2 rounded-lg text-xs font-semibold bg-emerald-500 hover:bg-emerald-600 text-white transition-colors"
+                        >
+                            Check
+                        </button>
+                    )}
+
                     <button onClick={() => goTo(currentIndex - 1)} disabled={currentIndex === 0} className="px-5 py-2 rounded-lg text-xs bg-white dark:bg-white/[0.06] dark:text-white border dark:border-white/[0.08] disabled:opacity-50">Previous</button>
-                    <button onClick={handleNext} disabled={currentIndex >= yearQuestions.length - 1} className="px-5 py-2 rounded-lg text-xs bg-purple-600 dark:bg-purple-500 text-white disabled:opacity-30">Next</button>
+                    <button onClick={handleNext} disabled={currentIndex >= testQuestions.length - 1} className="px-5 py-2 rounded-lg text-xs bg-purple-600 dark:bg-purple-500 text-white disabled:opacity-30">Next</button>
                 </div>
             </div>
         </div>

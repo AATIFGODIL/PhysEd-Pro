@@ -8,20 +8,23 @@ const fuse = new Fuse(questions, {
         { name: "topic", weight: 0.2 },
         { name: "answer", weight: 0.05 },
         { name: "year", weight: 0.1 },
+        { name: "source", weight: 0.15 }, // Added source
     ],
     threshold: 0.4,
     includeScore: true,
 });
 
-export function searchQuestions(query: string): Question[] {
-    if (!query.trim()) return questions;
+export interface SearchFilters {
+    year?: number;
+    marks?: number;
+    type?: string;
+    source?: string;
+    textQuery: string;
+}
 
+export function parseSearchQuery(query: string): SearchFilters {
     let textQuery = query;
-    const filters: {
-        year?: number;
-        marks?: number;
-        type?: string;
-    } = {};
+    const filters: SearchFilters = { textQuery: "" };
 
     // 1. Extract Year (2022-2025)
     const yearMatch = textQuery.match(/\b(202[2-5])\b/);
@@ -37,53 +40,82 @@ export function searchQuestions(query: string): Question[] {
         textQuery = textQuery.replace(marksMatch[0], "").trim();
     }
 
-    // 3. Extract Type (MCQ, Short, Long, Case Study)
+    // 3. Extract Exam Source (Compartment / Main)
+    if (/\bcompartment\b/i.test(textQuery)) {
+        filters.source = "Compartment";
+        textQuery = textQuery.replace(/\bcompartment\b/i, "").trim();
+    } else if (/\bmain\b/i.test(textQuery)) {
+        filters.source = "Main";
+        textQuery = textQuery.replace(/\bmain\b/i, "").trim();
+    }
+
+    // 4. Extract Type (MCQ, Short, Long, Case Study)
     const typePatterns = [
         { key: "MCQ", regex: /\b(mcq|objective)\b/i },
         { key: "Short", regex: /\b(short)\b/i },
-        { key: "Long", regex: /\b(long)\b/i }, // "Very Long" might be tricky, let's just catch "Long" first
+        { key: "Long", regex: /\b(long)\b/i },
         { key: "Case Study", regex: /\b(case\s*study)\b/i },
     ];
 
     for (const p of typePatterns) {
         if (p.regex.test(textQuery)) {
-            // Special handling for "Very Long" if "Long" is matched? 
-            // Actually, let's keep it simple. If "Very Long" is needed, user might type "5 marks" which is safer.
-            // But if they type "very long", "long" matches. 
-            // Let's check for "very long" specifically.
             if (p.key === "Long" && /\bvery\s*long\b/i.test(textQuery)) {
-                filters.type = "Very Long"; // If data supports it, otherwise "Long" usually covers 3/4
+                filters.type = "Very Long";
                 textQuery = textQuery.replace(/\bvery\s*long\b/i, "").trim();
             } else {
                 filters.type = p.key;
                 textQuery = textQuery.replace(p.regex, "").trim();
             }
-            break; // Single type filter usually
+            break;
         }
     }
 
-    // 4. Apply Filters
+    filters.textQuery = textQuery;
+    return filters;
+}
+
+export function searchQuestions(query: string): Question[] {
+    if (!query.trim()) return questions;
+
+    const { year, marks, type, source, textQuery } = parseSearchQuery(query);
+
+    // 5. Apply Filters
     let filtered = questions;
-    if (filters.year) filtered = filtered.filter(q => q.year === filters.year);
-    if (filters.marks) filtered = filtered.filter(q => q.marks === filters.marks);
-    if (filters.type) {
-        // Broaden "Long" to include "Very Long" if strictly just "Long" asked?
-        // Or assume strict mapping. 
-        // Data has distinct "Very Long" (5 marks). 
-        if (filters.type === "Long") {
-            // Maybe user means 3 or 4 marks.
+    if (year) filtered = filtered.filter(q => q.year === year);
+    if (marks) filtered = filtered.filter(q => q.marks === marks);
+
+    // Source Filter logic
+    if (source) {
+        if (source === "Compartment") {
+            filtered = filtered.filter(q => q.source.toLowerCase().includes("compartment"));
+        } else {
+            filtered = filtered.filter(q => !q.source.toLowerCase().includes("compartment"));
+        }
+    }
+
+    if (type) {
+        if (type === "Long") {
             filtered = filtered.filter(q => q.type === "Long" || q.marks === 3 || q.marks === 4);
         } else {
-            filtered = filtered.filter(q => q.type === filters.type);
+            filtered = filtered.filter(q => q.type === type);
         }
     }
 
-    // 5. Text Search with Fuse if text remains
+    // 6. Text Search with Fuse if text remains
     if (textQuery.length > 1) {
-        const results = fuse.search(textQuery);
-        // Intersect Fuse results with filtered results
-        const fuseIds = new Set(results.map(r => r.item.id));
-        return filtered.filter(q => fuseIds.has(q.id));
+        const fuseInstance = new Fuse(filtered, {
+            keys: [
+                { name: "question", weight: 0.4 },
+                { name: "chapter", weight: 0.25 },
+                { name: "topic", weight: 0.2 },
+                { name: "answer", weight: 0.05 },
+            ],
+            threshold: 0.4,
+            includeScore: true,
+        });
+
+        const results = fuseInstance.search(textQuery);
+        return results.map(r => r.item);
     }
 
     return filtered;

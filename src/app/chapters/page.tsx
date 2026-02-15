@@ -2,13 +2,15 @@
 
 import { useState, useMemo, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { questions, chapters } from "@/data/questions";
 import { QuestionCard } from "@/components/QuestionCard";
 import { LiquidCard } from "@/components/LiquidCard"; // Added import
 import { useQuiz } from "@/context/QuizContext";
 
+
 function ChaptersContent() {
+    const router = useRouter(); // Added router hook
     const searchParams = useSearchParams();
     const initialChapter = searchParams.get("chapter") || null;
 
@@ -262,7 +264,12 @@ function ChaptersContent() {
                 <div className="space-y-3 pb-16">
                     <AnimatePresence mode="popLayout">
                         {filteredQuestions.map((q, i) => (
-                            <QuestionCard key={q.id} question={q} index={i} />
+                            <QuestionCard
+                                key={q.id}
+                                question={q}
+                                index={i}
+                                onClick={() => router.push(`/test?chapter=${encodeURIComponent(q.chapter)}&questionId=${q.id}&mode=practice`)}
+                            />
                         ))}
                     </AnimatePresence>
 

@@ -2219,10 +2219,16 @@ Scoring:
 • The time taken to complete 25 cycles is recorded`,
         source: "CBSE 2025 Board Exam",
     },
-    // ─────────────────────────────────────────────
-    //  2023 Compartment
-    // ─────────────────────────────────────────────
+    // ═══════════════════════════════════════════════════════════════
+    //  CBSE CLASS XII PHYSICAL EDUCATION
+    //  COMPARTMENT EXAMS — 2023 | 2024 | 2025
+    //  All Sections: A (MCQ) · B (2 marks) · C (3 marks) · D (Case Study) · E (5 marks)
+    // ═══════════════════════════════════════════════════════════════
 
+
+    // ─────────────────────────────────────────────
+    //  2023 COMPARTMENT — SECTION A  (MCQ, 1 mark)
+    // ─────────────────────────────────────────────
     {
         id: "C_2023_1",
         year: 2023,
@@ -2232,7 +2238,7 @@ Scoring:
         marks: 1,
         question: `Rules and regulations of a sports tournament are the responsibility of _______ Committee.`,
         options: ["Technical", "Logistics", "Marketing", "Finance"],
-        answer: "Technical",
+        answer: `Technical`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2242,9 +2248,9 @@ Scoring:
         topic: "Children & Women in Sports",
         type: "MCQ",
         marks: 1,
-        question: `First menstrual period in a young girl is called:`,
+        question: `First menstrual period in a young girl is called :`,
         options: ["Menstrual dysfunction", "Osteoporosis", "Amenorrhea", "Menarche"],
-        answer: "Menarche",
+        answer: `Menarche`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2256,7 +2262,7 @@ Scoring:
         marks: 1,
         question: `Which of the following asana is NOT used to cure obesity?`,
         options: ["Pavanmuktasana", "Halasana", "Shavasana", "Paschimottanasana"],
-        answer: "Shavasana",
+        answer: `Shavasana`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2268,7 +2274,7 @@ Scoring:
         marks: 1,
         question: `The founder of Special Olympics is _________.`,
         options: ["John F. Kennedy", "Ludwig Guttmann", "Eugene Rubens", "Eunice Kennedy Shriver"],
-        answer: "Eunice Kennedy Shriver",
+        answer: `Eunice Kennedy Shriver`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2280,7 +2286,7 @@ Scoring:
         marks: 1,
         question: `The duration of micro plan in sports training may be ________.`,
         options: ["3 – 7 days", "3 – 7 weeks", "3 – 4 months", "3 – 4 years"],
-        answer: "3 – 7 days",
+        answer: `3 – 7 days`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2292,7 +2298,7 @@ Scoring:
         marks: 1,
         question: `Partial curl-up test is used to measure _________.`,
         options: ["Speed", "Strength", "Reaction time", "Flexibility"],
-        answer: "Strength",
+        answer: `Strength`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2304,7 +2310,7 @@ Scoring:
         marks: 1,
         question: `Sprain is related to _________.`,
         options: ["Muscle", "Ligament", "Bone", "Tendon"],
-        answer: "Ligament",
+        answer: `Ligament`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2314,9 +2320,9 @@ Scoring:
         topic: "Psychology & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which of the following is NOT a Jung's classification of personality?`,
+        question: `Which of the following is NOT a classification of Jung's personality?`,
         options: ["Introvert", "Endomorph", "Extrovert", "Ambivert"],
-        answer: "Endomorph",
+        answer: `Endomorph`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2326,9 +2332,9 @@ Scoring:
         topic: "Training in Sports",
         type: "MCQ",
         marks: 1,
-        question: `The ability to combine the movement of different body parts is known as:`,
+        question: `The ability to combine the movement of different body parts is known as :`,
         options: ["Coupling ability", "Reaction ability", "Rhythm ability", "Adaptation ability"],
-        answer: "Coupling ability",
+        answer: `Coupling ability`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2338,16 +2344,19 @@ Scoring:
         topic: "Psychology & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Assertion (A): Aggression is a type of hostile behaviour aimed to harm other persons.
-Reason (R): Aggression is unintentional.
-Which one of the following is correct?`,
+        question: `Given below are two statements labelled Assertion (A) and Reason (R).
+
+Assertion (A) : Aggression is a type of hostile behaviour aimed to harm other persons.
+Reason (R) : Aggression is unintentional.
+
+In the context of the above two statements, which one of the following is correct?`,
         options: [
             "Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of the Assertion (A).",
             "Both Assertion (A) and Reason (R) are true, but Reason (R) is not the correct explanation of the Assertion (A).",
             "Assertion (A) is true, but Reason (R) is false.",
-            "Assertion (A) is false, but Reason (R) is true."
+            "Assertion (A) is false, but Reason (R) is true.",
         ],
-        answer: "Assertion (A) is true, but Reason (R) is false.",
+        answer: `Assertion (A) is true, but Reason (R) is false.`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2357,14 +2366,17 @@ Which one of the following is correct?`,
         topic: "Physiology & Injuries in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match List I (A. Abrasion, B. Fracture, C. Dislocation, D. Strain) with List II (i. Joint, ii. Bone, iii. Muscle, iv. Skin):`,
+        question: `Match List I with List II and select the correct answer from the codes given below :
+
+List I: A. Abrasion, B. Fracture, C. Dislocation, D. Strain
+List II: (i) Joint, (ii) Bone, (iii) Muscle, (iv) Skin`,
         options: [
             "A-(iv), B-(ii), C-(i), D-(iii)",
             "A-(iv), B-(ii), C-(iii), D-(i)",
             "A-(iv), B-(i), C-(iii), D-(ii)",
-            "A-(iii), B-(iv), C-(ii), D-(i)"
+            "A-(iii), B-(iv), C-(ii), D-(i)",
         ],
-        answer: "A-(iv), B-(ii), C-(i), D-(iii)",
+        answer: `A-(iv), B-(ii), C-(i), D-(iii)`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2374,9 +2386,9 @@ Which one of the following is correct?`,
         topic: "Sports & Nutrition",
         type: "MCQ",
         marks: 1,
-        question: `Fats and oils come under:`,
+        question: `Fats and oils come under :`,
         options: ["Bodybuilding foods", "Protective foods", "Routine foods", "Energy-giving foods"],
-        answer: "Energy-giving foods",
+        answer: `Energy-giving foods`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2388,7 +2400,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `How many matches will be played in the 2nd round of a knockout tournament if 17 teams are participating?`,
         options: ["6", "7", "8", "5"],
-        answer: "8",
+        answer: `8`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2398,9 +2410,9 @@ Which one of the following is correct?`,
         topic: "Children & Women in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Flat foot deformity is also known as:`,
+        question: `Flat-foot deformity is also known as :`,
         options: ["Genu varum", "Pes planus", "Genu valgum", "Lateral curvature"],
-        answer: "Pes planus",
+        answer: `Pes planus`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2410,9 +2422,9 @@ Which one of the following is correct?`,
         topic: "Yoga & Lifestyle",
         type: "MCQ",
         marks: 1,
-        question: `Suryabhedi Pranayam is performed to control:`,
+        question: `Suryabhedi Pranayam is performed to control :`,
         options: ["Obesity", "Diabetes", "Asthma", "Hypertension"],
-        answer: "Obesity",
+        answer: `Obesity`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2422,14 +2434,14 @@ Which one of the following is correct?`,
         topic: "Test & Measurement in Sports",
         type: "MCQ",
         marks: 1,
-        question: `The purpose of Plate Tapping Test is:`,
+        question: `The purpose of Plate Tapping Test is :`,
         options: [
             "To know the strength of hands",
             "To know the cardiovascular efficiency",
             "To know hand-eye quickness and co-ordination",
-            "To know the flexibility"
+            "To know the flexibility",
         ],
-        answer: "To know hand-eye quickness and co-ordination",
+        answer: `To know hand-eye quickness and co-ordination`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2441,7 +2453,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `Friction can be increased by using ________.`,
         options: ["Lubricant", "Polishing", "Magnesium Powder", "Ball Bearing"],
-        answer: "Magnesium Powder",
+        answer: `Magnesium Powder`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2451,11 +2463,16 @@ Which one of the following is correct?`,
         topic: "Biomechanics & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which Newton's law of motion will be applied at the time of take-off in long jump?`,
+        question: `Which law of Newton is applied when a long jumper takes off?`,
         options: ["Law of Acceleration", "Law of Inertia", "Law of Reaction", "Law of Gravity"],
-        answer: "Law of Reaction",
+        answer: `Law of Reaction`,
         source: "CBSE 2023 Compartment Exam",
     },
+
+
+    // ─────────────────────────────────────────────
+    //  2023 COMPARTMENT — SECTION B  (2 marks, attempt any 5)
+    // ─────────────────────────────────────────────
     {
         id: "C_2023_19",
         year: 2023,
@@ -2464,7 +2481,19 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 2,
         question: `Explain any two functions of marketing committee, before and during the sports competition.`,
-        answer: `Pre-event: arranging sponsorships, publicity, press release, event campaigns, food/drink partners. During event: works with media, issues press releases, manages communication, arranges telecast. (Any 2 from each)`,
+        answer: `Pre-sports event (any 2):
+• Arranging for sponsorships
+• Publicity of the event
+• Issues related to press release
+• Campaigns related to the event
+• Arranging food and drink partners
+
+During sports event (any 2):
+• Works with media
+• Issues press release
+• Manages methods of communication
+• Fulfils the requirements
+• Arranges for telecast of event`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2475,7 +2504,14 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 2,
         question: `Enlist any four corrective measures for Knock-knees.`,
-        answer: `Horse-riding exercises; keeping pillow between knees and standing erect; Padmasana and Gomukhasana; Vrikshasana; leg raises seated/lying; using walking calipers; outward walking on outer edge of foot. (Any 4)`,
+        answer: `Corrective Measures for Knock Knees (any 4):
+• Exercises like horse-riding
+• Keeping a pillow between the knees and standing erect for some time
+• Performing Padmasana and Gomukhasana
+• Vrikshasana also helps in correcting knock knee
+• Leg raises while seated or lying down
+• Using walking calipers
+• Outward walking — try to walk on the outer edge of the foot`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2486,7 +2522,19 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 2,
         question: `State any four benefits of Kapalbhati.`,
-        answer: `Increases lung capacity; massages abdominal organs and improves digestion; purifies frontal air sinuses; useful for cold, sinusitis, asthma; increases metabolic rate and aids weight loss; improves blood circulation; removes acidity and gas; reduces CO2 in blood; relieves anxiety; beneficial for insomnia. (Any 4)`,
+        answer: `Benefits of Kapalbhati (any 4):
+1. Increases the capacity of lungs
+2. Massages abdominal organs and improves digestion
+3. Purifies the frontal air sinuses and stimulates the brain
+4. Useful in treating cold, sinusitis and bronchial infection like asthma
+5. Increases the metabolic rate and aids in weight loss
+6. Improves blood circulation and adds radiance to face
+7. Removes acidity and gas related problems
+8. Removes toxins
+9. Reduces CO₂ levels in the blood
+10. Relieves anxiety and tension
+11. Beneficial in curing insomnia
+12. Increases endorphins; is a mood elevator`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2497,18 +2545,34 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 2,
         question: `List down any two sources and two functions of protein.`,
-        answer: `Sources: Plant (pulses, beans, nuts, grains); Animal (eggs, meat, fish, milk). Functions: Drives metabolic reactions; strengthens immune system; repair and builds body tissues; transports and stores nutrients; forms antibodies; regulates water and acid balance. (Any 2 sources + any 2 functions)`,
+        answer: `Sources of proteins (any 2):
+1. Plant sources: Pulses, beans, nuts, grain
+2. Animal sources: Eggs, meat, fish, milk and its products
+
+Functions of proteins (any 2):
+1. Drives metabolic reactions
+2. Strengthens the immune system
+3. Helps in repair and builds body tissues
+4. Transports and stores nutrients; can act as an energy source
+5. Forms antibodies
+6. Regulates balance of water and acid and maintains proper pH values
+7. Forms a part of various enzymes and hormones
+8. Proteins like keratin, collagen and elastin help form the connective framework of certain structures in the body`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
         id: "C_2023_23",
         year: 2023,
-        chapter: "Physiology & Injuries in Sports",
-        topic: "Physiology & Injuries in Sports",
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
         type: "Short",
         marks: 2,
         question: `Write any two physiological factors determining speed.`,
-        answer: `1. Nervous system and its mobility. 2. Composition of muscle fibres – larger the fast twitch fibres, more the speed. 3. Flexibility – better flexibility helps generate better speed. 4. Phosphogen stores – energy stored in muscle determines speed of movement. (Any 2)`,
+        answer: `1. Nervous system and its mobility
+2. Composition of muscle fibres — larger the fast-twitch fibres, more the speed
+3. Flexibility — better flexibility helps in generating better speed
+4. Phosphogen stores — energy stored in the muscle determines speed of movement
+(Any 2 relevant points)`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2518,10 +2582,20 @@ Which one of the following is correct?`,
         topic: "Psychology & Sports",
         type: "Short",
         marks: 2,
-        question: `According to Big Five Theory, write any two traits of personality.`,
-        answer: `Openness (imaginative, creative, curious); Conscientiousness (self-disciplined, goal-driven, organised); Extraversion (energetic, talkative, social); Agreeableness (friendly, cooperative, kind, trustworthy); Neuroticism (insecure, anxious, hostile, impulsive). (Any 2)`,
+        question: `According to the 'Big Five Theory', write any two traits of personality.`,
+        answer: `Traits of personality — Big Five Theory (any 2):
+1. Openness — Imaginative, insightful, creative, intellectual, curious, open to learn new things, independent
+2. Conscientiousness — Competence, self-discipline, goal-driven, thoughtfulness, hardworking, organised, responsible
+3. Extraversion — Energetic, talkative, interactive, affectionate, social
+4. Agreeableness — Friendly, co-operative, compatible, kind, gentle, generous, sympathetic, trustworthy, helpful
+5. Neuroticism — Insecure, nervous, anxious, unpleasant emotions, impulsive, hostile`,
         source: "CBSE 2023 Compartment Exam",
     },
+
+
+    // ─────────────────────────────────────────────
+    //  2023 COMPARTMENT — SECTION C  (3 marks, attempt any 5)
+    // ─────────────────────────────────────────────
     {
         id: "C_2023_25",
         year: 2023,
@@ -2530,7 +2604,16 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 3,
         question: `Explain any three effects of exercise on the cardio-respiratory system.`,
-        answer: `Blood flow in arteries and veins increases (cardiac output and stroke volume); blood pressure decreases; number of capillaries increases; size of heart increases; vital capacity improves; aerobic and anaerobic capacity improves; breathing rate decreases; resting heart rate decreases; increase in VO2 max. (Any 3)`,
+        answer: `Effects of exercise on the cardio-respiratory system (any 3):
+1. Blood flow increases in arteries and veins (cardiac output and stroke volume)
+2. Blood pressure decreases
+3. Number of capillaries increases
+4. Size of heart increases (Athletic heart)
+5. Vital capacity of lungs improves
+6. Aerobic and anaerobic capacity of an individual improves
+7. Breathing rate decreases
+8. Decrease in resting heart rate
+9. Increase in maximum oxygen uptake (VO₂ max)`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2541,7 +2624,11 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 3,
         question: `Briefly explain the non-nutritive components of diet.`,
-        answer: `1. Fibre/Roughage – undigested part of food; adds bulk; sources: whole cereals, fresh fruits/vegetables. 2. Water – essential component; transports nutrients; helps excretion of waste. 3. Flavouring Agents – enhance taste of food; derived from nutritive and non-nutritive components. 4. Colour Compounds – make food attractive; derived from natural or artificial pigments. (Any 3)`,
+        answer: `Non-nutritive components of diet (any 3):
+1. Fibre/Roughage — The undigested part of food which can't be absorbed by the human intestinal tract; adds bulk to food. Sources: Whole cereals, fresh fruits/vegetables.
+2. Water — An essential component of diet. Helps in transportation of nutrients to body cells and helps in excretion of waste products.
+3. Flavouring Agents — Derived from both nutritive and non-nutritive components of food; enhance taste of food.
+4. Colour Compounds — Make food more attractive and appealing. Derived from natural/artificial pigments.`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2551,8 +2638,16 @@ Which one of the following is correct?`,
         topic: "Children & Women in Sports",
         type: "Short",
         marks: 3,
-        question: `Discuss about the female athlete triad.`,
-        answer: `1. Osteoporosis – weak bones. 2. Amenorrhea – Primary amenorrhea; Secondary amenorrhea. 3. Eating disorder – Anorexia nervosa; Bulimia nervosa.`,
+        question: `Discuss about the Female Athlete Triad.`,
+        answer: `The Female Athlete Triad consists of three interrelated conditions:
+
+1. Osteoporosis — Weak bones due to loss of bone mineral density.
+2. Amenorrhea:
+   • Primary amenorrhea — First period does not start by age 15.
+   • Secondary amenorrhea — Normal menstrual bleeding stops for 3 or more months.
+3. Eating Disorders:
+   • Anorexia Nervosa — Person severely limits food intake to prevent weight gain.
+   • Bulimia Nervosa — Person eats large amounts of food in a short time and then purges.`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2563,7 +2658,16 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 3,
         question: `Write the purpose and procedure of Sit-and-Reach Test as per SAI Khelo India Fitness Test.`,
-        answer: `Purpose: Measures flexibility of lower back and hamstring muscles. Procedure: Sit on floor with legs stretched straight; remove shoes; soles flat against the box; knees locked and pressed flat; palms facing down, hands on top of each other, reach forward as far as possible; hold position for 1–2 seconds; record the distance. No jerky movements.`,
+        answer: `Purpose: Common measure of flexibility; specifically measures the flexibility of the lower back and hamstring muscles.
+
+Procedure:
+1. This test involves sitting on the floor with legs stretched out straight ahead.
+2. Shoes should be removed.
+3. The soles of the feet are placed flat against the Sit and Reach box.
+4. Both knees should be locked and pressed flat to the floor — the tester may assist by holding them down.
+5. With the palms facing downwards and hands on top of each other, the subject reaches forward along the measuring line as far as possible.
+6. Ensure that the hands remain at the same level, not one reaching further forward than the other.
+7. After some practice, the subject reaches out and holds that position for 1–2 seconds while the distance is recorded. No jerky movements.`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2573,8 +2677,8 @@ Which one of the following is correct?`,
         topic: "Physical Education & Sports for CWSN",
         type: "Short",
         marks: 3,
-        question: `Write a short note on Paralympic Games.`,
-        answer: `International multisport events for athletes with a range of disabilities; first held in 1960 in Rome; held after respective Summer and Winter Olympics; governed by International Paralympic Committee; athletes compete in six disability groups – Amputee, Cerebral palsy, Visual impairment, Spinal cord injuries, Intellectual disability, and Les autres (e.g., Dwarfism).`,
+        question: `Write a short note on 'Paralympic' Games.`,
+        answer: `The Paralympic Games is a periodic series of international multisport events involving athletes with a range of disabilities. These were held for the first time in 1960 in Rome. They are held following the respective summer and winter Olympic Games. All Paralympic games are governed by the International Paralympic Committee. The Paralympic athletes compete in six different disability groups — Amputee, Cerebral Palsy, Visual Impairment, Spinal Cord Injuries, Intellectual Disability and 'Les Autres' (i.e. Dwarfism).`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2585,9 +2689,27 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 3,
         question: `Describe the procedure and any two benefits of Pavanmuktasana.`,
-        answer: `Procedure: Lie on back, stretch legs straight; bend right knee, hold with hands pressing towards abdomen; exhale and lift head to touch knee with chin; inhale and return; repeat with left leg; then press abdomen with both legs, chin between knees. Benefits: Stretches neck and back; releases trapped gases from large intestine; improves digestive system; relieves constipation; strengthens lower back; reduces fat in abdomen/thighs/buttocks. (Procedure 2 marks + any 2 benefits 1 mark)`,
+        answer: `Procedure of Pavanmuktasana:
+1. Lie on back, stretching your legs straight.
+2. Bend your right knee and hold it with your hands, pressing it towards your abdomen. Breathe out while lifting up your head and try to touch your knee with your chin.
+3. Breathe in and come to initial position.
+4. Now repeat the same procedure with the left leg.
+5. Then press your abdomen with both legs, placing your chin between your knees.
+
+Benefits (any 2):
+• Stretches the neck and back
+• The abdominal muscles are stretched and internal organs are compressed, increasing blood circulation
+• The pressure on the abdomen releases any trapped gases in the large intestine
+• Digestive system is improved; relieves constipation
+• Strengthens the lower back muscles and loosens the spinal vertebrae
+• Reduces fats in the abdominal area, thighs and buttocks`,
         source: "CBSE 2023 Compartment Exam",
     },
+
+
+    // ─────────────────────────────────────────────
+    //  2023 COMPARTMENT — SECTION D  (Case Studies, 4 marks)
+    // ─────────────────────────────────────────────
     {
         id: "C_2023_31",
         year: 2023,
@@ -2595,8 +2717,25 @@ Which one of the following is correct?`,
         topic: "Sports & Nutrition",
         type: "Case Study",
         marks: 4,
-        question: `Vitamins and minerals are essential nutrients. (i) ______ is a group of 8 water-soluble vitamins important for cellular metabolism. (ii) ________ disease is caused due to lack of Vitamin C. (iii) Vitamin ________ is important for healthy bones and teeth. (iv) Vitamin ______ is needed for blood-clotting. [OR for visually impaired: What is Vitamin? Explain functions and sources of Vitamin A and D.]`,
-        answer: `(i) Vitamin B (ii) Scurvy (iii) D (iv) K [OR Night blindness – deficiency of Vitamin A]`,
+        question: `Vitamins and minerals are essential nutrients which protect us from various diseases and are helpful for general development of the body.
+
+(i) _______ is a group of 8 water-soluble vitamins which are important for cellular metabolism.
+(ii) _______ disease is caused due to lack of Vitamin C.
+(iii) Vitamin _______ is important for healthy bones and teeth.
+(iv) Vitamin _______ is needed for blood-clotting.
+OR: Night blindness occurs due to the deficiency of Vitamin _______.`,
+        answer: `(i) Vitamin B
+(ii) Scurvy
+(iii) D
+(iv) K
+OR: Night blindness occurs due to the deficiency of Vitamin A
+
+(For Visually Impaired — Vitamin A and D functions & sources):
+Vitamin A Sources: Milk, cheese, cream, butter, egg yolk, liver, beta-carotene, dark green leafy vegetables, red and yellow fruits/vegetables
+Vitamin A Functions: Needed for vision in dim light; healthy skin and mucous membranes; growth of skeletal and soft tissues; immune system health
+
+Vitamin D Sources: Egg yolks, liver, fatty fish, fortified foods; sunlight exposure
+Vitamin D Functions: Needed for proper absorption of calcium and phosphorus; deposition of calcium and phosphorus in bones`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2606,8 +2745,22 @@ Which one of the following is correct?`,
         topic: "Test & Measurement in Sports",
         type: "Case Study",
         marks: 4,
-        question: `Senior citizen fitness tests (pictures A, B, C shown). (i) Name the test used to measure upper body flexibility. (ii) In Arm Curl Test, weight of dumbbell for women is __________ pounds. (iii) Purpose of Chair-Stand Test is to measure ___________. (iv) In which test is stop watch not used? [OR visually impaired: Rikli and Jones Senior Citizen Test was developed in the year ___________.]`,
-        answer: `(i) Back Scratch Test (ii) 5 pounds (iii) Lower body strength (iv) Chair Sit and Reach Test / Back Scratch Test [OR 2001]`,
+        question: `Taking care of health during old age is very important. Fitness tests have been developed for senior citizens so that their fitness can be assessed. Look at the pictures and answer the questions.
+
+(i) Name the test used to measure upper body flexibility.
+(ii) In Arm Curl Test, weight of the dumbbell for women is __________ pounds.
+(iii) Purpose of Chair-Stand Test is to measure ___________.
+(iv) In which test is a stopwatch NOT used?
+OR: Rikli and Jones Senior Citizen Test was developed in the year ___________.`,
+        answer: `(i) Back Scratch Test
+(ii) 5 pounds
+(iii) Lower body strength
+(iv) Chair Sit and Reach Test / Back Scratch Test
+OR: Rikli and Jones Senior Citizen Test was developed in the year 2001
+
+(For Visually Impaired — procedure of Chair-Stand Test and Back-Scratch Test):
+Chair Stand Test: Place the chair against a wall. Individual sits with back straight, arms crossed, feet firmly on the floor (shoulder-width apart). On the command "Go", stand up completely and return to initial position (= 1 stand). Count maximum stands in 30 seconds.
+Back Scratch Test: In standing position, participant places one hand over the shoulder and one hand in the middle of the back and tries to touch or overlap them.`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2617,10 +2770,27 @@ Which one of the following is correct?`,
         topic: "Psychology & Sports",
         type: "Case Study",
         marks: 4,
-        question: `Psychological attributes affect performance. (i) An image created in the mind in the absence of any external stimuli is known as ________. (ii) _______ is an effective technique to control thoughts and influence feelings. (iii) ________ is necessary to achieve the target within a specified time. (iv) ______ is centred around a belief in the self, respect for self and confidence for self. [OR visually impaired: Discuss how self-talk and mental imagery can improve athlete performance.]`,
-        answer: `(i) Mental imagery (ii) Self-talk (iii) Goal setting (iv) Self-esteem`,
+        question: `Psychological attributes can influence the performance, behaviour and mental well-being of a sportsperson.
+
+(i) An image can be created in the mind in the absence of any external stimuli, and this is known as _________.
+(ii) _________ is an effective technique to control thoughts and to influence feelings.
+(iii) _________ is necessary to achieve the target within a specified time.
+(iv) _________ is centred around a belief in the self, respect for self and confidence for self.`,
+        answer: `(i) Mental imagery
+(ii) Self-talk
+(iii) Goal setting
+(iv) Self-esteem
+
+(For Visually Impaired — self-talk and mental imagery benefits):
+Benefits of Mental Imagery (any 2): Helps athlete maintain a vision to achieve; assists in setting goals; stays motivated during training; reduces competition stress; develops confidence; enhances focus and concentration.
+Benefits of Self-talk (any 2): Building and developing self-efficacy; controlling effort; creating and changing mood; skill acquisition; focusing attention/concentration; better handling of mistakes.`,
         source: "CBSE 2023 Compartment Exam",
     },
+
+
+    // ─────────────────────────────────────────────
+    //  2023 COMPARTMENT — SECTION E  (Long Answer, 5 marks, attempt any 3)
+    // ─────────────────────────────────────────────
     {
         id: "C_2023_34",
         year: 2023,
@@ -2628,8 +2798,29 @@ Which one of the following is correct?`,
         topic: "Planning in Sports",
         type: "Long",
         marks: 5,
-        question: `Prepare a knockout fixture of 15 teams mentioning all the steps involved. [OR for visually impaired: (i) Calculate total matches for 15 teams in knockout. (ii) Formula to calculate Byes. (iii) What is Seeding? (iv) Methods to prepare fixtures in league tournaments. (v) Formula to calculate matches in league tournament.]`,
-        answer: `N=15; Matches=N-1=14; NB=16-15=1; Upper half=(15+1)/2=8 teams; Lower half=(15-1)/2=7 teams; Byes in upper=(NB-1)/2=0; Byes in lower=(NB+1)/2=1. [Visually impaired: (i) 14 matches (ii) Next power of 2 minus N (iii) Arranging strong teams in appropriate positions so they don't meet in preliminary rounds (iv) Staircase, Cyclic, Tabular method (v) N(N-1)/2]`,
+        question: `Prepare a knockout fixture of 15 teams mentioning all the steps involved.`,
+        answer: `Knockout Fixture of 15 Teams:
+
+Step 1: Total no. of teams (N) = 15; Total no. of matches = N – 1 = 14
+
+Step 2: No. of Byes (NB) = Next highest power of 2 – N = 16 – 15 = 1
+
+Step 3: Teams in upper half = (N+1)/2 = 16/2 = 8 teams
+Teams in lower half = (N–1)/2 = 14/2 = 7 teams
+
+Step 4: Byes in upper half = (NB–1)/2 = 0/2 = 0 Byes
+Byes in lower half = (NB+1)/2 = 2/2 = 1 Bye
+
+The 1st Bye is given to the last team of the lower half (Team 15).
+
+[Draw fixture with 4 rounds showing teams 1–15 with 1 bye for team 15 in Round 1]
+
+(For Visually Impaired):
+(i) Number of matches = N – 1 = 15 – 1 = 14
+(ii) No. of Byes = Next power of 2 – N
+(iii) Seeding — Arranging strong teams in appropriate positions in a knockout tournament so they do not meet in the preliminary round.
+(iv) Methods for league fixtures: Staircase, Cyclic, Tabular method
+(v) No. of matches in league = N(N–1)/2`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2640,7 +2831,14 @@ Which one of the following is correct?`,
         type: "Long",
         marks: 5,
         question: `Define Projectile. Describe any four factors that affect projectile trajectory.`,
-        answer: `Projectile: Any object thrown/hurled/fired/tossed in the air, acted upon by gravity and drag. Factors: 1. Angle of projection – 45° gives maximum horizontal distance. 2. Initial velocity – greater velocity gives greater distance. 3. Gravity – 9.8 m/s² at Earth's surface; decreases at altitude. 4. Air resistance – affected by surface area, speed, mass, and surface of object. 5. Spin – changes path; amount/direction of spin affects distance. (Any 4)`,
+        answer: `Projectile: Any object that can be thrown, hurled, fired, pitched, tossed or flung in the air. It is a body thrown with some initial velocity and then allowed to be acted upon by gravity and possible drag.
+
+Factors affecting projectile trajectory (any 4):
+1. Angle of Projection — At 45°, maximum horizontal distance is achieved.
+2. Initial Velocity — Greater the initial velocity applied on the projectile during release, greater horizontal distance is achieved.
+3. Gravity — At the surface of the earth, gravity is 9.8 m/s². At high altitude its value decreases, resulting in better distance in jumping. Greater the weight of an object, greater the influence of gravity.
+4. Air Resistance — Surface area, speed, surface of object and mass of object all have an impact on air resistance.
+5. Spin — Changes the path of the projectile. The amount and direction of spin directly affects the distance the projectile travels because the air pressure acts on the ball.`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2651,7 +2849,13 @@ Which one of the following is correct?`,
         type: "Long",
         marks: 5,
         question: `Define speed. Explain any two methods to develop it.`,
-        answer: `Speed: Capability of the body to perform successive movement at the fastest rate / ability to execute motor movements as quickly as possible. Methods: 1. Acceleration Runs – run a specific distance, attain max speed from static position, repeat with sufficient rest. 2. Pace Runs – running a set distance at uniform speed; used for 800m and above; pace maintained throughout; repetition as per athlete's level.`,
+        answer: `Speed: Capability of the body to perform successive movement at the fastest rate.
+OR: Ability to execute motor movements as quickly as possible.
+
+Methods of speed development (any 2):
+1. Acceleration Runs — Method used to develop speed while attaining maximum speed from a static position. A sports person is required to run a specific distance, gain maximum speed at the earliest, and finish the specified distance at that speed. These runs are repeated with sufficient rest in between. The number of acceleration runs should be set as per age, capacity and fitness of the athlete.
+
+2. Pace Runs — Running a set distance at uniform speed. Usually includes races of 800 m and above. It is important to keep pace in mind when running middle and long distance races. In the beginning of the race, the pace should not be too high and should be maintained throughout. Repetition of pace runs can be done as per level of athlete.`,
         source: "CBSE 2023 Compartment Exam",
     },
     {
@@ -2662,13 +2866,24 @@ Which one of the following is correct?`,
         type: "Long",
         marks: 5,
         question: `Suggest any five strategies to make physical activities accessible for children with special needs.`,
-        answer: `1. Medical checkup to assess disability type. 2. Activities based on children's interests. 3. Equipment adapted to their needs. 4. Specific accessible environment/space. 5. Variety of instructional strategies (verbal, visual, peer teaching). 6. Modified rules. 7. Consider previous experience. 8. Graded activities. 9. Inclusive strategies. 10. Psychological strategies – motivation, learning new skills. (Any 5)`,
+        answer: `Strategies to make physical activities accessible for children with special needs (any 5):
+1. Medical Checkup — To assess type of disability.
+2. Physical activities must be based on interests of children.
+3. Equipment related to physical activities should be according to the needs of children.
+4. Specific environment and space should be provided; the playing area should be easily accessible.
+5. A variety of different instructional strategies should be used in verbal, visual and peer teaching form.
+6. Rules should be modified according to the needs of children with disabilities.
+7. Children's previous experience must be taken into consideration.
+8. Graded activities.
+9. Inclusive strategies.
+10. Psychological strategies — motivation, learning new skills.`,
         source: "CBSE 2023 Compartment Exam",
     },
-    // ─────────────────────────────────────────────
-    //  2024 Compartment
-    // ─────────────────────────────────────────────
 
+
+    // ═══════════════════════════════════════════════════════════════
+    //  2024 COMPARTMENT — SECTION A  (MCQ, 1 mark)
+    // ═══════════════════════════════════════════════════════════════
     {
         id: "C_2024_1",
         year: 2024,
@@ -2678,24 +2893,24 @@ Which one of the following is correct?`,
         marks: 1,
         question: `As per the division process of age in Special Olympics, which of the following is the appropriate age division for team games?`,
         options: ["13 and under", "8 – 11 years", "30 and above", "16 – 21 years"],
-        answer: "16 – 21 years",
+        answer: `16 – 21 years`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
         id: "C_2024_2",
         year: 2024,
-        chapter: "Psychology & Sports",
-        topic: "Psychology & Sports",
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
         type: "MCQ",
         marks: 1,
-        question: `A girl is participating in sports for 2 years. Identify the psychological benefits for her from the following:`,
+        question: `A girl is participating in sports for 2 years. Identify the psychological benefits for her from the following :`,
         options: [
             "Helps in increasing bone density",
             "Helps in improving muscle tone",
             "Helps to improve self-esteem",
-            "Helps in improving communication"
+            "Helps in improving communication",
         ],
-        answer: "Helps to improve self-esteem",
+        answer: `Helps to improve self-esteem`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2705,9 +2920,9 @@ Which one of the following is correct?`,
         topic: "Psychology & Sports",
         type: "MCQ",
         marks: 1,
-        question: `__________ is characterized by high sociability, if a person is outgoing and has a tendency to seek stimulation in the company of others.`,
+        question: `____________ is characterized by high sociability, if a person is outgoing and has a tendency to seek stimulation in the company of others.`,
         options: ["Conscientiousness", "Agreeableness", "Extraversion", "Neuroticism"],
-        answer: "Extraversion",
+        answer: `Extraversion`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2717,9 +2932,14 @@ Which one of the following is correct?`,
         topic: "Physiology & Injuries in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which of the following is a short term effect of exercise on the muscular system?`,
-        options: ["Hypertrophy of muscles", "Increase in glycogen storage", "Increase in muscle temperature", "Increase in lactic acid tolerance"],
-        answer: "Increase in muscle temperature",
+        question: `Which of the following is a short-term effect of exercise on the muscular system?`,
+        options: [
+            "Hypertrophy of muscles",
+            "Increase in glycogen storage",
+            "Increase in muscle temperature",
+            "Increase in lactic acid tolerance",
+        ],
+        answer: `Increase in muscle temperature`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2731,7 +2951,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `Which of the following is a macro mineral?`,
         options: ["Iodine", "Copper", "Iron", "Sodium"],
-        answer: "Sodium",
+        answer: `Sodium`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2741,9 +2961,9 @@ Which one of the following is correct?`,
         topic: "Planning in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Given below are the options for number of participating teams in a tournament. Which option will have highest number of Byes while drawing a fixture?`,
+        question: `Given below are the options for number of participating teams in a tournament. Which option will have the highest number of 'Byes' while drawing a fixture?`,
         options: ["17", "18", "19", "20"],
-        answer: "17",
+        answer: `17`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2753,14 +2973,17 @@ Which one of the following is correct?`,
         topic: "Biomechanics & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match the following — Column I: I. Sliding friction, II. Fluid friction, III. Rolling friction, IV. Static friction — Column II: 1. Cycling, 2. Ice skating, 3. Try to push heavy object, 4. Swimming`,
+        question: `Match the following :
+
+Column I: I. Sliding friction, II. Fluid friction, III. Rolling friction, IV. Static friction
+Column II: 1. Cycling, 2. Ice skating, 3. Try to push heavy object, 4. Swimming`,
         options: [
             "I-2, II-1, III-3, IV-4",
             "I-2, II-1, III-4, IV-3",
             "I-2, II-4, III-1, IV-3",
-            "I-4, II-2, III-3, IV-1"
+            "I-4, II-2, III-3, IV-1",
         ],
-        answer: "I-2, II-4, III-1, IV-3",
+        answer: `I-2, II-4, III-1, IV-3`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2770,10 +2993,10 @@ Which one of the following is correct?`,
         topic: "Yoga & Lifestyle",
         type: "MCQ",
         marks: 1,
-        question: `Identify the asana shown in the picture given below:`,
-        options: ["Tadasana", "Katichakrasana", "Pawanmuktasana", "Garudasana"],
-        answer: "Pawanmuktasana",
+        question: `Identify the asana shown in the picture given below :`,
         imageUrl: "/PE_C_2024_qs_8.png",
+        options: ["Tadasana", "Katichakrasana", "Pawanmuktasana", "Garudasana"],
+        answer: `Katichakrasana`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2783,9 +3006,9 @@ Which one of the following is correct?`,
         topic: "Test & Measurement in Sports",
         type: "MCQ",
         marks: 1,
-        question: `SAI Khelo India Fitness Test is introduced in schools for two groups, namely class 1–3 and class 4–12. Which of the following test item is common for both groups?`,
+        question: `SAI Khelo India Fitness Test is introduced in schools for two groups, namely class 1 – 3 and class 4 – 12. Which of the following test item is common for both groups?`,
         options: ["Plate Tapping Test", "Body Mass Index Test", "Sit and Reach Test", "50 mts Dash"],
-        answer: "Body Mass Index Test",
+        answer: `Body Mass Index Test`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2797,7 +3020,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `In which of the following methods to develop flexibility, an individual performs the movement with swing and rhythm?`,
         options: ["Slow stretching method", "Slow stretch and hold method", "PNF method", "Ballistic method"],
-        answer: "Ballistic method",
+        answer: `Ballistic method`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2809,7 +3032,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `There are ___________ different types of physical impairment in Paralympics.`,
         options: ["Seven", "Six", "Eight", "Nine"],
-        answer: "Seven",
+        answer: `Eight`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2821,7 +3044,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `The height of bench used in Harvard Step Test for men is ___________.`,
         options: ["16 inches", "20 inches", "22 inches", "15 inches"],
-        answer: "20 inches",
+        answer: `20 inches`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2833,7 +3056,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `Preparing budget of the tournament and maintaining a record of income and expenditure of the tournament are the responsibilities of which committee?`,
         options: ["Technical", "Finance", "Transport", "Medical"],
-        answer: "Finance",
+        answer: `Finance`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2845,7 +3068,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `Which of the following asana is performed in a sitting position?`,
         options: ["Bhujangasana", "Matsyendrasana", "Garudasana", "Mandukasana"],
-        answer: "Mandukasana",
+        answer: `Mandukasana`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2855,16 +3078,19 @@ Which one of the following is correct?`,
         topic: "Psychology & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Assertion (A): Self-esteem is centred around a belief in the self and respect for the self.
-Reason (R): Mental imagery is a psychological skill, that can be created in the mind in the absence of any external stimuli.
-Which one of the following is correct?`,
+        question: `Given below are two statements labelled Assertion (A) and Reason (R) :
+
+Assertion (A) : Self-esteem is centred around a belief in the self and respect for the self.
+Reason (R) : Mental imagery is a psychological skill, that can be created in the mind in the absence of any external stimuli.
+
+In the context of the above two statements which one of the following is correct?`,
         options: [
             "Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of the Assertion (A).",
             "Both Assertion (A) and Reason (R) are true and Reason (R) is not the correct explanation of the Assertion (A).",
             "Assertion (A) is true, but Reason (R) is false.",
-            "Assertion (A) is false, but Reason (R) is true."
+            "Assertion (A) is false, but Reason (R) is true.",
         ],
-        answer: "Both Assertion (A) and Reason (R) are true and Reason (R) is not the correct explanation of the Assertion (A).",
+        answer: `Both Assertion (A) and Reason (R) are true and Reason (R) is not the correct explanation of the Assertion (A).`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2874,16 +3100,19 @@ Which one of the following is correct?`,
         topic: "Children & Women in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Assertion (A): Menarche is usually considered the point of sexual maturity for girls.
-Reason (R): Menstrual dysfunction is an abnormal condition in a woman's menstrual cycle.
-Which one of the following is correct?`,
+        question: `Given below are two statements labelled Assertion (A) and Reason (R) :
+
+Assertion (A) : Menarche is usually considered the point of sexual maturity for girls.
+Reason (R) : Menstrual dysfunction is an abnormal condition in a woman's menstrual cycle.
+
+In the context of the above two statements which one of the following is correct?`,
         options: [
             "Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of the Assertion (A).",
             "Both Assertion (A) and Reason (R) are true and Reason (R) is not the correct explanation of the Assertion (A).",
             "Assertion (A) is true, but Reason (R) is false.",
-            "Assertion (A) is false, but Reason (R) is true."
+            "Assertion (A) is false, but Reason (R) is true.",
         ],
-        answer: "Both Assertion (A) and Reason (R) are true and Reason (R) is not the correct explanation of the Assertion (A).",
+        answer: `Both Assertion (A) and Reason (R) are true and Reason (R) is not the correct explanation of the Assertion (A).`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2895,7 +3124,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `Fat soluble vitamins include the following vitamins except _______________.`,
         options: ["Vitamin-B", "Vitamin-D", "Vitamin-A", "Vitamin-E"],
-        answer: "Vitamin-B",
+        answer: `Vitamin-B`,
         source: "CBSE 2024 Compartment Exam",
     },
     {
@@ -2907,13 +3136,429 @@ Which one of the following is correct?`,
         marks: 1,
         question: `Johnson-Metheny Test Battery does not consist of ___________ motor stunt.`,
         options: ["Front Roll", "Side Roll", "Back Roll", "Jumping Full Turns"],
-        answer: "Side Roll",
+        answer: `Side Roll`,
         source: "CBSE 2024 Compartment Exam",
     },
-    // ─────────────────────────────────────────────
-    //  2025 Compartment
-    // ─────────────────────────────────────────────
 
+
+    // ─────────────────────────────────────────────
+    //  2024 COMPARTMENT — SECTION B  (2 marks, attempt any 5)
+    // ─────────────────────────────────────────────
+    {
+        id: "C_2024_19",
+        year: 2024,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Briefly explain 'Health Run'.`,
+        answer: `Health runs are generally conducted for the purpose of improving the health standards in society and creating awareness about the importance of physical activities for maintaining good health or for raising charity. The purpose of the runners is not to win, but to participate in the events. To get its full impact, a large number of registrations are required. There is no age bar for participants. It is not a professional race so there is no need to run a long distance. These runs are conducted by NGOs or health departments to spread awareness about health-related issues.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_20",
+        year: 2024,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Briefly explain 'R.I.C.E.' therapy to manage soft tissue injuries.`,
+        answer: `Soft tissue injuries like sprain and strain can be managed by giving first aid. R.I.C.E. is the therapy that helps to reduce pain and swelling.
+
+R — Rest and protect the injured or sore area.
+I — Ice or cold packs are used as soon as possible.
+C — Compression, or wrapping the injured or sore area with an elastic bandage.
+E — Elevate the injured or sore area.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_21",
+        year: 2024,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "Short",
+        marks: 2,
+        question: `Explain the procedure of Dhanurasana as a preventive measure for Asthma.`,
+        answer: `Procedure of Dhanurasana:
+1. Take prone position, legs together, and hands straight by the side of the thighs, chin resting on the ground.
+2. Fold the legs at the knee and bring them to the thighs. Knees must remain together.
+3. Bring hands backward and hold the toes of respective legs with the thumb and forefinger of the respective hands.
+4. Raise legs up a bit and simultaneously raise the head and chest.
+5. Holding the toes, pull the legs towards the ears. Gaze in front.
+6. While returning to the original position, loosen your hands, take legs backward, let the thighs touch the ground, leave the toes and ultimately bring the legs and hands to the first position.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_22",
+        year: 2024,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "Short",
+        marks: 2,
+        question: `What do you understand by Macro-cycle?`,
+        answer: `Macro Cycle: The duration of this cycle is 3 to 12 months and it is considered the most extended cycle of training. A macrocycle comprises of several mesocycles; the last mesocycle ensures recovery and realization for a smooth transition to the following macrocycle. The purpose of the macrocycle is to enable the sportsperson to improve the performance capacity and put up an optimal performance at a specific time during the competition.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_23",
+        year: 2024,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "Short",
+        marks: 2,
+        question: `Enlist four non-nutritive food items.`,
+        answer: `Non-nutritive food components (any 4):
+• Fibre or Roughage
+• Water
+• Colour Compounds
+• Flavour Compounds
+• Plant compounds
+• Artificial sweeteners
+• Preservatives
+• Spices
+• Coffee`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_24",
+        year: 2024,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "Short",
+        marks: 2,
+        question: `Suggest any two strategies to make physical activities accessible for CWSN.`,
+        answer: `Any two strategies from the following:
+• Medical check-up
+• To create specific environment
+• To assess physical and mental ability
+• To assess the interest of the child
+• Plan activity as per need
+• Plan different strategies for instruction
+• Modified rules
+• Use of modified equipment
+• Plan for implementation from easy to difficult
+• Extra care or concern for safety
+• Plan for additional support of parents and trained assistants`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+
+
+    // ─────────────────────────────────────────────
+    //  2024 COMPARTMENT — SECTION C  (3 marks, attempt any 5)
+    // ─────────────────────────────────────────────
+    {
+        id: "C_2024_25",
+        year: 2024,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "Short",
+        marks: 3,
+        question: `Briefly explain the concept of Talent Identification in sports.`,
+        answer: `Talent Identification is the process by which children are encouraged to participate in the sport they are most likely to succeed, based on selected parameters. These parameters are designed to predict performance capacity, considering the child's current level of fitness and maturity. Recognizing participants with the potential at an earlier age to become elite performers in the future. For the talent identification process, Physiological, Physical Fitness, Psychological, and Technical components are taken into consideration. Various methods such as drills, test batteries, electronic gadgets, parameters, standard norms, performance and other techniques are adopted. The first stage of the process could occur between the ages of 10 and 12, using essential field tests that are easy to administer. The second phase could occur between 13 and 16.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_26",
+        year: 2024,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "Short",
+        marks: 3,
+        question: `Explain the purpose and procedure of 'Flamingo Balance Test'.`,
+        answer: `Purpose: Ability to balance successfully on a single leg. This single-leg balance test assesses the strength of the leg, pelvic, and trunk muscles as well as static balance. (For age group 5–8 yrs., classes 1–3.)
+
+Procedure: Stand on the beam. Keep balance by holding the instructor's hand (if required to start). While balancing on the preferred leg, the free leg is flexed at the knee and the foot of this leg held close to the buttocks. Start the watch as the instructor lets go of the participant. Pause the stopwatch each time the subject loses balance (either by falling off the beam or letting go of the foot being held). Resume timing until they lose balance again. Count the number of falls in 60 seconds. If there are more than 15 falls in the first 30 seconds, the test is terminated.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_27",
+        year: 2024,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "Short",
+        marks: 3,
+        question: `Elucidate any three factors affecting projectile trajectory.`,
+        answer: `Factors affecting projectile trajectory (any 3):
+1. Angle of Projection — At 45°, maximum horizontal distance is achieved.
+2. Initial Velocity — Greater the initial velocity applied on the projectile during release, greater horizontal distance is achieved.
+3. Gravity — It is the force of attraction exerted by the earth. The greater the weight of an object, the greater is the influence of gravity. Gravitational pull stops the upward movement, resulting in decreased height of the projectile.
+4. Air Resistance — Surface area, speed, surface of object and mass of object all have an impact on air resistance.
+5. Spin — Changes the path of the projectile. The amount and direction of spin directly affects the distance the projectile travels because the air pressure acts on it.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_28",
+        year: 2024,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "Short",
+        marks: 3,
+        question: `Enlist any two tests to measure functional fitness of senior citizens and describe the procedure of any one of them.`,
+        answer: `Tests for senior citizens (any 2 from):
+1. Chair Stand Test — lower body strength
+2. Arm Curl Test — upper body strength
+3. Chair Sit and Reach Test — lower body flexibility
+4. Back Scratch Test — upper body flexibility
+5. Eight Foot Up and Go Test — agility
+6. Six Minute Walk Test — aerobic endurance
+
+Chair Stand Test Procedure: Place the chair against the wall. Individual sits with back straight, arms crossed, feet firmly on the floor (shoulder-width apart). On the command "Go", the individual stands up completely, then returns to the initial position (= 1 stand). The individual should be motivated to do the maximum number of stands in 30 seconds.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_29",
+        year: 2024,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "Short",
+        marks: 3,
+        question: `Describe three food myths and their related facts.`,
+        answer: `Food myths and facts (any 3):
+
+Myth 1: The fewer the carbohydrates, the healthier you are.
+Fact: Choosing the healthiest carbohydrates, especially whole grains, is important for health and well-being.
+
+Myth 2: Oils/Margarine have fewer calories than Ghee/Butter.
+Fact: Ghee/Butter and Oils/Margarine have about the same amount of calories.
+
+Myth 3: Apples and brinjals are rich in iron because they turn brown when cut.
+Fact: They are an excellent source of fibre but not of iron.
+
+Myth 4: Milk should be avoided after eating fish.
+Fact: Drinking milk right after consuming fish causes skin disease like leukoderma — this is not true.
+
+Myth 5: Drinking water in between meals affects digestion.
+Fact: Drinking water simply fills up the stomach and as a result one tends to eat less, which is especially good when trying to lose weight.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_30",
+        year: 2024,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "Short",
+        marks: 3,
+        question: `Describe any two methods to develop strength, by giving suitable examples from sports.`,
+        answer: `Methods to develop strength (any 2):
+
+1. Isometric Exercise: No direct movement is visible; there is no change in muscle length. Work performed cannot be seen directly (e.g., pushing a wall). Needs less time and equipment; can be performed anywhere.
+Examples: Planks, Flexed Arm Hang, Wall Sit, Low Squat, Calf Raise and Hold, Glute Bridge.
+
+2. Isotonic Exercise: Movements can be seen directly. Results in toned muscles and increased muscle length.
+Examples: Running and jumping on the spot, weight training exercises, calisthenics exercises.
+
+3. Isokinetic Exercise: Performed on specially designed machines. Muscles apply maximal force throughout the range of motion around the joint.
+Examples: Brisk walking on a treadmill, cycling on an exercise bike, rowing.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+
+
+    // ─────────────────────────────────────────────
+    //  2024 COMPARTMENT — SECTION D  (Case Studies, 4 marks)
+    // ─────────────────────────────────────────────
+    {
+        id: "C_2024_31",
+        year: 2024,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "Case Study",
+        marks: 4,
+        question: `Study the table given below (League tournament fixture — Cyclic Method with 7 teams across 7 rounds). Based on the above study and your knowledge, answer the following questions :
+
+(a) League Tournament is also known as _____________.
+(b) Identify the method used in the above fixture.
+(c) How many rounds will be played if 6 teams are participating in a league tournament?
+(d) How many matches are played in the above fixture?`,
+        answer: `(a) Round Robin
+(b) Cyclic Method
+(c) 5 Rounds
+(d) 21 matches
+
+(For Visually Impaired — intramural and extramural sports):
+Intramural: Tournament conducted within the walls of a single institution/school/community.
+Objectives (any 2): Encourage mass participation; all-round development of children; develop values like fair play; provide first opportunity to compete in a controlled environment; focus on fitness, wellness and health.
+
+Extramural: Tournaments conducted outside the walls of the organising unit between players/teams of different schools/colleges/institutions.
+Objectives (any 2): Achieve high performance at highest level; develop feeling of integration with other institutions; provide opportunities for choosing a career in sports; promote social, cultural, economic development.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_32",
+        year: 2024,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "Case Study",
+        marks: 4,
+        question: `Study the picture of the Deaflympics logo. Based on the above study and your knowledge, answer the following questions :
+
+(a) The above logo incorporates four colours, red, blue, yellow and _________.
+(b) The logo of Deaflympics was designed in the year ___________.
+(c) In the above logo, the hand shapes, "Ok", "Good" and "_________" overlap each other.
+(d) The first Deaflympics were held in the year ___________ in Paris.
+OR: First Deaflympics Games were also known as _________.`,
+        answer: `(a) Green
+(b) 2003
+(c) Great
+(d) 1924
+OR: First Deaflympics Games were also known as International Silent Games
+
+(For Visually Impaired — advantages of physical activities for CWSN, any 4):
+1. Physical improvement
+2. Mental improvement
+3. Increased self-esteem
+4. Reduces the level of stress, anxiety and depression
+5. Reduces the risk of health complications
+6. Improved social interaction
+7. Improved cognitive skills
+8. Improved emotional and psychological health
+9. Mode of recreation and fun
+10. Channelising the surplus energy`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_33",
+        year: 2024,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "Case Study",
+        marks: 4,
+        question: `Study the picture given below (showing a sprain and a fracture). Based on the above study and your knowledge, answer the following questions :
+
+(a) Identify the injury shown in picture 'A'.
+(b) The injury shown in picture 'A' occurs due to overstretching of _______.
+(c) Identify the type of fracture shown in picture 'B'.
+OR: Fracture is a _________ tissue injury.
+(d) _________ is a joint injury that forces the ends of bones out of position.`,
+        answer: `(a) Sprain
+(b) Ligaments
+(c) Oblique
+OR: Fracture is a Hard tissue injury
+(d) Dislocation
+
+(For Visually Impaired — any two soft tissue injuries):
+Abrasion: Injury most commonly occurring due to moving contact with a rough surface, causing grinding or rubbing away of the upper superficial layers of the epidermis.
+Contusion: A type of haematoma which refers to any collection of blood outside of a vessel. Occurs when a body part is struck by enough force to crush underlying muscle fibres without breaking the skin.
+Laceration: Irregular tear-like wounds caused by blunt trauma.
+Strain: Injury to either a muscle or a tendon generally caused by overuse, force or stretching.
+Sprain: Stretching or tearing of ligaments which connects bones in the joints.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+
+
+    // ─────────────────────────────────────────────
+    //  2024 COMPARTMENT — SECTION E  (Long Answer, 5 marks, attempt any 3)
+    // ─────────────────────────────────────────────
+    {
+        id: "C_2024_34",
+        year: 2024,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "Long",
+        marks: 5,
+        question: `Explain any two postural deformities and suggest their corrective measures.`,
+        answer: `Postural Deformities (any 2 with explanation and corrective measures):
+
+1. Knock Knees (Genu Valgum): A postural deformity in which the legs are bent inward and knees strike each other while walking or running, with a wide gap between the ankles.
+Corrective measures: Horse riding; perform Padmasana and Gomukhasana; outward walking; keep a pillow between the knees and stand erect for some time.
+
+2. Flat Foot (Pes Planus): When the arch of the foot is lesser than normal, it is known as flat foot.
+Corrective measures: Walk barefooted over sand; perform rope skipping; picking up marbles with toes; perform Adhomukhasana and Vajrasana.
+
+3. Round Shoulders: Shoulders become round and seem to be bent forward.
+Corrective measures: Perform Chakrasana and Dhanurasana; pull-ups; hold the horizontal bar; perform Bhujangasana and Ushtrasana.
+
+4. Bow Legs (Genu Varum): Knees remain wide apart even when feet are kept together.
+Corrective measures: Walk on inner edge of feet; perform Garudasana; perform lunges; use braces and modified shoes.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_35",
+        year: 2024,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "Long",
+        marks: 5,
+        question: `Define Equilibrium. Explain Static and Dynamic Equilibrium by giving suitable examples from sports.`,
+        answer: `Equilibrium: A state of balance or a stable situation where opposite forces cancel each other out and where no changes are occurring.
+
+Static Equilibrium: A state when a body is at rest or completely motionless.
+Examples:
+1. Performing handstand in gymnastics
+2. Stance maintained by the batsman in cricket
+3. On the starting block by the sprinter
+4. Wide stance maintained by the wrestler
+5. A shooter maintains a steady stance and grip while aiming at a target
+
+Dynamic Equilibrium: A state when the body or an object is moving with a constant velocity with no change in speed or direction.
+Examples:
+1. Cyclist balance while riding
+2. Surfer balancing on a moving surfboard
+3. A basketball player maintaining balance while dribbling and shooting
+4. A figure skater maintaining balance during footwork sequences
+5. A diver maintaining balance during the take-off`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_36",
+        year: 2024,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "Long",
+        marks: 5,
+        question: `What do you understand by Obesity? Explain the procedure of any two asanas to manage obesity.`,
+        answer: `Obesity: An abnormal or excessive fat accumulation that may impair health. A medical condition when the body of a person contains 20% or more fat as compared to ideal weight. According to WHO, if an individual's BMI is 30 or higher, the person is in the obese category.
+
+Asanas for obesity (procedure of any 2):
+Tadasana, Katichakrasana, Pawanmuktasana, Surya Namaskar, Halasana, Paschimottanasana, Ardha Matsyendrasana, Mandukasana, Dhanurasana, Ushtrasana, Suryabhedan Pranayam
+
+Procedure of Pawanmuktasana:
+1. Lie on back, stretching legs straight.
+2. Bend right knee and hold it with hands, pressing it towards the abdomen while breathing out.
+3. Lift head and try to touch the knee with the chin.
+4. Breathe in and return to initial position.
+5. Repeat with left leg.
+6. Then press abdomen with both legs, placing chin between knees.
+
+Procedure of Halasana:
+1. Lie on back with arms by the side and legs together.
+2. While breathing in, raise both legs to 90°.
+3. Support the back with hands; while breathing out, take legs over the head to touch the floor behind.
+4. Keep chin pressed on chest; maintain the position for a few seconds.
+5. Return slowly to the starting position.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+    {
+        id: "C_2024_37",
+        year: 2024,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "Long",
+        marks: 5,
+        question: `Define Motivation. Differentiate between Intrinsic and Extrinsic Motivation.`,
+        answer: `Motivation: The direction and intensity of effort.
+OR: A process of inspiring and guiding the organism to move in a particular direction.
+OR: The process of arousing action, sustaining the activities in progress and regulating the patterns of activity.
+
+Difference between Intrinsic and Extrinsic Motivation:
+
+Intrinsic Motivation:
+• Definition: Driving force to pursue an action for fun, joy or any other inner satisfaction.
+• Factors: Internal factors like joy, enjoyment.
+• Method: Goal setting strategies, family and community support.
+• Benefits: Long-term benefit of maintaining a behaviour.
+
+Extrinsic Motivation:
+• Definition: Driving force to pursue an action due to reward, trophy, money, promotions or praise.
+• Factors: External factors like reward, promotion, praise.
+• Method: Associating success with future benefits, awards, promotions.
+• Benefits: Helpful to initiate or create a drive towards a desired behaviour when internal factors are missing.`,
+        source: "CBSE 2024 Compartment Exam",
+    },
+
+
+    // ═══════════════════════════════════════════════════════════════
+    //  2025 COMPARTMENT — SECTION A  (MCQ, 1 mark)
+    // ═══════════════════════════════════════════════════════════════
     {
         id: "C_2025_1",
         year: 2025,
@@ -2921,9 +3566,9 @@ Which one of the following is correct?`,
         topic: "Planning in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Seeding is decided on the basis of:`,
+        question: `Seeding is decided on the basis of :`,
         options: ["Previous Performance", "Future Performance", "Current Performance", "Bad Performance"],
-        answer: "Previous Performance",
+        answer: `Previous Performance`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -2933,9 +3578,9 @@ Which one of the following is correct?`,
         topic: "Planning in Sports",
         type: "MCQ",
         marks: 1,
-        question: `In a knock-out tournament, if byes are in odd numbers, then number of byes in lower half is calculated by:`,
-        options: ["(NB + 1) / 2", "NB / 2", "(NB - 1) / 2", "NB"],
-        answer: "(NB + 1) / 2",
+        question: `In a knock-out tournament, if byes are in odd numbers, then number of byes in lower half is calculated by :`,
+        options: ["NB + 1 / 2", "NB – 1 / 2", "NB / 2", "NB – 1"],
+        answer: `NB + 1 / 2`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -2946,8 +3591,13 @@ Which one of the following is correct?`,
         type: "MCQ",
         marks: 1,
         question: `Which of the following is the short-term effect of Exercise on cardio-vascular system?`,
-        options: ["Size and strength of heart increases", "Increase in heart rate", "Blood volume increases", "Resting heart rate decreases"],
-        answer: "Increase in heart rate",
+        options: [
+            "Size and strength of heart increases",
+            "Increase in heart rate",
+            "Blood volume increases",
+            "Resting heart rate decreases",
+        ],
+        answer: `Increase in heart rate`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -2957,10 +3607,10 @@ Which one of the following is correct?`,
         topic: "Yoga & Lifestyle",
         type: "MCQ",
         marks: 1,
-        question: `Identify the asana:`,
-        options: ["Vakrasana", "Gomukhasana", "Shalabhasana", "Urdhva Hastottanasana"],
-        answer: "Vakrasana",
+        question: `Identify the asana :`,
         imageUrl: "/PE_C_2025_qs_4.png",
+        options: ["Vakrasana", "Gomukhasana", "Shalabhasana", "Urdhva Hastottanasana"],
+        answer: `Vakrasana`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -2970,9 +3620,9 @@ Which one of the following is correct?`,
         topic: "Physical Education & Sports for CWSN",
         type: "MCQ",
         marks: 1,
-        question: `Dr. Ludwig Guttmann is related to:`,
+        question: `Dr. Ludwig Guttmann is related to :`,
         options: ["Paralympic Games", "Olympic Games", "Asian Games", "Commonwealth Games"],
-        answer: "Paralympic Games",
+        answer: `Paralympic Games`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -2982,9 +3632,9 @@ Which one of the following is correct?`,
         topic: "Children & Women in Sports",
         type: "MCQ",
         marks: 1,
-        question: `If the menstrual cycle does not begin at puberty, the condition is called:`,
+        question: `If the menstrual cycle does not begin at puberty, the condition is called :`,
         options: ["Primary Amenorrhea", "Secondary Amenorrhea", "Oligomenorrhea", "Menarche"],
-        answer: "Primary Amenorrhea",
+        answer: `Primary Amenorrhea`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -2994,16 +3644,19 @@ Which one of the following is correct?`,
         topic: "Sports & Nutrition",
         type: "MCQ",
         marks: 1,
-        question: `Assertion (A): Balanced diet is the diet which contains all the essential nutrients in adequate quantity and proportion.
-Reason (R): Requirement of food depends upon age, type of work, etc.
-Which one of the following is correct?`,
+        question: `Given below are two statements labelled as Assertion (A) and Reason (R). Read both the statements carefully :
+
+Assertion (A) : Balanced diet is the diet which contains all the essential nutrients in adequate quantity and proportion.
+Reason (R) : Requirement of food depends upon age, type of work, etc.
+
+In the context of the above two statements, which one of the following is correct?`,
         options: [
             "Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
             "Both Assertion (A) and Reason (R) are true, but Reason (R) is not the correct explanation of Assertion (A).",
             "Assertion (A) is true, but Reason (R) is false.",
-            "Assertion (A) is false, but Reason (R) is true."
+            "Assertion (A) is false, but Reason (R) is true.",
         ],
-        answer: "Both Assertion (A) and Reason (R) are true, but Reason (R) is not the correct explanation of Assertion (A).",
+        answer: `Both Assertion (A) and Reason (R) are true, but Reason (R) is not the correct explanation of Assertion (A).`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3015,7 +3668,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `In arm curl test, weight of the dumbbell for women is _________.`,
         options: ["2.5 kg", "2.3 kg", "2.8 kg", "2.1 kg"],
-        answer: "2.3 kg",
+        answer: `2.3 kg`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3025,26 +3678,29 @@ Which one of the following is correct?`,
         topic: "Test & Measurement in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Back Scratch Test is used to measure:`,
+        question: `Back Scratch Test is used to measure :`,
         options: ["Lower body strength", "Lower body flexibility", "Upper body flexibility", "Upper body strength"],
-        answer: "Upper body flexibility",
+        answer: `Upper body flexibility`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
         id: "C_2025_10",
         year: 2025,
-        chapter: "Physiology & Injuries in Sports",
-        topic: "Physiology & Injuries in Sports",
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match List I (a. Size of muscle, b. Fast Twitch Fibre, c. Aerobic capacity, d. Joint structure) with List II (i. Determines endurance, ii. Determines strength, iii. Determines speed, iv. Determines flexibility):`,
+        question: `Match List I with List II :
+
+List I: a. Size of muscle, b. Fast Twitch Fibre, c. Aerobic capacity, d. Joint structure
+List II: i. Determines endurance, ii. Determines strength, iii. Determines speed, iv. Determines flexibility`,
         options: [
             "a-iii, b-iv, c-ii, d-i",
             "a-ii, b-iii, c-i, d-iv",
             "a-i, b-ii, c-iv, d-iii",
-            "a-iv, b-i, c-iii, d-ii"
+            "a-iv, b-i, c-iii, d-ii",
         ],
-        answer: "a-ii, b-iii, c-i, d-iv",
+        answer: `a-ii, b-iii, c-i, d-iv`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3055,8 +3711,13 @@ Which one of the following is correct?`,
         type: "MCQ",
         marks: 1,
         question: `In Ardha Chakrasana, which is the correct pose?`,
-        options: ["Back bend in standing position", "Forward bend in standing position", "Leg raised in sitting position", "Head raised in lying position"],
-        answer: "Back bend in standing position",
+        options: [
+            "Back bend in standing position",
+            "Forward bend in standing position",
+            "Leg raised in sitting position",
+            "Head raised in lying position",
+        ],
+        answer: `Back bend in standing position`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3066,16 +3727,19 @@ Which one of the following is correct?`,
         topic: "Biomechanics & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Assertion (A): Newton's third law of motion concludes that forces occur in pairs of action and reaction.
-Reason (R): The action force is more than the reaction force.
-Which one of the following is correct?`,
+        question: `Given below are two statements labelled as Assertion (A) and Reason (R). Read both statements carefully :
+
+Assertion (A) : Newton's third law of motion concludes that forces occur in pairs of action and reaction.
+Reason (R) : The action force is more than the reaction force.
+
+In the context of the above two statements, which one of the following is correct?`,
         options: [
             "Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).",
             "Both Assertion (A) and Reason (R) are true, but Reason (R) is not the correct explanation of Assertion (A).",
             "Assertion (A) is true, but Reason (R) is false.",
-            "Assertion (A) is false, but Reason (R) is true."
+            "Assertion (A) is false, but Reason (R) is true.",
         ],
-        answer: "Assertion (A) is true, but Reason (R) is false.",
+        answer: `Assertion (A) is true, but Reason (R) is false.`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3085,9 +3749,9 @@ Which one of the following is correct?`,
         topic: "Children & Women in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Children aged 3 – 4 years should engage in physical activities for:`,
+        question: `Children aged 3 – 4 years should engage in physical activities for :`,
         options: ["120 minutes", "60 minutes", "180 minutes", "45 minutes"],
-        answer: "180 minutes",
+        answer: `180 minutes`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3097,14 +3761,17 @@ Which one of the following is correct?`,
         topic: "Biomechanics & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match List I (a. Polishing, b. Lubrication, c. Shoes and spikes, d. Use of ball bearings) with List II (i. Makes surface slippery, ii. Makes surface smooth, iii. Replaces sliding friction with rolling friction, iv. Designed to increase friction so that better speed is generated):`,
+        question: `Match the items of List I with List II :
+
+List I: a. Polishing, b. Lubrication, c. Shoes and spikes, d. Use of ball bearings
+List II: i. Makes surface slippery, ii. Makes surface smooth, iii. Replaces sliding friction with rolling friction, iv. Designed to increase friction so that better speed is generated`,
         options: [
             "a-iv, b-iii, c-ii, d-i",
             "a-ii, b-i, c-iv, d-iii",
             "a-iii, b-iv, c-i, d-ii",
-            "a-i, b-ii, c-iii, d-iv"
+            "a-i, b-ii, c-iii, d-iv",
         ],
-        answer: "a-ii, b-i, c-iv, d-iii",
+        answer: `a-ii, b-i, c-iv, d-iii`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3116,7 +3783,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `Which one of the following is NOT a trait of Big Five Theory?`,
         options: ["Openness to new ideas", "Neuroticism", "Extraversion", "Submissiveness"],
-        answer: "Submissiveness",
+        answer: `Submissiveness`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3128,7 +3795,7 @@ Which one of the following is correct?`,
         marks: 1,
         question: `A person who is bold and outgoing is a/an ___________.`,
         options: ["Introvert", "Ambivert", "Extrovert", "Somatotype"],
-        answer: "Extrovert",
+        answer: `Extrovert`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3138,9 +3805,9 @@ Which one of the following is correct?`,
         topic: "Training in Sports",
         type: "MCQ",
         marks: 1,
-        question: `The duration of micro cycle is:`,
+        question: `The duration of micro cycle is :`,
         options: ["3 to 6 weeks", "3 to 10 days", "3 to 12 months", "3 to 10 years"],
-        answer: "3 to 10 days",
+        answer: `3 to 10 days`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3152,9 +3819,14 @@ Which one of the following is correct?`,
         marks: 1,
         question: `In which method is stretching done rhythmically?`,
         options: ["Slow stretch", "Slow stretch and hold", "Ballistic method", "PNF"],
-        answer: "Ballistic method",
+        answer: `Ballistic method`,
         source: "CBSE 2025 Compartment Exam",
     },
+
+
+    // ─────────────────────────────────────────────
+    //  2025 COMPARTMENT — SECTION B  (2 marks, attempt any 5)
+    // ─────────────────────────────────────────────
     {
         id: "C_2025_19",
         year: 2025,
@@ -3163,7 +3835,10 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 2,
         question: `Explain the correct breathing pattern while performing Nadi-Shodhana Pranayama.`,
-        answer: `Place right hand in Pranayama mudra; close right nostril with thumb; inhale through left nostril for 5 counts; release thumb, close left nostril with ring finger; exhale through right nostril for 10 counts; then inhale through right nostril for 5 counts and repeat. No sound should be produced.`,
+        answer: `1. Place right hand in Pranayama mudra. Close the right nostril with the right thumb. Inhale through the left nostril for 5 counts.
+2. After 5 counts, release the pressure of thumb from the right nostril and close the left nostril with the ring finger.
+3. Exhale through the right nostril for 10 counts, keeping the respiration rate slow, deep and silent. Then inhale through the right nostril for 5 counts and the procedure continues.
+4. Make sure that no sound is produced as the air passes through the nostrils.`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3174,7 +3849,7 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 2,
         question: `What do you understand by menstrual dysfunction? Write in brief.`,
-        answer: `An abnormal condition in a woman's menstrual cycle. Normal range is 21–35 days. If it occurs earlier than 21 days or after 35 days it is a problem. Also includes missing 3+ periods, heavier/lighter flow than usual, cycle longer than 7 days, painful menstruation, or bleeding after menopause.`,
+        answer: `Menstrual dysfunction is an abnormal condition in a woman's menstrual cycle. The normal range of menstrual cycle is 21 to 35 days. If it happens earlier than 21 days or after more than 35 days, it is a problem. It can also include missing 3 or more periods, heavier or lighter menstrual flow than usual, cycle happening longer than 7 days, painful menstruation or bleeding after menopause.`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3184,8 +3859,17 @@ Which one of the following is correct?`,
         topic: "Sports & Nutrition",
         type: "Short",
         marks: 2,
-        question: `Roughage is an essential component for our body. Explain this statement by enumerating the functions of roughage.`,
-        answer: `Improves digestion; promotes gut health; reduces risk of heart disease; manages weight and blood sugar; reduces bowel irritation; keeps digestive system clean; prevents constipation; satisfies appetite; softens stool. (Any 2 functions)`,
+        question: `'Roughage is an essential component for our body.' Explain this statement by enumerating the functions of roughage.`,
+        answer: `Roughage improves digestion and is essential for our body. Functions of roughage (any 2):
+1. Improves digestion
+2. Promotes gut health
+3. Reduces risk factor of heart disease
+4. Manages weight and blood sugar
+5. Reduces bowel irritation
+6. Helps in keeping the digestive system clean
+7. Prevents constipation and helps release faecal matter
+8. Satisfies appetite
+9. Softens stool`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3196,7 +3880,7 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 2,
         question: `What is the purpose of the abdominal partial curl up test?`,
-        answer: `Measures abdominal/core strength and endurance.`,
+        answer: `Abdominal partial curl up test measures abdominal/core strength and endurance.`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3206,21 +3890,42 @@ Which one of the following is correct?`,
         topic: "Psychology & Sports",
         type: "Short",
         marks: 2,
-        question: `Differentiate between extroverts and introverts.`,
-        answer: `Extroverts: social, outgoing, confident, make friends easily, generous, supportive, action-oriented. Introverts: reserved, self-conscious, more interested in own thoughts, self-centred, think before acting, tend to be poets/artists/writers. (Any 2 differences)`,
+        question: `Differentiate between Extroverts and Introverts.`,
+        answer: `Extroverts:
+1. Social, outgoing, confident, lively and make friends easily.
+2. They are generous, supportive and courageous.
+3. They are action oriented.
+4. Group leaders, politicians, heads, actors are extroverts generally.
+
+Introverts:
+1. Reserved, too self-conscious, more interested in own thoughts and ideas.
+2. They are self-centred, unable to adjust easily in society.
+3. They think before acting.
+4. Poets, artists, philosophers, writers etc. are usually introverts.
+(Any 2 differences)`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
         id: "C_2025_24",
         year: 2025,
-        chapter: "Physiology & Injuries in Sports",
-        topic: "Physiology & Injuries in Sports",
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
         type: "Short",
         marks: 2,
         question: `Write any two physiological factors to determine strength.`,
-        answer: `1. Muscle composition (slow and fast twitch fibres). 2. Size of muscle. 3. Body weight. 4. Intensity of nerve impulse. 5. Muscle coordination. (Any 2)`,
+        answer: `Physiological factors to determine strength (any 2):
+1. Muscle composition (Slow and Fast Twitch fibres)
+2. Size of muscle
+3. Body weight
+4. Intensity of nerve impulse
+5. Muscle coordination`,
         source: "CBSE 2025 Compartment Exam",
     },
+
+
+    // ─────────────────────────────────────────────
+    //  2025 COMPARTMENT — SECTION C  (3 marks, attempt any 5)
+    // ─────────────────────────────────────────────
     {
         id: "C_2025_25",
         year: 2025,
@@ -3228,8 +3933,15 @@ Which one of the following is correct?`,
         topic: "Planning in Sports",
         type: "Short",
         marks: 3,
-        question: `Differentiate between Knock-out and League tournament.`,
-        answer: `Knockout: teams eliminated on losing; strong teams may exit early; less expensive; less time; seeding used; also called Elimination tournament. League: every team plays each other; true winner emerges; more expensive; more time; no seeding; also called Round Robin tournament. (Any 3 differences)`,
+        question: `Differentiate between Knock-out and League Tournament.`,
+        answer: `Knockout vs League Tournament (any 3 differences):
+
+1. Knockout: Player/team continues to play until being defeated. | League: Player/team gets equal chance to play with each other.
+2. Knockout: Good teams/players can be eliminated at early stages. | League: The true winner emerges from this format.
+3. Knockout: It is less expensive. | League: It is more expensive.
+4. Knockout: Requires less time. | League: Requires more time.
+5. Knockout: Seeding procedure can be used. | League: No provision of seeding.
+6. Knockout: Also known as Elimination Tournament. | League: Also known as Round Robin Tournament.`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3240,7 +3952,19 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 3,
         question: `Explain any two common postural deformities with their corrective measures.`,
-        answer: `Knock Knees (Genu Valgum): legs bent inward, knees strike while walking. Corrective: horse riding, Padmasana/Gomukhasana, outward walking, pillow between knees. Flat Foot (Pes Planus): arch of foot less than normal. Corrective: walk barefoot on sand, rope skipping, picking marbles with toes, Adhomukhasana/Vajrasana. (Any 2 deformities with corrective measures)`,
+        answer: `Postural Deformities (any 2):
+
+1. Knock Knees (Genu Valgum): Legs are bent inward and knees strike each other while walking or running; wide gap between ankles.
+Corrective measures: Horse riding; perform Padmasana and Gomukhasana; outward walking; keep a pillow between the knees and stand erect for some time.
+
+2. Flat Foot (Pes Planus): Arch of the foot is lesser than normal.
+Corrective measures: Walk barefooted over sand; perform rope skipping; picking up marbles with toes; perform Adhomukhasana and Vajrasana.
+
+3. Round Shoulders: Shoulders become round and bent forward.
+Corrective measures: Perform Chakrasana, Dhanurasana; pull-ups; shoulder rotation exercises.
+
+4. Bow Legs (Genu Varum): Knees remain wide apart when feet are kept together.
+Corrective measures: Walk on inner edge of feet; perform Garudasana; lunges.`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3250,8 +3974,17 @@ Which one of the following is correct?`,
         topic: "Test & Measurement in Sports",
         type: "Short",
         marks: 3,
-        question: `What is the purpose of conducting the Sit and Reach test? Write the procedure for conducting this test.`,
-        answer: `Purpose: Measures flexibility of lower back and hamstring muscles. Procedure: Sit on floor, legs stretched straight; remove shoes; soles flat against box; knees locked and flat; extend hands for initial reading; reach forward with palms down, hands stacked, as far as possible for final reading; hands at same level; no jerky movements.`,
+        question: `What is the purpose of conducting the Sit and Reach Test? Write the procedure for conducting this test.`,
+        answer: `Purpose: Common measure of flexibility; specifically measures the flexibility of the lower back and hamstring muscles.
+
+Procedure:
+1. This test involves sitting on the floor with legs stretched out straight ahead.
+2. Shoes should be removed.
+3. The soles of the feet are placed flat against the Sit and Reach box.
+4. Both knees should be locked and pressed flat to the floor — the tester may assist by holding them down.
+5. The subject extends hands to reach the measuring scale without bending for initial reading.
+6. With palms facing downwards and hands on top of each other, the subject reaches forward along the measuring line as far as possible for the final reading.
+7. Ensure that the hands remain at the same level. Make sure there are no jerky movements.`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3262,7 +3995,17 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 3,
         question: `Enlist any two asanas for back pain and explain the procedure of any one asana.`,
-        answer: `Asanas: Tadasana, Urdhwahastottanasana, Ardha Chakrasana, Ushtrasana, Vakrasana, Saral Matsyendrasana, Bhujangasana, Gomukhasana, Bhadrasana, Makarasana. Procedure of Tadasana: Stand with feet together; distribute weight equally; raise arms over head, interlock fingers, palms upward; inhale and stretch arms/shoulders/chest upward; raise heels onto toes; hold for a few seconds; lower heels on exhale and bring hands down.`,
+        answer: `Asanas for Back-pain (any 2 from):
+Tadasana, Urdhwahastottanasana, Ardha Chakrasana, Ushtrasana, Vakrasana, Saral Matsyendrasana, Bhujangasana, Gomukhasana, Bhadrasana, Makarasana
+
+Procedure of Tadasana:
+1. Stand with feet together or about 10 cm apart, hands by the side of the thighs.
+2. Distribute weight equally on both feet to keep the body steady.
+3. Raise arms over the head. Interlock the fingers and turn the palms upward.
+4. Inhale and stretch the arms, shoulders and chest upward.
+5. Raise heels, coming up onto the toes.
+6. Hold the breath and position for a few seconds.
+7. Lower the heels while breathing out and bring hands down.`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3273,7 +4016,15 @@ Which one of the following is correct?`,
         type: "Short",
         marks: 3,
         question: `What types of physical impairments are considered for grouping the athletes for Paralympics?`,
-        answer: `8 types: 1. Impaired muscle power. 2. Impaired passive range of movement. 3. Loss of limb or limb deficiency. 4. Leg-length difference. 5. Short stature. 6. Hypertonia. 7. Ataxia. 8. Athetosis. (Any 3)`,
+        answer: `Physical Impairment — Eight different types (any 3):
+1. Impaired Muscle Power — Force generated by muscles in one limb, one side of the body or lower half of the body is reduced.
+2. Impaired Passive Range of Movement — Range of movement in one or more joints is reduced.
+3. Loss of Limb or Limb Deficiency — A total or partial absence of bones or joints.
+4. Leg-length Difference — Significant bone shortening occurs in one leg.
+5. Short Stature — Standing height is reduced.
+6. Hypertonia — Abnormal increase in muscle tension and reduced ability of a muscle to stretch.
+7. Ataxia — Lack of coordination of muscle movements.
+8. Athetosis — Unbalanced, involuntary movements and difficulty maintaining a symmetrical posture.`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3283,10 +4034,18 @@ Which one of the following is correct?`,
         topic: "Biomechanics & Sports",
         type: "Short",
         marks: 3,
-        question: `Why are the angles of release for shotput, javelin and discus throw different? Explain.`,
-        answer: `1. Different aerodynamic properties due to shape of equipment affect the optimal angle of release. 2. Different throwing action/style for each event leads to different angles. 3. Different weight of equipment results in different optimal release angles.`,
+        question: `Why are the angles of release for Shotput, Javelin and Discus Throw different? Explain.`,
+        answer: `The angles of release for Shotput, Javelin and Discus Throw are different because:
+1. Due to the shape of the equipment, aerodynamics play a role in the angle of release — each implement has a different shape and flight characteristic.
+2. The difference in throwing action or style leads to a different angle of release for each event.
+3. The difference in the weight of the equipment also means the angle of release must be different to achieve maximum distance.`,
         source: "CBSE 2025 Compartment Exam",
     },
+
+
+    // ─────────────────────────────────────────────
+    //  2025 COMPARTMENT — SECTION D  (Case Studies, 4 marks)
+    // ─────────────────────────────────────────────
     {
         id: "C_2025_31",
         year: 2025,
@@ -3294,8 +4053,23 @@ Which one of the following is correct?`,
         topic: "Planning in Sports",
         type: "Case Study",
         marks: 4,
-        question: `In a badminton competition with 7 players, 3 were eliminated in the first round. (i) What type of tournament is this? (A) Round Robin (B) Knock-out (C) Challenge (D) Knock-out Cum League. (ii) Total matches if it were a Round Robin tournament? (A) 18 (B) 17 (C) 21 (D) 16. (iii) An advantage of knock-out tournament is? (A) Takes less time (B) Weak teams may enter final (C) Strong teams may get eliminated (D) More expensive. (iv) Formula to calculate byes in upper-half is? (A) N (B) (N+1)/2 (C) (NB+1)/2 (D) NB/2.`,
-        answer: `(i) B – Knock-out Tournament (ii) C – 21 (iii) A – It takes less time (iv) D – NB/2`,
+        question: `In a badminton competition, there were 7 players. In the first round, 3 players were eliminated after they lost their matches. Based on this information and your prior knowledge, answer the following questions :
+
+(i) What type of tournament is mentioned above?
+(A) Round Robin Tournament  (B) Knock-out Tournament  (C) Challenge Tournament  (D) Knock-out Cum League Tournament
+
+(ii) How many total matches will be played if it is a Round Robin tournament?
+(A) 18  (B) 17  (C) 21  (D) 16
+
+(iii) An advantage of knock-out tournament is :
+(A) It takes less time  (B) Weak teams may enter the final  (C) Strong teams may get eliminated  (D) It is more expensive
+
+(iv) The formula to calculate byes in the upper-half in a knock-out tournament is :
+(A) N + 1 / 2  (B) N – 1 / 2  (C) NB + 1 / 2  (D) NB – 1 / 2`,
+        answer: `(i) Knock-out Tournament
+(ii) 21
+(iii) It takes less time
+(iv) NB – 1 / 2`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3305,8 +4079,29 @@ Which one of the following is correct?`,
         topic: "Physical Education & Sports for CWSN",
         type: "Case Study",
         marks: 4,
-        question: `The 10th Asia Pacific Deaf Games were held in Kuala Lumpur, Malaysia (medal table shown). (i) The first Deaflympic Games were held in the year ___. (A) 1924 (B) 1984 (C) 1948 (D) 1954. (ii) How many athletes participated in the Judo tournament? (A) 2 (B) 4 (C) 6 (D) 8. (iii) How many silver medals were clinched in wrestling? (A) 1 (B) 2 (C) 6 (D) 3. (iv) In which year was the logo of Deaflympics designed? (A) 2001 (B) 2002 (C) 2003 (D) 2005. [OR visually impaired (NEP 2020/CWSN context): (i) Least preferred strategy for CWSN? (ii) Social strategy for making activity accessible? (iii) Where should physical activity start first for CWSN? (iv) Effective inclusive PE programme includes?]`,
-        answer: `(i) A – 1924 (ii) C – 6 (iii) A – 1 (iv) C – 2003 [OR visually impaired: (i) B – Use of standard equipment only (ii) A – Increasing interaction among CWSN (iii) C – From an indoor activity (iv) A – Simple to complex activities]`,
+        question: `The 10th 'Asia Pacific Deaf Games' were held in Kuala Lumpur, Malaysia. The table shows medals won by India. Based on this and your prior knowledge, answer the following questions :
+
+(i) The first Deaflympic Games were held in the year ____________.
+(A) 1924  (B) 1984  (C) 1948  (D) 1954
+
+(ii) How many athletes participated in the Judo tournament?
+(A) 2  (B) 4  (C) 6  (D) 8
+
+(iii) How many silver medals were clinched in the wrestling competition?
+(A) 1  (B) 2  (C) 6  (D) 3
+
+(iv) In which year was the logo of Deaflympics designed?
+(A) 2001  (B) 2002  (C) 2003  (D) 2005`,
+        answer: `(i) 1924
+(ii) 6
+(iii) 1
+(iv) 2003
+
+(For Visually Impaired):
+(i) Use of Standard equipment only (least preferred strategy)
+(ii) Increasing interaction among CWSN (social strategy)
+(iii) From an Indoor activity
+(iv) Simple to complex activities`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3316,10 +4111,30 @@ Which one of the following is correct?`,
         topic: "Physiology & Injuries in Sports",
         type: "Case Study",
         marks: 4,
-        question: `A handball team reached semifinals but arrived at venue late, so Rohit did not warm up and got injured. (i) What was the cause of injury? (A) Lack of warming-up (B) Improper equipment (C) Collision with another player (D) Improper coaching. (ii) Which injury occurs due to tear of ligament? (A) Contusion (B) Strain (C) Sprain (D) Abrasion. (iii) Which refers to any collection of blood outside a vessel? (A) Incision (B) Abrasion (C) Contusion (D) Laceration. (iv) Fracture of a bone without breaking is called __________. (A) Oblique fracture (B) Impacted fracture (C) Comminuted fracture (D) Green stick fracture.`,
-        answer: `(i) A – Lack of warming-up (ii) C – Sprain (iii) C – Contusion (iv) D – Green stick fracture`,
+        question: `A handball team from XYZ School reached the semifinals. The team arrived at the scheduled match time with no time for warm-up. As soon as the match started, Rohit suddenly got injured and fell on the ground. His coach had knowledge of first aid and immediately rushed to help. Based on this and your prior knowledge, answer the following questions :
+
+(i) What was the cause of injury?
+(A) Lack of warming-up  (B) Improper equipment  (C) Collision with another player  (D) Improper coaching
+
+(ii) Which of the following injury occurs due to tear of ligament?
+(A) Contusion  (B) Strain  (C) Sprain  (D) Abrasion
+
+(iii) Which of the following refers to any collection of blood outside of a vessel?
+(A) Incision  (B) Abrasion  (C) Contusion  (D) Laceration
+
+(iv) Fracture of a bone without breaking is called __________.
+(A) Oblique fracture  (B) Impacted fracture  (C) Comminuted fracture  (D) Green stick fracture`,
+        answer: `(i) Lack of warming-up
+(ii) Sprain
+(iii) Contusion
+(iv) Green stick fracture`,
         source: "CBSE 2025 Compartment Exam",
     },
+
+
+    // ─────────────────────────────────────────────
+    //  2025 COMPARTMENT — SECTION E  (Long Answer, 5 marks, attempt any 3)
+    // ─────────────────────────────────────────────
     {
         id: "C_2025_34",
         year: 2025,
@@ -3328,7 +4143,23 @@ Which one of the following is correct?`,
         type: "Long",
         marks: 5,
         question: `Vitamins are divided into two different categories. Enlist them and explain any two vitamins with their deficiency diseases.`,
-        answer: `Fat soluble: Vitamin A, D, E, K. Water soluble: Vitamin B and C. Any 2 vitamins with function and deficiency, e.g.: Vitamin A – vision in dim light; deficiency: Night blindness, Xerophthalmia. Vitamin D – absorption of calcium/phosphorus; deficiency: Rickets, Osteomalacia. Vitamin C – wound healing, metabolic rate; deficiency: Scurvy. Vitamin K – prevention of haemorrhage; deficiency: blood does not clot.`,
+        answer: `Categories of Vitamins:
+• Fat Soluble: Vitamin A, Vitamin D, Vitamin E, Vitamin K
+• Water Soluble: Vitamin B and Vitamin C
+
+Any two vitamins (function + deficiency):
+
+Vitamin A: Helps in formation of bones and teeth, promotes normal vision. Deficiency: Night blindness, Keratomalacia, Xerophthalmia.
+
+Vitamin D: Helps in absorption of calcium and phosphorus. Deficiency: Rickets, Osteomalacia, Osteoporosis, Tetany, Dental Cavities.
+
+Vitamin E: Keeps skin healthy, maintains normal functioning of reproductive organs. Deficiency: Alzheimer's, Paralysis, Slow Growth.
+
+Vitamin K: Prevention of haemorrhage and excessive bleeding in wounds. Deficiency: Anaemia, Blood Does Not Clot.
+
+Vitamin B1 (Thiamin): Helps in metabolising carbohydrate, maintains health of liver and kidney. Deficiency: Beri-Beri.
+
+Vitamin C: Helps in healing wounds, increases metabolic rate, helpful in absorbing calcium. Deficiency: Scurvy.`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3338,8 +4169,21 @@ Which one of the following is correct?`,
         topic: "Biomechanics & Sports",
         type: "Long",
         marks: 5,
-        question: `Define friction. What are the advantages and disadvantages of friction in the field of games and sports? Explain with suitable examples.`,
-        answer: `Friction: A force acting over the area of contact between two surfaces, in the direction opposite to motion / a force that resists movement. Advantages: Running/walking due to friction between ground and shoes (spikes/studs); grip in badminton/tennis; friction prevents cyclist from slipping; gymnasts/javelin throwers use magnesium powder. Disadvantages: Excessive friction in cycle tyres wastes energy; air resistance slows projectiles; loss of grip on pole vault pole can cause injury; sliding across ground can cause injuries. (Any 2 advantages + 2 disadvantages)`,
+        question: `Define Friction. What are the advantages and disadvantages of friction in the field of games and sports? Explain with suitable examples.`,
+        answer: `Friction: A force acting over the area of contact between two surfaces in the direction opposite to that of motion.
+OR: A force that acts parallel to two surfaces; a force that resists the movement.
+
+Advantages (any 2):
+1. Running and walking are the result of friction between ground and shoes. E.g. athletes use spikes; footballers use studs.
+2. The grip in badminton and tennis plays a major role in performing a perfect shot — a good grip provides better friction.
+3. Friction between tyres and the surface prevents the cyclist from slipping and skidding.
+4. Gymnasts and javelin throwers use magnesium powder to increase friction.
+
+Disadvantages (any 2):
+1. If air pressure in cycle tyres is not appropriate, excessive friction causes more energy expenditure.
+2. Air resistance slows down the speed of the projectile in flight.
+3. During pole-vault, an athlete may lose grip on the pole if there is less friction between palm and pole, causing injury.
+4. Friction can cause injuries when a player slides across the ground during play.`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3350,7 +4194,21 @@ Which one of the following is correct?`,
         type: "Long",
         marks: 5,
         question: `What is the need for inclusive education in India? What measures can be taken for the effective implementation of inclusive education?`,
-        answer: `Need: Builds self-esteem; improves social skills; enhances sensitivity; creates better understanding; creates sense of belongingness; enhances academic participation. Measures: Equipping teachers; developing support from stakeholders; curriculum transaction; designing CWSN-friendly classrooms; developing education goals; Right to Education. (Any 2 needs + any 3 measures)`,
+        answer: `Need for Inclusive Education (any 2):
+1. Builds self-esteem
+2. Improves social skills
+3. Enhances sensitivity
+4. Creates better understanding
+5. Creates a sense of belongingness
+6. Enhances academic performance
+
+Measures for effective implementation (any 3):
+1. Equipping teachers with special education training
+2. Developing support by involving stakeholders
+3. Curriculum transaction — adapting curriculum to meet diverse needs
+4. Designing classrooms to be CWSN-friendly
+5. Developing appropriate education goals
+6. Right to Education — ensuring legislative support and awareness`,
         source: "CBSE 2025 Compartment Exam",
     },
     {
@@ -3361,7 +4219,14 @@ Which one of the following is correct?`,
         type: "Long",
         marks: 5,
         question: `What is speed? Explain any two methods of speed development.`,
-        answer: `Speed: Capability of the body to perform successive movements at the fastest rate / ability to execute motor movements as quickly as possible. Methods: 1. Acceleration Runs – develop speed from static position; run specific distance at max speed; repeated with sufficient rest; sets based on age, capacity, fitness. 2. Pace Runs – running a set distance at uniform speed; for 800m and above; pace maintained throughout; repetitions as per athlete's level.`,
+        answer: `Speed: Capability of the body to perform successive movement at the fastest rate.
+OR: Ability to execute motor movements as quickly as possible.
+
+Methods of Speed Development (any 2):
+
+1. Acceleration Runs: Method used to develop speed while attaining maximum speed from a static position. A sports person is required to run a specific distance, gain maximum speed at the earliest, and finish the specified distance at that speed. These runs are repeated with sufficient rest in between. The number of acceleration runs should be set as per age, capacity and fitness of the athlete.
+
+2. Pace Runs: Running a set distance at uniform speed. Usually includes races of 800 m and above. It is important to keep pace in mind when running middle and long distance races. In the beginning of the race, the pace should not be too high and should be maintained throughout. Repetition of pace runs can be done as per level of athlete.`,
         source: "CBSE 2025 Compartment Exam",
     },
 ];
