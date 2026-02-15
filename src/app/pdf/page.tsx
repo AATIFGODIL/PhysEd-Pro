@@ -6,20 +6,43 @@ import { questions } from "@/data/questions";
 
 export default function PDFPage() {
 
-    // Updated to include 2022-2025 as requested
+    // Updated to include 2022-2026 as requested
     const pdfCards = [
-        { year: 2025, type: "Main", badge: "Latest", badgeColor: "bg-fuchsia-500/20 text-fuchsia-300" },
-        { year: 2025, type: "Compartment", badge: "New", badgeColor: "bg-purple-500/20 text-purple-300" },
+        // 2026
+        { year: 2026, type: "Sample", badge: "New Pattern", badgeColor: "bg-blue-500/20 text-blue-300" },
+
+        // 2025
+        { year: 2025, type: "Main", badge: "Latest Board", badgeColor: "bg-fuchsia-500/20 text-fuchsia-300" },
+        { year: 2025, type: "Compartment", badge: "Final", badgeColor: "bg-purple-500/20 text-purple-300" },
+        { year: 2025, type: "Sample", badge: "SQP", badgeColor: "bg-blue-500/20 text-blue-300" },
+
+        // 2024
         { year: 2024, type: "Main", badge: null, badgeColor: "" },
-        { year: 2024, type: "Compartment", badge: "MCQs", badgeColor: "bg-blue-500/20 text-blue-300" },
+        { year: 2024, type: "Compartment", badge: "MCQs", badgeColor: "bg-amber-500/20 text-amber-300" },
+        { year: 2024, type: "Sample", badge: "SQP", badgeColor: "bg-blue-500/20 text-blue-300" },
+
+        // 2023
         { year: 2023, type: "Main", badge: null, badgeColor: "" },
         { year: 2023, type: "Compartment", badge: null, badgeColor: "" },
+        { year: 2023, type: "Sample", badge: "SQP", badgeColor: "bg-blue-500/20 text-blue-300" },
+
+        // 2022
         { year: 2022, type: "Main", badge: null, badgeColor: "" },
     ];
 
     const handleDownload = (year: number, type: string) => {
         // Construct the filename based on the pattern in public folder
-        const fileName = type === "Compartment" ? `PE C ${year}.pdf` : `PE ${year} Paper.pdf`;
+        let fileName = "";
+        if (type === "Compartment") {
+            fileName = `PE C ${year}.pdf`;
+        } else if (type === "Sample") {
+            // "PE SQP 26.pdf", "PE SQP 25.pdf" etc. -> Last 2 digits of year
+            const shortYear = year.toString().slice(-2);
+            fileName = `PE SQP ${shortYear}.pdf`;
+        } else {
+            fileName = `PE ${year} Paper.pdf`;
+        }
+
         const link = document.createElement("a");
         link.href = `/${fileName}`; // Path relative to public folder
         link.download = fileName;
@@ -68,12 +91,15 @@ export default function PDFPage() {
                                         {/* Year */}
                                         <div className="flex flex-col items-center gap-2 mb-4">
                                             <span className="text-3xl font-bold text-gray-900 dark:text-white">{card.year}</span>
-                                            <div className="flex flex-wrap justify-center gap-1.5 min-h-[24px]">
-                                                <span className={`text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full ${card.type === "Compartment" ? "bg-amber-500/10 text-amber-600 dark:text-amber-400" : "bg-purple-500/10 text-purple-600 dark:text-purple-300"}`}>
+                                            <div className="flex flex-wrap justify-center items-center gap-1.5 min-h-[24px]">
+                                                <span className={`text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full inline-flex items-center justify-center ${card.type === "Compartment" ? "bg-amber-500/10 text-amber-600 dark:text-amber-400" :
+                                                        card.type === "Sample" ? "bg-blue-500/10 text-blue-600 dark:text-blue-400" :
+                                                            "bg-purple-500/10 text-purple-600 dark:text-purple-300"
+                                                    }`}>
                                                     {card.type} Exam
                                                 </span>
                                                 {card.badge && (
-                                                    <span className={`text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full ${card.badgeColor} animate-pulse font-medium`}>
+                                                    <span className={`text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full inline-flex items-center justify-center ${card.badgeColor} animate-pulse font-medium`}>
                                                         {card.badge}
                                                     </span>
                                                 )}

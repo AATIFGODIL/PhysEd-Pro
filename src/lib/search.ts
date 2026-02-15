@@ -40,8 +40,11 @@ export function parseSearchQuery(query: string): SearchFilters {
         textQuery = textQuery.replace(marksMatch[0], "").trim();
     }
 
-    // 3. Extract Exam Source (Compartment / Main)
-    if (/\bcompartment\b/i.test(textQuery)) {
+    // 3. Extract Exam Source (Compartment / Main / Sample)
+    if (/\b(sample|sqp)\b/i.test(textQuery)) {
+        filters.source = "Sample";
+        textQuery = textQuery.replace(/\b(sample|sqp|paper)\b/gi, "").trim(); // Remove 'paper' too if next to sample
+    } else if (/\bcompartment\b/i.test(textQuery)) {
         filters.source = "Compartment";
         textQuery = textQuery.replace(/\bcompartment\b/i, "").trim();
     } else if (/\bmain\b/i.test(textQuery)) {
@@ -88,8 +91,11 @@ export function searchQuestions(query: string): Question[] {
     if (source) {
         if (source === "Compartment") {
             filtered = filtered.filter(q => q.source.toLowerCase().includes("compartment"));
-        } else {
-            filtered = filtered.filter(q => !q.source.toLowerCase().includes("compartment"));
+        } else if (source === "Sample") {
+            filtered = filtered.filter(q => q.source.toLowerCase().includes("sample"));
+        } else if (source === "Main") {
+            // Main means NOT Compartment AND NOT Sample
+            filtered = filtered.filter(q => !q.source.toLowerCase().includes("compartment") && !q.source.toLowerCase().includes("sample"));
         }
     }
 

@@ -4229,4 +4229,2624 @@ Methods of Speed Development (any 2):
 2. Pace Runs: Running a set distance at uniform speed. Usually includes races of 800 m and above. It is important to keep pace in mind when running middle and long distance races. In the beginning of the race, the pace should not be too high and should be maintained throughout. Repetition of pace runs can be done as per level of athlete.`,
         source: "CBSE 2025 Compartment Exam",
     },
+
+
+    // ═══════════════════════════════════════════════════════════════
+    //  CBSE CLASS XII PHYSICAL EDUCATION
+    //  SAMPLE QUESTION PAPERS — 2023 | 2024 | 2025 | 2026
+    //  All Sections: A (MCQ) · B (2 marks) · C (3 marks) · D (Case Study) · E (5 marks)
+    //  ID format: S_YYYY_Q
+    // ═══════════════════════════════════════════════════════════════
+
+    // ─────────────────────────────────────────────
+    //  SQP 2023 (Session 2022-23) — SECTION A
+    // ─────────────────────────────────────────────
+    {
+        id: "S_2023_1",
+        year: 2023,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "MCQ",
+        marks: 1,
+        question: `Identify the asana shown in the image.`,
+        imageUrl: "/PE_SQP_2023_qs_1.png",
+        options: ["Paschimottanasana", "Halasana", "Vajrasana", "Dhanurasana"],
+        answer: `Dhanurasana`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_2",
+        year: 2023,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `A person who likes to learn new things, new concepts and new experiences are categorized as ____________.`,
+        options: ["Agreeableness", "Extroversion", "Conscientiousness", "Openness"],
+        answer: `Openness`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_3",
+        year: 2023,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Cartwheel in gymnastics is an example of _______________.`,
+        options: ["Static Equilibrium", "Dynamic Equilibrium", "Active Equilibrium", "Passive Equilibrium"],
+        answer: `Dynamic Equilibrium`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_4",
+        year: 2023,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Slow twitch fibres are ____________ in colour.`,
+        options: ["White", "Red", "Transparent", "Brown"],
+        answer: `Red`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_5",
+        year: 2023,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Jumping on the spot is an example of _______________.`,
+        options: ["Iso-metric", "Iso-tonic", "Iso-kinetic", "Iso-kinesthetic"],
+        answer: `Iso-tonic`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_6",
+        year: 2023,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Take-off in Long jump is an example of _______________ strength.`,
+        options: ["Explosive strength", "Maximum strength", "Strength endurance", "Static strength"],
+        answer: `Explosive strength`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_7",
+        year: 2023,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `The amount of oxygen which can be absorbed and consumed by the working muscles from the blood is called __________________.`,
+        options: ["Oxygen Uptake", "Oxygen Intake", "Oxygen Transport", "Vital capacity"],
+        answer: `Oxygen Uptake`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_8",
+        year: 2023,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `In Law of Acceleration, acceleration of an object is inversely proportionate to its _________________.`,
+        options: ["Force", "Mass", "Speed", "Size"],
+        answer: `Mass`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_9",
+        year: 2023,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Given below are the two statements labeled Assertion (A) and Reason (R).
+
+Assertion (A): Intrinsic motivation has long term benefits.
+Reason (R): As factors behind it are naturally pursuing actions that provide fun, pleasure, fulfillment or challenge.
+
+In the context of the above two statements, which one of the following is correct?`,
+        options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true, but (R) is not the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true.",
+        ],
+        answer: `Both (A) and (R) are true and (R) is the correct explanation of (A).`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_10",
+        year: 2023,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "MCQ",
+        marks: 1,
+        question: `Carbohydrates which are soluble in water and crystalline in structure are known as ___________ carbohydrates.`,
+        options: ["Simple", "Complex", "Compound", "Complicated"],
+        answer: `Simple`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_11",
+        year: 2023,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "MCQ",
+        marks: 1,
+        question: `Which amongst these is NOT a micro mineral?`,
+        options: ["Iodine", "Magnesium", "Iron", "Copper"],
+        answer: `Magnesium`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_12",
+        year: 2023,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "MCQ",
+        marks: 1,
+        question: `Which asana is helpful in increasing height?`,
+        options: ["Sukhasana", "Tadasana", "Bhujangasana", "Vajrasana"],
+        answer: `Tadasana`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_13",
+        year: 2023,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `How many byes will be given if there are 17 teams?`,
+        options: ["1", "8", "15", "12"],
+        answer: `15`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_14",
+        year: 2023,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `How many matches will be played in the knockout tournament's first round if there are 15 teams?`,
+        options: ["8", "7", "5", "6"],
+        answer: `7`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_15",
+        year: 2023,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "MCQ",
+        marks: 1,
+        question: `Watching others play and enjoy which in turn motivates the child with special need to participate is a part of which kind of strategy?`,
+        options: ["Mental", "Physical", "Psychological", "Social"],
+        answer: `Social`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_16",
+        year: 2023,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "MCQ",
+        marks: 1,
+        question: `Match the following asanas with the deformities they correct:
+
+I. Garudasana    1. Round shoulder
+II. Gomukhasana  2. Lordosis
+III. Chakrasana  3. Bow legs
+IV. Naukasana    4. Knock knees`,
+        options: ["I-3, II-4, III-1, IV-2", "I-1, II-3, III-4, IV-2", "I-4, II-2, III-1, IV-3", "I-2, II-3, III-4, IV-1"],
+        answer: `I-3, II-4, III-1, IV-2`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_17",
+        year: 2023,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Match the following Rikli & Jones fitness tests with what they measure:
+
+I. Chair stand test         1. Lower Body strength
+II. Arm curl test           2. Aerobic Endurance
+III. Back scratch test      3. Upper body strength
+IV. Six minute walk test    4. Upper body flexibility`,
+        options: ["I-1, II-3, III-4, IV-2", "I-2, II-3, III-1, IV-4", "I-1, II-3, III-2, IV-4", "I-2, II-3, III-4, IV-1"],
+        answer: `I-1, II-3, III-4, IV-2`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_18",
+        year: 2023,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Weakening of bones due to loss of bone density and improper bone formation is known as _______.`,
+        options: ["Amenorrhea", "Anorexia Nervosa", "Osteoporosis", "Lordosis"],
+        answer: `Osteoporosis`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+
+    // SQP 2023 — SECTION B
+    {
+        id: "S_2023_19",
+        year: 2023,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "Short",
+        marks: 2,
+        question: `List down any four effects of exercise on the muscular system.`,
+        answer: `Effects of exercise on the muscular system (any 4):
+1. Increased muscle temperature
+2. Increased blood supply to muscles
+3. Hypertrophy of muscle (increase in muscle size)
+4. Increase in strength of ligaments and tendons
+5. Increase in size and number of mitochondria
+6. Increased myoglobin storage
+7. Increased glycogen storage
+8. Increased lactic acid tolerance
+9. Better posture
+10. Delayed fatigue`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_20",
+        year: 2023,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "Short",
+        marks: 2,
+        question: `List down any four benefits of self-talk by athletes in sports.`,
+        answer: `Benefits of self-talk (any 4):
+1. Building and developing self-efficacy
+2. Skill acquisition
+3. Creating and changing mood
+4. Controlling efforts
+5. Focusing attention
+6. Improving overall performance
+7. Maintains a positive mindset
+8. Better handling of mistakes`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_21",
+        year: 2023,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "Short",
+        marks: 2,
+        question: `List down any four advantages of fartlek training method.`,
+        answer: `Advantages of Fartlek Training (any 4):
+1. Improves both aerobic and anaerobic fitness simultaneously
+2. Flexible and enjoyable — no set rules or structure
+3. Can be adapted to any fitness level
+4. Improves speed, endurance and strength together
+5. Training can be done on varied terrain
+6. Helps develop mental toughness
+7. Less monotonous than continuous training
+8. Can be done without any specialist equipment`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_22",
+        year: 2023,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Explain any two types of soft tissue injuries with help of examples.`,
+        answer: `Types of soft tissue injuries (any 2):
+
+1. Sprain: Stretching or tearing of ligaments. E.g. ankle sprain in basketball when a player lands on a twisted foot.
+
+2. Strain: Injury to a muscle or tendon due to overuse or excessive force. E.g. hamstring strain in a sprinter.
+
+3. Contusion (Bruise): Collection of blood outside a vessel caused by a blunt force. E.g. a bruise on the thigh in football.
+
+4. Abrasion: Grinding or rubbing away of the skin surface. E.g. road rash in cycling.
+
+5. Laceration: Irregular tear-like wound caused by blunt trauma. E.g. a cut on the forehead from a cricket ball.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_23",
+        year: 2023,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Write down the objectives and administration of the Flamingo Balance Test.`,
+        answer: `Objective: To assess the ability to balance on a single leg. Measures static balance and strength of leg, pelvic and trunk muscles. (For age group 5–8 yrs, classes 1–3.)
+
+Administration/Procedure:
+Stand on the beam. Hold the instructor's hand if required for initial balance. While balancing on the preferred leg, bend the free leg at the knee and hold the foot close to the buttocks. Start the stopwatch as the instructor lets go. Pause the stopwatch each time the subject loses balance. Count the number of falls in 60 seconds of balancing. If there are more than 15 falls in the first 30 seconds, the test is terminated.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_24",
+        year: 2023,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "Short",
+        marks: 2,
+        question: `What should be the basic nutrient in a weightlifter's diet and why?`,
+        answer: `The basic nutrient in a weightlifter's diet should be Protein.
+
+Reason: Protein is the building block of muscle tissue. Weightlifters need high protein intake to:
+• Repair micro-tears in muscles caused during heavy lifting
+• Promote muscle hypertrophy (growth)
+• Maintain muscle mass during intense training
+• Support recovery after training sessions
+Good sources include eggs, milk, lean meat, pulses and nuts.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+
+    // SQP 2023 — SECTION C
+    {
+        id: "S_2023_25",
+        year: 2023,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "Short",
+        marks: 3,
+        question: `Create a mind map including any six advantages of physical activities for children with special needs.`,
+        answer: `Advantages of physical activities for CWSN (any 6):
+1. Physical improvement — improves gross and fine motor skills, strength and endurance
+2. Mental improvement — enhances cognitive function and academic performance
+3. Increases self-esteem — builds confidence and sense of achievement
+4. Reduces stress, anxiety and depression — improves psychological wellbeing
+5. Reduces risk of health complications — manages weight, improves cardiovascular health
+6. Improved social interaction — builds communication and teamwork skills
+7. Improved emotional health — emotional regulation and mood stability
+8. Mode of recreation and fun — enjoyment and leisure
+9. Channelising surplus energy — constructive outlet
+10. Develops independence — improves ability to perform daily tasks`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_26",
+        year: 2023,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "Short",
+        marks: 3,
+        question: `What are carbohydrates? Differentiate between its types.`,
+        answer: `Carbohydrates are organic compounds made up of Carbon, Hydrogen and Oxygen. They are a major source of energy.
+
+Types of Carbohydrates:
+
+1. Simple Carbohydrates (Monosaccharides and Disaccharides):
+• Soluble in water and crystalline in structure.
+• Found in fruits (sucrose, glucose, fructose), milk (lactose) and commercially produced sweets.
+• Provide quick energy.
+
+2. Complex Carbohydrates (Polysaccharides):
+• More than two units of monosaccharides joined together; include starches and fibre.
+• Found in whole grain cereals, rice, oats, potatoes, bread, legumes, corn and flour.
+• Provide sustained energy and aid digestion.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_27",
+        year: 2023,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "Short",
+        marks: 3,
+        question: `Define bye. Explain the rules of giving bye with help of an example.`,
+        answer: `Bye: The position of a participant in a tournament who is not paired with an opponent (usually in the first round) and advances to the next round without playing.
+
+Rules for allotment of byes in a knockout fixture:
+1. First bye — given to the last team of the Lower Half.
+2. Second bye — given to the first team of the Upper Half.
+3. Third bye — given to the first team of the Lower Half.
+4. Fourth bye — given to the last team of the Upper Half.
+The same pattern is followed for any remaining byes.
+
+Example: If 19 teams participate, byes = 32 – 19 = 13. These 13 byes are distributed in the above order among the teams.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_28",
+        year: 2023,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "Short",
+        marks: 3,
+        question: `Make a table explaining any three personalities from Big Five Theory and their characteristics.`,
+        answer: `Big Five Theory personalities (any 3):
+
+1. Openness — Imaginative, creative, intellectual, curious, open to learning new things, independent, insightful.
+
+2. Conscientiousness — Self-disciplined, goal-driven, thoughtful, hardworking, organised, responsible, competent.
+
+3. Extraversion — Energetic, talkative, interactive, affectionate, social, outgoing, enthusiastic.
+
+4. Agreeableness — Friendly, co-operative, kind, gentle, generous, sympathetic, trustworthy, helpful.
+
+5. Neuroticism — Insecure, nervous, anxious, experiences unpleasant emotions, impulsive, hostile, emotionally unstable.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_29",
+        year: 2023,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "Short",
+        marks: 3,
+        question: `Explain any three physiological factors determining strength.`,
+        answer: `Physiological factors determining strength (any 3):
+
+1. Muscle Composition (Fast Twitch Fibres): In strength-related sports, a higher percentage of fast-twitch fibres is required as they produce more force quickly.
+
+2. Hypertrophy of Muscle: Increase in muscle size leads to greater force production. Resistance training causes micro-tears which repair and grow thicker.
+
+3. Increase in Strength of Ligaments and Tendons: Stronger connective tissue allows muscles to exert more force without injury.
+
+4. ATP-CP System: Energy stored as phosphocreatine in muscles determines peak power output in short, explosive activities.
+
+5. Stroke Volume: The volume of blood pumped out per cardiac contraction determines oxygen delivery to muscles, supporting sustained strength effort.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_30",
+        year: 2023,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "Short",
+        marks: 3,
+        question: `What is the meaning of Female Athlete Triad? Explain any two in brief.`,
+        answer: `Female Athlete Triad: A syndrome of three interrelated medical conditions commonly seen in female athletes — disordered eating, menstrual dysfunction (amenorrhea) and loss of bone density (osteoporosis).
+
+1. Disordered Eating:
+• Anorexia Nervosa — person severely restricts food intake.
+• Bulimia Nervosa — person binges on large amounts of food and then purges.
+• Results in low energy availability, affecting performance and recovery.
+
+2. Amenorrhea (Menstrual Dysfunction):
+• Primary amenorrhea — first menstrual period does not begin by age 15.
+• Secondary amenorrhea — normal menstrual bleeding stops for 3 or more months.
+• Caused by low energy availability and intense training.
+
+3. Osteoporosis:
+• Loss of bone mineral density leading to weak, fragile bones.
+• Increased risk of stress fractures, especially in the hip, spine and wrist.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+
+    // SQP 2023 — SECTION D
+    {
+        id: "S_2023_31",
+        year: 2023,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "Case Study",
+        marks: 4,
+        question: `Based on the knockout tournament fixture shown, answer the following:
+
+(a) Total number of matches in the 2nd round are __________.
+(b) What is the formula for calculating the total number of matches?
+(c) The fourth round in this case can also be called as _______________.
+(d) What is the formula for calculating the number of byes?
+OR: The formula for calculating number of rounds is __________.`,
+        imageUrl: "/PE_SQP_2023_qs_31.png",
+        answer: `(a) 8
+(b) N – 1
+(c) Semi-final
+(d) 2ⁿ – N (where n is the next higher power of 2)
+OR: Number of rounds = log₂N
+
+(For Visually Impaired — four committees and their roles):
+• Technical Committee — prepares fixtures, selects officials, enforces rules.
+• Marketing Committee — arranges sponsorships and handles publicity.
+• First Aid Committee — provides medical assistance during the event.
+• Ground and Equipment Committee — prepares playing areas and arranges equipment.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_32",
+        year: 2023,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "Case Study",
+        marks: 4,
+        question: `The teachers as well as coaches always make their best efforts to improve the performance of their students in various competitive games and sports.
+
+Based on the pictures showing Newton's laws, answer the following:
+
+(a) The more force one exerts on the downward bounce, the higher the ball bounces into the air. Which law is this statement being referred to?
+(b) Among the above given pictures, Newton's 3rd law is depicted in __________.
+(c) Newton's second law is also known as ___________________.
+(d) The study of human body and various forces acting on it is _________.
+OR: A high jumper can jump higher off a solid surface because it opposes his/her body with as much force as he/she is able to generate. This refers to which law of motion?`,
+        answer: `(a) Third Law of Motion — Law of Action and Reaction
+(b) 1st picture
+(c) Law of Acceleration
+(d) Kinesiology
+OR: Newton's Third Law of Motion — Law of Action and Reaction
+
+(For Visually Impaired — Equilibrium):
+Types: Static Equilibrium (body at rest, e.g. handstand) and Dynamic Equilibrium (body moves at constant velocity, e.g. cyclist maintaining balance).
+Factors increasing equilibrium: Broader base of support; lower centre of gravity; greater body weight; nearer centre of gravity to centre of base of support; direction of acting force.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_33",
+        year: 2023,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "Case Study",
+        marks: 4,
+        question: `In relation to the pictures of Special Olympics and Deaflympics logos, answer the following:
+
+(a) What is the mission of the first organization (Special Olympics)?
+(b) What is the motto of the first organization (Special Olympics)?
+(c) Until 1965 the games in the second picture (Deaflympics) were known as _______.
+(d) Second picture games (Deaflympics) are conducted after every __________ years.`,
+        answer: `(a) The mission of Special Olympics is to provide year-round sports training and athletic competition in a variety of Olympic-type sports for children and adults with intellectual disabilities, giving them continuing opportunities to develop physical fitness, demonstrate courage, experience joy and participate in sharing gifts, skills and friendship with their families, other Special Olympics athletes and the community.
+(b) "Let me win. But if I cannot win, let me be brave in the attempt."
+(c) International Games for the Deaf / International Silent Games
+(d) 4 years`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+
+    // SQP 2023 — SECTION E
+    {
+        id: "S_2023_34",
+        year: 2023,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "Long",
+        marks: 5,
+        question: `List down any four asanas used for prevention of asthma. Explain the procedure for administration of any one of them with help of a stick diagram.`,
+        answer: `Asanas for Asthma (any 4): Sukhasana, Chakrasana, Gomukhasana, Parvatasana, Bhujangasana, Paschimottanasana, Matsyasana, Anulom-Vilom
+
+Procedure of Gomukhasana:
+1. Sit in Dandasana (legs stretched out straight).
+2. Bend the left leg and place the left foot under the right buttock.
+3. Bend the right leg over the left and place the right foot beside the left hip.
+4. Raise the right arm, bend it at the elbow and place the right hand on the back.
+5. Bring the left arm around the back from below and try to clasp both hands.
+6. Keep the back straight and breathe normally. Hold for 30–60 seconds.
+7. Release and repeat on the other side.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_35",
+        year: 2023,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "Long",
+        marks: 5,
+        question: `Make a table of test items listed under the fitness test by SAI (Age group 9–18 yrs) along with the objectives of conducting them. Explain the administration of any one of them.`,
+        answer: `SAI Khelo India Fitness Test — Age Group 9–18 yrs (Class 4–12):
+1. Body Composition (BMI) — measures weight-to-height ratio
+2. Strength: (a) Abdominal Partial Curl-up — measures abdominal/core strength; (b) Push-ups (Boys) / Modified Push-ups (Girls) — measures upper body muscular endurance
+3. Flexibility: Sit and Reach Test — measures lower back and hamstring flexibility
+4. Cardiovascular Endurance: 600 Metre Run/Walk — measures aerobic capacity
+5. Speed: 50 mt. Dash — measures running speed
+
+Procedure of 50 MTR DASH (Standing Start):
+Give a thorough warm-up including practice starts and accelerations. Start from a stationary position with one foot in front of the other; front foot on or behind the starting line (static/dead start). On the signal "Go", run as fast as possible through the finish line.
+Scoring: Time taken for completion (in seconds).`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_36",
+        year: 2023,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "Long",
+        marks: 5,
+        question: `Define flexibility along with its types. Explain any two methods used to develop flexibility.`,
+        answer: `Flexibility: The range of motion around a joint or series of joints; the ability to do movements with greater amplitude.
+
+Types:
+1. Active Flexibility — performing a movement with greater amplitude without external help.
+2. Passive Flexibility — doing movements with greater amplitude with external help.
+
+Methods to develop flexibility (any 2):
+1. Slow Stretching — gently stretch the muscle to the farthest point and hold for 15–30 seconds.
+2. Slow Stretch and Hold (Static Stretching) — hold the stretched position for 20–30 seconds; gradually increases range of motion.
+3. Ballistic Method — performing movements with swing and rhythm (bouncing stretches); used by experienced athletes.
+4. PNF (Proprioceptive Neuromuscular Facilitation) — contract the muscle, then relax and stretch further with partner assistance; most effective method.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+    {
+        id: "S_2023_37",
+        year: 2023,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "Long",
+        marks: 5,
+        question: `Define Projectile and explain any two factors affecting projectile with help of examples from sports.`,
+        answer: `Projectile: Any object thrown, hurled, fired, pitched, tossed or flung in the air, acted upon by gravity and possible drag after initial release.
+
+Factors affecting projectile (any 2 with examples):
+
+1. Angle of Projection: Determines the range of the projectile. At 45° maximum horizontal distance is achieved.
+E.g. A shot putter releases the shot at approximately 40–42° for maximum distance. A long jumper takes off at approximately 20–22°.
+
+2. Initial Velocity: The greater the initial velocity at release, the greater the horizontal distance.
+E.g. A fast bowler delivers the ball at higher velocity, causing it to travel farther compared to a slow bowler.
+
+3. Gravity: Acts on all projectiles pulling them downward, reducing height.
+E.g. A basketball thrown at an arc reaches a peak height and then falls due to gravity.
+
+4. Air Resistance: Surface area, speed, texture and mass all affect air resistance.
+E.g. A discus is designed with a flat shape to reduce air resistance and maximise flight distance.
+
+5. Spin: Amount and direction of spin affect the distance and path.
+E.g. A spinning tennis ball curves mid-air (topspin or backspin) due to the Magnus effect.`,
+        source: "CBSE 2022-2023 Sample Paper",
+    },
+
+
+    // ═══════════════════════════════════════════════════════════════
+    //  SQP 2024 (Session 2023-24) — SECTION A
+    // ═══════════════════════════════════════════════════════════════
+    {
+        id: "S_2024_1",
+        year: 2024,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "MCQ",
+        marks: 1,
+        question: `Identify the asana shown in the image.`,
+        imageUrl: "/PE_SQP_2024_qs_1.png",
+        options: ["Pawanmuktasana", "Sukhasana", "Chakrasan", "Gomukhasana"],
+        answer: `Pawanmuktasana`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_2",
+        year: 2024,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Reactive Aggression is also called __________.`,
+        options: ["Instrumental Aggression", "Hostile Aggression", "Assertive Aggression", "Both (a) and (b)"],
+        answer: `Hostile Aggression`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_3",
+        year: 2024,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `The friction force acts in a/an __________ direction to the direction of motion of an object.`,
+        options: ["Opposite", "Same", "Downwards", "Diagonal"],
+        answer: `Opposite`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_4",
+        year: 2024,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `The irregular tear-like wounds caused by some blunt trauma are called __________.`,
+        options: ["Laceration", "Contusion", "Abrasion", "Incision"],
+        answer: `Laceration`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_5",
+        year: 2024,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Given below are two statements labelled as Assertion (A) and Reason (R).
+
+Assertion (A): For improvement of performance in long distance running, continuous training is effective.
+Reason (R): Continuous method of training improves basic endurance.
+
+Which one of the following statements is correct?`,
+        options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true.",
+        ],
+        answer: `Both (A) and (R) are true and (R) is the correct explanation of (A).`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_6",
+        year: 2024,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `What do you mean by iso and metric?`,
+        options: [
+            "Iso means constant and metric means length",
+            "Iso means change and metric means size",
+            "Iso means constant and metric means velocity",
+            "Iso means size and metric means constant",
+        ],
+        answer: `Iso means constant and metric means length`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_7",
+        year: 2024,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `It is the amount of blood pumped out by each side of the heart (actually each ventricle) in 1 minute __________.`,
+        options: ["Blood pressure", "Cardiac Output", "Blood volume", "Both (a) and (b)"],
+        answer: `Cardiac Output`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_8",
+        year: 2024,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Identify the Newton's law depicted: "With no outside forces, a stationary object will not move. With no outside forces, a moving object will not stop."`,
+        imageUrl: "/PE_SQP_2024_qs_8.png",
+        options: ["First Law of Motion", "Second Law of Motion", "Third Law of Motion", "Law of Effects"],
+        answer: `First Law of Motion`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_9",
+        year: 2024,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Match List I (Big Five personality traits) with List II (characteristics):
+
+1. Extraversion — i. Enthusiasm
+2. Conscientiousness — ii. Responsible
+3. Agreeableness — iii. Compassionate behavior
+4. Neuroticism — iv. Emotional Stability`,
+        options: [
+            "1-i, 2-ii, 3-iii, 4-iv",
+            "1-iv, 2-iii, 3-ii, 4-i",
+            "1-iii, 2-iv, 3-ii, 4-i",
+            "1-ii, 2-iii, 3-iv, 4-i",
+        ],
+        answer: `1-i, 2-ii, 3-iii, 4-iv`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_10",
+        year: 2024,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "MCQ",
+        marks: 1,
+        question: `Given below are two statements labelled as Assertion (A) and Reason (R).
+
+Assertion (A): Scurvy is caused due to the deficiency of Vitamin C.
+Reason (R): The disease sets in when the diet does not include fresh vegetables and fruits for a long time.
+
+Which one of the following statements is correct?`,
+        options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true but (R) is not the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true.",
+        ],
+        answer: `Both (A) and (R) are true but (R) is not the correct explanation of (A).`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_11",
+        year: 2024,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "MCQ",
+        marks: 1,
+        question: `One gram of carbohydrate contains ________ Calories.`,
+        options: ["2", "3", "4", "5"],
+        answer: `4`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_12",
+        year: 2024,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "MCQ",
+        marks: 1,
+        question: `Which gland is associated with Diabetes?`,
+        options: ["Endocrine glands", "Pituitary", "Pancreas", "Hypothalmus"],
+        answer: `Pancreas`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_13",
+        year: 2024,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `What is the formula to determine number of matches in a League fixture for even number of teams?`,
+        options: ["N+1/2", "N-1/2", "N(N-1)/2", "N(N+1)/2"],
+        answer: `N(N-1)/2`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_14",
+        year: 2024,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Which of the following tournament helps save money?`,
+        options: ["Knockout tournament", "League tournament", "Combination tournament", "Round Robin tournament"],
+        answer: `Knockout tournament`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_15",
+        year: 2024,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "MCQ",
+        marks: 1,
+        question: `Which of these is NOT one of the results of physical activities in children with special needs?`,
+        options: [
+            "Improvement in confidence",
+            "Improvement in endurance",
+            "Increase in depression",
+            "Better hand-eye coordination",
+        ],
+        answer: `Increase in depression`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_16",
+        year: 2024,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `If the menstruation cycle does not begin at puberty, the condition is called __________.`,
+        options: ["Primary Amenorrhea", "Secondary amenorrhea", "Oligomenorrhea", "Dysmenorrhea"],
+        answer: `Primary Amenorrhea`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_17",
+        year: 2024,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Senior Citizen Fitness Test — the range of age group is __________.`,
+        options: ["60-94", "55-79", "65-95", "50-90"],
+        answer: `60-94`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_18",
+        year: 2024,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Kyphosis is also known as __________.`,
+        options: ["Hallow Back", "Hunch Back", "Curve Back", "Both (a) and (c)"],
+        answer: `Hunch Back`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+
+    // SQP 2024 — SECTION B
+    {
+        id: "S_2024_19",
+        year: 2024,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Point out physiological factors for strength.`,
+        answer: `Physiological factors for strength (any 4):
+• Hypertrophy of Muscle — increase in muscle size
+• Increase in Strength of Ligaments and Tendons
+• Increase in Size and Number of Mitochondria
+• Increased blood supply to muscles
+• Different sports require different ratios of slow and fast twitch fibres; in strength sports, a higher percentage of fast-twitch fibres is required
+• ATP-CP energy system supports explosive strength`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_20",
+        year: 2024,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "Short",
+        marks: 2,
+        question: `Write a short note on Goal Setting.`,
+        answer: `Goal setting is a mental training technique used to increase an individual's commitment towards achieving a specific standard of proficiency on a task within a specified time. It is a process of establishing a level of performance which should be reached within a prescribed time period.
+
+It has proven effectiveness in enhancing performance and productivity in competitive sport, employee exercise programs and industrial organisations. It provides a basis for both increasing a person's self-efficacy and for instilling a task with intrinsic worth.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_21",
+        year: 2024,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Explain Isokinetic exercise with suitable examples.`,
+        answer: `Isokinetic exercise was introduced by J.J. Perrine in 1968. It involves isokinetic contraction where muscles apply maximal force throughout the range of motion around the joint at a constant speed. These exercises are performed on specially designed instruments. Unlike isotonic contraction (where pressure is applied at a particular angle), isokinetic contraction is maximal throughout the full range.
+
+Examples: Rowing machine, swimming, exercise on isokinetic dynamometer.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_22",
+        year: 2024,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Write key points on cardio-respiratory factors determining fitness.`,
+        answer: `Cardiovascular System: Heart, blood vessels and blood. Major function — deliver oxygen and nutrients, remove CO₂ and metabolic waste, transport hormones, support thermoregulation and immune function.
+
+Respiratory System: Nose, nasal cavity, pharynx, larynx, trachea, bronchi and lungs. Major functions — transport air to the lungs, exchange gases (O₂ and CO₂) between air and blood, regulate blood pH.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_23",
+        year: 2024,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Explain the procedure and scoring of 600-meter run/walk.`,
+        answer: `Procedure: Participants are instructed to run 600 mts. at the fastest possible pace. Begin on signal "ready, start". As they cross the finish line, the elapsed time is announced. Walking is permitted but the objective is to cover the distance in the shortest possible time.
+
+Scoring: Time taken for completion (run or walk) in min and sec.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_24",
+        year: 2024,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "Short",
+        marks: 2,
+        question: `Explain the importance of fluid intake during a competition.`,
+        answer: `The main aim during exercise and training should be to maintain water balance, control body temperature, sustain normal blood sugar levels and delay fatigue. Water lost through sweating during exercise needs to be replaced to maintain fluid balance and normal body temperature. Adequate fluid intake also prevents dehydration, maintains electrolyte balance (sodium, potassium, chloride), and helps sustain performance levels throughout the competition.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+
+    // SQP 2024 — SECTION C
+    {
+        id: "S_2024_25",
+        year: 2024,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "Short",
+        marks: 3,
+        question: `Explain any three strategies to make physical activities accessible for CWSN.`,
+        answer: `Strategies (any 3):
+
+1. Communication — Advance information about activity, space and resources communicated clearly using verbal, visual and peer teaching strategies.
+
+2. Space — Should be approachable for people with physical disability; limited area; disturbance-free (noise, heat, cold, texture of floor, audience). Always better to start with indoor space.
+
+3. Equipment — Appropriate modified equipment should be provided; lack of equipment discourages participation.
+
+4. Simple to Complex — Activities progress from easy to difficult.
+
+5. Medical Check-up — Assessment of physical and mental ability before participation.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_26",
+        year: 2024,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "Short",
+        marks: 3,
+        question: `What are the benefits of Non-Nutritive foods?`,
+        answer: `Non-Nutritive food components and their benefits (any 3):
+1. Phytochemicals — help plants thrive and thwart competitors, predators or pathogens; have antioxidant properties.
+2. Anthocyanins — give dark colour to grapes, blueberries, cranberries and raspberries; powerful antioxidants.
+3. Flavonoids/Isoflavones — found in vegetables, fruits and grains like soybeans; may have oestrogen-like effects.
+4. Artificial Sweeteners — provide sweet taste with less energy; useful in diet foods.
+5. Preservatives — inhibit microbial growth; prolong shelf life of food and beverages.
+6. Spices — provide flavouring, colouring or preservation.
+7. Dietary Fibre — aids digestion and prevents constipation.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_27",
+        year: 2024,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "Short",
+        marks: 3,
+        question: `What should be the role of Technical and Marketing Committee while organizing the event?`,
+        answer: `Technical Committee:
+Covers technical aspects — procuring sports equipment, conducting matches through selected officials (referees, umpires, judges, timekeepers).
+• Pre-event: Purchase of equipment, confirmation from officials, layout of fields, preparation of fixtures and rules.
+• During event: Conducting matches, ensuring presence of jury, collecting score sheets.
+• Post-event: Cleaning and layout, maintenance, returning equipment to store.
+
+Marketing Committee:
+Develops plans to generate publicity and sponsorships.
+• Pre-event: Arranging sponsorships, publicity of the event, preparing MoUs.
+• During event: Issues press releases, works with media, fulfils requirements of sponsors.
+• Post-event: Issues press release, may arrange re-telecast.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_28",
+        year: 2024,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "Short",
+        marks: 3,
+        question: `Differentiate between Introvert and Extrovert personality.`,
+        answer: `Introvert:
+• Interested in their own self; reserved
+• Self-aware and introspective
+• Takes pleasure in reading, writing
+• Tends to shy away from public
+• Thinks before acting
+
+Extrovert:
+• Highly socialised; broad-minded
+• Expressive and enjoys being the centre of attention
+• Meets unknown people easily
+• Action oriented
+• Comfortable in social situations`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_29",
+        year: 2024,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "Short",
+        marks: 3,
+        question: `Define fracture and explain any four types of fracture.`,
+        answer: `Fracture: A break in a bone caused by a direct impact such as a fall or a severe tackle.
+
+Types of fractures (any 4):
+1. Stress Fracture — hairline crack due to repetitive stress or overuse. E.g. shin splints in runners.
+2. Greenstick Fracture — bone bends and partially breaks. Common in children.
+3. Comminuted Fracture — bone broken into many pieces at one place or different places.
+4. Transverse Fracture — breaks in a straight line at a right angle to the bone shaft; caused by a direct blow.
+5. Oblique Fracture — bone breaks diagonally at an angle.
+6. Impacted Fracture — broken ends of bone are jammed together by the force of injury.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_30",
+        year: 2024,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "Short",
+        marks: 3,
+        question: `Write in brief the corrective measures of Bow Leg, Knock Knee and Flat Foot.`,
+        answer: `Bow Legs: Use of braces and modified shoes; sufficient intake of balanced diet; walking on the inner edge of the feet may also help.
+
+Flat Foot: Exercises — walking, standing or jumping on toes and heels in all directions, skipping rope, picking up marbles with toes, writing numbers in sand with toes. Yoga asanas like Adhomukhasana (Surya Namaskar) and Vajrasana are helpful.
+
+Knock Knees (Genu Valgum): Exercises like horse-riding and keeping a pillow between the knees while standing erect. Padmasana and Gomukhasana help realign and stabilise the knees. Leg raises while seated or lying down. Using walking callipers at the pre-puberty stage is also helpful.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+
+    // SQP 2024 — SECTION D
+    {
+        id: "S_2024_31",
+        year: 2024,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "Case Study",
+        marks: 4,
+        question: `While organising sports events for the Annual Sports Day, Arjun and Ravi formed various committees as shown in the organogram.
+
+Based on the picture, answer the following:
+(a) The members of this __________ committee are responsible for welcoming guests and spectators.
+(b) The __________ Committee is responsible for liaison with Print media.
+(c) Purchase of sports equipment is the work of the __________ Committee.
+(d) Publication of rules and regulations should be done __________.
+OR (d): To prepare a proper score sheet for record is __________ responsibility.`,
+        imageUrl: "/PE_SQP_2024_qs_31.png",
+        answer: `(a) Reception Committee
+(b) Marketing / Publicity Committee
+(c) Grounds and Equipment Committee
+(d) By the Technical Committee / Committee for entries, fixtures and programmes
+OR (d): Technical Committee's responsibility
+
+(For Blind Students — objectives of Extramural tournaments, any 4):
+1. To achieve high performance at the highest level of the tournament.
+2. To develop the feeling of integration with other institutions.
+3. To provide opportunities for choosing a career in sports.
+4. To promote social, cultural, economic development through sports.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_32",
+        year: 2024,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "Case Study",
+        marks: 4,
+        question: `During her gymnastics practice, Zoya was finding it difficult to maintain her balance on the balancing beam. Her coach tried to explain the basic principles of equilibrium.
+
+According to the principles of equilibrium, Centre of Gravity plays a very important role:
+(a) The nearer the Center of Gravity to the Center of the base of support, the more will be the __________.
+(b) The position of the centre of gravity changes depending upon the __________.
+(c) The sum of all the vertical and horizontal forces acting on the body must be __________.
+(d) Centre of gravity is the average location of an object's __________.
+OR (d): When the sum of forces acting upon the object and sum of the movement acting upon the body is both equal to zero, then the body is said to be in __________.`,
+        imageUrl: "/PE_SQP_2024_qs_32.png",
+        answer: `(a) Stability
+(b) Position of the intersection of forces / body position
+(c) Zero
+(d) Weight / mass distribution
+OR (d): Equilibrium
+
+(For Blind Students — Guiding Principles to Determine Degree of Stability, any 4):
+1. Broader the base, the greater the stability.
+2. Body weight is directly proportional to stability.
+3. Lower the Centre of Gravity, higher the stability.
+4. The nearer the centre of gravity to the centre of the base of support, the more will be the stability.
+5. Direction of acting force.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_33",
+        year: 2024,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "Case Study",
+        marks: 4,
+        question: `School management needs to recognize the essential place of physical activity in the education of children with special needs. In order to develop lifelong habits for fitness and provide them with many opportunities of socialization.
+
+Based on the picture, answer the following:
+(a) Development of Gross Motor and Fine Motor skills are benefits which are part of __________.
+(b) Graded activities as strategy for effective inclusive physical education program includes __________.
+(c) __________ for activities should be disturbance free (noise, heat, cold, texture of floor, audience etc.)
+(d) The activities that include running, jumping, hopping, galloping, rolling, leaping and dodging, horizontal jump, slide are __________.`,
+        imageUrl: "/PE_SQP_2024_qs_33.png",
+        answer: `(a) Physical Benefits
+(b) Simple to Complex
+(c) Space
+(d) Locomotor Activity
+
+(For Blind Students — needs for Inclusive Education, any 4):
+1. Builds Self-Esteem
+2. Improves Social and Communication Skills
+3. Enhances Sensitivity
+4. Creates Better Understanding and Appreciation of others
+5. Creates a Sense of Belonging
+6. Enhances Academic Performance
+7. Improves Performance`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+
+    // SQP 2024 — SECTION E
+    {
+        id: "S_2024_34",
+        year: 2024,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "Long",
+        marks: 5,
+        question: `Discuss the asanas helpful for a person suffering from Hypertension. Write down the procedure and contraindications of Sarala Matsyasana in detail.`,
+        answer: `Asanas for Hypertension (any 4):
+Tadasana, Katichakrasana, Uttanpadasana, Ardha Halasana, Sarala Matsyasana, Gomukhasana, Uttan Mandukasana, Vakrasana, Bhujangasana, Makarasana, Shavasana, Nadi-Shodhanapranayam, Sitlipranayam
+
+Procedure of Sarala Matsyasana (Fish Pose):
+1. Lie flat on your back with legs extended and hands beside the thighs.
+2. Place the hands underneath the hips with palms facing down.
+3. Lift the chest upward while arching the back and tilt the head backward so that the crown touches the floor.
+4. Inhale as you lift the chest and tuck the head.
+5. Breathe normally and hold the posture deeply and slowly.
+6. Exhale while relaxing the body and return to the initial position.
+7. Get back to normal breathing.
+
+Contraindications:
+• People with cervical spondylitis and frozen shoulder should avoid this asana.
+• Not suitable for individuals with high blood pressure or migraines.
+• Should be performed under guidance if suffering from spinal disorder.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_35",
+        year: 2024,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "Long",
+        marks: 5,
+        question: `Make a table of test items listed under fitness test by SAI (Age group 9–18 yrs). Explain the procedure and scoring of 50 MTS Run and Partial Curl Up.`,
+        answer: `SAI Khelo India Fitness Test — Age Group 9–18 yrs (Class 4–12):
+1. Body Composition (BMI)
+2. Strength: (a) Abdominal Partial Curl-up; (b) Push-ups (Boys) / Modified Push-ups (Girls)
+3. Flexibility: Sit and Reach Test
+4. Cardiovascular Endurance: 600 Metre Run/Walk
+5. Speed: 50 mt. Dash
+
+50 MTR DASH (Standing Start):
+Procedure: Give a thorough warm-up including practice starts and accelerations. Start from a stationary position with one foot in front of the other; front foot on or behind the starting line (static/dead start). On signal, run as fast as possible through the finish line. Tester provides hints for maximising speed (keep low, drive hard with arms and legs).
+Scoring: Time taken for completion.
+
+ABDOMINAL PARTIAL CURL-UP:
+Procedure: Subject lies on a cushioned, flat, clean surface with knees flexed (usually at 90°), hands straight on the sides (palms facing downwards) closer to the ground, parallel to the body. Subject raises the trunk in a smooth motion, curling up at least 6 inches above/along the ground towards the parallel strip. Trunk is lowered back so that shoulder blades or upper back touch the floor.
+Scoring: Record the maximum number of curl-ups in 30 seconds.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_36",
+        year: 2024,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "Long",
+        marks: 5,
+        question: `Define Flexibility. Explain its types and any two methods to develop flexibility.`,
+        answer: `Flexibility: The range of motion around a joint or series of joints; the ability to do movements with greater amplitude.
+
+Types:
+1. Active Flexibility — performing a movement with greater amplitude without external help.
+2. Passive Flexibility — doing movements with greater amplitude with external help.
+
+Methods to develop flexibility (any 2):
+1. Slow Stretching — gently stretch the muscle to the farthest point and hold.
+2. Slow Stretch and Hold (Static Stretching) — hold the stretched position for 20–30 seconds.
+3. Ballistic Method — performing movements with swing and rhythm (bouncing stretches); for experienced athletes.
+4. PNF (Proprioceptive Neuromuscular Facilitation) — contract the muscle, then relax and stretch further with partner assistance; most effective method.`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+    {
+        id: "S_2024_37",
+        year: 2024,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "Long",
+        marks: 5,
+        question: `With the help of suitable examples, discuss the application of Newton's Laws of Motion in sports.`,
+        answer: `Newton's First Law (Law of Inertia):
+A body will remain at rest or move at constant velocity unless acted upon by an external force.
+• A skater gliding on ice continues gliding with the same speed unless an external force acts.
+• A ball thrown in mid-air continues until acted upon by gravity.
+
+Newton's Second Law (Law of Momentum/Acceleration):
+Rate of change of momentum is proportional to the resultant force. F = ma.
+• In Shot-put, more force and correct angle produces greater displacement.
+• In soccer, more force is needed to kick the ball faster and higher.
+
+Newton's Third Law (Law of Reaction):
+For every action, there is an equal and opposite reaction.
+• A diver pushes down on the springboard (action); the springboard pushes back (reaction), projecting the diver into the air.
+• A swimmer pushes water backward (action); water pushes the swimmer forward (reaction).`,
+        source: "CBSE 2023-2024 Sample Paper",
+    },
+
+    // ═══════════════════════════════════════════════════════════════
+    //  SQP 2025 (Session 2024-25) — ALL SECTIONS
+    // ═══════════════════════════════════════════════════════════════
+    {
+        id: "S_2025_1",
+        year: 2025,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `How many total matches will be played in a knock out fixture of 19 teams?`,
+        options: ["18", "17", "20", "16"],
+        answer: `18`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_2",
+        year: 2025,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Assertion (A): The knock out tournament is an elimination tournament. Reason (R): In knock out tournament, winner of each match advances and the loser gets eliminated. Which is correct?`,
+        options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true, but (R) is not the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true.",
+        ],
+        answer: `Both (A) and (R) are true and (R) is the correct explanation of (A).`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_3",
+        year: 2025,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Match the following postural deformities with their descriptions:
+
+I. Knock Knee — 1. Increase exaggeration of backward curve
+II. Kyphosis — 2. Wide gap between the knees when standing with feet together
+III. Lordosis — 3. Knees touch each other in normal standing position
+IV. Bow legs — 4. Inward curvature of the spine`,
+        options: ["I-3, II-1, III-4, IV-2", "I-1, II-3, III-4, IV-2", "I-4, II-2, III-1, IV-3", "I-2, II-3, III-4, IV-1"],
+        answer: `I-3, II-1, III-4, IV-2`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_4",
+        year: 2025,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "MCQ",
+        marks: 1,
+        question: `For developing muscles, which nutrient should be increased in diet?`,
+        options: ["Vitamins", "Protein", "Minerals", "Carbohydrates"],
+        answer: `Protein`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_5",
+        year: 2025,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "MCQ",
+        marks: 1,
+        question: `Identify the asana shown in the image.`,
+        imageUrl: "/PE_SQP_2025_qs_5.png",
+        options: ["Paschimottanasana", "Halasana", "Vajrasana", "Dhanurasana"],
+        answer: `Halasana`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_6",
+        year: 2025,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "MCQ",
+        marks: 1,
+        question: `Which asana is pose like cobra?`,
+        options: ["Bhujangasana", "Dhanurasana", "Vajrasana", "Ardhmatsyendrasana"],
+        answer: `Bhujangasana`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_7",
+        year: 2025,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "MCQ",
+        marks: 1,
+        question: `Deaflympics Games was first organized in the year _________.`,
+        options: ["1896", "1960", "1924", "1951"],
+        answer: `1924`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_8",
+        year: 2025,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Menarche is defined as the:`,
+        options: ["Ending of menstrual period of women", "Beginning of menstrual period in women", "Time of pregnancy", "Missing of menstrual cycle"],
+        answer: `Beginning of menstrual period in women`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_9",
+        year: 2025,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "MCQ",
+        marks: 1,
+        question: `Which of the following are fat soluble vitamins?`,
+        options: ["Vitamin D & K", "Vitamin B & C", "Vitamin A & E", "Both option A & C (Vitamins A, D, E & K)"],
+        answer: `Both option A & C (Vitamins A, D, E & K)`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_10",
+        year: 2025,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Match the following SAI Khelo India fitness tests:
+
+I. Plate Tapping Test — 1. Upper body strength boys
+II. Push up — 2. Reaction time
+III. Partial Curl up — 3. Upper body strength girls
+IV. Modified push up — 4. Abdominal strength`,
+        options: ["I-2, II-1, III-4, IV-3", "I-2, II-3, III-1, IV-4", "I-1, II-3, III-2, IV-4", "I-2, II-3, III-4, IV-1"],
+        answer: `I-2, II-1, III-4, IV-3`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_11",
+        year: 2025,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Which of the following is a physiological factor determining flexibility?`,
+        options: ["Bone density", "Joint structure", "Cardiac output", "Tidal Volume"],
+        answer: `Joint structure`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_12",
+        year: 2025,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `The ability to tolerate higher concentration of ________ can help in improving endurance performance.`,
+        options: ["Lactic acid", "Hydrochloric acid", "Acetic acid", "Sulphuric acid"],
+        answer: `Lactic acid`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_13",
+        year: 2025,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `If a ball is hit and it is stopped by gravitational force, this is an example of which law of motion?`,
+        options: ["Law of Inertia", "Law of acceleration", "Law of action and reaction", "Both a & b"],
+        answer: `Law of Inertia`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_14",
+        year: 2025,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `In which of the following sports does friction play the least important role?`,
+        options: ["Car race", "Football", "Ice skating", "Hockey"],
+        answer: `Ice skating`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_15",
+        year: 2025,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Instrumental aggression is related to _________.`,
+        options: ["Accepting defeat", "Achieving goal", "Only performance", "Hurting someone to gain something"],
+        answer: `Achieving goal`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_16",
+        year: 2025,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Assertion (A): Aggression is part of human behavior and is necessary for an individual to live and struggle for higher achievements. Reason (R): Aggression is inevitable and inseparable in sport activities. Which is correct?`,
+        options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true, but (R) is not the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true.",
+        ],
+        answer: `Both (A) and (R) are true and (R) is the correct explanation of (A).`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_17",
+        year: 2025,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Which of these is a type of endurance?`,
+        options: ["Static", "Specific", "Dynamic", "Relative"],
+        answer: `Specific`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_18",
+        year: 2025,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Which type of coordinative ability is required in games like judo and wrestling?`,
+        options: ["Orientation ability", "Coupling ability", "Adaptation ability", "Differentiation ability"],
+        answer: `Adaptation ability`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    // SQP 2025 — SECTION B
+    {
+        id: "S_2025_19",
+        year: 2025,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Enlist any two exercise guidelines by WHO for different age groups.`,
+        answer: `WHO Exercise Guidelines (any 2 age groups):
+1. Children under 5 years: At least 180 minutes/day of physical activity; tummy time (30 mins) for infants.
+2. Children & Adolescents (5–17 years): Minimum 60 minutes/day of moderate to vigorous activity; muscle and bone-strengthening exercises 3 days/week.
+3. Adults (18–64 years): 150–300 minutes/week of moderate aerobic activity; muscle-strengthening 2+ days/week.
+4. Senior Citizens (65+ years): 150–300 minutes/week; balance and strength exercises 2–3 days/week.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_20",
+        year: 2025,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "Short",
+        marks: 2,
+        question: `How can we say that protein is an essential component of diet?`,
+        answer: `Protein is the essential component of diet because it is known as the building block of life. It increases the strength of muscle fibres, repairs and maintains body tissue, is connected with the immune mechanism of the body, drives metabolic reactions, and forms antibodies, enzymes and hormones. Without adequate protein intake, growth, repair and overall body functioning would be impaired.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_21",
+        year: 2025,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Mention the tests performed on 9 to 18 yrs. of age group in SAI Khelo India fitness test and explain any one.`,
+        answer: `Tests (Class 4–12): (a) Body Composition (BMI); (b) Abdominal Partial Curl-up; (c) Push-ups/Modified Push-ups; (d) Sit and Reach Test; (e) 600 Metre Run/Walk; (f) 50 mt. Dash.
+
+Sit and Reach Test: Sit on floor with legs straight. Remove shoes. Place soles of feet flat against the box. Keep knees locked. With palms facing downwards and hands on top of each other, reach forward along the measuring line as far as possible. Hold for 1–2 seconds. Record the farthest point reached.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_22",
+        year: 2025,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "Short",
+        marks: 2,
+        question: `List down the types of bone injuries.`,
+        answer: `Types of bone injuries (any 4): Stress fracture; Greenstick fracture; Comminuted fracture; Transverse fracture; Impacted fracture; Oblique fracture; Simple (closed) fracture; Compound (open) fracture.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_23",
+        year: 2025,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "Short",
+        marks: 2,
+        question: `What do you understand by the term goal setting?`,
+        answer: `Goal setting is one of the best motivational strategies. It improves performance by directing attention, increasing effort and persistence. Goals can be short-term or long-term and are designed to help athletes focus their efforts, stay motivated, track progress, and ultimately improve their performance. It is a mental training technique that increases an individual's commitment towards achieving a specific standard of proficiency on a task within a specified time.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_24",
+        year: 2025,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Define Flexibility and list down its types.`,
+        answer: `Flexibility: The ability which helps to do the movements with greater amplitude or range of motion.
+
+Types:
+a. Active Flexibility — ability to perform a movement with greater amplitude without external help.
+b. Passive Flexibility — ability to do movements with greater amplitude with external help.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    // SQP 2025 — SECTION C
+    {
+        id: "S_2025_25",
+        year: 2025,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "Short",
+        marks: 3,
+        question: `Specify the purpose of specific sports programmes organised for community services.`,
+        answer: `Purposes of specific sports programmes for community services:
+1. Creating awareness about diseases like AIDS, Swine Flu, COVID-19.
+2. Collecting funds for special causes like floods, earthquakes.
+3. Health Runs — spreading awareness about the importance of physical activity.
+4. Charity Runs — raising money for NGOs or health departments.
+5. Promoting social inclusion and community bonding through sports participation.
+6. Encouraging mass participation regardless of age, skill or disability.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_26",
+        year: 2025,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "Short",
+        marks: 3,
+        question: `What are the health problems faced by a woman due to Female Athlete Triad in sports and athletic performance?`,
+        answer: `The Female Athlete Triad consists of Eating Disorder, Osteoporosis and Amenorrhea. Health problems faced (any 6): (a) Increased risk of injury (stress fractures); (b) Feeling tired — chronic fatigue; (c) Shortness of breath; (d) Stomach inflammation; (e) Muscle weakness; (f) Weak bones due to osteoporosis; (g) Hormonal imbalance; (h) Psychological effects — anxiety, depression, low self-esteem.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_27",
+        year: 2025,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "Short",
+        marks: 3,
+        question: `Write in detail the aims and objectives of Special Olympic Bharat.`,
+        answer: `Special Olympics Bharat is India's chapter of the Special Olympics movement. Aims and objectives:
+1. Provide year-round sports training and athletic competition for children and adults with intellectual disabilities.
+2. Promote Para sport worldwide without unlawful discrimination.
+3. Support educational and cultural activities to promote the Paralympic movement.
+4. Enhance awareness of disability and drive social inclusion.
+5. Give athletes opportunities to develop physical fitness, demonstrate courage and experience joy.
+6. Participation in sharing gifts, skills and friendship with families, other athletes and the community.
+Motto: "Let me win. But if I cannot win, let me be brave in the attempt."`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_28",
+        year: 2025,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "Short",
+        marks: 3,
+        question: `Differentiate between nutritive and non-nutritive components of a diet on the basis of their functions.`,
+        answer: `Nutritive Components: Provide considerable energy to the system (proteins, carbohydrates, fats). Functions: Provide energy; support growth and repair; regulate metabolism.
+
+Non-Nutritive Components: Do not have nutritional value but are necessary for the body in tiny quantities. Functions: Provide flavour and texture; act as food additives; provide antioxidants; improve digestibility; enhance visual appeal.
+
+Examples of non-nutritive: Fibre, water, colour compounds, flavouring agents, artificial sweeteners, preservatives, spices.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_29",
+        year: 2025,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "Short",
+        marks: 3,
+        question: `With the help of suitable sports examples, explain the application of Newton's Third Law in sports.`,
+        answer: `Newton's Third Law: For every action, there is an equal and opposite reaction.
+
+Applications in Sports:
+1. Swimming: Swimmer pulls arm through water (action); water pushes swimmer forward (reaction).
+2. Long Jump: Jumper pushes down on ground at take-off (action); ground pushes athlete upward and forward (reaction).
+3. Springboard Diving: Diver pushes down on springboard (action); springboard pushes diver into air (reaction).
+4. Rowing: Oars push backward against water (action); water pushes boat forward (reaction).`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_30",
+        year: 2025,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "Short",
+        marks: 3,
+        question: `How can we enhance the performance with the help of self-talk and self-esteem?`,
+        answer: `Self-Talk enhances performance by: building confidence; helping athletes maintain a positive mindset; controlling thoughts and influencing feelings; focusing attention; aiding skill acquisition; creating and changing mood to be performance-ready; better handling of mistakes.
+
+Self-Esteem enhances performance by: helping in taking effective decisions; reducing anxiety and stress; helping individuals bounce back from setbacks; controlling negative thoughts; boosting self-confidence; motivating to take up challenges leading to successful accomplishment of goals.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    // SQP 2025 — SECTION D
+    {
+        id: "S_2025_31",
+        year: 2025,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "Case Study",
+        marks: 4,
+        question: `Questions about committees in sports tournaments:
+
+I. Choose the function of boarding committee:
+(A) To take teams to the venue  (B) To provide them meals  (C) To take care of their stay  (D) To arrange opening ceremony
+
+II. What is the work of ceremony committee?
+(A) To take teams to the venue  (B) To provide them meals  (C) To take care of their stay  (D) To arrange opening ceremony
+
+III. Ground and equipment committee should NOT perform:
+(A) To arrange team match venues  (B) To provide them meals  (C) To take care of proper officiating  (D) To make fixtures
+
+IV. Why committees are required?
+(A) To organise event perfectly  (B) To distribute work  (C) To make best use of resources  (D) All of the above`,
+        answer: `I. (C) To take care of their stay
+II. (D) To arrange opening ceremony
+III. (B) To provide them meals
+IV. (D) All of the above
+
+(For Visually Impaired):
+I. (A) Publicity Committee
+II. (C) Organising
+III. (A) Welcoming the participants
+IV. (B) Pre meet committee`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_32",
+        year: 2025,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "Case Study",
+        marks: 4,
+        question: `Questions about Paralympics:
+
+I. The first Paralympics was organised in:
+(A) 1960  (B) 1970  (C) 1965  (D) 1985
+
+II. Special education is a branch of education that deals with:
+(A) Educating children in special schools  (B) Instructions designing for students with special needs  (C) To provide opportunity of special education  (D) More than one of the above
+
+III. Why is it called the Paralympics?
+(A) First competition was held in Paraguay  (B) Originally for paramilitary soldiers  (C) The event runs parallel with the Olympics  (D) It's an event for paraplegics
+
+IV. What is the motto of the Paralympic Games?
+(A) Spirit in motion  (B) Citius, Altius, Fortius  (C) Faster, Higher, Stronger  (D) Diversity, Equality, Inclusion`,
+        answer: `I. (A) 1960
+II. (B) Instructions designing for students with special needs
+III. (C) The event runs parallel with the Olympics
+IV. (A) Spirit in motion`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_33",
+        year: 2025,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "Case Study",
+        marks: 4,
+        question: `Questions about effects of exercise on cardio respiratory system:
+
+I. What is the primary effect of exercise on cardio respiratory system?
+(A) Decreased heart rate  (B) Increased stroke volume  (C) Decreased lung capacity  (D) Decreased blood pressure
+
+II. What is stroke volume?
+(A) Volume of blood ejected per minute  (B) Volume of blood ejected per beat  (C) Volume of blood in ventricles at end of diastole  (D) Volume pumped during exercise
+
+III. Cardiac output is:
+(A) Volume of blood ejected per minute  (B) Volume ejected per beat  (C) Volume at end of diastole  (D) Volume pumped during exercise
+
+IV. Blood pressure is:
+(A) Volume ejected per minute  (B) Force exerted by blood against walls of arteries  (C) Rate of blood flow through veins  (D) Amount of oxygen carried by red blood cells`,
+        answer: `I. (A) Decreased heart rate (at rest, after training)
+II. (B) The volume of blood ejected by the heart per beat
+III. (A) The volume of blood ejected by the heart per minute
+IV. (B) The force exerted by blood against the walls of arteries
+
+(For Visually Impaired — Injuries):
+I. (A) Ligament (sprain)
+II. (A) Iceing
+III. (C) Soft tissue injury
+IV. (D) All the above`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    // SQP 2025 — SECTION E
+    {
+        id: "S_2025_34",
+        year: 2025,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "Long",
+        marks: 5,
+        question: `List down any four asanas used for prevention of Hypertension. Explain the procedure, benefits and contraindications of any one of them with help of a stick diagram.`,
+        answer: `Asanas for Hypertension (any 4): Tadasana, Katichakrasana, Uttanpadasana, Ardha Halasana, Sarala Matsyasana, Gomukhasana, Uttan Mandukasana, Bhujangasana, Makarasana, Shavasana, Nadi-Shodhanapranayam, Sitlipranayam.
+
+Procedure of Tadasana:
+1. Stand erect, feet together, hands by the side of the thighs. Keep back straight and look in front.
+2. Stretch the arms upward; keep them straight and parallel in vertical position, palms facing each other.
+3. Slowly raise the heels as much as possible and stand on toes. Stretch body upward.
+4. Maintain the position for 5–10 seconds.
+5. Bring heels to floor, slowly bring down the hands and relax.
+
+Benefits: Stretches whole body muscles; strengthens thighs, knees and ankles; helps increase height in children; removes laziness.
+
+Contraindications: Those with vertigo should avoid this asana; avoid bending forward or backward; not for those with low blood pressure or insomnia.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_35",
+        year: 2025,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "Long",
+        marks: 5,
+        question: `Discuss the purpose of Rikli & Jones fitness test and explain the procedure of any two test batteries in detail.`,
+        answer: `Purpose: Rikli and Jones developed the Senior Fitness Test at Fullerton University to assess functional fitness of older adults aged 60–94 years. Tests: (1) Chair Stand Test — lower body strength; (2) Arm Curl Test — upper body strength; (3) Chair Sit & Reach — lower body flexibility; (4) Back Scratch Test — upper body flexibility; (5) 8 Foot Up & Go — agility/balance; (6) 6 Minute Walk — cardiovascular endurance.
+
+Chair Stand Test:
+Procedure: Place chair against wall. Sit in middle of chair, feet flat on floor, back straight, arms crossed at wrist on chest. On "Go", rise to full stand and sit again as many times as possible in 30 seconds.
+Scoring: Total number of completed chair stands in 30 seconds.
+
+Arm Curl Test:
+Procedure: Sit on chair holding weight (5 lbs women / 8 lbs men) with suitcase grip on dominant arm. On "Go", do as many curls as possible in 30 seconds without swinging the weight.
+Scoring: Total number of controlled arm curls in 30 seconds.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_36",
+        year: 2025,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "Long",
+        marks: 5,
+        question: `Define strength and differentiate between Isometric, Iso-tonic and Iso-kinetic exercises.`,
+        answer: `Strength: The ability of muscles to overcome the resistance; the capacity of the whole body or any of its parts to exert force.
+
+Isometric Exercise: No direct movement visible; muscle length remains constant; tension is generated without movement. E.g. pushing a wall, plank hold. Iso = constant; metric = length.
+
+Isotonic Exercise: Movements visible; muscle changes in length while tension remains approximately constant. Results in toned muscles. E.g. running, jumping, weight training. Iso = constant; tonic = tension.
+
+Isokinetic Exercise: Performed on specially designed machines; muscles apply maximal force throughout the range of motion at a constant speed. Iso = constant; kinetic = velocity. E.g. rowing machine, exercise bike.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_37",
+        year: 2025,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "Long",
+        marks: 5,
+        question: `What are the various types of friction? With the help of suitable examples, explain why friction is necessary in sports.`,
+        answer: `Friction: A force which opposes efforts to slide or roll one body over another.
+
+Types of Friction:
+1. Static Friction — acts between two surfaces where one tends to move but hasn't yet. E.g. weightlifter gripping barbell before lifting.
+2. Dynamic Friction — acts between two surfaces where one is actually moving:
+   a. Sliding Friction — E.g. ice skating, cricket ball sliding on pitch.
+   b. Rolling Friction — E.g. cricket ball rolling on ground, football rolling.
+3. Fluid Friction — E.g. swimmer moving through water, cyclist through air.
+
+Why Friction is Necessary in Sports:
+• Without friction it would be impossible to walk or run — we would just slip.
+• Athletes use spikes; footballers use studs to have appropriate friction while running fast.
+• Gymnasts use lime/magnesium powder on palms for grip on horizontal bar, Roman rings.
+• Badminton players rub shoe soles with lime before going on wooden court for better grip.
+• A cyclist uses friction between tyres and road to maintain balance and control.`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+
+    // ═══════════════════════════════════════════════════════════════
+    //  SQP 2026 (Session 2025-26) — SECTION A  Q1-Q15
+    // ═══════════════════════════════════════════════════════════════
+    {
+        id: "S_2026_1",
+        year: 2026,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `A tournament where every team plays with every other team once and the number of matches is determined with the help of the formula N(N-1) is called as:`,
+        options: ["Knockout tournament", "Double league tournament", "Single league tournament", "None of these"],
+        answer: `Double league tournament`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_2",
+        year: 2026,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Assertion (A): Planning should be the first step for organizing a tournament. Reason (R): A tournament can be conducted without planning. Which is correct?`,
+        options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true and (R) is not the correct explanation of (A).",
+            "(A) is true but (R) is false.",
+            "(A) is false but (R) is true.",
+        ],
+        answer: `(A) is true but (R) is false.`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_3",
+        year: 2026,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Match: (a) Garudasana, (b) Horse riding, (c) Rope skipping, (d) Halasana — with — (i) Flat foot, (ii) Lordosis, (iii) Knock knees, (iv) Bow legs`,
+        options: ["A-(iv), B-(iii), C-(i), D-(ii)", "A-(ii), B-(iv), C-(i), D-(iii)", "A-(iii), B-(i), C-(iii), D-(iv)", "A-(i), B-(ii), C-(iii), D-(iv)"],
+        answer: `A-(iv), B-(iii), C-(i), D-(ii)`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_4",
+        year: 2026,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "MCQ",
+        marks: 1,
+        question: `What is nutrition?`,
+        options: ["Essential substances of food like proteins, fats, carbohydrates, etc.", "Consuming correct ratio of nutrients", "Dynamic process in which consumed food is digested", "Both (a) and (b)"],
+        answer: `Dynamic process in which consumed food is digested`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_5",
+        year: 2026,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "MCQ",
+        marks: 1,
+        question: `Identify the yoga asana shown in the image.`,
+        imageUrl: "/PE_SQP_2026_qs_5.png",
+        options: ["Uttana Mandukasana", "Paschimottanasana", "Dhanurasana", "Halasana"],
+        answer: `Dhanurasana`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_6",
+        year: 2026,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "MCQ",
+        marks: 1,
+        question: `Which of the following is a yoga pose for treatment of obesity?`,
+        options: ["Gomukhasana", "Bhujangasana", "Paschimottanasana", "Vajrasana"],
+        answer: `Paschimottanasana`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_7",
+        year: 2026,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "MCQ",
+        marks: 1,
+        question: `Who are the participants in Special Olympics?`,
+        options: ["Veterans", "Children and adults with intellectual disabilities", "Physically handicapped", "Both (b) and (c)"],
+        answer: `Children and adults with intellectual disabilities`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_8",
+        year: 2026,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Female Athlete Triad does NOT include _________.`,
+        options: ["Amenorrhea", "Oligomenorrhea", "Osteoporosis", "Bulimia Nervosa"],
+        answer: `Oligomenorrhea`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_9",
+        year: 2026,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "MCQ",
+        marks: 1,
+        question: `Find the odd one out (micro vs macro minerals):`,
+        options: ["Calcium", "Sulfur", "Potassium", "Iron"],
+        answer: `Iron`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_10",
+        year: 2026,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `What is the dimension of layout in Johnson-Metheny Test of Motor Educability?`,
+        options: ["15 × 3 feet", "15 × 3 meters", "15 × 2 feet", "15 × 2 meters"],
+        answer: `15 × 2 feet`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_11",
+        year: 2026,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Which of the following is NOT a short-term effect of exercise on muscular system?`,
+        options: ["Accumulation of lactate", "Increased blood supply", "Muscular hypertrophy", "Increased muscle temperature"],
+        answer: `Muscular hypertrophy`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_12",
+        year: 2026,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Which of these is NOT a soft tissue injury?`,
+        options: ["Abrasion", "Dislocation", "Strain", "Incision"],
+        answer: `Dislocation`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_13",
+        year: 2026,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Which of the following helps with ice skating?`,
+        options: ["Rolling friction", "Sliding friction", "Static friction", "Gliding friction"],
+        answer: `Sliding friction`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_14",
+        year: 2026,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Which of the following is NOT a factor affecting projectile trajectory?`,
+        options: ["Gravity", "Angle of release", "Buoyant force", "Air resistance"],
+        answer: `Buoyant force`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_15",
+        year: 2026,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Self-talk refers to our _________ consisting of statements we say to ourselves, either in our mind or out loud.`,
+        options: ["Internal thoughts", "Internal behavior", "Internal soul", "Internal emotions"],
+        answer: `Internal thoughts`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_16",
+        year: 2026,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Assertion (A): Aggression is part of human behavior and is necessary for an individual to live and struggle for higher achievements.
+Reason (R): Aggression is inevitable and inseparable in sport activities.
+
+In the context of the above two statements, which one of the following is correct?`,
+        options: [
+            "(A) is false, but (R) is true.",
+            "(A) is true, but (R) is false.",
+            "Both (A) and (R) are true and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true, but (R) is not the correct explanation of (A).",
+        ],
+        answer: `Both (A) and (R) are true, but (R) is not the correct explanation of (A).`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_17",
+        year: 2026,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `The method of training that involves repeated bouts of high-intensity work followed by periods of rest or low-intensity activity is known as _______.`,
+        options: ["Continuous Training", "Interval Training", "Fartlek Training", "Circuit Training"],
+        answer: `Interval Training`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_18",
+        year: 2026,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "MCQ",
+        marks: 1,
+        question: `Which of the following is NOT a type of coordinative ability?`,
+        options: ["Orientation Ability", "Acceleration Ability", "Grouping Ability", "Dynamic Ability"],
+        answer: `Orientation Ability`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+
+    // SQP 2026 — SECTION B
+    {
+        id: "S_2026_19",
+        year: 2026,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Differentiate between the three types of spinal deformity.`,
+        answer: `Kyphosis:
+• Outward (posterior) curvature of the thoracic spine — hunchback appearance
+• Head and shoulders lean forward
+• Common in older adults or due to poor posture
+• Can cause breathing issues and back pain in severe cases
+
+Lordosis:
+• Excessive inward (anterior) curvature of the lumbar spine — swayback
+• Abdomen and buttocks protrude outward
+• Often caused by weak abdominal muscles or obesity
+• May lead to lower back discomfort and postural imbalance
+
+Scoliosis:
+• Lateral (sideways) curvature of the spine in 'S' or 'C' shape
+• Uneven shoulders or hips may be visible
+• Can be congenital or develop during adolescence
+• Severe cases may affect lung and heart function`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_20",
+        year: 2026,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "Short",
+        marks: 2,
+        question: `What is a balanced diet? Mention its importance also.`,
+        answer: `Balanced Diet: A diet that contains all essential nutrients in correct proportion — Proteins, Carbohydrates, Vitamins, Fats, Minerals and Water.
+
+Importance of a Balanced Diet (any 2–3 points):
+• Provides energy for daily activities and sports performance
+• Supports growth, development and repair of body tissues
+• Boosts immunity and prevents deficiency diseases
+• Maintains efficient body functions
+• Helps maintain healthy body weight
+• Enhances mental alertness and mood`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_21",
+        year: 2026,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "Short",
+        marks: 2,
+        question: `A male student performed the Harvard Step Test for 4 minutes. His pulse was recorded during the recovery periods as 58 beats in the first half-minute, 50 beats in the second, and 42 beats in the third. Using the Harvard Step Test formula, calculate his Fitness Index and state whether his score falls in the Excellent, Good, or Average category.`,
+        answer: `Formula: Fitness Index = (Duration of exercise in seconds × 100) ÷ (2 × Sum of pulse counts in recovery)
+
+Step 1: Duration = 4 minutes = 240 seconds
+Step 2: Sum of pulse counts = 58 + 50 + 42 = 150 beats
+Step 3: Fitness Index = (240 × 100) ÷ (2 × 150) = 24000 ÷ 300 = 80
+
+Category: Good`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_22",
+        year: 2026,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "Short",
+        marks: 2,
+        question: `Enlist any four types of fracture.`,
+        answer: `Any four types of fracture:
+i. Simple (Closed) Fracture
+ii. Compound (Open) Fracture
+iii. Comminuted Fracture
+iv. Greenstick Fracture
+v. Transverse Fracture
+vi. Oblique Fracture
+vii. Impacted Fracture`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_23",
+        year: 2026,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "Short",
+        marks: 2,
+        question: `Write a short note on Sports Psychology.`,
+        answer: `Sports psychology is a field that studies how psychological factors influence athletic performance and participation in sports, exercise, and physical activity. It examines the mental aspects of sports including motivation, anxiety, stress, and the impact of sports on well-being.
+
+Key areas of focus:
+• Performance Enhancement — goal setting, visualization, relaxation and self-talk
+• Mental Health and Well-being — addressing burnout, anxiety and depression
+• Team Dynamics — improving communication and collaboration
+• Coaching and Training — creating effective training programs with psychological principles
+• Social and Developmental Aspects — studying how sports participation affects social development`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_24",
+        year: 2026,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "Short",
+        marks: 2,
+        question: `A football player wants to improve his acceleration and quick reaction during a match. Suggest two suitable training methods and justify how each will help improve his performance.`,
+        answer: `1. Acceleration Sprints:
+Method: The player repeatedly runs short distances from a standing start, building to maximum speed.
+Justification: Improves the player's ability to quickly reach top speed during sudden movements in a match — crucial for breaking free from defenders or chasing a ball.
+
+2. Reaction Drills:
+Method: Use signals (visual/auditory cues) to trigger movement responses — e.g., reacting to a coach's hand gesture or a light board.
+Justification: Enhances response time to game situations like interceptions, sudden passes or opponent movements, leading to better match performance.`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+
+    // SQP 2026 — SECTION C
+    {
+        id: "S_2026_25",
+        year: 2026,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "Short",
+        marks: 3,
+        question: `League tournament is a better way to judge the best team of the tournament. Comment.`,
+        answer: `Why League Tournament is Better for Judging the Best Team (any 4 points):
+• Equal opportunities — every team plays against all other teams at least once, ensuring fair competition.
+• League matches minimize the impact of luck or unexpected outcomes — one bad day cannot eliminate a team.
+• Teams are judged on the basis of multiple matches, not just one.
+• Ranking is done on the basis of points earned over the entire tournament, reflecting consistent performance.
+• Less pressure on teams compared to knockout — teams can recover from a loss.
+• Scope of improvement — teams can learn and improve as the tournament progresses.
+• The true, most consistent winner emerges from this format.`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_26",
+        year: 2026,
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
+        type: "Short",
+        marks: 3,
+        question: `Discuss the exercise guidelines for different age groups.`,
+        answer: `WHO Exercise Guidelines for different age groups:
+
+Children (Under 5 years):
+• At least 180 minutes/day of physical activity of any intensity
+• Tummy time (30 mins) for infants who aren't mobile
+• Avoid being restrained for over 1 hour at a time
+• Limit or avoid screen time
+
+Adolescents (5–17 years):
+• Minimum 60 minutes/day of moderate to vigorous activity
+• Include muscle and bone-strengthening exercises 3 days/week
+• Prefer aerobic activities like running, swimming, cycling
+• Limit screen time and reduce sedentary behavior
+
+Senior Citizens (65+ years):
+• 150–300 minutes/week of moderate aerobic activity
+• Do balance and strength exercises 2–3 days/week
+• Be physically active daily; avoid long sitting hours
+• Adapt intensity as per health conditions and ability`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_27",
+        year: 2026,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "Short",
+        marks: 3,
+        question: `Explain strategies to make Physical Activities Accessible for CWSN.`,
+        answer: `Strategies to make physical activities accessible for CWSN (any 4):
+1. Sensory Integration — Reduce loud music, use natural lighting, provide headphones/sunglasses for sensory-sensitive children.
+2. Positive Behaviour Support (PBIS) — Use picture schedules and encourage positive interactions to manage behaviour.
+3. Team Building Activities — Focus on creative, cooperative games over competition to build confidence.
+4. Accessible Surfaces — Use gym mats or level fields to support mobility and wheelchair use.
+5. Inclusive Classrooms — Educate CWSN alongside others to promote acceptance and social inclusion.
+6. Assistive Technology — Use tools like large balls, bells, or string-attached equipment to accommodate different abilities.
+7. Adaptive Physical Education — Modify rules and games based on individual needs and abilities.
+8. Creative Game Focus — Use imaginative games to build confidence and reduce performance pressure.`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_28",
+        year: 2026,
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
+        type: "Short",
+        marks: 3,
+        question: `Discuss the importance of pre, during and post competition diet in detail.`,
+        answer: `Pre-Competition Diet:
+• Purpose: Provides energy, prevents early fatigue, and ensures smooth digestion before performance.
+• Consume high-carbohydrate foods like rice, pasta or bread for sustained energy.
+• Prefer easily digestible, low-fat, non-fried meals taken 3–4 hours before the event.
+• Avoid new food or food with known allergies.
+
+During Competition Diet:
+• Purpose: Maintains hydration, energy and electrolyte balance to avoid fatigue and muscle cramps.
+• Sip on glucose-rich drinks or electrolyte solutions to maintain blood sugar and sodium levels.
+• Include small portions of quick energy foods like banana or energy gels if needed.
+
+Post-Competition Diet:
+• Purpose: Supports recovery by replenishing lost fluids and restoring glycogen levels in muscles.
+• Eat carbohydrate-rich foods such as fruits, sandwiches or energy bars immediately after.
+• Rehydrate with water, juice or sports drinks to replace lost electrolytes.
+• Include good quality proteins to repair muscle damage.`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_29",
+        year: 2026,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "Short",
+        marks: 3,
+        question: `A gymnast maintains a handstand position on the balance beam, then performs a flip. Differentiate between the types of equilibrium shown and explain how they help in performance.`,
+        answer: `Static Equilibrium — shown during the handstand:
+• Body is balanced and at rest; sum of all forces equals zero.
+• Helps the gymnast hold a steady position without falling.
+• Centre of gravity is directly above the base of support.
+
+Dynamic Equilibrium — shown during the flip:
+• Stability is maintained while the body is in motion at a constant velocity.
+• Allows the gymnast to transition between movements smoothly and safely.
+• Requires continuous muscular adjustments to maintain balance.
+
+How they help in performance:
+• Static equilibrium allows controlled, steady positions that score higher in gymnastics.
+• Dynamic equilibrium allows fluid, connected transitions between movements.
+• Together, they help maintain balance, control, and fluidity during the full routine.`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_30",
+        year: 2026,
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
+        type: "Short",
+        marks: 3,
+        question: `Describe personality. Explain dimensions of personality.`,
+        answer: `Personality: The combination of physical, mental, psychological and emotional traits that make an individual unique. It is the sum total of an individual's characteristics that distinguish them from others.
+
+Dimensions of Personality:
+
+1. Physical Dimension:
+• Height and weight
+• Body structure and posture
+• Facial appearance and complexion
+
+2. Mental Dimension:
+• Intellect and reasoning ability
+• Decision-making power
+• Memory and concentration
+
+3. Psychological Dimension:
+• Emotions and mood stability
+• Self-confidence and motivation
+• Willpower and attitude`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+
+    // SQP 2026 — SECTION D
+    {
+        id: "S_2026_31",
+        year: 2026,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "Case Study",
+        marks: 4,
+        question: `Read the following text carefully and answer the questions:
+
+"Competing in physical activities has been the natural tendency of humans. The competitions or tournaments are held according to the set rules and regulations. The success of the tournament depends upon suitable fixture."
+
+Based on the knockout tournament fixture shown:
+
+1. The method followed in drawing the fixture is:
+(a) Random method  (b) Knock out method  (c) League cum knockout method  (d) League method
+
+2. The number of matches played can be calculated by the formula:
+(a) 2N  (b) N+1  (c) N/2  (d) N – 1
+
+3. What is the advantage of this tournament?
+(a) More matches are played  (b) Less number of teams participate  (c) The knockout tournament takes less time and is economical  (d) All teams play equal number of matches
+
+4. What is the term used if privilege is given to a team to play at a higher round?
+(a) Bye  (b) Draw  (c) Super seeding  (d) Any of the above`,
+        answer: `1. (b) Knockout method
+2. (d) N – 1
+3. (c) The knockout tournament takes less time and is economical
+4. (a) Bye`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_32",
+        year: 2026,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "Case Study",
+        marks: 4,
+        question: `Based on the picture of the Deaflympics logo, answer the following questions:
+
+1. Identify the logo.
+(a) Special Olympics  (b) Paralympics  (c) Deaflympics  (d) Special Olympics Bharat
+
+2. What does the circle signify?
+(a) Unity  (b) Ears  (c) Strength  (d) Iris
+
+3. In which year was it held for the first time?
+(a) 2001  (b) 1924  (c) 1948  (d) 1968
+
+4. What are the four colours in the logo?
+(a) Red, Yellow, Black, Blue  (b) Red, Blue, Green, Yellow  (c) Yellow, Black, Red, Green  (d) Brown, Blue, Green, Red`,
+        answer: `1. (c) Deaflympics
+2. (d) Iris
+3. (b) 1924
+4. (b) Red, Blue, Green, Yellow`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_33",
+        year: 2026,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "Case Study",
+        marks: 4,
+        question: `In relation to the pictures of different types of fractures, answer the following questions:
+
+1. When the two ends of the injured bone enter into each other it is said to be:
+(a) Comminuted Fracture  (b) Greenstick Fracture  (c) Impacted Fracture  (d) Transverse Fracture
+
+2. _________ is a comminuted fracture:
+(a) (d)  (b) (b)  (c) (e)  (d) (a)
+
+3. When the bone is broken into many pieces at one place or different places, it is called:
+(a) Oblique Fracture  (b) Impacted Fracture  (c) Comminuted Fracture  (d) Greenstick Fracture
+
+4. _________ fracture occurs in a straight line at a right angle to the shaft of the bone, usually caused by a direct blow:
+(a) Greenstick Fracture  (b) Oblique Fracture  (c) Transverse Fracture  (d) Impacted Fracture
+
+(For Visually Impaired — Vitamins):
+1. __________ is a group of 8 water-soluble vitamins which are important for cellular metabolism.
+2. _________ disease is caused due to lack of Vitamin B.
+3. Vitamin _______ is important for healthy bones and teeth.
+4. Vitamin _____ is needed for blood clotting.`,
+        answer: `1. (c) Impacted Fracture
+2. (b) (b) — picture (b) is a comminuted fracture
+3. (c) Comminuted Fracture
+4. (c) Transverse Fracture
+
+(For Visually Impaired):
+1. Vitamin B
+2. Beri Beri
+3. D
+4. K`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+
+    // SQP 2026 — SECTION E
+    {
+        id: "S_2026_34",
+        year: 2026,
+        chapter: "Yoga & Lifestyle",
+        topic: "Yoga & Lifestyle",
+        type: "Long",
+        marks: 5,
+        question: `What do you mean by Asthma? Mention its symptoms. Explain the procedure, benefits and contraindications of an asana beneficial for the patient of asthma.`,
+        answer: `Asthma: A chronic respiratory condition where the airways become inflamed and narrow, leading to difficulty in breathing. It often triggers coughing, wheezing, shortness of breath and chest tightness.
+
+Symptoms of Asthma:
+• Difficulty in breathing
+• Wheezing (whistling sound while breathing)
+• Tightness in chest
+• Frequent coughing, especially at night or early morning
+• Fatigue during physical activity
+
+Asanas helpful for Asthma: Sukhasana, Chakrasana, Gomukhasana, Bhujangasana, Paschimottanasana, Matsyasana, Anulom-Vilom Pranayama
+
+Procedure of Matsyasana (Fish Pose):
+1. Lie flat on your back with legs extended and hands beside the thighs.
+2. Place the hands underneath the hips with palms facing down.
+3. Lift the chest upward while arching the back and tilt the head backward so that the crown touches the floor.
+4. Inhale as you lift the chest and tuck the head.
+5. Breathe normally and hold the posture with deep, slow breathing.
+6. Exhale while relaxing the body and return to the initial position.
+7. Get back to normal breathing.
+
+Benefits:
+• Expands the chest and improves lung capacity
+• Helps ease respiratory issues like asthma and bronchitis
+• Stimulates the throat and opens nasal passages for easier breathing
+• Strengthens the upper back and neck muscles
+• Reduces anxiety and stress, which can trigger asthma
+
+Contraindications:
+• Avoid in case of serious neck or back injury
+• Not suitable for individuals with high blood pressure or migraines
+• Should be performed under guidance if suffering from spinal disorder`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_35",
+        year: 2026,
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
+        type: "Long",
+        marks: 5,
+        question: `Make a table of test items listed under fitness test by SAI (Age group 9–18 yrs). Explain the Procedure and Scoring of 50 MTS Run and Partial Curl Up.`,
+        answer: `SAI Khelo India Fitness Test — Age Group 9–18 yrs (Class 4–12):
+1. Body Composition (BMI)
+2. Strength: (a) Abdominal Partial Curl-up; (b) Push-ups (Boys) / Modified Push-ups (Girls)
+3. Flexibility: Sit and Reach Test
+4. Cardiovascular Endurance: 600 Metre Run/Walk
+5. Speed: 50 mt. Dash
+
+50 MTR DASH (Standing Start):
+Procedure: A thorough warm-up should be given, including some practice starts and accelerations. Start from a stationary position, with one foot in front of the other. The front foot must be on or behind the starting line. This starting position should be static (dead start). The tester should provide hints for maximising speed (such as keeping low, driving hard with the arms and legs) and the participant is encouraged to continue running hard through the finish line.
+Scoring: Time taken for completion (in seconds).
+
+ABDOMINAL PARTIAL CURL-UP:
+Procedure: The subject lies on a cushioned, flat, clean surface with knees flexed (usually at 90°), with hands straight on the sides (palms facing downwards) closer to the ground, parallel to the body. The subject raises the trunk in a smooth motion, keeping the arms in position, curling up the desired amount (at least 6 inches above/along the ground towards the parallel strip). The trunk is lowered back to the floor so that the shoulder blades or upper back touch the floor.
+Scoring: Record the maximum number of curl-ups in 30 seconds.`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_36",
+        year: 2026,
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
+        type: "Long",
+        marks: 5,
+        question: `What do you understand by circuit training? How will a coach plan circuit training sessions with 6 stations to develop the fitness of his new trainees? Explain.`,
+        answer: `Circuit Training: A training method where different exercises are performed in a sequence (stations) with minimal rest between each. Each station targets a specific fitness component or muscle group. Helps improve overall fitness efficiently in a limited time.
+
+6 Sample Stations for New Trainees:
+Station 1: Push-ups — develops upper body strength (chest, shoulders, triceps)
+Station 2: Squats — develops lower body strength (quadriceps, hamstrings, glutes)
+Station 3: Skipping/Jump Rope — develops cardiovascular endurance and coordination
+Station 4: Sit-ups/Abdominal Crunches — develops core strength
+Station 5: Shuttle Runs — develops speed and agility
+Station 6: Plank Hold — develops core stability and muscular endurance
+
+Components developed in new trainees:
+• Strength — push-ups, squats, sit-ups
+• Endurance — skipping, shuttle runs
+• Flexibility — stretching between stations
+• Speed — shuttle runs
+• Agility — shuttle runs, skipping
+• Coordination — skipping, varied movements
+
+Plan: Each station for 30–45 seconds, rest of 15 seconds between stations. Complete 2–3 rounds with 2 minutes rest between rounds.`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_37",
+        year: 2026,
+        chapter: "Biomechanics & Sports",
+        topic: "Biomechanics & Sports",
+        type: "Long",
+        marks: 5,
+        question: `What is a lever? Discuss the application of levers in sports.`,
+        answer: `Lever: A simple machine that provides mechanical advantage to magnify the force necessary to overcome a resistance. A lever consists of three components — Fulcrum (F), Force/Effort (E), and Load/Resistance (R).
+
+Types and Application in Sports:
+
+Class 1 Lever (Fulcrum between Force and Load):
+• The fulcrum lies between the effort and the resistance.
+• E.g. See-saw; seated dumbbell tricep extension (elbow joint is the fulcrum).
+• In sport: Neck movement when heading a football — the atlanto-occipital joint acts as the fulcrum.
+
+Class 2 Lever (Load between Fulcrum and Force):
+• The resistance lies between the fulcrum and the effort.
+• Mechanical advantage — force arm is always greater than resistance arm.
+• E.g. Wheelbarrow; calf raise (ball of foot = fulcrum, body weight = load, calf muscles = force).
+• In sport: Pushing against the starting block in sprint start; full body push-up.
+
+Class 3 Lever (Force between Fulcrum and Load):
+• The effort is applied between the fulcrum and the resistance.
+• Mechanical disadvantage — but allows for speed and range of motion.
+• E.g. Fishing rod; leg extension exercise (knee joint = fulcrum, foot = load, quadriceps = force applied at tibia).
+• In sport: Bicep curl; most limb movements in throwing and kicking actions.`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
 ];
