@@ -19,10 +19,10 @@ export interface Question {
 
 export const chapters = [
     "Planning in Sports",
-    "Sports & Nutrition",
+    "Children & Women in Sports",
     "Yoga & Lifestyle",
     "Physical Education & Sports for CWSN",
-    "Children & Women in Sports",
+    "Sports & Nutrition",
     "Test & Measurement in Sports",
     "Physiology & Injuries in Sports",
     "Biomechanics & Sports",
@@ -239,6 +239,7 @@ Etiquettes (any 4):
         type: "Long",
         marks: 3,
         question: `Draw a diagram and explain the management of any two types of bone injury.`,
+        imageUrl: "/PE_2022_qs_12.png",
         answer: `Types and management (any two):
 
 a. Stress Fracture: Rest; apply ice for 24–48 hours; painkillers with medical consent; use a splint for immobilisation; avoid the causative activity for at least 6 weeks; physiotherapy after recovery.

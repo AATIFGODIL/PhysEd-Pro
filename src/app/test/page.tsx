@@ -820,7 +820,7 @@ function TestPageContent() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
                                     {mcqOptions.map((opt) => {
                                         const correctLabel = getCorrectOptionLabel(currentQ);
-                                        const isChecked = statusMap[currentIndex] === 'correct' || statusMap[currentIndex] === 'wrong';
+                                        const isChecked = (statusMap[currentIndex] === 'correct' || statusMap[currentIndex] === 'wrong') && (showAnswer || isFinished);
 
                                         let buttonStyle = "bg-white dark:bg-white/[0.02] border-gray-200 dark:border-white/[0.08]";
                                         let badgeStyle = "bg-gray-100 dark:bg-white/[0.06] text-gray-500 dark:text-purple-300/80";
