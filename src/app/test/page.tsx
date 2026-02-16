@@ -209,20 +209,32 @@ function TestPageContent() {
 
     const getCorrectOptionLabel = (q: typeof currentQ) => {
         if (!q || q.type !== "MCQ") return null;
-        const ans = q.answer.trim();
+        let ans = q.answer.trim();
 
         // 1. Try prefix matching
-        const match = ans.match(/^\(([a-d])\)/i) || ans.match(/^([a-d])\)/i);
-        if (match) return match[1].toUpperCase();
-        if (ans.startsWith("(A)") || ans.startsWith("A)")) return "A";
-        if (ans.startsWith("(B)") || ans.startsWith("B)")) return "B";
-        if (ans.startsWith("(C)") || ans.startsWith("C)")) return "C";
-        if (ans.startsWith("(D)") || ans.startsWith("D)")) return "D";
+        // Covers: (A), (a), A), a)
+        const match = ans.match(/^[\(]?([a-d])[\)]?/i);
+        if (match && match[1]) {
+            // Validate if it looks like an option prefix (sometimes answer text starts with a word that starts with a/b/c/d)
+            // Usually option prefixes are at the very start.
+
+            // Additional safety: matching 'A.' or 'A)' or '(A)' explicitly without following text confusion?
+            // The previous regex `^\(([a-d])\)` was specific.
+            // Let's stick to identifying if the answer *starts* with an option indicator.
+
+            // If answer is just "Deaflympics", it starts with D. But is D the option?
+            // We must be careful. If options are present, text matching is safer unless there is a clear (A) prefix.
+
+            // If the answer string clearly starts with (A), (B), (C), (D) or A., B. etc.
+            const prefixMatch = ans.match(/^[\(]?([A-D])[\)\.]\s/i) || ans.match(/^[\(]?([A-D])[\)\.]$/i);
+            if (prefixMatch) return prefixMatch[1].toUpperCase();
+        }
 
         // 2. Try text matching with options
         if (q.options) {
-            // Clean the answer text a bit for better matching
-            const cleanAns = ans.toLowerCase().replace(/[().]/g, "").trim();
+            // Clean the answer text: remove leading (A) etc if present, though we checked prefix above.
+            // Also remove trailing dots or whitespace.
+            const cleanAns = ans.replace(/^[\(]?[A-D][\)\.]\s*/i, "").toLowerCase().trim();
 
             const index = q.options.findIndex(opt => {
                 const cleanOpt = opt.toLowerCase().trim();
@@ -239,6 +251,7 @@ function TestPageContent() {
         setShowAnswer(newState);
 
         if (showAnswers && newState) {
+            // Logic for when answer is REVEALED
             if (currentQ.type.toUpperCase() !== "MCQ") {
                 setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
                 updateQuestionStat(currentQ.id, {
@@ -250,6 +263,7 @@ function TestPageContent() {
 
                 if (correctLabel) {
                     const isCorrect = selectedOption === correctLabel;
+                    // IMPORTANT: Updating statusMap triggers the red/green dots in sidebar
                     setStatusMap((prev) => ({ ...prev, [currentIndex]: isCorrect ? "correct" : "wrong" }));
                     updateQuestionStat(currentQ.id, {
                         attempted: true,
@@ -257,11 +271,14 @@ function TestPageContent() {
                         selectedOption: selectedOption || undefined,
                         timeSpent: questionTimes[currentIndex] || 0
                     });
+                } else {
+                    // Fallback if we can't determine correct label
+                    setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
                 }
             } else {
-                // MCQ but no option selected
+                // MCQ but no option selected - just show answer, mark as seen/attempted?
                 setStatusMap((prev) => {
-                    if (prev[currentIndex] === 'correct' || prev[currentIndex] === 'wrong' || prev[currentIndex] === 'attempted') return prev;
+                    if (prev[currentIndex] === 'correct' || prev[currentIndex] === 'wrong') return prev;
                     return { ...prev, [currentIndex]: "seen" };
                 });
             }
@@ -515,12 +532,44 @@ function TestPageContent() {
                             )}
                             {mcqOptions && (
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-                                    {mcqOptions.map((opt) => (
-                                        <button key={opt.label} onClick={() => handleSelectOption(opt.label)} className={`text-left p-4 rounded-xl border transition-all flex items-start gap-3 ${selectedOption === opt.label ? "bg-purple-100 dark:bg-purple-500/15 border-purple-300 ring-1 ring-purple-400/20" : "bg-white dark:bg-white/[0.02] border-gray-200 dark:border-white/[0.08]"}`}>
-                                            <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${selectedOption === opt.label ? "bg-purple-600 text-white" : "bg-gray-100 dark:bg-white/[0.06] text-gray-500 dark:text-purple-300/80"}`}>{opt.label}</span>
-                                            <span className="text-sm dark:text-white mt-1.5">{opt.text}</span>
-                                        </button>
-                                    ))}
+                                    {mcqOptions.map((opt) => {
+                                        const correctLabel = getCorrectOptionLabel(currentQ);
+                                        const isChecked = statusMap[currentIndex] === 'correct' || statusMap[currentIndex] === 'wrong';
+
+                                        let buttonStyle = "bg-white dark:bg-white/[0.02] border-gray-200 dark:border-white/[0.08]";
+                                        let badgeStyle = "bg-gray-100 dark:bg-white/[0.06] text-gray-500 dark:text-purple-300/80";
+
+                                        if (isChecked) {
+                                            if (opt.label === correctLabel) {
+                                                // Correct Option: Green
+                                                buttonStyle = "bg-emerald-100 dark:bg-emerald-500/20 border-emerald-300 dark:border-emerald-500/50 ring-1 ring-emerald-400/30";
+                                                badgeStyle = "bg-emerald-600 text-white";
+                                            } else if (selectedOption === opt.label) {
+                                                // Wrong Selected Option: Red
+                                                buttonStyle = "bg-red-100 dark:bg-red-500/20 border-red-300 dark:border-red-500/50 ring-1 ring-red-400/30";
+                                                badgeStyle = "bg-red-600 text-white";
+                                            }
+                                        } else {
+                                            if (selectedOption === opt.label) {
+                                                // Selected (Unchecked): Purple
+                                                buttonStyle = "bg-purple-100 dark:bg-purple-500/15 border-purple-300 ring-1 ring-purple-400/20";
+                                                badgeStyle = "bg-purple-600 text-white";
+                                            }
+                                        }
+
+                                        return (
+                                            <button
+                                                key={opt.label}
+                                                onClick={() => handleSelectOption(opt.label)}
+                                                className={`text-left p-4 rounded-xl border transition-all flex items-start gap-3 ${buttonStyle}`}
+                                            >
+                                                <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${badgeStyle}`}>
+                                                    {opt.label}
+                                                </span>
+                                                <span className="text-sm dark:text-white mt-1.5">{opt.text}</span>
+                                            </button>
+                                        );
+                                    })}
                                 </div>
                             )}
                             {showAnswer && (
@@ -591,43 +640,26 @@ function TestPageContent() {
                     {isPracticeMode && currentQ.type === "MCQ" && (
                         <button
                             onClick={() => {
-                                // Logic: If MCQ, validate. Even if already correct, maybe re-check?
-                                // Let's just trigger show answer logic which handles validation
+                                // Explicit Check for MCQs
                                 setShowAnswer(true);
 
-                                // If it's an MCQ and option selected, validation happens in handleToggleShowAnswer/helper
-                                if (currentQ.type === "MCQ") {
-                                    if (selectedOption) {
-                                        const ans = currentQ.answer.trim();
-                                        let correctLabel = "";
-                                        const match = ans.match(/^\(([a-d])\)/i) || ans.match(/^([a-d])\)/i);
-                                        if (match) correctLabel = match[1].toUpperCase();
-                                        else if (ans.startsWith("(A)") || ans.startsWith("A)")) correctLabel = "A";
-                                        else if (ans.startsWith("(B)") || ans.startsWith("B)")) correctLabel = "B";
-                                        else if (ans.startsWith("(C)") || ans.startsWith("C)")) correctLabel = "C";
-                                        else if (ans.startsWith("(D)") || ans.startsWith("D)")) correctLabel = "D";
+                                if (selectedOption) {
+                                    const correctLabel = getCorrectOptionLabel(currentQ);
 
-                                        if (correctLabel) {
-                                            const isCorrect = selectedOption === correctLabel;
-                                            setStatusMap((prev) => ({ ...prev, [currentIndex]: isCorrect ? "correct" : "wrong" }));
-                                            updateQuestionStat(currentQ.id, {
-                                                attempted: true,
-                                                correct: isCorrect,
-                                                selectedOption: selectedOption || undefined,
-                                                timeSpent: questionTimes[currentIndex] || 0
-                                            });
-                                        }
-                                    } else {
-                                        // No option selected for MCQ
-                                        // Maybe alert user? Or just show answer?
-                                        // For now, let's just mark seen/attempted
-                                        setStatusMap((prev) => {
-                                            if (prev[currentIndex] === 'correct' || prev[currentIndex] === 'wrong') return prev;
-                                            return { ...prev, [currentIndex]: "attempted" }; // Mark as attempted so they know they checked it
+                                    if (correctLabel) {
+                                        const isCorrect = selectedOption === correctLabel;
+                                        setStatusMap((prev) => ({ ...prev, [currentIndex]: isCorrect ? "correct" : "wrong" }));
+                                        updateQuestionStat(currentQ.id, {
+                                            attempted: true,
+                                            correct: isCorrect,
+                                            selectedOption: selectedOption || undefined,
+                                            timeSpent: questionTimes[currentIndex] || 0
                                         });
+                                    } else {
+                                        // Could not determine correct answer from data
+                                        setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
                                     }
                                 } else {
-                                    // Subjective
                                     setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
                                     updateQuestionStat(currentQ.id, {
                                         attempted: true,

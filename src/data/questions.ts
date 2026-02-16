@@ -4249,7 +4249,7 @@ Methods of Speed Development (any 2):
         type: "MCQ",
         marks: 1,
         question: `Identify the asana shown in the image.`,
-        imageUrl: "/PE_SQP_2023_qs_1.png",
+        imageUrl: "/SQP 23 qs 1.png",
         options: ["Paschimottanasana", "Halasana", "Vajrasana", "Dhanurasana"],
         answer: `Dhanurasana`,
         source: "CBSE 2022-2023 Sample Paper",
@@ -4741,7 +4741,7 @@ Example: If 19 teams participate, byes = 32 – 19 = 13. These 13 byes are distr
 (c) The fourth round in this case can also be called as _______________.
 (d) What is the formula for calculating the number of byes?
 OR: The formula for calculating number of rounds is __________.`,
-        imageUrl: "/PE_SQP_2023_qs_31.png",
+        imageUrl: "/SQP 23 qs 31.png",
         answer: `(a) 8
 (b) N – 1
 (c) Semi-final
@@ -4762,6 +4762,7 @@ OR: Number of rounds = log₂N
         topic: "Biomechanics & Sports",
         type: "Case Study",
         marks: 4,
+        imageUrl: "/SQP 23 qs 32.png",
         question: `The teachers as well as coaches always make their best efforts to improve the performance of their students in various competitive games and sports.
 
 Based on the pictures showing Newton's laws, answer the following:
@@ -4789,6 +4790,7 @@ Factors increasing equilibrium: Broader base of support; lower centre of gravity
         topic: "Physical Education & Sports for CWSN",
         type: "Case Study",
         marks: 4,
+        imageUrl: "/SQP 23 qs 33.png",
         question: `In relation to the pictures of Special Olympics and Deaflympics logos, answer the following:
 
 (a) What is the mission of the first organization (Special Olympics)?
@@ -4905,7 +4907,7 @@ E.g. A spinning tennis ball curves mid-air (topspin or backspin) due to the Magn
         type: "MCQ",
         marks: 1,
         question: `Identify the asana shown in the image.`,
-        imageUrl: "/PE_SQP_2024_qs_1.png",
+        imageUrl: "/SQP 24 qs 1.png",
         options: ["Pawanmuktasana", "Sukhasana", "Chakrasan", "Gomukhasana"],
         answer: `Pawanmuktasana`,
         source: "CBSE 2023-2024 Sample Paper",
@@ -5005,7 +5007,7 @@ Which one of the following statements is correct?`,
         type: "MCQ",
         marks: 1,
         question: `Identify the Newton's law depicted: "With no outside forces, a stationary object will not move. With no outside forces, a moving object will not stop."`,
-        imageUrl: "/PE_SQP_2024_qs_8.png",
+        imageUrl: "/SQP 24 qs 8.png",
         options: ["First Law of Motion", "Second Law of Motion", "Third Law of Motion", "Law of Effects"],
         answer: `First Law of Motion`,
         source: "CBSE 2023-2024 Sample Paper",
@@ -5402,7 +5404,7 @@ According to the principles of equilibrium, Centre of Gravity plays a very impor
 (c) The sum of all the vertical and horizontal forces acting on the body must be __________.
 (d) Centre of gravity is the average location of an object's __________.
 OR (d): When the sum of forces acting upon the object and sum of the movement acting upon the body is both equal to zero, then the body is said to be in __________.`,
-        imageUrl: "/PE_SQP_2024_qs_32.png",
+        imageUrl: "/SQP 24 qs 32.png",
         answer: `(a) Stability
 (b) Position of the intersection of forces / body position
 (c) Zero
@@ -5614,7 +5616,7 @@ IV. Bow legs — 4. Inward curvature of the spine`,
         type: "MCQ",
         marks: 1,
         question: `Identify the asana shown in the image.`,
-        imageUrl: "/PE_SQP_2025_qs_5.png",
+        imageUrl: "/SQP 25 qs 5.png",
         options: ["Paschimottanasana", "Halasana", "Vajrasana", "Dhanurasana"],
         answer: `Halasana`,
         source: "CBSE 2024-2025 Sample Paper",
@@ -5956,93 +5958,159 @@ Self-Esteem enhances performance by: helping in taking effective decisions; redu
     },
     // SQP 2025 — SECTION D
     {
-        id: "S_2025_31",
+        id: "S_2025_31_1",
         year: 2025,
         chapter: "Planning in Sports",
         topic: "Planning in Sports",
-        type: "Case Study",
-        marks: 4,
-        question: `Questions about committees in sports tournaments:
-
-I. Choose the function of boarding committee:
-(A) To take teams to the venue  (B) To provide them meals  (C) To take care of their stay  (D) To arrange opening ceremony
-
-II. What is the work of ceremony committee?
-(A) To take teams to the venue  (B) To provide them meals  (C) To take care of their stay  (D) To arrange opening ceremony
-
-III. Ground and equipment committee should NOT perform:
-(A) To arrange team match venues  (B) To provide them meals  (C) To take care of proper officiating  (D) To make fixtures
-
-IV. Why committees are required?
-(A) To organise event perfectly  (B) To distribute work  (C) To make best use of resources  (D) All of the above`,
-        answer: `I. (C) To take care of their stay
-II. (D) To arrange opening ceremony
-III. (B) To provide them meals
-IV. (D) All of the above
-
-(For Visually Impaired):
-I. (A) Publicity Committee
-II. (C) Organising
-III. (A) Welcoming the participants
-IV. (B) Pre meet committee`,
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 31.png",
+        question: `Based on the provided information about committees, choose the function of the boarding committee:`,
+        options: ["To take teams to the venue", "To provide them meals", "To take care of their stay", "To arrange opening ceremony"],
+        answer: `To take care of their stay`,
         source: "CBSE 2024-2025 Sample Paper",
     },
     {
-        id: "S_2025_32",
+        id: "S_2025_31_2",
+        year: 2025,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 31.png",
+        question: `Based on the provided information about committees, what is the work of the ceremony committee?`,
+        options: ["To take teams to the venue", "To provide them meals", "To take care of their stay", "To arrange opening ceremony"],
+        answer: `To arrange opening ceremony`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_31_3",
+        year: 2025,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 31.png",
+        question: `Based on the provided information about committees, the ground and equipment committee should NOT perform:`,
+        options: ["To arrange team match venues", "To provide them meals", "To take care of proper officiating", "To make fixtures"],
+        answer: `To provide them meals`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_31_4",
+        year: 2025,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 31.png",
+        question: `Based on the provided information about committees, why are committees required?`,
+        options: ["To organise event perfectly", "To distribute work", "To make best use of resources", "All of the above"],
+        answer: `All of the above`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_32_1",
         year: 2025,
         chapter: "Physical Education & Sports for CWSN",
         topic: "Physical Education & Sports for CWSN",
-        type: "Case Study",
-        marks: 4,
-        question: `Questions about Paralympics:
-
-I. The first Paralympics was organised in:
-(A) 1960  (B) 1970  (C) 1965  (D) 1985
-
-II. Special education is a branch of education that deals with:
-(A) Educating children in special schools  (B) Instructions designing for students with special needs  (C) To provide opportunity of special education  (D) More than one of the above
-
-III. Why is it called the Paralympics?
-(A) First competition was held in Paraguay  (B) Originally for paramilitary soldiers  (C) The event runs parallel with the Olympics  (D) It's an event for paraplegics
-
-IV. What is the motto of the Paralympic Games?
-(A) Spirit in motion  (B) Citius, Altius, Fortius  (C) Faster, Higher, Stronger  (D) Diversity, Equality, Inclusion`,
-        answer: `I. (A) 1960
-II. (B) Instructions designing for students with special needs
-III. (C) The event runs parallel with the Olympics
-IV. (A) Spirit in motion`,
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 32.png",
+        question: `Based on the provided information about Paralympics, the first Paralympics was organised in:`,
+        options: ["1960", "1970", "1965", "1985"],
+        answer: `1960`,
         source: "CBSE 2024-2025 Sample Paper",
     },
     {
-        id: "S_2025_33",
+        id: "S_2025_32_2",
+        year: 2025,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 32.png",
+        question: `Based on the provided information about Paralympics, special education is a branch of education that deals with:`,
+        options: ["Educating children in special schools", "Instructions designing for students with special needs", "To provide opportunity of special education", "More than one of the above"],
+        answer: `Instructions designing for students with special needs`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_32_3",
+        year: 2025,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 32.png",
+        question: `Based on the provided information about Paralympics, why is it called the Paralympics?`,
+        options: ["First competition was held in Paraguay", "Originally for paramilitary soldiers", "The event runs parallel with the Olympics", "It's an event for paraplegics"],
+        answer: `The event runs parallel with the Olympics`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_32_4",
+        year: 2025,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 32.png",
+        question: `Based on the provided information about Paralympics, what is the motto of the Paralympic Games?`,
+        options: ["Spirit in motion", "Citius, Altius, Fortius", "Faster, Higher, Stronger", "Diversity, Equality, Inclusion"],
+        answer: `Spirit in motion`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_33_1",
         year: 2025,
         chapter: "Physiology & Injuries in Sports",
         topic: "Physiology & Injuries in Sports",
-        type: "Case Study",
-        marks: 4,
-        question: `Questions about effects of exercise on cardio respiratory system:
-
-I. What is the primary effect of exercise on cardio respiratory system?
-(A) Decreased heart rate  (B) Increased stroke volume  (C) Decreased lung capacity  (D) Decreased blood pressure
-
-II. What is stroke volume?
-(A) Volume of blood ejected per minute  (B) Volume of blood ejected per beat  (C) Volume of blood in ventricles at end of diastole  (D) Volume pumped during exercise
-
-III. Cardiac output is:
-(A) Volume of blood ejected per minute  (B) Volume ejected per beat  (C) Volume at end of diastole  (D) Volume pumped during exercise
-
-IV. Blood pressure is:
-(A) Volume ejected per minute  (B) Force exerted by blood against walls of arteries  (C) Rate of blood flow through veins  (D) Amount of oxygen carried by red blood cells`,
-        answer: `I. (A) Decreased heart rate (at rest, after training)
-II. (B) The volume of blood ejected by the heart per beat
-III. (A) The volume of blood ejected by the heart per minute
-IV. (B) The force exerted by blood against the walls of arteries
-
-(For Visually Impaired — Injuries):
-I. (A) Ligament (sprain)
-II. (A) Iceing
-III. (C) Soft tissue injury
-IV. (D) All the above`,
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 33.png",
+        question: `Based on the provided information about the cardiorespiratory system, what is the primary effect of exercise on the cardiorespiratory system?`,
+        options: ["Decreased heart rate", "Increased stroke volume", "Decreased lung capacity", "Decreased blood pressure"],
+        answer: `Decreased heart rate`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_33_2",
+        year: 2025,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 33.png",
+        question: `Based on the provided information about the cardiorespiratory system, what is stroke volume?`,
+        options: ["Volume of blood ejected per minute", "Volume of blood ejected per beat", "Volume of blood in ventricles at end of diastole", "Volume pumped during exercise"],
+        answer: `Volume of blood ejected per minute`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_33_3",
+        year: 2025,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 33.png",
+        question: `Based on the provided information about the cardiorespiratory system, cardiac output is:`,
+        options: ["Volume of blood ejected per minute", "Volume ejected per beat", "Volume at end of diastole", "Volume pumped during exercise"],
+        answer: `Volume of blood ejected per minute`,
+        source: "CBSE 2024-2025 Sample Paper",
+    },
+    {
+        id: "S_2025_33_4",
+        year: 2025,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 25 qs 33.png",
+        question: `Based on the provided information about the cardiorespiratory system, blood pressure is:`,
+        options: ["Volume ejected per minute", "Force exerted by blood against walls of arteries", "Rate of blood flow through veins", "Amount of oxygen carried by red blood cells"],
+        answer: `Force exerted by blood against walls of arteries`,
         source: "CBSE 2024-2025 Sample Paper",
     },
     // SQP 2025 — SECTION E
@@ -6194,7 +6262,7 @@ Why Friction is Necessary in Sports:
         type: "MCQ",
         marks: 1,
         question: `Identify the yoga asana shown in the image.`,
-        imageUrl: "/PE_SQP_2026_qs_5.png",
+        imageUrl: "/SQP 26 qs 5.png",
         options: ["Uttana Mandukasana", "Paschimottanasana", "Dhanurasana", "Halasana"],
         answer: `Dhanurasana`,
         source: "CBSE 2025-2026 Sample Paper",
@@ -6630,97 +6698,159 @@ Dimensions of Personality:
 
     // SQP 2026 — SECTION D
     {
-        id: "S_2026_31",
+        id: "S_2026_31_1",
         year: 2026,
         chapter: "Planning in Sports",
         topic: "Planning in Sports",
-        type: "Case Study",
-        marks: 4,
-        question: `Read the following text carefully and answer the questions:
-
-"Competing in physical activities has been the natural tendency of humans. The competitions or tournaments are held according to the set rules and regulations. The success of the tournament depends upon suitable fixture."
-
-Based on the knockout tournament fixture shown:
-
-1. The method followed in drawing the fixture is:
-(a) Random method  (b) Knock out method  (c) League cum knockout method  (d) League method
-
-2. The number of matches played can be calculated by the formula:
-(a) 2N  (b) N+1  (c) N/2  (d) N – 1
-
-3. What is the advantage of this tournament?
-(a) More matches are played  (b) Less number of teams participate  (c) The knockout tournament takes less time and is economical  (d) All teams play equal number of matches
-
-4. What is the term used if privilege is given to a team to play at a higher round?
-(a) Bye  (b) Draw  (c) Super seeding  (d) Any of the above`,
-        answer: `1. (b) Knockout method
-2. (d) N – 1
-3. (c) The knockout tournament takes less time and is economical
-4. (a) Bye`,
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 31.png",
+        question: `Based on the knockout tournament fixture shown, the method followed in drawing the fixture is:`,
+        options: ["Random method", "Knock out method", "League cum knockout method", "League method"],
+        answer: `Knock out method`,
         source: "CBSE 2025-2026 Sample Paper",
     },
     {
-        id: "S_2026_32",
+        id: "S_2026_31_2",
+        year: 2026,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 31.png",
+        question: `Based on the tournament fixture shown, the number of matches played can be calculated by the formula:`,
+        options: ["2N", "N+1", "N/2", "N – 1"],
+        answer: `N – 1`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_31_3",
+        year: 2026,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 31.png",
+        question: `Based on the tournament fixture shown, what is the advantage of this tournament?`,
+        options: ["More matches are played", "Less number of teams participate", "The knockout tournament takes less time and is economical", "All teams play equal number of matches"],
+        answer: `The knockout tournament takes less time and is economical`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_31_4",
+        year: 2026,
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 31.png",
+        question: `Based on the tournament fixture shown, what is the term used if privilege is given to a team to play at a higher round?`,
+        options: ["Bye", "Draw", "Super seeding", "Any of the above"],
+        answer: `Bye`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_32_1",
         year: 2026,
         chapter: "Physical Education & Sports for CWSN",
         topic: "Physical Education & Sports for CWSN",
-        type: "Case Study",
-        marks: 4,
-        question: `Based on the picture of the Deaflympics logo, answer the following questions:
-
-1. Identify the logo.
-(a) Special Olympics  (b) Paralympics  (c) Deaflympics  (d) Special Olympics Bharat
-
-2. What does the circle signify?
-(a) Unity  (b) Ears  (c) Strength  (d) Iris
-
-3. In which year was it held for the first time?
-(a) 2001  (b) 1924  (c) 1948  (d) 1968
-
-4. What are the four colours in the logo?
-(a) Red, Yellow, Black, Blue  (b) Red, Blue, Green, Yellow  (c) Yellow, Black, Red, Green  (d) Brown, Blue, Green, Red`,
-        answer: `1. (c) Deaflympics
-2. (d) Iris
-3. (b) 1924
-4. (b) Red, Blue, Green, Yellow`,
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 32.png",
+        question: `Based on the picture, identify the logo:`,
+        options: ["Special Olympics", "Paralympics", "Deaflympics", "Special Olympics Bharat"],
+        answer: `Deaflympics`,
         source: "CBSE 2025-2026 Sample Paper",
     },
     {
-        id: "S_2026_33",
+        id: "S_2026_32_2",
+        year: 2026,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 32.png",
+        question: `Based on the picture, what does the circle signify?`,
+        options: ["Unity", "Ears", "Strength", "Iris"],
+        answer: `Iris`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_32_3",
+        year: 2026,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 32.png",
+        question: `Based on the picture, in which year was it held for the first time?`,
+        options: ["2001", "1924", "1948", "1968"],
+        answer: `1924`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_32_4",
+        year: 2026,
+        chapter: "Physical Education & Sports for CWSN",
+        topic: "Physical Education & Sports for CWSN",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 32.png",
+        question: `Based on the picture, what are the four colours in the logo?`,
+        options: ["Red, Yellow, Black, Blue", "Red, Blue, Green, Yellow", "Yellow, Black, Red, Green", "Brown, Blue, Green, Red"],
+        answer: `Red, Blue, Green, Yellow`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_33_1",
         year: 2026,
         chapter: "Physiology & Injuries in Sports",
         topic: "Physiology & Injuries in Sports",
-        type: "Case Study",
-        marks: 4,
-        question: `In relation to the pictures of different types of fractures, answer the following questions:
-
-1. When the two ends of the injured bone enter into each other it is said to be:
-(a) Comminuted Fracture  (b) Greenstick Fracture  (c) Impacted Fracture  (d) Transverse Fracture
-
-2. _________ is a comminuted fracture:
-(a) (d)  (b) (b)  (c) (e)  (d) (a)
-
-3. When the bone is broken into many pieces at one place or different places, it is called:
-(a) Oblique Fracture  (b) Impacted Fracture  (c) Comminuted Fracture  (d) Greenstick Fracture
-
-4. _________ fracture occurs in a straight line at a right angle to the shaft of the bone, usually caused by a direct blow:
-(a) Greenstick Fracture  (b) Oblique Fracture  (c) Transverse Fracture  (d) Impacted Fracture
-
-(For Visually Impaired — Vitamins):
-1. __________ is a group of 8 water-soluble vitamins which are important for cellular metabolism.
-2. _________ disease is caused due to lack of Vitamin B.
-3. Vitamin _______ is important for healthy bones and teeth.
-4. Vitamin _____ is needed for blood clotting.`,
-        answer: `1. (c) Impacted Fracture
-2. (b) (b) — picture (b) is a comminuted fracture
-3. (c) Comminuted Fracture
-4. (c) Transverse Fracture
-
-(For Visually Impaired):
-1. Vitamin B
-2. Beri Beri
-3. D
-4. K`,
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 33.png",
+        question: `Based on the picture of different types of fractures, when the two ends of the injured bone enter into each other it is said to be:`,
+        options: ["Comminuted Fracture", "Greenstick Fracture", "Impacted Fracture", "Transverse Fracture"],
+        answer: `Impacted Fracture`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_33_2",
+        year: 2026,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 33.png",
+        question: `Based on the picture of different types of fractures, identify the comminuted fracture:`,
+        options: ["(d)", "(b)", "(e)", "(a)"],
+        answer: `(b)`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_33_3",
+        year: 2026,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 33.png",
+        question: `Based on the picture of different types of fractures, when the bone is broken into many pieces at one place or different places, it is called:`,
+        options: ["Oblique Fracture", "Impacted Fracture", "Comminuted Fracture", "Greenstick Fracture"],
+        answer: `Comminuted Fracture`,
+        source: "CBSE 2025-2026 Sample Paper",
+    },
+    {
+        id: "S_2026_33_4",
+        year: 2026,
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology & Injuries in Sports",
+        type: "MCQ",
+        marks: 1,
+        imageUrl: "/SQP 26 qs 33.png",
+        question: `Based on the picture of different types of fractures, which fracture occurs in a straight line at a right angle to the shaft of the bone, usually caused by a direct blow:`,
+        options: ["Greenstick Fracture", "Oblique Fracture", "Transverse Fracture", "Impacted Fracture"],
+        answer: `Transverse Fracture`,
         source: "CBSE 2025-2026 Sample Paper",
     },
 
