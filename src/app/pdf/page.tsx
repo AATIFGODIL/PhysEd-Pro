@@ -8,6 +8,9 @@ export default function PDFPage() {
 
     // Updated to include 2022-2026 as requested
     const pdfCards = [
+        // NCERT
+        { year: "NCERT", type: "NCERT", badge: "Textbook", badgeColor: "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300", fileName: "PE NCERT.pdf" },
+
         // 2026
         { year: 2026, type: "Sample", badge: "New Pattern", badgeColor: "bg-blue-500/20 text-gray-900 dark:text-blue-300" },
 
@@ -30,25 +33,29 @@ export default function PDFPage() {
         { year: 2022, type: "Main", badge: null, badgeColor: "" },
     ];
 
-    const handleDownload = (year: number, type: string) => {
-        // Construct the filename based on the pattern in public folder
+    const handleAction = (card: any, action: 'download' | 'view') => {
         let fileName = "";
-        if (type === "Compartment") {
-            fileName = `PE C ${year}.pdf`;
-        } else if (type === "Sample") {
-            // "PE SQP 26.pdf", "PE SQP 25.pdf" etc. -> Last 2 digits of year
-            const shortYear = year.toString().slice(-2);
+        if (card.type === "NCERT") {
+            fileName = card.fileName;
+        } else if (card.type === "Compartment") {
+            fileName = `PE C ${card.year}.pdf`;
+        } else if (card.type === "Sample") {
+            const shortYear = card.year.toString().slice(-2);
             fileName = `PE SQP ${shortYear}.pdf`;
         } else {
-            fileName = `PE ${year} Paper.pdf`;
+            fileName = `PE ${card.year} Paper.pdf`;
         }
 
-        const link = document.createElement("a");
-        link.href = `/${fileName}`; // Path relative to public folder
-        link.download = fileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        if (action === 'view') {
+            window.open(`/${fileName}`, "_blank");
+        } else {
+            const link = document.createElement("a");
+            link.href = `/${fileName}`;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     };
 
     return (
@@ -71,7 +78,7 @@ export default function PDFPage() {
                     Question Papers
                 </h1>
                 <p className="text-gray-500 dark:text-purple-300/80 text-sm max-w-md mx-auto font-light">
-                    Official CBSE Board Papers (2022-2025) available for direct download.
+                    Official CBSE Board Papers (2022-2026) available for direct download.
                 </p>
             </motion.div>
 
@@ -107,22 +114,34 @@ export default function PDFPage() {
                                         </div>
 
                                         <p className="text-[10px] text-gray-400 dark:text-purple-300/60 mb-6 italic">
-                                            CBSE Official Paper
+                                            {card.type === "NCERT" ? "CBSE official book" : "CBSE Official Paper"}
                                         </p>
                                     </div>
 
-                                    {/* Download button */}
-                                    <button
-                                        onClick={() => handleDownload(card.year, card.type)}
-                                        className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-fuchsia-500/10 dark:from-purple-500/20 dark:to-fuchsia-500/20 border border-purple-500/20 dark:border-purple-400/20 hover:border-purple-500/40 dark:hover:border-purple-400/40 text-purple-700 dark:text-white text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 group"
-                                    >
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:scale-110 transition-transform text-purple-600 dark:text-white">
-                                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-                                            <polyline points="7 10 12 15 17 10" />
-                                            <line x1="12" y1="15" x2="12" y2="3" />
-                                        </svg>
-                                        Download PDF
-                                    </button>
+                                    {/* Action Buttons */}
+                                    <div className="flex flex-col gap-2 w-full">
+                                        <button
+                                            onClick={() => handleAction(card, 'view')}
+                                            className="w-full py-2.5 px-4 rounded-xl bg-white dark:bg-white/[0.05] border border-gray-200 dark:border-white/[0.1] hover:border-purple-500/50 dark:hover:border-purple-400/50 text-gray-700 dark:text-white text-xs font-semibold transition-all duration-300 flex items-center justify-center gap-2 group"
+                                        >
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:scale-110 transition-transform text-purple-600 dark:text-purple-400">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                                <circle cx="12" cy="12" r="3" />
+                                            </svg>
+                                            View PDF
+                                        </button>
+                                        <button
+                                            onClick={() => handleAction(card, 'download')}
+                                            className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-fuchsia-500/10 dark:from-purple-500/20 dark:to-fuchsia-500/20 border border-purple-500/20 dark:border-purple-400/20 hover:border-purple-500/40 dark:hover:border-purple-400/40 text-purple-700 dark:text-white text-xs font-medium transition-all duration-300 flex items-center justify-center gap-2 group"
+                                        >
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-y-0.5 transition-transform text-purple-600 dark:text-white">
+                                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                                                <polyline points="7 10 12 15 17 10" />
+                                                <line x1="12" y1="15" x2="12" y2="3" />
+                                            </svg>
+                                            Download
+                                        </button>
+                                    </div>
                                 </div>
                             </LiquidCard>
                         </motion.div>
