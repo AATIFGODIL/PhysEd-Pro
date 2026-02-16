@@ -187,7 +187,7 @@ function ChaptersContent() {
                 <div className="flex flex-wrap gap-2 mb-6">
                     <div className="flex items-center gap-1.5 rounded-xl bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] px-3 py-2">
                         <span className="text-[11px] text-gray-500 dark:text-purple-300/50">Year:</span>
-                        {[2025, 2024, 2023, 2022].map((y) => (
+                        {[2026, 2025, 2024, 2023, 2022].map((y) => (
                             <button
                                 key={y}
                                 onClick={() => setYearFilter(y === yearFilter ? null : y)}
@@ -263,14 +263,58 @@ function ChaptersContent() {
 
                 <div className="space-y-3 pb-16">
                     <AnimatePresence mode="popLayout">
-                        {filteredQuestions.map((q, i) => (
-                            <QuestionCard
-                                key={q.id}
-                                question={q}
-                                index={i}
-                                onClick={() => router.push(`/test?chapter=${encodeURIComponent(q.chapter)}&questionId=${q.id}&mode=practice`)}
-                            />
-                        ))}
+                        {(() => {
+                            // Custom sorting logic
+                            const sortedQuestions = [...filteredQuestions].sort((a, b) => {
+                                // 1. Sort by Marks (Ascending)
+                                if (a.marks !== b.marks) {
+                                    return a.marks - b.marks;
+                                }
+
+                                // 2. Sort by Year (Descending - 2026, 2025, ...)
+                                if (a.year !== b.year) {
+                                    return b.year - a.year;
+                                }
+
+                                // 3. Sort by Source Priority within the same year
+                                // Order: Main Board > Compartment > Sample Paper
+                                const getSourcePriority = (source: string) => {
+                                    const s = source.toLowerCase();
+                                    // Sample paper is lowest priority (highest number)
+                                    if (s.includes("sample")) return 3;
+                                    // Compartment is medium priority
+                                    if (s.includes("compartment")) return 2;
+                                    // Main board (or unspecified) is highest priority
+                                    return 1;
+                                };
+
+                                return getSourcePriority(a.source) - getSourcePriority(b.source);
+                            });
+
+                            // Calculate display indices
+                            // We need to restart numbering for each mark category
+                            let currentMark = -1;
+                            let currentCount = 0;
+
+                            return sortedQuestions.map((q) => {
+                                // Check if we entered a new mark category
+                                if (q.marks !== currentMark) {
+                                    currentMark = q.marks;
+                                    currentCount = 1;
+                                } else {
+                                    currentCount++;
+                                }
+
+                                return (
+                                    <QuestionCard
+                                        key={q.id}
+                                        question={q}
+                                        index={currentCount - 1} // 0-based index for display (component adds +1)
+                                        onClick={() => router.push(`/test?chapter=${encodeURIComponent(q.chapter)}&questionId=${q.id}&mode=practice`)}
+                                    />
+                                );
+                            });
+                        })()}
                     </AnimatePresence>
 
                     {filteredQuestions.length === 0 && (

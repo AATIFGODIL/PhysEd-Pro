@@ -46,16 +46,33 @@ function TestPageContent() {
         }
 
         if (chapter) {
-            const chQuestions = questions.filter(q => q.chapter === chapter);
-            // Reorder if questionId is present (Chapters Practice Mode)
-            if (questionId && isPracticeMode) {
-                const clickedIndex = chQuestions.findIndex(q => q.id === questionId);
-                if (clickedIndex > -1) {
-                    const clickedQ = chQuestions[clickedIndex];
-                    const others = chQuestions.filter(q => q.id !== questionId);
-                    return [clickedQ, ...others];
-                }
+            let chQuestions = questions.filter(q => q.chapter === chapter);
+
+            if (isPracticeMode) {
+                chQuestions = chQuestions.sort((a, b) => {
+                    // 1. Sort by Marks (Ascending)
+                    if (a.marks !== b.marks) {
+                        return a.marks - b.marks;
+                    }
+
+                    // 2. Sort by Year (Descending - 2026, 2025, ...)
+                    if (a.year !== b.year) {
+                        return b.year - a.year;
+                    }
+
+                    // 3. Sort by Source Priority within the same year
+                    // Order: Main Board > Compartment > Sample Paper
+                    const getSourcePriority = (source: string) => {
+                        const s = source.toLowerCase();
+                        if (s.includes("sample")) return 3;
+                        if (s.includes("compartment")) return 2;
+                        return 1;
+                    };
+
+                    return getSourcePriority(a.source) - getSourcePriority(b.source);
+                });
             }
+
             return chQuestions;
         }
 
@@ -79,13 +96,14 @@ function TestPageContent() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Initial Index Logic for Yearly Practice Mode (No reordering, just jump to index)
+    // Initial Index Logic
     useEffect(() => {
-        if (year && questionId && testQuestions.length > 0) {
+        if ((year || chapter) && questionId && testQuestions.length > 0) {
             const idx = testQuestions.findIndex(q => q.id === questionId);
             if (idx > -1) setCurrentIndex(idx);
         }
-    }, [year, questionId, testQuestions]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [year, chapter, questionId, testQuestions.length]);
 
     const [started, setStarted] = useState(isPracticeMode); // Auto-start in practice mode
 
@@ -534,9 +552,9 @@ function TestPageContent() {
                                             {key}
                                         </h3>
                                         <div className="grid grid-cols-5 gap-1.5">
-                                            {groupedQuestions.groups[key].map((idx) => (
+                                            {groupedQuestions.groups[key].map((idx, groupIndex) => (
                                                 <button key={idx} onClick={() => goTo(idx)} className={`w-full aspect-square rounded-lg text-[10px] font-semibold flex items-center justify-center transition-all ${idx === currentIndex ? "ring-2 ring-purple-400 bg-purple-500/30 text-purple-700 dark:text-white" : getStatusColor(statusMap[idx] || "not-seen")}`}>
-                                                    {idx + 1}
+                                                    {groupIndex + 1}
                                                 </button>
                                             ))}
                                         </div>
