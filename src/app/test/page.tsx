@@ -685,6 +685,25 @@ function TestPageContent() {
                                         Check Answer
                                     </button>
                                 )}
+
+                                <div className="flex-1" />
+
+                                <div className="flex items-center gap-2">
+                                    <button
+                                        onClick={() => goTo(currentIndex - 1)}
+                                        disabled={currentIndex === 0}
+                                        className="px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest bg-white dark:bg-white/[0.06] text-gray-500 dark:text-purple-300/60 border border-gray-200 dark:border-white/[0.1] disabled:opacity-30 transition-all hover:bg-gray-50 dark:hover:bg-white/[0.08] active:scale-95"
+                                    >
+                                        Previous
+                                    </button>
+                                    <button
+                                        onClick={handleNext}
+                                        disabled={currentIndex >= testQuestions.length - 1}
+                                        className="px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest bg-purple-600 dark:bg-purple-500 text-white shadow-lg shadow-purple-500/20 disabled:opacity-30 transition-all hover:shadow-purple-500/30 active:scale-95"
+                                    >
+                                        Next
+                                    </button>
+                                </div>
                             </div>
                             {showAnswer && (
                                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={`p-5 rounded-xl border ${statusMap[currentIndex] === 'correct' ? 'bg-emerald-50 dark:bg-emerald-500/[0.06] border-emerald-200 dark:border-emerald-400/15' : statusMap[currentIndex] === 'wrong' ? 'bg-red-50 dark:bg-red-500/[0.06] border-red-200 dark:border-red-400/15' : 'bg-purple-50 dark:bg-purple-500/[0.06] border-purple-200 dark:border-purple-400/15'}`}>
@@ -737,16 +756,7 @@ function TestPageContent() {
                 )}
             </div>
 
-            {/* Footer */}
-            <div className={`p-4 border-t flex items-center justify-between ${showAnswers ? "bg-white dark:bg-white/[0.02] border-gray-200 dark:border-white/[0.06]" : "bg-white/60 dark:bg-white/[0.02] border-purple-100 dark:border-white/[0.06]"}`}>
-                <div className="flex items-center gap-3">
-                    {/* Time or progress can go here if needed */}
-                </div>
-                <div className="flex items-center gap-2">
-                    <button onClick={() => goTo(currentIndex - 1)} disabled={currentIndex === 0} className="px-5 py-2 rounded-lg text-xs font-medium bg-white dark:bg-white/[0.06] dark:text-white border border-gray-200 dark:border-white/[0.08] disabled:opacity-30 transition-all hover:bg-gray-50 dark:hover:bg-white/[0.1]">Previous</button>
-                    <button onClick={handleNext} disabled={currentIndex >= testQuestions.length - 1} className="px-5 py-2 rounded-lg text-xs font-bold bg-purple-600 dark:bg-purple-500 text-white disabled:opacity-30 transition-all hover:shadow-lg hover:shadow-purple-500/20 active:scale-95">Next</button>
-                </div>
-            </div>
+
         </div>
     );
 }
