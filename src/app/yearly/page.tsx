@@ -65,7 +65,7 @@ function YearlyPageContent() {
                 if (marksFilter && q.marks !== marksFilter) return false;
             }
             return true;
-        });
+        }).sort((a, b) => b.year - a.year);
     }, [selectedYear, marksFilter, typeFilter, examTypeFilter, showBookmarksOnly, statusFilter, bookmarks, stats]);
 
     return (
@@ -337,14 +337,24 @@ function YearlyPageContent() {
             {/* Questions */}
             <div className="max-w-6xl mx-auto space-y-3">
                 <AnimatePresence mode="popLayout">
-                    {filteredQuestions.map((q, i) => (
-                        <QuestionCard
-                            key={q.id}
-                            question={q}
-                            index={i}
-                            onClick={() => router.push(`/test?year=${q.year}&questionId=${q.id}&mode=practice`)}
-                        />
-                    ))}
+                    {filteredQuestions.map((q, i) => {
+                        const getExamType = (source: string) => {
+                            const s = source.toLowerCase();
+                            if (s.includes("compartment")) return "Compartment";
+                            if (s.includes("sample")) return "Sample";
+                            return "Main";
+                        };
+                        const type = getExamType(q.source);
+
+                        return (
+                            <QuestionCard
+                                key={q.id}
+                                question={q}
+                                index={i}
+                                onClick={() => router.push(`/test?year=${q.year}&questionId=${q.id}&mode=practice&type=${type}`)}
+                            />
+                        );
+                    })}
                 </AnimatePresence>
 
                 {filteredQuestions.length === 0 && (
