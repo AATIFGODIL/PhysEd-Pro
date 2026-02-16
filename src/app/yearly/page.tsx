@@ -202,7 +202,7 @@ function YearlyPageContent() {
 
             {/* Year selector */}
             <div className="max-w-6xl mx-auto mb-6">
-                <div className="flex gap-2 overflow-x-auto pb-2">
+                <div className="flex gap-2 overflow-x-auto pb-2 pt-4">
                     <button
                         onClick={() => setSelectedYear(null)}
                         className={`flex-shrink-0 px-4 py-2.5 rounded-xl text-sm font-medium transition-all border ${selectedYear === null
@@ -223,7 +223,7 @@ function YearlyPageContent() {
                         >
                             {year}
                             {year === 2026 && (
-                                <span className="absolute -top-1.5 -right-1.5 text-[8px] px-1.5 py-0.5 rounded-full bg-fuchsia-500/25 text-white">
+                                <span className="absolute -top-3 -right-2 text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 text-white shadow-lg shadow-fuchsia-500/20 border border-white/10 tracking-wide">
                                     NEW
                                 </span>
                             )}

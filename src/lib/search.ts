@@ -27,7 +27,7 @@ export function parseSearchQuery(query: string): SearchFilters {
     const filters: SearchFilters = { textQuery: "" };
 
     // 1. Extract Year (2022-2025)
-    const yearMatch = textQuery.match(/\b(202[2-5])\b/);
+    const yearMatch = textQuery.match(/\b(202[2-6])\b/);
     if (yearMatch) {
         filters.year = parseInt(yearMatch[1]);
         textQuery = textQuery.replace(yearMatch[0], "").trim();
