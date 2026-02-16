@@ -82,7 +82,7 @@
       </g>
 
       <!-- P Logo -->
-      <g transform="translate(74, 71) scale(0.65)" filter="url(#glow)">
+      <g transform="translate(-28.4, -33.5) scale(1.0156)" filter="url(#glow)">
         <path d="M180 150 C 180 150, 380 120, 380 230 C 380 340, 250 340, 250 340 L 250 420 C 250 420, 200 420, 180 400 Z" fill="url(#mainGradient)" />
         <path d="M190 160 C 190 160, 360 135, 360 230 C 360 320, 260 320, 260 320" fill="none" stroke="white" stroke-width="8" stroke-opacity="0.4" stroke-linecap="round"/>
         <circle cx="360" cy="160" r="15" fill="#e9d5ff" fill-opacity="0.9" />
