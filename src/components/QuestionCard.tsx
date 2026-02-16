@@ -10,9 +10,10 @@ interface QuestionCardProps {
     question: Question;
     index: number;
     onClick?: (question: Question) => void;
+    showStatusBadge?: boolean;
 }
 
-export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
+export function QuestionCard({ question, index, onClick, showStatusBadge }: QuestionCardProps) {
     const router = useRouter();
     const [showAnswer, setShowAnswer] = useState(false);
 
@@ -34,6 +35,8 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
         const b = parseInt(hex.substring(4, 6), 16);
         return `rgba(${r}, ${g}, ${b}, ${alpha})`;
     };
+
+    // ... (rest of timer logic - untouched)
 
     // Timer logic
     const [elapsed, setElapsed] = useState(questionStat?.timeSpent || 0);
@@ -120,7 +123,7 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
 
     // Determine card styling based on status
     const getStatusClasses = () => {
-        if (!questionStat?.attempted) {
+        if (showStatusBadge || !questionStat?.attempted) {
             if (isBookmarked) {
                 // Return base classes, colors handled by style prop
                 return "transition-colors";
@@ -128,7 +131,6 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
             return "bg-gray-100 dark:bg-white/[0.03] border-gray-200 dark:border-white/[0.08] hover:border-purple-500/30 dark:hover:border-purple-400/20";
         }
 
-        // ... (rest of attempted logic)
         if (question.type !== "MCQ") {
             return "bg-amber-500/[0.03] border-amber-500/20 hover:border-amber-500/40";
         }
@@ -137,16 +139,49 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
     };
 
     const dynamicStyle = useMemo(() => {
-        if (!questionStat?.attempted && isBookmarked) {
+        // Case 1: Badge Mode (Bookmarks Page) - Always show bookmark color if bookmarked
+        if (showStatusBadge && isBookmarked) {
             return {
                 backgroundColor: getRgba(groupColor, 0.05), // Light background
                 borderColor: getRgba(groupColor, 0.3),     // Border
             };
         }
-        return {};
-    }, [questionStat?.attempted, isBookmarked, groupColor]);
 
-    // ...
+        // Case 2: Test Mode - Show bookmark color ONLY if NOT attempted
+        // (If attempted, getStatusClasses provides the Green/Red/Amber background)
+        if (!showStatusBadge && !questionStat?.attempted && isBookmarked) {
+            return {
+                backgroundColor: getRgba(groupColor, 0.05),
+                borderColor: getRgba(groupColor, 0.3),
+            };
+        }
+
+        return {};
+    }, [isBookmarked, groupColor, showStatusBadge, questionStat?.attempted]);
+
+    // Determine status badge content
+    let statusBadge = null;
+    if (showStatusBadge && questionStat?.attempted) {
+        if (question.type !== "MCQ") {
+            statusBadge = (
+                <span className="text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-400">
+                    Attempted
+                </span>
+            );
+        } else if (questionStat.correct) {
+            statusBadge = (
+                <span className="text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400">
+                    Correct
+                </span>
+            );
+        } else {
+            statusBadge = (
+                <span className="text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-400">
+                    Wrong
+                </span>
+            );
+        }
+    }
 
     return (
         <motion.div
@@ -159,9 +194,12 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
             style={dynamicStyle}
             className={`relative rounded-2xl backdrop-blur-[24px] border overflow-hidden cursor-pointer transition-colors ${getStatusClasses()}`}
         >
-            <div className="p-5">
+            <div className={`p-5 ${showStatusBadge ? "relative" : ""}`}>
                 {/* Header badges + actions */}
                 <div className="flex flex-wrap items-center gap-2 mb-3">
+                    {/* Status Badge (Pill) - Priority Display */}
+                    {statusBadge}
+
                     <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-purple-500/10 dark:bg-purple-500/20 text-purple-700 dark:text-white">
                         {question.year}
                     </span>

@@ -125,6 +125,7 @@ export default function BookmarksPage() {
                                 question={q}
                                 index={index}
                                 onClick={() => router.push(`/test?bookmarkGroupId=${selectedGroupId}&answers=true&questionId=${q.id}`)}
+                                showStatusBadge={true}
                             />
                         ))}
                     </div>

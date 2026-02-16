@@ -522,6 +522,7 @@ function YearlyPageContent() {
                                         router.push(`/test?year=${q.year}&questionId=${q.id}&mode=practice&type=${type}`);
                                     }
                                 }}
+                                showStatusBadge={showBookmarksOnly}
                             />
                         );
                     })}
