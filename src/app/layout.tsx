@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: "PhysEd-Pro",
   description:
     "Complete CBSE Class 12 Physical Education question bank with solutions. Previous year papers (2022-2025), chapter-wise questions, marking schemes, and smart search.",
+  openGraph: {
+    title: "PhysEd-Pro",
+    description: "Complete CBSE Class 12 Physical Education question bank with solutions.",
+    images: ["/logo-preview.png"],
+  },
 };
 
 import { QuizProvider } from "@/context/QuizContext";
