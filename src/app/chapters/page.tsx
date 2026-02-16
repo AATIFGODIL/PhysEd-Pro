@@ -19,21 +19,30 @@ function ChaptersContent() {
     const [selectedChapter, setSelectedChapter] = useState<string | null>(
         initialChapter
     );
-    const [yearFilter, setYearFilter] = useState<number | null>(null);
-    const [marksFilter, setMarksFilter] = useState<number | null>(null);
-    const [examTypeFilter, setExamTypeFilter] = useState<'Main' | 'Compartment' | null>(null);
+    const [yearFilters, setYearFilters] = useState<number[]>([]);
+    const [marksFilters, setMarksFilters] = useState<number[]>([]);
+    const [examTypeFilters, setExamTypeFilters] = useState<('Main' | 'Compartment' | 'Sample')[]>([]);
     const [statusFilter, setStatusFilter] = useState<'attempted' | null>(null);
 
     const filteredQuestions = useMemo(() => {
         return questions.filter((q) => {
             if (selectedChapter && q.chapter !== selectedChapter) return false;
-            if (yearFilter && q.year !== yearFilter) return false;
-            if (marksFilter && q.marks !== marksFilter) return false;
+            if (yearFilters.length > 0 && !yearFilters.includes(q.year)) return false;
+            if (marksFilters.length > 0 && !marksFilters.includes(q.marks)) return false;
 
-            if (examTypeFilter) {
-                const isCompartment = q.source.toLowerCase().includes("compartment");
-                if (examTypeFilter === 'Compartment' && !isCompartment) return false;
-                if (examTypeFilter === 'Main' && isCompartment) return false;
+            if (examTypeFilters.length > 0) {
+                const s = q.source.toLowerCase();
+                const isCompartment = s.includes("compartment");
+                const isSample = s.includes("sample");
+                const isMain = !isCompartment && !isSample;
+
+                const matches = examTypeFilters.some(type => {
+                    if (type === 'Compartment') return isCompartment;
+                    if (type === 'Sample') return isSample;
+                    if (type === 'Main') return isMain;
+                    return false;
+                });
+                if (!matches) return false;
             }
 
             if (statusFilter === 'attempted') {
@@ -42,7 +51,7 @@ function ChaptersContent() {
             }
             return true;
         });
-    }, [selectedChapter, yearFilter, marksFilter, statusFilter, examTypeFilter, stats]);
+    }, [selectedChapter, yearFilters, marksFilters, statusFilter, examTypeFilters, stats]);
 
     // Calculate stats for current view (or current chapter)
     const currentStats = useMemo(() => {
@@ -190,8 +199,10 @@ function ChaptersContent() {
                         {[2026, 2025, 2024, 2023, 2022].map((y) => (
                             <button
                                 key={y}
-                                onClick={() => setYearFilter(y === yearFilter ? null : y)}
-                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${yearFilter === y
+                                onClick={() => setYearFilters(prev =>
+                                    prev.includes(y) ? prev.filter(v => v !== y) : [...prev, y]
+                                )}
+                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${yearFilters.includes(y)
                                     ? "bg-purple-500/20 text-purple-700 dark:text-white"
                                     : "bg-white dark:bg-white/[0.04] text-gray-500 dark:text-purple-300/50 hover:text-gray-900 dark:hover:text-purple-300/70"
                                     }`}
@@ -205,8 +216,10 @@ function ChaptersContent() {
                         {[1, 2, 3, 4, 5].map((m) => (
                             <button
                                 key={m}
-                                onClick={() => setMarksFilter(m === marksFilter ? null : m)}
-                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${marksFilter === m
+                                onClick={() => setMarksFilters(prev =>
+                                    prev.includes(m) ? prev.filter(v => v !== m) : [...prev, m]
+                                )}
+                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${marksFilters.includes(m)
                                     ? "bg-fuchsia-100 dark:bg-fuchsia-500/20 text-fuchsia-700 dark:text-white"
                                     : "bg-white dark:bg-white/[0.04] text-gray-500 dark:text-purple-300/50 hover:text-gray-900 dark:hover:text-purple-300/70"
                                     }`}
@@ -218,11 +231,13 @@ function ChaptersContent() {
 
                     <div className="flex items-center gap-1.5 rounded-xl bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] px-3 py-2">
                         <span className="text-[11px] text-gray-500 dark:text-purple-300/50 mr-1">Exam:</span>
-                        {["Main", "Compartment"].map((e) => (
+                        {["Main", "Compartment", "Sample"].map((e) => (
                             <button
                                 key={e}
-                                onClick={() => setExamTypeFilter(e === examTypeFilter ? null : e as any)}
-                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${examTypeFilter === e
+                                onClick={() => setExamTypeFilters(prev =>
+                                    prev.includes(e as any) ? prev.filter(v => v !== e) : [...prev, e as any]
+                                )}
+                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${examTypeFilters.includes(e as any)
                                     ? "bg-purple-500/20 text-purple-700 dark:text-white"
                                     : "bg-white dark:bg-white/[0.04] text-gray-500 dark:text-purple-300/50 hover:text-gray-900 dark:hover:text-purple-300/70"
                                     }`}
@@ -232,7 +247,7 @@ function ChaptersContent() {
                         ))}
                     </div>
                     {/* Active Filter Badge */}
-                    {(statusFilter === 'attempted' || examTypeFilter || yearFilter || marksFilter) && (
+                    {(statusFilter === 'attempted' || examTypeFilters.length > 0 || yearFilters.length > 0 || marksFilters.length > 0) && (
                         <div className="flex items-center gap-2">
                             {statusFilter === 'attempted' && (
                                 <div className="flex items-center gap-1.5 rounded-xl bg-purple-500/10 border border-purple-500/20 px-3 py-2">
@@ -244,12 +259,12 @@ function ChaptersContent() {
                                     </button>
                                 </div>
                             )}
-                            {(yearFilter || marksFilter || examTypeFilter || statusFilter) && (
+                            {(yearFilters.length > 0 || marksFilters.length > 0 || examTypeFilters.length > 0 || statusFilter) && (
                                 <button
                                     onClick={() => {
-                                        setYearFilter(null);
-                                        setMarksFilter(null);
-                                        setExamTypeFilter(null);
+                                        setYearFilters([]);
+                                        setMarksFilters([]);
+                                        setExamTypeFilters([]);
                                         setStatusFilter(null);
                                     }}
                                     className="text-[11px] px-3 py-2 rounded-xl bg-red-500/8 text-purple-300/90 hover:bg-red-500/15 transition-colors"
@@ -310,7 +325,18 @@ function ChaptersContent() {
                                         key={q.id}
                                         question={q}
                                         index={currentCount - 1} // 0-based index for display (component adds +1)
-                                        onClick={() => router.push(`/test?chapter=${encodeURIComponent(q.chapter)}&questionId=${q.id}&mode=practice`)}
+                                        onClick={() => {
+                                            const params = new URLSearchParams();
+                                            params.set("questionId", q.id);
+                                            params.set("mode", "practice");
+                                            if (statusFilter === 'attempted') {
+                                                params.set("filter", "attempted");
+                                                if (selectedChapter) params.set("chapter", selectedChapter);
+                                            } else {
+                                                params.set("chapter", q.chapter);
+                                            }
+                                            router.push(`/test?${params.toString()}`);
+                                        }}
                                     />
                                 );
                             });

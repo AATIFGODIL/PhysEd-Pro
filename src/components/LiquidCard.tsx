@@ -9,6 +9,7 @@ interface LiquidCardProps {
     glowing?: boolean;
     onClick?: () => void;
     delay?: number;
+    disableHover?: boolean;
 }
 
 export function LiquidCard({
@@ -17,6 +18,7 @@ export function LiquidCard({
     glowing = false,
     onClick,
     delay = 0,
+    disableHover = false,
 }: LiquidCardProps) {
     const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
 
@@ -31,7 +33,7 @@ export function LiquidCard({
                 stiffness: 100,
                 delay,
             }}
-            whileHover={{ scale: 1.02 }}
+            whileHover={disableHover ? {} : { scale: 1.02 }}
             onClick={onClick}
             onMouseMove={(e) => {
                 const rect = e.currentTarget.getBoundingClientRect();

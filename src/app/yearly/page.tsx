@@ -21,10 +21,10 @@ function YearlyPageContent() {
         ? parseInt(searchParams.get("year")!)
         : null;
 
-    const [selectedYear, setSelectedYear] = useState<number | null>(initialYear);
-    const [marksFilter, setMarksFilter] = useState<number | null>(null);
-    const [typeFilter, setTypeFilter] = useState<string | null>(null);
-    const [examTypeFilter, setExamTypeFilter] = useState<'Main' | 'Compartment' | 'Sample' | null>(null);
+    const [selectedYears, setSelectedYears] = useState<number[]>(initialYear ? [initialYear] : []);
+    const [marksFilters, setMarksFilters] = useState<number[]>([]);
+    const [typeFilters, setTypeFilters] = useState<string[]>([]);
+    const [examTypeFilters, setExamTypeFilters] = useState<('Main' | 'Compartment' | 'Sample')[]>([]);
     const [statusFilter, setStatusFilter] = useState<'attempted' | null>(null);
     const [showBookmarksOnly, setShowBookmarksOnly] = useState(false);
 
@@ -43,7 +43,7 @@ function YearlyPageContent() {
                 if (!bookmarks[q.id]) return false;
                 if (selectedGroupId !== "all" && bookmarks[q.id] !== selectedGroupId) return false;
             }
-            if (selectedYear && q.year !== selectedYear) return false;
+            if (selectedYears.length > 0 && !selectedYears.includes(q.year)) return false;
 
             // Simple Status Filter Logic
             if (statusFilter === 'attempted') {
@@ -52,31 +52,36 @@ function YearlyPageContent() {
             }
 
             // Logic for Exam Type
-            if (examTypeFilter) {
+            if (examTypeFilters.length > 0) {
                 const lowerSource = q.source.toLowerCase();
                 const isCompartment = lowerSource.includes("compartment");
                 const isSample = lowerSource.includes("sample");
+                const isMain = !isCompartment && !isSample;
 
-                if (examTypeFilter === 'Compartment' && !isCompartment) return false;
-                if (examTypeFilter === 'Sample' && !isSample) return false;
-                if (examTypeFilter === 'Main' && (isCompartment || isSample)) return false;
+                const matches = examTypeFilters.some(type => {
+                    if (type === 'Compartment') return isCompartment;
+                    if (type === 'Sample') return isSample;
+                    if (type === 'Main') return isMain;
+                    return false;
+                });
+                if (!matches) return false;
             }
 
             // Logic for Type Filter
-            if (typeFilter) {
-                if (typeFilter === "Very Long") {
-                    if (q.marks !== 5) return false;
-                } else if (typeFilter === "Long") {
-                    if ((q.marks !== 3 && q.marks !== 4) || q.type === "Case Study") return false;
-                } else {
-                    if (q.type !== typeFilter) return false;
-                }
-            } else {
-                if (marksFilter && q.marks !== marksFilter) return false;
+            if (typeFilters.length > 0) {
+                const matches = typeFilters.some(t => {
+                    if (t === "Very Long") return q.marks === 5;
+                    if (t === "Long") return (q.marks === 3 || q.marks === 4) && q.type !== "Case Study";
+                    return q.type === t;
+                });
+                if (!matches) return false;
             }
+
+            if (marksFilters.length > 0 && !marksFilters.includes(q.marks)) return false;
+
             return true;
         }).sort((a, b) => b.year - a.year);
-    }, [selectedYear, marksFilter, typeFilter, examTypeFilter, showBookmarksOnly, statusFilter, bookmarks, stats, selectedGroupId]);
+    }, [selectedYears, marksFilters, typeFilters, examTypeFilters, showBookmarksOnly, statusFilter, bookmarks, stats, selectedGroupId]);
 
     const activeGroup = selectedGroupId === "all"
         ? null
@@ -204,8 +209,8 @@ function YearlyPageContent() {
             <div className="max-w-6xl mx-auto mb-6">
                 <div className="flex gap-2 overflow-x-auto pb-2 pt-4">
                     <button
-                        onClick={() => setSelectedYear(null)}
-                        className={`flex-shrink-0 px-4 py-2.5 rounded-xl text-sm font-medium transition-all border ${selectedYear === null
+                        onClick={() => setSelectedYears([])}
+                        className={`flex-shrink-0 px-4 py-2.5 rounded-xl text-sm font-medium transition-all border ${selectedYears.length === 0
                             ? "bg-purple-500/15 border-purple-400/25 text-purple-700 dark:text-white"
                             : "bg-gray-100 dark:bg-white/[0.03] border-gray-200 dark:border-white/[0.06] text-gray-500 dark:text-purple-300/60 hover:border-gray-300 dark:hover:border-white/[0.12]"
                             }`}
@@ -215,8 +220,10 @@ function YearlyPageContent() {
                     {years.map((year) => (
                         <button
                             key={year}
-                            onClick={() => setSelectedYear(year === selectedYear ? null : year)}
-                            className={`relative flex-shrink-0 px-4 py-2.5 rounded-xl text-sm font-medium transition-all border ${selectedYear === year
+                            onClick={() => setSelectedYears(prev =>
+                                prev.includes(year) ? prev.filter(v => v !== year) : [...prev, year]
+                            )}
+                            className={`relative flex-shrink-0 px-4 py-2.5 rounded-xl text-sm font-medium transition-all border ${selectedYears.includes(year)
                                 ? "bg-purple-500/15 border-purple-400/25 text-purple-700 dark:text-white"
                                 : "bg-gray-100 dark:bg-white/[0.03] border-gray-200 dark:border-white/[0.06] text-gray-500 dark:text-purple-300/60 hover:border-gray-300 dark:hover:border-white/[0.12]"
                                 } ${year === 2026 ? "animate-pulse-glow" : ""}`}
@@ -242,8 +249,10 @@ function YearlyPageContent() {
                         {["MCQ", "Short", "Long", "Very Long", "Case Study"].map((t) => (
                             <button
                                 key={t}
-                                onClick={() => setTypeFilter(t === typeFilter ? null : t)}
-                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${typeFilter === t
+                                onClick={() => setTypeFilters(prev =>
+                                    prev.includes(t) ? prev.filter(v => v !== t) : [...prev, t]
+                                )}
+                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${typeFilters.includes(t)
                                     ? "bg-purple-500/20 text-purple-700 dark:text-white"
                                     : "bg-white dark:bg-white/[0.04] text-gray-500 dark:text-purple-300/80 hover:text-gray-900 dark:hover:text-white"
                                     }`}
@@ -258,8 +267,10 @@ function YearlyPageContent() {
                         {["Main", "Compartment", "Sample"].map((e) => (
                             <button
                                 key={e}
-                                onClick={() => setExamTypeFilter(e === examTypeFilter ? null : e as any)}
-                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${examTypeFilter === e
+                                onClick={() => setExamTypeFilters(prev =>
+                                    prev.includes(e as any) ? prev.filter(v => v !== e) : [...prev, e as any]
+                                )}
+                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${examTypeFilters.includes(e as any)
                                     ? "bg-fuchsia-500/20 text-fuchsia-700 dark:text-white"
                                     : "bg-white dark:bg-white/[0.04] text-gray-500 dark:text-purple-300/80 hover:text-gray-900 dark:hover:text-white"
                                     }`}
@@ -282,14 +293,14 @@ function YearlyPageContent() {
                     )}
 
 
-                    {(marksFilter || typeFilter || selectedYear || statusFilter || examTypeFilter) && (
+                    {(marksFilters.length > 0 || typeFilters.length > 0 || selectedYears.length > 0 || statusFilter || examTypeFilters.length > 0) && (
                         <button
                             onClick={() => {
-                                setMarksFilter(null);
-                                setTypeFilter(null);
-                                setSelectedYear(null);
+                                setMarksFilters([]);
+                                setTypeFilters([]);
+                                setSelectedYears([]);
                                 setStatusFilter(null);
-                                setExamTypeFilter(null);
+                                setExamTypeFilters([]);
                             }}
                             className="text-[11px] px-3 py-2 rounded-xl bg-red-500/8 text-purple-300/90 hover:bg-red-500/15 transition-colors"
                         >
@@ -302,7 +313,7 @@ function YearlyPageContent() {
             {/* Stats */}
             <div className="max-w-6xl mx-auto mb-6">
                 <div onClick={() => setStatusFilter(prev => prev === 'attempted' ? null : 'attempted')}>
-                    <LiquidCard className={`!rounded-xl cursor-pointer transition-all ${statusFilter === 'attempted' ? 'ring-2 ring-purple-500/50' : 'hover:ring-1 hover:ring-purple-500/30'}`}>
+                    <LiquidCard disableHover={true} className={`!rounded-xl cursor-pointer transition-all ${statusFilter === 'attempted' ? 'ring-2 ring-purple-500/50' : 'hover:ring-1 hover:ring-purple-500/30'}`}>
                         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 px-5 py-4">
                             {/* Left: Quick Counts */}
                             <div className="flex flex-col gap-2">
@@ -338,6 +349,23 @@ function YearlyPageContent() {
 
                             {/* Right: Filters */}
                             <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
+                                <button
+                                    onClick={() => {
+                                        const params = new URLSearchParams();
+                                        params.set("filter", "attempted");
+                                        params.set("mode", "practice");
+                                        if (selectedYears.length > 0) {
+                                            params.set("years", selectedYears.join(','));
+                                        }
+                                        router.push(`/test?${params.toString()}`);
+                                    }}
+                                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg border bg-white dark:bg-white/[0.04] border-gray-200 dark:border-white/[0.08] text-gray-500 dark:text-purple-300/70 hover:text-gray-900 dark:hover:text-white transition-all text-xs font-medium active:scale-95 shadow-sm"
+                                >
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M5 3l14 9-14 9V3z" />
+                                    </svg>
+                                    Practice Attempted
+                                </button>
                                 <button
                                     onClick={() => setShowBookmarksOnly(!showBookmarksOnly)}
                                     className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all text-xs font-medium ${showBookmarksOnly

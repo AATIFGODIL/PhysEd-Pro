@@ -14,6 +14,11 @@ export default function BookmarksPage() {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [isCreateOpen, setIsCreateOpen] = useState(false);
 
+    // Additional Filters
+    const [yearFilters, setYearFilters] = useState<number[]>([]);
+    const [marksFilters, setMarksFilters] = useState<number[]>([]);
+    const [examTypeFilters, setExamTypeFilters] = useState<('Main' | 'Compartment' | 'Sample')[]>([]);
+
     // Create Group State
     const [newGroupName, setNewGroupName] = useState("");
     const [newGroupColor, setNewGroupColor] = useState("#f472b6");
@@ -24,9 +29,38 @@ export default function BookmarksPage() {
     }, [bookmarks]);
 
     const filteredQuestions = useMemo(() => {
-        if (selectedGroupId === "all") return bookmarkedQuestions;
-        return bookmarkedQuestions.filter(q => bookmarks[q.id] === selectedGroupId);
-    }, [bookmarkedQuestions, bookmarks, selectedGroupId]);
+        let result = bookmarkedQuestions;
+
+        if (selectedGroupId !== "all") {
+            result = result.filter(q => bookmarks[q.id] === selectedGroupId);
+        }
+
+        if (yearFilters.length > 0) {
+            result = result.filter(q => yearFilters.includes(q.year));
+        }
+
+        if (marksFilters.length > 0) {
+            result = result.filter(q => marksFilters.includes(q.marks));
+        }
+
+        if (examTypeFilters.length > 0) {
+            result = result.filter(q => {
+                const s = q.source.toLowerCase();
+                const isCompartment = s.includes("compartment");
+                const isSample = s.includes("sample");
+                const isMain = !isCompartment && !isSample;
+
+                return examTypeFilters.some(type => {
+                    if (type === 'Compartment') return isCompartment;
+                    if (type === 'Sample') return isSample;
+                    if (type === 'Main') return isMain;
+                    return false;
+                });
+            });
+        }
+
+        return result;
+    }, [bookmarkedQuestions, bookmarks, selectedGroupId, yearFilters, marksFilters, examTypeFilters]);
 
     const activeGroup = selectedGroupId === "all"
         ? null
@@ -115,6 +149,76 @@ export default function BookmarksPage() {
                             </AnimatePresence>
                         </div>
                     </div>
+                </div>
+
+                {/* Filter Tags Bar */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                    <div className="flex items-center gap-1.5 rounded-xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] px-3 py-1.5 shadow-sm transition-all">
+                        <span className="text-[11px] text-gray-400 dark:text-purple-300/40 uppercase tracking-wider font-semibold">Year</span>
+                        {[2026, 2025, 2024, 2023, 2022].map((y) => (
+                            <button
+                                key={y}
+                                onClick={() => setYearFilters(prev =>
+                                    prev.includes(y) ? prev.filter(v => v !== y) : [...prev, y]
+                                )}
+                                className={`text-[11px] px-2.5 py-1 rounded-full transition-all font-medium ${yearFilters.includes(y)
+                                    ? "bg-purple-500 text-white shadow-md shadow-purple-500/20 scale-105"
+                                    : "text-gray-500 dark:text-purple-300/50 hover:bg-gray-100 dark:hover:bg-white/[0.06]"
+                                    }`}
+                            >
+                                {y}
+                            </button>
+                        ))}
+                    </div>
+
+                    <div className="flex items-center gap-1.5 rounded-xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] px-3 py-1.5 shadow-sm transition-all">
+                        <span className="text-[11px] text-gray-400 dark:text-purple-300/40 uppercase tracking-wider font-semibold">Marks</span>
+                        {[1, 2, 3, 4, 5].map((m) => (
+                            <button
+                                key={m}
+                                onClick={() => setMarksFilters(prev =>
+                                    prev.includes(m) ? prev.filter(v => v !== m) : [...prev, m]
+                                )}
+                                className={`text-[11px] px-2.5 py-1 rounded-full transition-all font-medium ${marksFilters.includes(m)
+                                    ? "bg-fuchsia-500 text-white shadow-md shadow-fuchsia-500/20 scale-105"
+                                    : "text-gray-500 dark:text-purple-300/50 hover:bg-gray-100 dark:hover:bg-white/[0.06]"
+                                    }`}
+                            >
+                                {m}M
+                            </button>
+                        ))}
+                    </div>
+
+                    <div className="flex items-center gap-1.5 rounded-xl bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] px-3 py-1.5 shadow-sm transition-all">
+                        <span className="text-[11px] text-gray-400 dark:text-purple-300/40 uppercase tracking-wider font-semibold">Exam</span>
+                        {["Main", "Compartment", "Sample"].map((e) => (
+                            <button
+                                key={e}
+                                onClick={() => setExamTypeFilters(prev =>
+                                    prev.includes(e as any) ? prev.filter(v => v !== e) : [...prev, e as any]
+                                )}
+                                className={`text-[11px] px-2.5 py-1 rounded-full transition-all font-medium ${examTypeFilters.includes(e as any)
+                                    ? "bg-indigo-500 text-white shadow-md shadow-indigo-500/20 scale-105"
+                                    : "text-gray-500 dark:text-purple-300/50 hover:bg-gray-100 dark:hover:bg-white/[0.06]"
+                                    }`}
+                            >
+                                {e}
+                            </button>
+                        ))}
+                    </div>
+
+                    {(yearFilters.length > 0 || marksFilters.length > 0 || examTypeFilters.length > 0) && (
+                        <button
+                            onClick={() => {
+                                setYearFilters([]);
+                                setMarksFilters([]);
+                                setExamTypeFilters([]);
+                            }}
+                            className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 text-[11px] font-bold hover:bg-red-500/20 transition-all border border-red-200 dark:border-red-500/20"
+                        >
+                            CLEAR ALL
+                        </button>
+                    )}
                 </div>
 
                 {filteredQuestions.length > 0 ? (

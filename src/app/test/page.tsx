@@ -35,6 +35,31 @@ function TestPageContent() {
 
     // Filter Questions
     const testQuestions = useMemo(() => {
+        const filter = searchParams.get("filter");
+        if (filter === "attempted") {
+            let filtered = questions.filter(q => stats[q.id]?.attempted);
+
+            // If specific filters were passed with the attempted filter
+            if (chapter) {
+                filtered = filtered.filter(q => q.chapter === chapter);
+            }
+
+            const yearsStr = searchParams.get("years");
+            if (yearsStr) {
+                const yearList = yearsStr.split(',').map(Number);
+                filtered = filtered.filter(q => yearList.includes(q.year));
+            }
+
+            // Standard sorting for practice mode: Marks (asc), Year (desc)
+            filtered = filtered.sort((a, b) => {
+                if (a.marks !== b.marks) return a.marks - b.marks;
+                if (a.year !== b.year) return b.year - a.year;
+                return 0;
+            });
+
+            return filtered;
+        }
+
         if (bookmarkGroupId) {
             // Filter by bookmarks
             const targetIds = bookmarkGroupId === "all"
@@ -116,7 +141,7 @@ function TestPageContent() {
         }
 
         return [];
-    }, [year, type, chapter, questionId, isPracticeMode, searchParam, bookmarkGroupId, bookmarks]);
+    }, [year, type, chapter, questionId, isPracticeMode, searchParam, bookmarkGroupId, bookmarks, stats, searchParams]);
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -438,7 +463,7 @@ function TestPageContent() {
             // If searching for CHAPTER (or context is chapter) -> Group by Marks
         }
 
-        if (chapter) {
+        if (chapter || searchParams.get("filter") === "attempted") {
             groupBy = "marks";
         }
 
@@ -509,7 +534,9 @@ function TestPageContent() {
             <div className={`flex items-center gap-3 px-4 py-3 border-b transition-colors duration-500 ${showAnswers ? "border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02]" : "border-purple-100 dark:border-white/[0.06] bg-white/60 backdrop-blur-md dark:bg-white/[0.02]"}`}>
                 <button
                     onClick={() => {
-                        if (searchParam) {
+                        if (bookmarkGroupId) {
+                            router.push('/bookmarks');
+                        } else if (searchParam) {
                             router.back();
                         } else if (chapter) {
                             router.push(`/chapters?chapter=${encodeURIComponent(chapter)}`);
@@ -522,6 +549,14 @@ function TestPageContent() {
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5" /><polyline points="12 19 5 12 12 5" /></svg>
                 </button>
                 <h1 className="text-sm font-semibold text-gray-900 dark:text-white flex-1 truncate">{currentChapter}</h1>
+                {searchParams.get("filter") === "attempted" && (
+                    <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-gray-500 dark:text-purple-300/60 transition-colors">
+                            Attempted Questions
+                        </span>
+                    </div>
+                )}
             </div>
 
             {/* Navigation Bar */}
