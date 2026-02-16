@@ -9,6 +9,7 @@ import { decodeTestConfig } from "@/lib/shareUtils";
 import { useQuiz } from "@/context/QuizContext";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { ShareModal } from "@/components/ShareModal";
+import Link from "next/link";
 
 type QuestionStatus = "not-seen" | "seen" | "attempted" | "correct" | "wrong";
 
@@ -18,7 +19,7 @@ function TestPageContent() {
 
     // Params
     const bookmarkGroupId = searchParams.get("bookmarkGroupId");
-    const { bookmarks, stats, updateQuestionStat } = useQuiz();
+    const { bookmarks, stats, updateQuestionStat, saveTestResult } = useQuiz();
 
     const yearParam = searchParams.get("year");
     const year = yearParam ? parseInt(yearParam) : null;
@@ -27,7 +28,8 @@ function TestPageContent() {
     const questionId = searchParams.get("questionId");
     const idsParam = searchParams.get("ids"); // Custom Test IDs
     const dataParam = searchParams.get("d"); // Compressed Data
-    const titleParam = searchParams.get("t"); // Custom Title
+    const titleParam = searchParams.get("t") || searchParams.get("title"); // Custom Title
+    const forcePractice = searchParams.get("practice") === "true"; // Viewing Solutions
 
     // Search Mode Logic
     const searchParam = searchParams.get("search");
@@ -35,8 +37,7 @@ function TestPageContent() {
     // Mode Logic (Backward compatibility: answers=true -> mode=practice)
     const modeParam = searchParams.get("mode");
     const answersParam = searchParams.get("answers");
-    const isPracticeMode = modeParam === "practice" || answersParam === "true";
-    const showAnswers = isPracticeMode;
+    const isPracticeMode = modeParam === "practice" || answersParam === "true" || forcePractice;
 
     // Filter Questions
     const testQuestions = useMemo(() => {
@@ -196,7 +197,20 @@ function TestPageContent() {
     }, [year, type, chapter, questionId, isPracticeMode, searchParam, bookmarkGroupId, bookmarks, stats, searchParams, idsParam, dataParam]);
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [started, setStarted] = useState(false);
+    const [questionTimes, setQuestionTimes] = useState<Record<number, number>>({});
+    const [statusMap, setStatusMap] = useState<Record<number, QuestionStatus>>({});
+    const [showAnswer, setShowAnswer] = useState(false);
+    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+    const [sidebarOpen, setSidebarOpen] = useState(true);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [showAnswers, setShowAnswers] = useState(isPracticeMode);
+    const [isFinished, setIsFinished] = useState(false);
+    const [testStartTime, setTestStartTime] = useState<number | null>(null);
     const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+    const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
+    const [userSelections, setUserSelections] = useState<Record<number, string>>({});
+    const [sessionAttempted, setSessionAttempted] = useState<Set<number>>(new Set());
 
     // Initial Index Logic
     useEffect(() => {
@@ -207,14 +221,87 @@ function TestPageContent() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [year, chapter, questionId, testQuestions.length]);
 
-    const [started, setStarted] = useState(isPracticeMode); // Auto-start in practice mode
+    // Track test start time
+    useEffect(() => {
+        if (started && !testStartTime) {
+            setTestStartTime(Date.now());
+        }
+    }, [started, testStartTime]);
 
-    const [questionTimes, setQuestionTimes] = useState<Record<number, number>>({});
-    const [statusMap, setStatusMap] = useState<Record<number, QuestionStatus>>({});
-    const [showAnswer, setShowAnswer] = useState(false);
-    const [selectedOption, setSelectedOption] = useState<string | null>(null);
-    const [sidebarOpen, setSidebarOpen] = useState(true);
-    const [isLoaded, setIsLoaded] = useState(false);
+    // If practice mode or forcePractice is on, showAnswers should be true
+    useEffect(() => {
+        if (isPracticeMode) {
+            setShowAnswers(true);
+        }
+        if (forcePractice) {
+            setShowAnswer(true);
+        }
+    }, [isPracticeMode, forcePractice]);
+
+    const handleFinishTest = () => {
+        setIsFinished(true);
+        setIsSubmitModalOpen(false);
+        setShowAnswers(true); // Reveal everything
+
+        const newStatusMap = { ...statusMap };
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let attemptedCount = 0;
+
+        testQuestions.forEach((q, idx) => {
+            const selection = userSelections[idx];
+            const isMCQ = q.type.trim().toUpperCase() === "MCQ";
+            const timeSpent = questionTimes[idx] || 0;
+            const wasAttemptedInSession = sessionAttempted.has(idx);
+
+            if (isMCQ) {
+                if (selection && wasAttemptedInSession) {
+                    attemptedCount++;
+                    const correctLabel = getCorrectOptionLabel(q);
+                    const isCorrect = selection === correctLabel;
+                    if (isCorrect) correctCount++;
+                    else incorrectCount++;
+
+                    newStatusMap[idx] = isCorrect ? 'correct' : 'wrong';
+
+                    updateQuestionStat(q.id, {
+                        attempted: true,
+                        correct: isCorrect,
+                        selectedOption: selection,
+                        timeSpent
+                    });
+                }
+            } else {
+                // Non-MCQ: only count if they revealed answer or interacted in THIS session
+                if (wasAttemptedInSession) {
+                    attemptedCount++;
+                    newStatusMap[idx] = 'attempted';
+                    updateQuestionStat(q.id, {
+                        attempted: true,
+                        timeSpent
+                    });
+                }
+            }
+        });
+
+        setStatusMap(newStatusMap);
+        const duration = testStartTime ? Math.floor((Date.now() - testStartTime) / 1000) : 0;
+
+        let title = "Practice Test";
+        if (titleParam) title = titleParam;
+        else if (year) title = `${year} ${type} Exam`;
+        else if (chapter) title = `Chapter: ${chapter}`;
+
+        saveTestResult({
+            title,
+            totalQuestions: testQuestions.length,
+            attempted: attemptedCount,
+            correct: correctCount,
+            incorrect: incorrectCount,
+            questionIds: testQuestions.map(q => q.id),
+            duration
+        });
+    };
 
     // const { stats, updateQuestionStat } = useQuiz(); // Moved up
 
@@ -304,8 +391,8 @@ function TestPageContent() {
     const goTo = useCallback((idx: number) => {
         if (idx >= 0 && idx < testQuestions.length) {
             setCurrentIndex(idx);
-            setShowAnswer(false);
-            setSelectedOption(null);
+            setShowAnswer(forcePractice);
+            setSelectedOption(userSelections[idx] || null);
 
             // Update URL with new questionId without reloading
             const nextQ = testQuestions[idx];
@@ -366,6 +453,7 @@ function TestPageContent() {
         setShowAnswer(newState);
 
         if (showAnswers && newState) {
+            setSessionAttempted(prev => new Set(prev).add(currentIndex));
             // Logic for when answer is REVEALED
             if (currentQ.type.toUpperCase() !== "MCQ") {
                 setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
@@ -401,53 +489,26 @@ function TestPageContent() {
     };
 
     const handleNext = useCallback(() => {
-        // Evaluate and update stats when clicking Next
         if (!showAnswers) {
-            // Safe type check
-            const isMCQ = currentQ.type.trim().toUpperCase() === "MCQ";
-
-            if (isMCQ) {
-                if (selectedOption) {
-                    const correctLabel = getCorrectOptionLabel(currentQ);
-
-                    if (correctLabel) {
-                        const isCorrect = selectedOption === correctLabel;
-                        // For Test Mode: Mark as 'attempted' locally so sidebar doesn't spoil answer
-                        setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
-                        // But update GLOBAL stats with actual result for Dashboard
-                        updateQuestionStat(currentQ.id, {
-                            attempted: true,
-                            correct: isCorrect,
-                            selectedOption: selectedOption || undefined,
-                            timeSpent: questionTimes[currentIndex] || 0
-                        });
-                    }
-                } else {
-                    // MCQ skipped (no option selected)
-                }
-
-            } else {
-                // Non-MCQ: Mark as attempted
+            // In test mode, we just move on. Selections are already in userSelections.
+            // We can optionally mark as attempted if an option was chosen.
+            if (selectedOption) {
                 setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
-                updateQuestionStat(currentQ.id, {
-                    attempted: true,
-                    timeSpent: questionTimes[currentIndex] || 0
-                });
             }
         }
         goTo(currentIndex + 1);
-    }, [showAnswers, currentQ, selectedOption, getCorrectOptionLabel, updateQuestionStat, currentIndex, questionTimes, goTo]);
+    }, [showAnswers, selectedOption, currentIndex, goTo]);
 
     const handleSelectOption = (opt: string) => {
-        // Allow changing option until result is locked (correct/wrong)
-        // In Test Mode (showAnswers=false), we allowing changing freely until Next/Check confirms it.
-        // Once confirmed (statusMap has correct/wrong), we lock it?
-        // Actually, for Test Mode, verification happens on Next. So until then, user can change mind.
-        // Once verified (e.g. going back to previous question), it should be locked IF we want that.
-        // Let's lock it if it is already graded.
+        if (isFinished && (statusMap[currentIndex] === 'correct' || statusMap[currentIndex] === 'wrong')) return;
 
-        if (statusMap[currentIndex] === 'correct' || statusMap[currentIndex] === 'wrong') return;
         setSelectedOption(opt);
+        setUserSelections(prev => ({ ...prev, [currentIndex]: opt }));
+        setSessionAttempted(prev => new Set(prev).add(currentIndex));
+
+        if (!showAnswers) {
+            setStatusMap(prev => ({ ...prev, [currentIndex]: 'attempted' }));
+        }
     };
 
     // Keyboard navigation
@@ -590,6 +651,59 @@ function TestPageContent() {
                             onClose={() => setIsShareModalOpen(false)}
                             questionIds={testQuestions.map(q => q.id)}
                         />
+                    </div>
+                </motion.div>
+            </div>
+        );
+    }
+
+    if (isFinished) {
+        const correctCount = Object.values(statusMap).filter(s => s === 'correct').length;
+        const incorrectCount = Object.values(statusMap).filter(s => s === 'wrong').length;
+        const attemptedCount = Object.values(statusMap).filter(s => s === 'correct' || s === 'wrong' || s === 'attempted').length;
+
+        return (
+            <div className="min-h-screen flex items-center justify-center px-4 bg-purple-50/50 dark:bg-black">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-md w-full">
+                    <div className="bg-white dark:bg-zinc-900 rounded-3xl p-8 text-center shadow-xl border border-gray-200 dark:border-white/[0.08]">
+                        <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-emerald-600 dark:text-emerald-400">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
+
+                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Test Completed!</h2>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">Performance Summary</p>
+
+                        <div className="grid grid-cols-3 gap-4 mb-8">
+                            <div className="p-4 rounded-2xl bg-gray-50 dark:bg-white/[0.03] border border-gray-100 dark:border-white/[0.05]">
+                                <p className="text-2xl font-bold text-emerald-500">{correctCount}</p>
+                                <p className="text-[10px] uppercase font-semibold text-gray-400">Correct</p>
+                            </div>
+                            <div className="p-4 rounded-2xl bg-gray-50 dark:bg-white/[0.03] border border-gray-100 dark:border-white/[0.05]">
+                                <p className="text-2xl font-bold text-red-500">{incorrectCount}</p>
+                                <p className="text-[10px] uppercase font-semibold text-gray-400">Wrong</p>
+                            </div>
+                            <div className="p-4 rounded-2xl bg-gray-50 dark:bg-white/[0.03] border border-gray-100 dark:border-white/[0.05]">
+                                <p className="text-2xl font-bold text-blue-500">{attemptedCount}</p>
+                                <p className="text-[10px] uppercase font-semibold text-gray-400">Total</p>
+                            </div>
+                        </div>
+
+                        <div className="space-y-3">
+                            <button
+                                onClick={() => setIsFinished(false)}
+                                className="w-full py-3.5 rounded-xl bg-purple-600 dark:bg-purple-500 text-white font-bold shadow-lg shadow-purple-500/25 transition-all active:scale-[0.98]"
+                            >
+                                View Detailed Solutions
+                            </button>
+                            <Link
+                                href="/yearly"
+                                className="block w-full py-3.5 rounded-xl bg-gray-100 dark:bg-white/[0.05] text-gray-900 dark:text-white font-bold transition-all active:scale-[0.98]"
+                            >
+                                Back to Dashboard
+                            </Link>
+                        </div>
                     </div>
                 </motion.div>
             </div>
@@ -803,6 +917,14 @@ function TestPageContent() {
                                     >
                                         Next
                                     </button>
+                                    {!isPracticeMode && (
+                                        <button
+                                            onClick={() => setIsSubmitModalOpen(true)}
+                                            className="px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/20 transition-all active:scale-95"
+                                        >
+                                            Submit Test
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                             {showAnswer && (
@@ -825,6 +947,15 @@ function TestPageContent() {
                             <span className="text-amber-400">●</span><span className="dark:text-purple-300/70">{counts.seen}</span>
                             <span className="dark:text-purple-300/40">{counts.notSeen}</span>
                         </div>
+
+                        {!isPracticeMode && (
+                            <button
+                                onClick={handleFinishTest}
+                                className="w-full py-2 mb-6 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-widest transition-all shadow-lg shadow-emerald-500/10 active:scale-95"
+                            >
+                                Finish & Save Test
+                            </button>
+                        )}
 
                         {groupedQuestions ? (
                             <div className="space-y-4">
@@ -857,6 +988,48 @@ function TestPageContent() {
             </div>
 
 
+            <ShareModal
+                isOpen={isShareModalOpen}
+                onClose={() => setIsShareModalOpen(false)}
+                questionIds={testQuestions.map(q => q.id)}
+            />
+
+            {/* Confirmation Modal */}
+            <AnimatePresence>
+                {isSubmitModalOpen && (
+                    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            className="w-full max-w-sm bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl p-8 border border-gray-100 dark:border-white/[0.1] text-center"
+                        >
+                            <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-emerald-500">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Submit Test?</h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">Are you sure you want to finish and save your results?</p>
+                            <div className="flex gap-3">
+                                <button
+                                    onClick={() => setIsSubmitModalOpen(false)}
+                                    className="flex-1 py-3 rounded-xl bg-gray-100 dark:bg-white/[0.05] text-sm font-bold text-gray-600 dark:text-gray-300 transition-all hover:bg-gray-200 dark:hover:bg-white/[0.1]"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    onClick={handleFinishTest}
+                                    className="flex-1 py-3 rounded-xl bg-emerald-500 text-sm font-bold text-white transition-all hover:bg-emerald-600 shadow-lg shadow-emerald-500/20"
+                                >
+                                    Yes, Submit
+                                </button>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

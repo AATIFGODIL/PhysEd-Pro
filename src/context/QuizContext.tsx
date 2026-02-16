@@ -16,16 +16,30 @@ export interface BookmarkGroup {
     color: string; // Hex code or tailwind class
 }
 
+export interface TestHistoryRecord {
+    id: string;
+    title: string;
+    date: number; // timestamp
+    totalQuestions: number;
+    attempted: number;
+    correct: number;
+    incorrect: number;
+    questionIds: string[];
+    duration: number; // in seconds
+}
+
 interface QuizContextType {
     bookmarks: Record<string, string>; // questionId -> groupId
     bookmarkGroups: BookmarkGroup[];
     stats: Record<string, QuestionStat>;
-    toggleBookmark: (id: string, groupId?: string) => void; // Modified to accept group
+    testHistory: TestHistoryRecord[];
+    toggleBookmark: (id: string, groupId?: string) => void;
     addBookmark: (id: string, groupId: string) => void;
     removeBookmark: (id: string) => void;
     createGroup: (name: string, color: string) => void;
     deleteGroup: (groupId: string) => void;
     updateQuestionStat: (id: string, data: Partial<QuestionStat>) => void;
+    saveTestResult: (record: Omit<TestHistoryRecord, "id" | "date">) => void;
     resetStats: () => void;
 }
 
@@ -41,6 +55,7 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
     const [bookmarks, setBookmarks] = useState<Record<string, string>>({});
     const [bookmarkGroups, setBookmarkGroups] = useState<BookmarkGroup[]>(DEFAULT_GROUPS);
     const [stats, setStats] = useState<Record<string, QuestionStat>>({});
+    const [testHistory, setTestHistory] = useState<TestHistoryRecord[]>([]);
     const [loaded, setLoaded] = useState(false);
 
     // Load from localStorage on mount
@@ -48,17 +63,17 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
         const savedBookmarks = localStorage.getItem("physed-bookmarks");
         const savedGroups = localStorage.getItem("physed-bookmark-groups");
         const savedStats = localStorage.getItem("physed-stats");
+        const savedHistory = localStorage.getItem("physed-history");
 
         if (savedBookmarks) {
             try {
                 const parsed = JSON.parse(savedBookmarks);
-                // Migration: If it's an array (old Set converted to array), convert to Record
                 if (Array.isArray(parsed)) {
                     const migrated: Record<string, string> = {};
                     parsed.forEach((id: string) => {
                         migrated[id] = DEFAULT_GROUP_ID;
                     });
-                    setBookmarks(migrated); // eslint-disable-line react-hooks/set-state-in-effect
+                    setBookmarks(migrated);
                 } else {
                     setBookmarks(parsed);
                 }
@@ -78,6 +93,14 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
         if (savedStats) {
             setStats(JSON.parse(savedStats));
         }
+
+        if (savedHistory) {
+            try {
+                setTestHistory(JSON.parse(savedHistory));
+            } catch (e) {
+                console.error("Failed to parse test history", e);
+            }
+        }
         setLoaded(true);
     }, []);
 
@@ -87,7 +110,8 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem("physed-bookmarks", JSON.stringify(bookmarks));
         localStorage.setItem("physed-bookmark-groups", JSON.stringify(bookmarkGroups));
         localStorage.setItem("physed-stats", JSON.stringify(stats));
-    }, [bookmarks, bookmarkGroups, stats, loaded]);
+        localStorage.setItem("physed-history", JSON.stringify(testHistory));
+    }, [bookmarks, bookmarkGroups, stats, testHistory, loaded]);
 
     const addBookmark = useCallback((id: string, groupId: string) => {
         setBookmarks((prev) => ({
@@ -128,7 +152,6 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
     const deleteGroup = useCallback((groupId: string) => {
         if (groupId === DEFAULT_GROUP_ID) return; // Cannot delete default
         setBookmarkGroups((prev) => prev.filter(g => g.id !== groupId));
-        // Move bookmarks of deleted group to default
         setBookmarks((prev) => {
             const next = { ...prev };
             Object.keys(next).forEach(qid => {
@@ -150,6 +173,15 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
         });
     }, []);
 
+    const saveTestResult = useCallback((record: Omit<TestHistoryRecord, "id" | "date">) => {
+        const newRecord: TestHistoryRecord = {
+            ...record,
+            id: Date.now().toString(),
+            date: Date.now(),
+        };
+        setTestHistory((prev) => [newRecord, ...prev]);
+    }, []);
+
     const resetStats = useCallback(() => {
         setStats({});
     }, []);
@@ -160,12 +192,14 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
                 bookmarks,
                 bookmarkGroups,
                 stats,
+                testHistory,
                 toggleBookmark,
                 addBookmark,
                 removeBookmark,
                 createGroup,
                 deleteGroup,
                 updateQuestionStat,
+                saveTestResult,
                 resetStats,
             }}
         >
@@ -181,7 +215,3 @@ export function useQuiz() {
     }
     return context;
 }
-
-
-
-/* Initial release of PhysEd-Pro */
