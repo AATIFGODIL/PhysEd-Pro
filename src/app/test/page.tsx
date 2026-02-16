@@ -66,31 +66,67 @@ function TestPageContent() {
                 ? Object.keys(bookmarks)
                 : Object.keys(bookmarks).filter(id => bookmarks[id] === bookmarkGroupId);
 
-            const bQuestions = questions.filter(q => targetIds.includes(q.id));
+            let bQuestions = questions.filter(q => targetIds.includes(q.id));
 
-            // Reorder if questionId is present (start with clicked)
-            if (questionId) {
-                const clickedIndex = bQuestions.findIndex(q => q.id === questionId);
-                if (clickedIndex > -1) {
-                    const clickedQ = bQuestions[clickedIndex];
-                    const others = bQuestions.filter(q => q.id !== questionId);
-                    return [clickedQ, ...others];
-                }
+            // Reorder if questionId is present (start with clicked) - REMOVED to keep consistent sorting
+            // Instead we rely on initial scroll/setCurrentIndex
+
+            if (isPracticeMode) {
+                bQuestions = bQuestions.sort((a, b) => {
+                    // 1. Sort by Marks (Ascending)
+                    if (a.marks !== b.marks) {
+                        return a.marks - b.marks;
+                    }
+
+                    // 2. Sort by Year (Descending)
+                    if (a.year !== b.year) {
+                        return b.year - a.year;
+                    }
+
+                    // 3. Sort by Source Priority within the same year
+                    const getSourcePriority = (source: string) => {
+                        const s = source.toLowerCase();
+                        if (s.includes("sample")) return 3;
+                        if (s.includes("compartment")) return 2;
+                        return 1;
+                    };
+
+                    return getSourcePriority(a.source) - getSourcePriority(b.source);
+                });
             }
+
             return bQuestions;
         }
 
         if (searchParam) {
-            const searchResults = searchQuestions(decodeURIComponent(searchParam));
-            // Reorder if questionId is present
-            if (questionId && isPracticeMode) {
-                const clickedIndex = searchResults.findIndex(q => q.id === questionId);
-                if (clickedIndex > -1) {
-                    const clickedQ = searchResults[clickedIndex];
-                    const others = searchResults.filter(q => q.id !== questionId);
-                    return [clickedQ, ...others];
-                }
+            let searchResults = searchQuestions(decodeURIComponent(searchParam));
+
+            // Reorder if questionId is present - REMOVED to keep consistent sorting
+
+            if (isPracticeMode) {
+                searchResults = searchResults.sort((a, b) => {
+                    // 1. Sort by Marks (Ascending)
+                    if (a.marks !== b.marks) {
+                        return a.marks - b.marks;
+                    }
+
+                    // 2. Sort by Year (Descending)
+                    if (a.year !== b.year) {
+                        return b.year - a.year;
+                    }
+
+                    // 3. Sort by Source Priority within the same year
+                    const getSourcePriority = (source: string) => {
+                        const s = source.toLowerCase();
+                        if (s.includes("sample")) return 3;
+                        if (s.includes("compartment")) return 2;
+                        return 1;
+                    };
+
+                    return getSourcePriority(a.source) - getSourcePriority(b.source);
+                });
             }
+
             return searchResults;
         }
 
@@ -110,7 +146,6 @@ function TestPageContent() {
                     }
 
                     // 3. Sort by Source Priority within the same year
-                    // Order: Main Board > Compartment > Sample Paper
                     const getSourcePriority = (source: string) => {
                         const s = source.toLowerCase();
                         if (s.includes("sample")) return 3;
@@ -147,7 +182,7 @@ function TestPageContent() {
 
     // Initial Index Logic
     useEffect(() => {
-        if ((year || chapter) && questionId && testQuestions.length > 0) {
+        if (questionId && testQuestions.length > 0) {
             const idx = testQuestions.findIndex(q => q.id === questionId);
             if (idx > -1) setCurrentIndex(idx);
         }

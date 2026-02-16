@@ -1056,7 +1056,7 @@ Disadvantages (any 2):
         topic: "Yoga & Lifestyle",
         type: "MCQ",
         marks: 1,
-        question: `Which pranayama is recommended for the management of obesity as per the prescribed syllabus?`,
+        question: `Which of the following pranayama is helpful to reduce obesity?`,
         answer: `(c) Suryabhedan Pranayama`,
         source: "CBSE 2024 Board Exam",
     },
@@ -1068,7 +1068,7 @@ Disadvantages (any 2):
         topic: "Physical Education & Sports for CWSN",
         type: "MCQ",
         marks: 1,
-        question: `In which year were the Special Olympics officially recognised by the IOC?`,
+        question: `International Paralympic Committee was formed in`,
         answer: `(c) 1989`,
         source: "CBSE 2024 Board Exam",
     },
@@ -1080,7 +1080,7 @@ Disadvantages (any 2):
         topic: "Sports & Nutrition",
         type: "MCQ",
         marks: 1,
-        question: `Which component of food is also known as dietary fibre and is not digested by the body?`,
+        question: `Which of the following is NOT the cause of Food Intolerance?`,
         answer: `(c) Roughage`,
         source: "CBSE 2024 Board Exam",
     },
@@ -1088,25 +1088,34 @@ Disadvantages (any 2):
         id: "2024_MCQ_4",
         options: ["Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).", "Both Assertion (A) and Reason (R) are true, but Reason (R) is not the correct explanation of Assertion (A).", "Assertion (A) is true, but Reason (R) is false.", "Assertion (A) is false, but Reason (R) is true."],
         year: 2024,
-        chapter: "Planning in Sports",
-        topic: "Planning in Sports",
+        chapter: "Sports & Nutrition",
+        topic: "Sports & Nutrition",
         type: "MCQ",
         marks: 1,
-        question: `Given below are two statements, one labelled as Assertion (a) and the other labelled as Reason (r). Read both and choose the appropriate option.
-Assertion (a): Intramural tournaments help in the overall development of students.
-Reason (r): They provide opportunities for every student to participate in sports activities.`,
-        answer: `(a) Both Assertion (a) and Reason (r) are true and Reason (r) is the correct explanation of Assertion (a).`,
+        question: `Given below are two statements labelled Assertion (A) and Reason (R).
+Assertion (A): The Basal Metabolic Rate (BMR) is the number of calories needed to maintain body function at resting condition.
+Reason (R): A person who does not engage in any work, still requires energy for the functioning of their internal organs.`,
+        answer: `(a) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of the Assertion (A).`,
         source: "CBSE 2024 Board Exam",
     },
     {
         id: "2024_MCQ_5",
         options: ["I-1, II-2, III-3, IV-4", "I-1, II-2, III-4, IV-3", "I-2, II-4, III-1, IV-3", "I-2, II-4, III-3, IV-1"],
         year: 2024,
-        chapter: "Biomechanics & Sports",
-        topic: "Biomechanics & Sports",
+        chapter: "Management of Sporting Events",
+        topic: "Management of Sporting Events",
         type: "MCQ",
         marks: 1,
-        question: `Match the types of levers in List I with their features in List II and choose the correct option.`,
+        question: `Match the functions of Sports Management in List-I with their Explanation in List-II:`,
+        matchTable: {
+            headers: ["List I (Functions)", "List II (Explanation)"],
+            rows: [
+                { left: "(I) Planning", right: "(1) Guiding/instructing people" },
+                { left: "(II) Controlling", right: "(2) Preparing layout for future" },
+                { left: "(III) Directing", right: "(3) Ensuring proper talent" },
+                { left: "(IV) Staffing", right: "(4) Establishing performance standards" },
+            ],
+        },
         answer: `(c) I-2, II-4, III-1, IV-3`,
         source: "CBSE 2024 Board Exam",
     },
@@ -1114,25 +1123,25 @@ Reason (r): They provide opportunities for every student to participate in sport
         id: "2024_MCQ_6",
         options: ["Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).", "Both Assertion (A) and Reason (R) are true, but Reason (R) is not the correct explanation of Assertion (A).", "Assertion (A) is true, but Reason (R) is false.", "Assertion (A) is false, but Reason (R) is true."],
         year: 2024,
-        chapter: "Planning in Sports",
-        topic: "Planning in Sports",
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Postural Deformities",
         type: "MCQ",
         marks: 1,
-        question: `Given below are two statements, one labelled as Assertion (a) and the other labelled as Reason (r). Read both and choose the appropriate option.
-Assertion (a): Sports participation helps in the development of personality.
-Reason (r): Sports teach discipline, teamwork and leadership skills.`,
-        answer: `(a) Both Assertion (a) and Reason (r) are true and Reason (r) is the correct explanation of Assertion (a).`,
+        question: `Given below are two statements labelled Assertion (A) and Reason (R).
+Assertion (A): In a normal standing posture, both knees touch each other, while there is a gap of 3-4 inches between the ankles.
+Reason (R): It is due to Genu Valgum and it can develop due to an injury or infection in the knee or leg, rickets, severe lack of vitamin D and calcium...`,
+        answer: `(a) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of the Assertion (A).`,
         source: "CBSE 2024 Board Exam",
     },
     {
         id: "2024_MCQ_7",
         options: ["Speed", "Strength", "Endurance", "Flexibility"],
         year: 2024,
-        chapter: "Training in Sports",
-        topic: "Training in Sports",
+        chapter: "Physiology & Injuries in Sports",
+        topic: "Physiology",
         type: "MCQ",
         marks: 1,
-        question: `Which component of physical fitness is most important for a cross-country runner?`,
+        question: `In which of the following fitness component an athlete gives better performance, if he/she has more slow twitch fibre in comparison to fast twitch fibres.`,
         answer: `(c) Endurance`,
         source: "CBSE 2024 Board Exam",
     },
@@ -1144,8 +1153,8 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         topic: "Biomechanics & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which of the following statements is correct regarding stability and the centre of gravity?`,
-        answer: `(d) Higher centre of gravity leads to less stability`,
+        question: `Identify the factor which decreases equilibrium.`,
+        answer: `(d) Higher centre of gravity`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1156,8 +1165,8 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         topic: "Psychology & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which type of personality is characterised by a person who tends to focus only on themselves, shows little concern for others, and is often aloof?`,
-        answer: `(b) Self-Centred`,
+        question: `Identify the characteristic of introvert personality.`,
+        answer: `(b) Self-centered`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1168,7 +1177,7 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         topic: "Training in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which type of strength involves applying maximum force in the shortest possible time?`,
+        question: `Jump for smash in volleyball is an example of.`,
         answer: `(c) Explosive strength`,
         source: "CBSE 2024 Board Exam",
     },
@@ -1176,11 +1185,11 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         id: "2024_MCQ_11",
         options: ["To achieve high performance", "To provide career opportunities", "To promote health and fitness", "To promote cultural and economic development"],
         year: 2024,
-        chapter: "Planning in Sports",
-        topic: "Planning in Sports",
+        chapter: "Management of Sporting Events",
+        topic: "Management of Sporting Events",
         type: "MCQ",
         marks: 1,
-        question: `What is the main objective of conducting intramural activities?`,
+        question: `Which of the following is the objective of Intramural competition?`,
         answer: `(c) To promote health and fitness`,
         source: "CBSE 2024 Board Exam",
     },
@@ -1192,8 +1201,8 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         topic: "Children & Women in Sports",
         type: "MCQ",
         marks: 1,
-        question: `At what age does the growth spurt typically occur in children?`,
-        answer: `(c) 3–4 years`,
+        question: `According to W.H.O. recommendations, children of _______ should be engaged in physical activities for 180 minutes and should have 10-13 hours of good quality sleep per day.`,
+        answer: `(c) 3-4 year`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1204,10 +1213,9 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         topic: "Yoga & Lifestyle",
         type: "MCQ",
         marks: 1,
-        question: `Identify the asana shown in the image.`,
+        question: `Identify the asana shown in the picture given below.`,
         imageUrl: "/PE_2024_qs_13.png",
-        answer: `(d) Shalbhasana
-(For visually impaired: (b) Shavasana)`,
+        answer: `(d) Shalbhasana`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1218,7 +1226,7 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         topic: "Physical Education & Sports for CWSN",
         type: "MCQ",
         marks: 1,
-        question: `What does ICSD stand for in the context of sports for the deaf?`,
+        question: `Which is the main governing body responsible for the organization of Deaflympics?`,
         answer: `(d) International Committee of Sports for the Deaf`,
         source: "CBSE 2024 Board Exam",
     },
@@ -1230,8 +1238,8 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         topic: "Sports & Nutrition",
         type: "MCQ",
         marks: 1,
-        question: `What is the normal BMI range for an adult?`,
-        answer: `(c) 18.5–24.9`,
+        question: `Which of the following BMI range is considered for healthy weight?`,
+        answer: `(c) 18.5-24.9`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1242,7 +1250,7 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         topic: "Test & Measurement in Sports",
         type: "MCQ",
         marks: 1,
-        question: `In the Back Scratch Test, the score is recorded as the distance between the middle fingers. What is the minimum overlap required to score positively?`,
+        question: `In partial curl up test the difference between two parallel lines is`,
         answer: `(c) 6 inches`,
         source: "CBSE 2024 Board Exam",
     },
@@ -1254,7 +1262,7 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         topic: "Psychology & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which domain of learning is concerned with knowledge, understanding and thinking skills?`,
+        question: `Goal setting is a ________ approach, under motivational technique.`,
         answer: `(a) Cognitive`,
         source: "CBSE 2024 Board Exam",
     },
@@ -1266,10 +1274,9 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         topic: "Test & Measurement in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which component of fitness does the Chair Sit and Reach Test measure in senior citizens?`,
+        question: `Which functional fitness component of senior citizens is determined in the test shown below (Chair Sit and Reach)?`,
         imageUrl: "/PE_2024_qs_18.png",
-        answer: `(c) Lower body flexibility
-(For visually impaired: (c) Arm Curl Test)`,
+        answer: `(c) Lower body flexibility`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1279,7 +1286,7 @@ Reason (r): Sports teach discipline, teamwork and leadership skills.`,
         topic: "Biomechanics & Sports",
         type: "Short",
         marks: 2,
-        question: `Describe the second-class lever with a suitable example from sports.`,
+        question: `Describe the second-class lever with suitable example from sports.`,
         answer: `Second-Class Lever: It has the load (resistance) between the fulcrum and the force. There is always a mechanical advantage as the force arm is always greater than the resistance arm.
 
 Example: Full body push-up / wheelbarrow / wall climbing / taking off for a jump / pushing against starting blocks in sprints.`,
@@ -1292,7 +1299,7 @@ Example: Full body push-up / wheelbarrow / wall climbing / taking off for a jump
         topic: "Test & Measurement in Sports",
         type: "Short",
         marks: 2,
-        question: `Enlist four test items of the Johnson-Metheny Test of Motor Educability.`,
+        question: `Enlist four test items of Johnson - Metheny Test of Motor Educability.`,
         answer: `I. Front Roll
 II. Back Roll
 III. Jumping Half-Turns
@@ -1309,8 +1316,7 @@ IV. Jumping Full-Turns`,
         question: `Write a short note on 'Menarche'.`,
         answer: `• First menstruation cycle of a girl
 • Point of sexual maturity of a girl
-• Average age for a girl to get her first period ranges from 8–15 years
-(Or any other relevant description)`,
+• Average age for a girl to get her first period ranges from 8–15 years`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1320,9 +1326,8 @@ IV. Jumping Full-Turns`,
         topic: "Yoga & Lifestyle",
         type: "Short",
         marks: 2,
-        question: `Enlist four asanas that help to control asthma.`,
-        answer: `Tadasana, Urdhwahastottanasana, Uttan Mandukasana, Ushtrasana, Vakrasana, Matsyasana, Gomukhasana, Dhanurasana, Bhujangasana
-(Any four from the above)`,
+        question: `Enlist four asanas those help to control asthma.`,
+        answer: `Tadasana, Urdhwahastottanasana, Uttan Mandukasana, Ushtrasana, Vakrasana, Matsyasana, Gomukhasana, Dhanurasana, Bhujangasana`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1332,7 +1337,7 @@ IV. Jumping Full-Turns`,
         topic: "Physical Education & Sports for CWSN",
         type: "Short",
         marks: 2,
-        question: `Write any two advantages of physical activities for Children with Special Needs (CWSN).`,
+        question: `Write any two advantages of physical activities for Children With Special Needs (CWSN).`,
         answer: `1. Physical benefits
 2. Fun and recreation
 3. Improved emotional health
@@ -1342,8 +1347,7 @@ IV. Jumping Full-Turns`,
 7. Psychological benefits
 8. Improvement in cognitive and intellectual ability
 9. Increase in sleep and appetite
-10. Improvement in social skills
-(Any 2 relevant advantages)`,
+10. Improvement in social skills`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1358,8 +1362,7 @@ IV. Jumping Full-Turns`,
 Sliding friction: Ice hockey, ice skating
 Rolling friction: Rolling of a football, cricket ball, tennis ball
 Air friction: Riding a bicycle, skydiving
-Water friction: Swimming in water, diving
-(Any 2 types with a relevant example)`,
+Water friction: Swimming in water, diving`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1369,7 +1372,7 @@ Water friction: Swimming in water, diving
         topic: "Test & Measurement in Sports",
         type: "Short",
         marks: 3,
-        question: `Mr. X performs the Harvard Step Test for 275 seconds and his pulse count in 1–1.5 min after exercise was 100. Write the formula of the fitness index score for the Harvard Step Test and calculate the fitness index score of Mr. X.`,
+        question: `Mr. X performs the Harvard step test for 275 seconds and his pulse in 1-1.5 min after exercise was 100. Write the formula of fitness index score for Harvard step test and calculate the fitness index score of Mr. X.`,
         answer: `Formula = (Duration of exercise in seconds × 100) / (5.5 × Pulse count of 1–1.5 min after exercise)
 
 Calculation:
@@ -1385,8 +1388,8 @@ Calculation:
         topic: "Planning in Sports",
         type: "Short",
         marks: 3,
-        question: `Comment on the concept of talent identification and talent development.`,
-        answer: `Talent Identification: Recognising participants with the potential to become elite performers in the future. Physiological, Physical Fitness, Psychological and Technical components are considered. Methods include drills, test batteries, electronic gadgets, parameters, standard norms and performance analysis.
+        question: `Comment on the concept of Talent Identification and Talent Development.`,
+        answer: `Talent Identification: Recognising participants with the potential at an earlier age to become elite performers in the future. Physiological, Physical Fitness, Psychological and Technical components are considered. Methods include drills, test batteries, electronic gadgets, parameters, standard norms and performance analysis.
 
 Talent Development: Providing athletes with a suitable learning environment to accelerate or realise their potential. It is a complete, systematic, scientific and long-term process.`,
         source: "CBSE 2024 Board Exam",
@@ -1394,11 +1397,11 @@ Talent Development: Providing athletes with a suitable learning environment to a
     {
         id: "2024_27",
         year: 2024,
-        chapter: "Planning in Sports",
-        topic: "Planning in Sports",
+        chapter: "Management of Sporting Events",
+        topic: "Management of Sporting Events",
         type: "Short",
         marks: 3,
-        question: `Explain the responsibilities of any two committees required during a sports competition.`,
+        question: `Explain the responsibilities of any two committees during sports competition.`,
         answer: `Committees (any 2 with explanation):
 1. Reception Committee
 2. First Aid Committee
@@ -1422,8 +1425,7 @@ Talent Development: Providing athletes with a suitable learning environment to a
         question: `Explain the procedure and benefits of any one asana for back pain.`,
         answer: `Asanas for back pain:
 Tadasana, Vakrasana, Sarala Matsyendrasana, Urdhwahastottanasana, Ardha Chakrasana, Ushtrasana, Bhujangasana, Gomukhasana, Bhadrasana, Makarasana
-
-(Write the procedure and benefits of any one asana from the above)`,
+(Procedure and benefits to be written for any one)`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1433,19 +1435,18 @@ Tadasana, Vakrasana, Sarala Matsyendrasana, Urdhwahastottanasana, Ardha Chakrasa
         topic: "Children & Women in Sports",
         type: "Short",
         marks: 3,
-        question: `Write a short note on the Female Athlete Triad.`,
+        question: `Write short note on Female Athlete Triad.`,
         answer: `The Female Athlete Triad consists of three interrelated conditions:
 
 1. Eating Disorders (Low Energy Availability):
-   • Anorexia Nervosa: Person severely limits food intake to prevent weight gain.
-   • Bulimia Nervosa: Person eats large amounts of food in a short time and then purges.
+   • Anorexia Nervosa: Severely limits food intake.
+   • Bulimia Nervosa: Binge eating followed by purging (vomiting/laxatives).
 
 2. Amenorrhea (Disruption of Menstrual and Endocrine Function):
-   • Long absence of menstrual periods. Primary amenorrhea: first period does not start by age 15. Secondary amenorrhea: normal menstrual bleeding stops for 3 or more months.
+   • Long absence of menstrual periods. Primary (no period by 15) or Secondary (stops for 3+ months).
 
 3. Osteoporosis (Loss of Bone Mineral Density):
-   • Bones lose minerals such as calcium faster than the body can replace them, leading to loss of bone density. Common sites: hip, spine, wrist, upper arm, forearm, ribs.
-(Explain all 3)`,
+   • Bones lose minerals like calcium faster than replaced. Common sites: hip, spine, wrist, ribs.`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1468,8 +1469,7 @@ Tadasana, Vakrasana, Sarala Matsyendrasana, Urdhwahastottanasana, Ardha Chakrasa
 10. Decrease in cardiovascular function
 11. Loss of bone density
 12. Decrease in body mass
-13. Decrease in mobility
-(Explain any 3 points)`,
+13. Decrease in mobility`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1479,18 +1479,17 @@ Tadasana, Vakrasana, Sarala Matsyendrasana, Urdhwahastottanasana, Ardha Chakrasa
         topic: "Physical Education & Sports for CWSN",
         type: "Case Study",
         marks: 4,
-        question: `Based on the table showing participation of children with disabilities in different events, answer the following questions:
-(a) In which event is there no participation of special children?
+        question: `Based on the survey table showing participation of normal and special children:
+(a) In which event is there no participation of special child?
 (b) Participation of students with disabilities in regular physical education classes is known as _________.
 (c) Enlist any two strategies to make physical activities accessible for children with special needs.
-(d) The motto of Special Olympics is _________.`,
+(d) Motto of Special Olympic is _________. (OR) Motto of Paralympic is _______.`,
         imageUrl: "/PE_2024_qs_31.png",
         answer: `(a) Long Jump
 (b) Inclusion / Adaptive Physical Education
-(c) Any two from: Create specific environment, assess physical and mental ability, modified rules, use of modified equipment, plan activity as per need, plan additional support of parents and trained assistants, extra care for safety
-(d) "Let me win. But if I cannot win, let me be brave in the attempt."
-OR: "Joy and Happiness for all the children of the world."
-OR: The motto of Paralympics is "Spirit in motion."`,
+(c) Strategies: Create specific environment, assess physical/mental ability, modified rules, modified equipment, plan activity as per need, plan implementation from easy to difficult, extra care for safety, trained assistants.
+(d) Special Olympics: "Let me win. But if I cannot win, let me be brave in the attempt." OR "Joy and Happiness for all the children of the world."
+(OR) Paralympics: "Spirit in motion."`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1500,11 +1499,11 @@ OR: The motto of Paralympics is "Spirit in motion."`,
         topic: "Physiology & Injuries in Sports",
         type: "Case Study",
         marks: 4,
-        question: `Based on the images of different types of fractures, answer the following questions:
-(a) Which type of fracture is shown in Image 1?
-(b) When a bone breaks diagonally as shown in Image 2, it is known as _________.
-(c) _________ fracture occurs when the broken ends of the bones are jammed together by the force of injury.
-(d) In which type of fracture is the bone broken, splintered or crushed into a number of pieces?`,
+        question: `Based on the images of different types of fractures:
+(a) Which type of fracture you see in image-1?
+(b) When a bone breaks diagonally as shown in image-2, it is known as _________.
+(c) _________ fracture occurs when the broken ends of the bones are jammed together by the force of the injury.
+(d) In which type of fracture bone is broken, splinted, or crushed into number of pieces?`,
         imageUrl: "/PE_2024_qs_32.png",
         answer: `(a) Transverse fracture
 (b) Oblique fracture
@@ -1515,21 +1514,21 @@ OR: The motto of Paralympics is "Spirit in motion."`,
     {
         id: "2024_33",
         year: 2024,
-        chapter: "Planning in Sports",
-        topic: "Planning in Sports",
+        chapter: "Management of Sporting Events",
+        topic: "Management of Sporting Events",
         type: "Case Study",
         marks: 4,
-        question: `Based on the knockout tournament fixture shown, answer the following questions:
-(a) What is the total number of rounds in this fixture?
-(b) If the winner team plays the least number of matches, which serial number team is the winner?
-(c) What is the formula to calculate the number of matches in a knockout tournament?
-(d) If 16 teams are participating in a knockout tournament, how many byes will be given?`,
+        question: `Based on the fixture shown:
+(a) According to the above fixture total number of rounds will be?
+(b) If the winner team plays least number of matches, then which number of team is the winner?
+(c) What is the formula for calculating number of matches in a knockout tournament?
+(d) If 16 teams are participating, how many byes will be given? (OR) Formula for total number of byes?`,
         imageUrl: "/PE_2024_qs_33.png",
         answer: `(a) 4 (four)
 (b) Serial no. 15
 (c) Number of matches = N – 1 (where N = Number of teams)
-(d) 0 (zero) byes — since 16 is already a power of 2
-OR Formula for byes: Next higher Power of 2 – Number of Teams`,
+(d) 0 (zero) byes
+(OR) Formula for byes: Next higher Power of 2 – Number of Teams`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1539,15 +1538,13 @@ OR Formula for byes: Next higher Power of 2 – Number of Teams`,
         topic: "Psychology & Sports",
         type: "Long",
         marks: 5,
-        question: `What do you understand by aggression in sports? Explain any two types of aggression by giving suitable examples from sports.`,
+        question: `What do you understand by Aggression in sports? Explain any 2 types of Aggression by giving suitable examples from sports.`,
         answer: `Aggression: A type of behaviour aimed at causing physical or psychological harm to another person.
 
-Types (any 2):
-1. Instrumental Aggression: Necessary to achieve performance goals; displayed in a planned manner. Purpose is not to harm but to achieve goals. E.g. In football, a player snatches the ball from an opponent aggressively to score a goal, not to harm. Common in wrestling, kabaddi, boxing.
-
-2. Hostile Aggression: Purpose is to cause physical or psychological harm, usually as a reaction to someone's action. Main aim is to injure the opponent. E.g. In kabaddi, players try to inflict injury on the raider after catching them; in hockey, hitting with the stick purposely to injure.
-
-3. Assertive Behaviour: Forceful behaviour not intended to injure the opponent; within the rules of the game. Intention is to establish dominance rather than harm. E.g. A rugby player using aggression to tackle an opponent to win the ball.`,
+Types:
+1. Instrumental Aggression: Necessary to achieve performance goals; planned. Purpose is not to harm but to achieve goals. (E.g. Snatching ball in football, wrestling, kabaddi).
+2. Hostile Aggression: Purpose is to cause physical or psychological harm, usually as a reaction to someone's action. Main aim is to injure the opponent. (E.g. Inflicting injury on raider in Kabaddi, hitting with stick in hockey to injure).
+3. Assertive Behaviour: Forceful behaviour not intended to injure; within rules. Intention is dominance. (E.g. Rugby tackle to win ball).`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1557,22 +1554,22 @@ Types (any 2):
         topic: "Sports & Nutrition",
         type: "Long",
         marks: 5,
-        question: `What is a balanced diet? What is the significance of pre-competition and post-competition meals for an athlete? Explain.`,
-        answer: `Balanced Diet: A diet that consists of all essential food elements — Proteins, Carbohydrates, Vitamins, Fats, Minerals and Water in the correct proportion.
+        question: `What is Balanced Diet? What is the significance of pre and post competition meals for an athlete? Explain.`,
+        answer: `Balanced Diet: Consists of all essential food elements (Proteins, Carbohydrates, Vitamins, Fats, minerals, water) in correct proportion.
 
-Importance of Pre-Competition Meals:
-1. Focus is to fuel up muscle glycogen stores — meal should have moderate protein, low fat, low fibre and high carbohydrates.
-2. Proper hydration is essential to control fatigue and hunger.
-3. Should be light for a comfortable gastro-intestinal state.
-4. Should be taken 2–4 hours before competition.
-5. New food or food with known allergies should be avoided.
+Significance of Pre-Competition Meals:
+1. Fuel up muscle glycogen stores (moderate protein, low fat, low fibre, high carbs).
+2. Proper hydration.
+3. Light for comfortable gastro-intestinal state.
+4. Taken 2–4 hours before.
+5. Avoid new foods/allergens.
 
-Importance of Post-Competition Meals:
-1. Main focus is on recovery of the body and reducing chances of injury.
-2. Fluids lost during competition must be replenished.
-3. Carbohydrate stores (muscle glycogen) must be refilled.
-4. Electrolytes (sodium, potassium, chloride) must be recovered.
-5. Within two hours of the event, a balanced meal including carbohydrates and good quality proteins should be eaten.`,
+Significance of Post-Competition Meals:
+1. Focus on recovery and reducing injury chances.
+2. Replenish lost fluids.
+3. Refill carbohydrate stores (muscle glycogen).
+4. Recover electrolytes (sodium, potassium chloride).
+5. Balanced meal within 2 hours including carbs and good quality protein.`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1583,14 +1580,14 @@ Importance of Post-Competition Meals:
         type: "Long",
         marks: 5,
         question: `What do you understand by projectile trajectory? Explain the factors affecting projectile trajectory in sports.`,
-        answer: `Projectile Trajectory: When any object is projected in the air, forces of gravity and air resistance result in a curved or parabolic path, known as projectile trajectory.
+        answer: `Projectile Trajectory: The curved or parabolic path an object takes in the air under the influence of gravity and air resistance.
 
 Factors:
-1. Angle of Projection: At 45°, maximum horizontal distance is achieved.
-2. Initial Velocity: Greater the initial velocity, greater the horizontal distance.
-3. Gravity: Greater the weight of an object, greater the influence of gravity; gravitational pull stops the upward movement and decreases the height of the projectile.
-4. Air Resistance: Surface area, speed, surface texture and mass of the object affect air resistance.
-5. Spin: Changes the path of the projectile. The amount and direction of spin directly affects the distance the projectile travels, as air pressure acts on the ball.`,
+1. Angle of Projection: Maximum horizontal distance at 45°.
+2. Initial Velocity: Greater initial velocity = greater horizontal distance.
+3. Gravity: Pulls object down, decreases height.
+4. Air Resistance: Affected by surface area, speed, surface texture, and mass.
+5. Spin: Changes path (Magnus effect); amount and direction of spin affects distance.`,
         source: "CBSE 2024 Board Exam",
     },
     {
@@ -1600,18 +1597,17 @@ Factors:
         topic: "Training in Sports",
         type: "Long",
         marks: 5,
-        question: `What is endurance? Explain any two types of endurance on the basis of duration of the activity with suitable examples from sports.`,
-        answer: `Endurance: The ability of the body to sustain a physical activity for a longer duration of time.
-OR: The ability to resist fatigue.
-OR: The result of physiological capabilities of an individual to sustain movement over a period of time.
+        question: `What is Endurance? Explain any two types of Endurance on the basis of duration of the activity with suitable examples from sports.`,
+        answer: `Endurance: Ability to sustain physical activity for a longer duration / resist fatigue.
 
-Types on the basis of duration:
-1. Short-term Endurance: Activities lasting 45 seconds to 2 minutes. E.g. 400 m race, 800 m race.
-2. Medium-term Endurance: Activities lasting 2 to 10 minutes. E.g. 1500 m run, 3000 m run.
-3. Long-term Endurance: Activities lasting more than 10 minutes. E.g. marathon, cross-country race.
-(Explain any 2 with relevant example)`,
+Types (based on duration):
+1. Speed Endurance: Resisting fatigue in cyclic activities up to 45 seconds (e.g., 400m sprint). Dependent on power/energy capacity.
+2. Short-term Endurance: Activities 45 sec to 2 min (e.g., 800m run). Depends on speed and strength endurance.
+3. Medium-term Endurance: Activities 2 min to 11 min (e.g., 1500m, 3000m run).
+4. Long-term Endurance: Activities > 11 min (e.g., Marathon, cross-country).`,
         source: "CBSE 2024 Board Exam",
     },
+
     // ─────────────────────────────────────────────
     //  2025
     // ─────────────────────────────────────────────
