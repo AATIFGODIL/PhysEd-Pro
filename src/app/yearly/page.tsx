@@ -126,8 +126,12 @@ function YearlyPageContent() {
         } else if (config.mode === "custom") {
             // Filter by Chapter (if selected)
             if (config.chapters && config.chapters.length > 0) {
-                const selectedChapterNames = config.chapters.map(index => chapters[index - 1]);
-                pool = pool.filter(q => (selectedChapterNames as string[]).includes(q.chapter));
+                const selectedNames = config.chapters.map(index => chapters[index - 1]);
+                // Include "Management of Sporting Events" if "Planning in Sports" (ID 1) is selected
+                if (config.chapters.includes(1)) {
+                    selectedNames.push("Management of Sporting Events" as any);
+                }
+                pool = pool.filter(q => (selectedNames as string[]).includes(q.chapter));
             }
 
             // Filter by Type
