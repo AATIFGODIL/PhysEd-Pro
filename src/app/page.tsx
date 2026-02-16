@@ -7,7 +7,7 @@ import { questions, chapters } from "@/data/questions";
 import Link from "next/link";
 import Image from "next/image";
 
-const years = [2025, 2024, 2023, 2022];
+const years = [2026, 2025, 2024, 2023, 2022];
 
 function getStats() {
   const totalQuestions = questions.length;
@@ -58,7 +58,7 @@ export default function Dashboard() {
             />
           </div>
           <p className="text-purple-800/90 dark:text-purple-300/90 text-sm max-w-md mx-auto font-light">
-            Master archive with solutions from CBSE Board and Compartment exams 2022–2025
+            Master archive with solutions from CBSE Board and Compartment exams 2022–2026
           </p>
         </motion.div>
 
