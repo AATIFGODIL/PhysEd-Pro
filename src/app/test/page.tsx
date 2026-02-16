@@ -560,8 +560,8 @@ function TestPageContent() {
             </div>
 
             {/* Navigation Bar */}
-            <div className={`flex items-center justify-between px-4 py-2.5 border-b ${showAnswers ? "bg-gray-50 dark:bg-white/[0.01]" : "bg-purple-50/30 dark:bg-white/[0.01]"}`}>
-                <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar flex-1 mr-2">
+            <div className={`flex items-center justify-between px-4 py-1.5 border-b ${showAnswers ? "bg-gray-50 dark:bg-white/[0.01]" : "bg-purple-50/30 dark:bg-white/[0.01]"}`}>
+                <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar flex-1 mr-2 py-2">
                     {testQuestions.map((_, idx) => (
                         <button key={idx} onClick={() => goTo(idx)} className={`flex-shrink-0 w-8 h-8 rounded-lg text-[11px] font-semibold transition-all ${idx === currentIndex ? "bg-gradient-to-br from-purple-600 to-fuchsia-600 text-white ring-2 ring-purple-400/50 scale-110" : getStatusColor(statusMap[idx] || "not-seen")}`}>
                             {idx + 1}
