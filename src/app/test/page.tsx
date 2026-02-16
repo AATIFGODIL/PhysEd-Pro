@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams, useRouter } from "next/navigation";
 import { questions } from "@/data/questions";
 import { searchQuestions, parseSearchQuery } from "@/lib/search"; // Added import
+import { decodeTestConfig } from "@/lib/shareUtils";
 import { useQuiz } from "@/context/QuizContext";
 import { BookmarkButton } from "@/components/BookmarkButton";
+import { ShareModal } from "@/components/ShareModal";
 
 type QuestionStatus = "not-seen" | "seen" | "attempted" | "correct" | "wrong";
 
@@ -23,6 +25,9 @@ function TestPageContent() {
     const type = searchParams.get("type") || "Main";
     const chapter = searchParams.get("chapter");
     const questionId = searchParams.get("questionId");
+    const idsParam = searchParams.get("ids"); // Custom Test IDs
+    const dataParam = searchParams.get("d"); // Compressed Data
+    const titleParam = searchParams.get("t"); // Custom Title
 
     // Search Mode Logic
     const searchParam = searchParams.get("search");
@@ -58,6 +63,18 @@ function TestPageContent() {
             });
 
             return filtered;
+        }
+
+        if (idsParam) {
+            // Filter by specific IDs (Custom Test)
+            const ids = idsParam.split(",");
+            return questions.filter(q => ids.includes(q.id));
+        }
+
+        if (dataParam) {
+            // Filter by compressed data
+            const ids = decodeTestConfig(dataParam);
+            return questions.filter(q => ids.includes(q.id));
         }
 
         if (bookmarkGroupId) {
@@ -176,9 +193,10 @@ function TestPageContent() {
         }
 
         return [];
-    }, [year, type, chapter, questionId, isPracticeMode, searchParam, bookmarkGroupId, bookmarks, stats, searchParams]);
+    }, [year, type, chapter, questionId, isPracticeMode, searchParam, bookmarkGroupId, bookmarks, stats, searchParams, idsParam, dataParam]);
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
     // Initial Index Logic
     useEffect(() => {
@@ -542,7 +560,9 @@ function TestPageContent() {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="max-w-md w-full">
                     <div className={`rounded-2xl backdrop-blur-[24px] border p-8 text-center shadow-xl dark:shadow-none transition-colors duration-500 ${showAnswers ? "bg-white dark:bg-white/[0.04] border-gray-200 dark:border-white/[0.08]" : "bg-white/80 dark:bg-white/[0.04] border-purple-200 dark:border-purple-500/20"}`}>
                         <p className="text-[10px] uppercase tracking-[0.3em] text-purple-600/70 dark:text-purple-300/70 mb-3">CBSE Board Examination</p>
-                        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">{searchParam ? `Search: "${searchParam}"` : (chapter ? (chapter === "All Chapters" ? "Practice Mode" : chapter) : `${year} ${type === "Compartment" ? "C" : ""}`)}</h1>
+                        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                            {searchParam ? `Search: "${searchParam}"` : (titleParam ? titleParam : (idsParam || dataParam ? "Custom Test" : (chapter ? (chapter === "All Chapters" ? "Practice Mode" : chapter) : `${year} ${type === "Compartment" ? "C" : ""}`)))}
+                        </h1>
                         <p className="text-sm text-purple-600/80 dark:text-purple-300/80 mb-1">Physical Education — Class XII</p>
                         <p className="text-xs text-purple-600/60 dark:text-purple-300/60 mb-8">{testQuestions.length} questions • {totalMarks} marks • {showAnswers ? "Practice Mode" : "3 Hours"}</p>
                         <div className="space-y-2 mb-8 text-left">
@@ -554,7 +574,22 @@ function TestPageContent() {
                             ))}
                         </div>
                         <button onClick={() => setStarted(true)} className="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600/30 to-fuchsia-600/30 dark:from-purple-500/30 dark:to-fuchsia-500/30 border border-purple-400/25 hover:border-purple-400/50 text-purple-900 dark:text-white font-medium text-sm transition-all hover:scale-[1.02]">Start Test</button>
-                        <button onClick={() => router.back()} className="w-full mt-3 py-2.5 rounded-xl bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] text-gray-600 dark:text-purple-300/70 text-xs transition-all hover:text-gray-900 dark:hover:text-purple-300/90">Go Back</button>
+                        <div className="flex gap-3 mt-3">
+                            <button onClick={() => router.back()} className="flex-1 py-2.5 rounded-xl bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] text-gray-600 dark:text-purple-300/70 text-xs transition-all hover:text-gray-900 dark:hover:text-purple-300/90">Go Back</button>
+                            {(idsParam || dataParam) && (
+                                <button
+                                    onClick={() => setIsShareModalOpen(true)}
+                                    className="flex-1 py-2.5 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-blue-600 dark:text-blue-300 text-xs transition-all hover:bg-blue-100 dark:hover:bg-blue-500/20"
+                                >
+                                    Share Test
+                                </button>
+                            )}
+                        </div>
+                        <ShareModal
+                            isOpen={isShareModalOpen}
+                            onClose={() => setIsShareModalOpen(false)}
+                            questionIds={testQuestions.map(q => q.id)}
+                        />
                     </div>
                 </motion.div>
             </div>

@@ -3,7 +3,6 @@
 import { useState, useMemo, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "next/navigation";
-import { questions } from "@/data/questions";
 import { QuestionCard } from "@/components/QuestionCard";
 import { LiquidCard } from "@/components/LiquidCard";
 import Link from "next/link";
@@ -13,6 +12,8 @@ const years = [2026, 2025, 2024, 2023, 2022];
 import { useQuiz } from "@/context/QuizContext";
 
 import { useRouter } from "next/navigation";
+import { questions, chapters } from "@/data/questions";
+import { TestGenModal, TestConfig } from "@/components/TestGenModal";
 
 function YearlyPageContent() {
     const router = useRouter();
@@ -36,6 +37,9 @@ function YearlyPageContent() {
     const [isCreateOpen, setIsCreateOpen] = useState(false);
     const [newGroupName, setNewGroupName] = useState("");
     const [newGroupColor, setNewGroupColor] = useState("#f472b6");
+
+    // Test Gen Modal State
+    const [isTestModalOpen, setIsTestModalOpen] = useState(false);
 
     const filteredQuestions = useMemo(() => {
         return questions.filter((q) => {
@@ -95,6 +99,58 @@ function YearlyPageContent() {
         createGroup(newGroupName, newGroupColor);
         setNewGroupName("");
         setIsCreateOpen(false);
+    };
+
+    const handleGenerateTest = (config: TestConfig) => {
+        let selectedQuestions: string[] = [];
+        let pool = [...questions]; // Initialize pool for custom mode
+
+        if (config.mode === "board") {
+            // Board Pattern Logic
+            const mcqs = questions.filter(q => q.type === "MCQ" && q.marks === 1);
+            const short = questions.filter(q => q.marks === 2);
+            const long1 = questions.filter(q => q.marks === 3);
+            const caseStudy = questions.filter(q => q.type === "Case Study" || q.marks === 4);
+            const long2 = questions.filter(q => q.marks === 5); // Assuming 5 marks are Long Answer II
+
+            const shuffle = (arr: any[]) => arr.sort(() => 0.5 - Math.random());
+
+            selectedQuestions = [
+                ...shuffle(mcqs).slice(0, 18),
+                ...shuffle(short).slice(0, 6),
+                ...shuffle(long1).slice(0, 6),
+                ...shuffle(caseStudy).slice(0, 3),
+                ...shuffle(long2).slice(0, 4),
+            ].map(q => q.id);
+
+        } else if (config.mode === "custom") {
+            // Filter by Chapter (if selected)
+            if (config.chapters && config.chapters.length > 0) {
+                const selectedChapterNames = config.chapters.map(index => chapters[index - 1]);
+                pool = pool.filter(q => selectedChapterNames.includes(q.chapter));
+            }
+
+            // Filter by Type
+            if (config.types) {
+                pool = pool.filter((q) => {
+                    const type = q.type;
+                    const marks = q.marks;
+                    if (config.types?.includes("MCQ") && type === "MCQ" && marks === 1) return true;
+                    if (config.types?.includes("Short") && marks === 2) return true;
+                    if (config.types?.includes("Long") && marks === 3) return true;
+                    if (config.types?.includes("Case Study") && (type === "Case Study" || marks === 4)) return true;
+                    if (config.types?.includes("Very Long") && marks === 5) return true;
+                    return false;
+                });
+            }
+
+            const shuffled = pool.sort(() => 0.5 - Math.random());
+            selectedQuestions = shuffled.slice(0, config.count || 20).map(q => q.id);
+        }
+
+        if (selectedQuestions.length > 0) {
+            router.push(`/test?ids=${selectedQuestions.join(",")}&mode=custom`);
+        }
     };
 
     return (
@@ -366,6 +422,20 @@ function YearlyPageContent() {
                                     </svg>
                                     Practice Attempted
                                 </button>
+
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setIsTestModalOpen(true);
+                                    }}
+                                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg border bg-white dark:bg-white/[0.04] border-gray-200 dark:border-white/[0.08] text-gray-500 dark:text-purple-300/70 hover:text-gray-900 dark:hover:text-white transition-all text-xs font-medium active:scale-95 shadow-sm"
+                                >
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M12 20h9" />
+                                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                                    </svg>
+                                    Generate Test
+                                </button>
                                 <button
                                     onClick={() => setShowBookmarksOnly(!showBookmarksOnly)}
                                     className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all text-xs font-medium ${showBookmarksOnly
@@ -525,6 +595,13 @@ function YearlyPageContent() {
                     </div>
                 )}
             </AnimatePresence>
+
+            <TestGenModal
+                isOpen={isTestModalOpen}
+                onClose={() => setIsTestModalOpen(false)}
+                onGenerate={handleGenerateTest}
+                totalQuestions={questions.length}
+            />
 
             {/* Questions */}
             <div className="max-w-6xl mx-auto space-y-3">
