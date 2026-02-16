@@ -1,45 +1,95 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#d946ef;stop-opacity:1" />
-    </linearGradient>
-
-    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.15" />
-      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    <!-- Deep Background Gradient -->
+    <radialGradient id="deepBg" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#020617;stop-opacity:1" />
     </radialGradient>
 
-    <filter id="glassGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="15" result="blur"/>
-      <feOffset in="blur" dx="0" dy="4" result="offsetBlur"/>
+    <!-- Main vibrant gradient (for Logo P) -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- 3D Liquid Gradients -->
+    <linearGradient id="liquidBlue3D" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:0.9" />
+      <stop offset="40%" style="stop-color:#3b82f6;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.4" />
+    </linearGradient>
+
+    <linearGradient id="liquidPurple3D" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e879f9;stop-opacity:0.9" />
+      <stop offset="40%" style="stop-color:#c084fc;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#7e22ce;stop-opacity:0.4" />
+    </linearGradient>
+
+    <linearGradient id="glassSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.0" />
+    </linearGradient>
+
+    <filter id="glassBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    
+    <filter id="liquidGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
       <feMerge>
-        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <clipPath id="iconClip">
+      <rect width="512" height="512" rx="80" />
+    </clipPath>
+
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="white" fill-opacity="0.05" />
+    </pattern>
   </defs>
 
-  <rect width="512" height="512" fill="#000000" rx="100" /> <circle cx="256" cy="256" r="200" fill="url(#bgGlow)" />
+  <!-- Scale and translate to create padding so rounded edges are visible -->
+  <g transform="translate(32, 32) scale(0.875)">
+    <!-- Background Layer with Rounded Corners -->
+    <rect width="512" height="512" fill="url(#deepBg)" rx="80" />
+    <rect width="512" height="512" fill="url(#gridPattern)" rx="80" />
 
-  <g filter="url(#glassGlow)">
-    <path d="M180 150 
-             C 180 150, 380 120, 380 230 
-             C 380 340, 250 340, 250 340 
-             L 250 420 
-             C 250 420, 200 420, 180 400 
-             Z" 
-          fill="url(#mainGradient)" />
+    <!-- Group for content that needs clipping to the rounded background -->
+    <g clip-path="url(#iconClip)">
+      <!-- 3D Liquid/Glass Elements -->
+      <g transform="translate(25, 287) scale(0.5)" filter="url(#liquidGlow)">
+          <path d="M -50 450 Q 150 250 400 350 T 700 450 Z" fill="url(#liquidBlue3D)" opacity="0.8" />
+          <path d="M -20 440 Q 160 260 380 360 T 650 450" fill="none" stroke="url(#glassSheen)" stroke-width="12" stroke-opacity="0.4" stroke-linecap="round" filter="url(#glassBlur)" />
+          <path d="M 50 400 Q 200 280 400 360" fill="none" stroke="white" stroke-width="3" stroke-opacity="0.6" stroke-linecap="round" />
+      </g>
+      
+      <g transform="translate(-113, 25) scale(0.5)" filter="url(#liquidGlow)">
+          <path d="M 1250 -50 Q 1000 150 800 50 T 500 -50 Z" fill="url(#liquidPurple3D)" opacity="0.7" />
+          <path d="M 1200 -20 Q 980 160 780 40 T 550 -40" fill="none" stroke="url(#glassSheen)" stroke-width="15" stroke-opacity="0.3" stroke-linecap="round" filter="url(#glassBlur)" />
+          <path d="M 1150 20 Q 950 140 800 60" fill="none" stroke="white" stroke-width="3" stroke-opacity="0.5" stroke-linecap="round" />
+      </g>
+
+      <!-- P Logo -->
+      <g transform="translate(74, 71) scale(0.65)" filter="url(#glow)">
+        <path d="M180 150 C 180 150, 380 120, 380 230 C 380 340, 250 340, 250 340 L 250 420 C 250 420, 200 420, 180 400 Z" fill="url(#mainGradient)" />
+        <path d="M190 160 C 190 160, 360 135, 360 230 C 360 320, 260 320, 260 320" fill="none" stroke="white" stroke-width="8" stroke-opacity="0.4" stroke-linecap="round"/>
+        <circle cx="360" cy="160" r="15" fill="#e9d5ff" fill-opacity="0.9" />
+      </g>
+    </g>
     
-    <path d="M190 160 
-             C 190 160, 360 135, 360 230 
-             C 360 320, 260 320, 260 320" 
-          fill="none" 
-          stroke="white" 
-          stroke-width="8" 
-          stroke-opacity="0.3" 
-          stroke-linecap="round"/>
-          
-    <circle cx="360" cy="160" r="15" fill="#e9d5ff" fill-opacity="0.9" />
+    <!-- Foreground Gloss/Shine -->
+    <path d="M 0 0 L 512 0 L 512 512 L 0 512 Z" fill="url(#gridPattern)" opacity="0.05" style="mix-blend-mode: overlay;" />
   </g>
 </svg>
