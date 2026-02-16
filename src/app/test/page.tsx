@@ -546,8 +546,8 @@ function TestPageContent() {
                         <span className="text-[10px] text-gray-500 dark:text-purple-300/70 font-mono">{formatTime(showAnswers ? (questionTimes[currentIndex] || 0) : timeLeft)}</span>
                         <span className="text-[10px] px-2 py-0.5 rounded-full bg-fuchsia-500/10 text-purple-300/90">+{currentQ.marks}</span>
                         <div className="ml-auto flex gap-1.5">
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-300">{currentQ.source}</span>
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300/80">{currentQ.type}</span>
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 text-gray-900 dark:text-blue-300">{currentQ.source}</span>
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/10 text-gray-900 dark:text-purple-300/80">{currentQ.type}</span>
                             <BookmarkButton questionId={currentQ.id} size={18} className="hover:bg-purple-100 dark:hover:bg-purple-500/20" />
                         </div>
                     </div>

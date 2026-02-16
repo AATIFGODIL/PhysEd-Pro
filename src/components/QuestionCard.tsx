@@ -106,11 +106,11 @@ export function QuestionCard({ question, index, onClick, showStatusBadge }: Ques
     }, [question]);
 
     const typeColor: Record<string, string> = {
-        MCQ: "bg-emerald-500/20 text-white",
-        Short: "bg-blue-500/20 text-white",
-        Long: "bg-amber-500/20 text-white",
-        "Very Long": "bg-orange-500/20 text-white",
-        "Case Study": "bg-rose-500/20 text-white",
+        MCQ: "bg-emerald-500/20 text-gray-900 dark:text-white",
+        Short: "bg-blue-500/20 text-gray-900 dark:text-white",
+        Long: "bg-amber-500/20 text-gray-900 dark:text-white",
+        "Very Long": "bg-orange-500/20 text-gray-900 dark:text-white",
+        "Case Study": "bg-rose-500/20 text-gray-900 dark:text-white",
     };
 
     const handleCardClick = () => {
