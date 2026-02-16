@@ -12,6 +12,8 @@ import { QuizProvider } from "@/context/QuizContext";
 import { ThemeProvider } from "@/components/Providers";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
+import { Analytics } from "@vercel/analytics/next";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,6 +29,7 @@ export default function RootLayout({
             </div>
             <main className="relative z-10 pb-28">{children}</main>
             <FloatingDock />
+            <Analytics />
           </QuizProvider>
         </ThemeProvider>
       </body>
