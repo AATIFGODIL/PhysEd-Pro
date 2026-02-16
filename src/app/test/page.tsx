@@ -634,7 +634,9 @@ function TestPageContent() {
                                 </div>
                             ))}
                         </div>
-                        <button onClick={() => setStarted(true)} className="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600/30 to-fuchsia-600/30 dark:from-purple-500/30 dark:to-fuchsia-500/30 border border-purple-400/25 hover:border-purple-400/50 text-purple-900 dark:text-white font-medium text-sm transition-all hover:scale-[1.02]">Start Test</button>
+                        <button onClick={() => setStarted(true)} className="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600/30 to-fuchsia-600/30 dark:from-purple-500/30 dark:to-fuchsia-500/30 border border-purple-400/25 hover:border-purple-400/50 text-purple-900 dark:text-white font-medium text-sm transition-all hover:scale-[1.02]">
+                            {chapter ? "Start Practice" : "Start Test"}
+                        </button>
                         <div className="flex gap-3 mt-3">
                             <button onClick={() => router.back()} className="flex-1 py-2.5 rounded-xl bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] text-gray-600 dark:text-purple-300/70 text-xs transition-all hover:text-gray-900 dark:hover:text-purple-300/90">Go Back</button>
                             {(idsParam || dataParam) && (
