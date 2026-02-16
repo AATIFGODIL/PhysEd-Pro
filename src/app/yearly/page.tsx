@@ -127,7 +127,7 @@ function YearlyPageContent() {
             // Filter by Chapter (if selected)
             if (config.chapters && config.chapters.length > 0) {
                 const selectedChapterNames = config.chapters.map(index => chapters[index - 1]);
-                pool = pool.filter(q => selectedChapterNames.includes(q.chapter));
+                pool = pool.filter(q => (selectedChapterNames as string[]).includes(q.chapter));
             }
 
             // Filter by Type
