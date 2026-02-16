@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { searchQuestions } from "@/lib/search";
 import type { Question } from "@/data/questions";
@@ -9,16 +9,14 @@ import Link from "next/link";
 export function SearchBar() {
     const [query, setQuery] = useState("");
     const [focused, setFocused] = useState(false);
-    const [results, setResults] = useState<Question[]>([]);
+    // const [results, setResults] = useState<Question[]>([]); // Refactored to useMemo
     const inputRef = useRef<HTMLInputElement>(null);
 
-    useEffect(() => {
+    const results = useMemo(() => {
         if (query.length >= 2) {
-            const found = searchQuestions(query).slice(0, 8);
-            setResults(found);
-        } else {
-            setResults([]);
+            return searchQuestions(query).slice(0, 8);
         }
+        return [];
     }, [query]);
 
     return (
@@ -65,7 +63,6 @@ export function SearchBar() {
                             setFocused(true);
                             if (query) {
                                 setQuery("");
-                                setResults([]);
                             }
                         }}
                         onBlur={() => setTimeout(() => setFocused(false), 200)}
@@ -75,7 +72,7 @@ export function SearchBar() {
 
                     {query && (
                         <button
-                            onClick={() => { setQuery(""); setResults([]); }}
+                            onClick={() => { setQuery(""); }}
                             className="text-gray-400 dark:text-purple-300/70 hover:text-gray-600 dark:hover:text-white transition-colors"
                         >
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -99,7 +96,7 @@ export function SearchBar() {
                         exit={{ opacity: 0, y: -4, scale: 0.99 }}
                         className="absolute top-full mt-2 z-20 w-full max-h-[380px] overflow-y-auto rounded-2xl backdrop-blur-[24px] bg-white/90 dark:bg-black/80 border border-gray-200 dark:border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-3 space-y-1.5"
                     >
-                        {results.map((q) => (
+                        {results.map((q: Question) => (
                             <Link key={q.id} href={`/test?search=${encodeURIComponent(query)}&questionId=${q.id}&mode=practice`}>
                                 <motion.div
                                     initial={{ opacity: 0, x: -8 }}
@@ -129,3 +126,7 @@ export function SearchBar() {
         </div>
     );
 }
+
+
+
+/* Initial release of PhysEd-Pro */

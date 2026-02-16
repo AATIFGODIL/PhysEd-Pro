@@ -269,9 +269,9 @@ function TestPageContent() {
         }
     }, [testQuestions]);
 
-    const getCorrectOptionLabel = (q: typeof currentQ) => {
+    const getCorrectOptionLabel = useCallback((q: typeof currentQ) => {
         if (!q || q.type !== "MCQ") return null;
-        let ans = q.answer.trim();
+        const ans = q.answer.trim();
 
         // 1. Try prefix matching
         // Covers: (A), (a), A), a)
@@ -306,7 +306,7 @@ function TestPageContent() {
             if (index !== -1) return String.fromCharCode(65 + index); // 0->A, 1->B...
         }
         return null;
-    };
+    }, []);
 
     const handleToggleShowAnswer = () => {
         const newState = !showAnswer;
@@ -347,7 +347,7 @@ function TestPageContent() {
         }
     };
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         // Evaluate and update stats when clicking Next
         if (!showAnswers) {
             // Safe type check
@@ -383,7 +383,7 @@ function TestPageContent() {
             }
         }
         goTo(currentIndex + 1);
-    };
+    }, [showAnswers, currentQ, selectedOption, getCorrectOptionLabel, updateQuestionStat, currentIndex, questionTimes, goTo]);
 
     const handleSelectOption = (opt: string) => {
         // Allow changing option until result is locked (correct/wrong)
@@ -491,7 +491,7 @@ function TestPageContent() {
 
         return { groupBy, groups, sortedKeys };
 
-    }, [testQuestions, searchParam, chapter]);
+    }, [testQuestions, searchParam, chapter, searchParams]);
 
     if (!started) {
         const sections = [
@@ -771,3 +771,7 @@ export default function TestPage() {
 
 
 
+
+
+
+/* Initial release of PhysEd-Pro */

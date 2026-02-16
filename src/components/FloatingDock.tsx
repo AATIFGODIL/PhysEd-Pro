@@ -119,7 +119,7 @@ export function FloatingDock() {
 
     useEffect(() => { setHasMounted(true); }, []);
 
-    const animateItemTransforms = useCallback(() => {
+    const animateItemTransforms = useCallback(function animate() {
         const gliderEl = navRef.current?.querySelector<HTMLDivElement>('.glider');
         if (!gliderEl || !navRef.current) return;
 
@@ -145,7 +145,7 @@ export function FloatingDock() {
         setItemTransforms(newTransforms);
 
         if (animationStateRef.current === 'sliding' || animationStateRef.current === 'dragging') {
-            animationFrameRef.current = requestAnimationFrame(animateItemTransforms);
+            animationFrameRef.current = requestAnimationFrame(animate);
         }
     }, []);
 
@@ -395,3 +395,7 @@ export function FloatingDock() {
         </motion.div>
     );
 }
+
+
+
+/* Initial release of PhysEd-Pro */

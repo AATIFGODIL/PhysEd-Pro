@@ -5,3 +5,7 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+
+
+/* Initial release of PhysEd-Pro */

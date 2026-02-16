@@ -268,9 +268,9 @@ function YearlyPageContent() {
                             <button
                                 key={e}
                                 onClick={() => setExamTypeFilters(prev =>
-                                    prev.includes(e as any) ? prev.filter(v => v !== e) : [...prev, e as any]
+                                    prev.includes(e as 'Main' | 'Compartment' | 'Sample') ? prev.filter(v => v !== e) : [...prev, e as 'Main' | 'Compartment' | 'Sample']
                                 )}
-                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${examTypeFilters.includes(e as any)
+                                className={`text-[11px] px-2.5 py-0.5 rounded-full transition-all ${examTypeFilters.includes(e as 'Main' | 'Compartment' | 'Sample')
                                     ? "bg-fuchsia-500/20 text-fuchsia-700 dark:text-white"
                                     : "bg-white dark:bg-white/[0.04] text-gray-500 dark:text-purple-300/80 hover:text-gray-900 dark:hover:text-white"
                                     }`}
@@ -585,3 +585,7 @@ export default function YearlyPage() {
         </Suspense>
     );
 }
+
+
+
+/* Initial release of PhysEd-Pro */

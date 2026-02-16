@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { LiquidCard } from "@/components/LiquidCard";
-import { questions } from "@/data/questions";
+// import { questions } from "@/data/questions"; // Unused
 
 export default function PDFPage() {
 
@@ -33,17 +33,18 @@ export default function PDFPage() {
         { year: 2022, type: "Main", badge: null, badgeColor: "" },
     ];
 
-    const handleAction = (card: any, action: 'download' | 'view') => {
+    const handleAction = (card: unknown, action: 'download' | 'view') => {
+        const c = card as { type: string; year?: number | string; fileName?: string };
         let fileName = "";
-        if (card.type === "NCERT") {
-            fileName = card.fileName;
-        } else if (card.type === "Compartment") {
-            fileName = `PE C ${card.year}.pdf`;
-        } else if (card.type === "Sample") {
-            const shortYear = card.year.toString().slice(-2);
+        if (c.type === "NCERT") {
+            fileName = c.fileName || "";
+        } else if (c.type === "Compartment") {
+            fileName = `PE C ${c.year}.pdf`;
+        } else if (c.type === "Sample") {
+            const shortYear = c.year?.toString().slice(-2);
             fileName = `PE SQP ${shortYear}.pdf`;
         } else {
-            fileName = `PE ${card.year} Paper.pdf`;
+            fileName = `PE ${c.year} Paper.pdf`;
         }
 
         if (action === 'view') {
@@ -163,3 +164,7 @@ export default function PDFPage() {
         </div>
     );
 }
+
+
+
+/* Initial release of PhysEd-Pro */

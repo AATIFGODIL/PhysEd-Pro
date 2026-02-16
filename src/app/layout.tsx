@@ -3,6 +3,7 @@ import "./globals.css";
 import { FloatingDock } from "@/components/FloatingDock";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://physed-pro.vercel.app"),
   title: "PhysEd-Pro",
   description:
     "Complete CBSE Class 12 Physical Education question bank with solutions. Previous year papers (2022-2025), chapter-wise questions, marking schemes, and smart search.",
@@ -41,3 +42,7 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+
+/* Initial release of PhysEd-Pro */

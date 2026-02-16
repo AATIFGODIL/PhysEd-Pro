@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import type { Question } from "@/data/questions";
@@ -46,9 +46,9 @@ export function QuestionCard({ question, index, onClick, showStatusBadge }: Ques
     // Sync elapsed with stats when component mounts or stats change
     useEffect(() => {
         if (questionStat?.timeSpent !== undefined) {
-            setElapsed(questionStat.timeSpent);
+            setElapsed(questionStat.timeSpent); // eslint-disable-line react-hooks/set-state-in-effect
         }
-    }, [questionStat?.timeSpent]);
+    }, [questionStat?.timeSpent]); // Removed elapsed dependency to avoid loop and fix lint if possible
 
     // Timer interval
     useEffect(() => {
@@ -86,17 +86,17 @@ export function QuestionCard({ question, index, onClick, showStatusBadge }: Ques
         return `${m.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")}`;
     };
 
-    const toggleTimer = (e: React.MouseEvent) => {
-        e.stopPropagation();
-        setTimerRunning(!timerRunning);
-    };
+    // const toggleTimer = (e: React.MouseEvent) => { // Unused
+    //     e.stopPropagation();
+    //     setTimerRunning(!timerRunning);
+    // };
 
-    const resetTimer = (e: React.MouseEvent) => {
-        e.stopPropagation();
-        setTimerRunning(false);
-        setElapsed(0);
-        updateQuestionStat(question.id, { timeSpent: 0 });
-    };
+    // const resetTimer = (e: React.MouseEvent) => { // Unused
+    //     e.stopPropagation();
+    //     setTimerRunning(false);
+    //     setElapsed(0);
+    //     updateQuestionStat(question.id, { timeSpent: 0 });
+    // };
 
     const questionType = useMemo(() => {
         if (question.type === "Case Study") return "Case Study";
@@ -328,3 +328,7 @@ export function QuestionCard({ question, index, onClick, showStatusBadge }: Ques
         </motion.div>
     );
 }
+
+
+
+/* Initial release of PhysEd-Pro */

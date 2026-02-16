@@ -14,7 +14,7 @@ function ChaptersContent() {
     const searchParams = useSearchParams();
     const initialChapter = searchParams.get("chapter") || null;
 
-    const { bookmarks, stats } = useQuiz();
+    const { stats } = useQuiz();
 
     const [selectedChapter, setSelectedChapter] = useState<string | null>(
         initialChapter
@@ -235,9 +235,9 @@ function ChaptersContent() {
                             <button
                                 key={e}
                                 onClick={() => setExamTypeFilters(prev =>
-                                    prev.includes(e as any) ? prev.filter(v => v !== e) : [...prev, e as any]
+                                    prev.includes(e as 'Main' | 'Compartment' | 'Sample') ? prev.filter(v => v !== e) : [...prev, e as 'Main' | 'Compartment' | 'Sample']
                                 )}
-                                className={`text-[11px] px-2 py-0.5 rounded-full transition-all ${examTypeFilters.includes(e as any)
+                                className={`text-[11px] px-2.5 py-0.5 rounded-full transition-all ${examTypeFilters.includes(e as 'Main' | 'Compartment' | 'Sample')
                                     ? "bg-purple-500/20 text-purple-700 dark:text-white"
                                     : "bg-white dark:bg-white/[0.04] text-gray-500 dark:text-purple-300/50 hover:text-gray-900 dark:hover:text-purple-300/70"
                                     }`}
@@ -373,3 +373,7 @@ export default function ChaptersPage() {
         </Suspense>
     );
 }
+
+
+
+/* Initial release of PhysEd-Pro */

@@ -1,18 +1,8 @@
 import Fuse from "fuse.js";
 import { questions, type Question } from "@/data/questions";
 
-const fuse = new Fuse(questions, {
-    keys: [
-        { name: "question", weight: 0.4 },
-        { name: "chapter", weight: 0.25 },
-        { name: "topic", weight: 0.2 },
-        { name: "answer", weight: 0.05 },
-        { name: "year", weight: 0.1 },
-        { name: "source", weight: 0.15 }, // Added source
-    ],
-    threshold: 0.4,
-    includeScore: true,
-});
+// Global fuse instance removed - using local instance in searchQuestions for better filtering
+
 
 export interface SearchFilters {
     year?: number;
@@ -141,3 +131,7 @@ export function filterQuestions(filters: {
         return true;
     });
 }
+
+
+
+/* Initial release of PhysEd-Pro */

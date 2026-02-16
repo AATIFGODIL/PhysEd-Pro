@@ -58,7 +58,7 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
                     parsed.forEach((id: string) => {
                         migrated[id] = DEFAULT_GROUP_ID;
                     });
-                    setBookmarks(migrated);
+                    setBookmarks(migrated); // eslint-disable-line react-hooks/set-state-in-effect
                 } else {
                     setBookmarks(parsed);
                 }
@@ -181,3 +181,7 @@ export function useQuiz() {
     }
     return context;
 }
+
+
+
+/* Initial release of PhysEd-Pro */

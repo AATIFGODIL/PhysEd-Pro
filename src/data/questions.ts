@@ -6980,3 +6980,6 @@ Class 3 Lever (Force between Fulcrum and Load):
         source: "CBSE 2025-2026 Sample Paper",
     },
 ];
+
+
+/* Initial release of PhysEd-Pro */
