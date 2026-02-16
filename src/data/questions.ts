@@ -11,6 +11,10 @@ export interface Question {
     source: string;
     imageUrl?: string;
     options?: string[];
+    matchTable?: {
+        headers: string[];
+        rows: { left: string; right: string }[];
+    };
 }
 
 export const chapters = [
@@ -398,7 +402,7 @@ Ardhamatsyendrasana: Sit on mat, extend legs. Bend left knee and place left foot
         source: "CBSE 2022 Board Exam",
     },
     // ─────────────────────────────────────────────
-    //  2023
+    //  2023  –  CORRECTED from CBSE PDFs
     // ─────────────────────────────────────────────
 
     {
@@ -409,10 +413,10 @@ Ardhamatsyendrasana: Sit on mat, extend legs. Bend left knee and place left foot
         topic: "Yoga & Lifestyle",
         type: "MCQ",
         marks: 1,
-        question: `Identify the asana shown in the image.`,
+        question: `Identify the Asana :`,
         imageUrl: "/PE_2023_qs_1.png",
         answer: `(a) Bhujangasana
-(For visually impaired: Bhujangasana)`,
+(For visually impaired: ________ pose is like cobra. → Bhujangasana)`,
         source: "CBSE 2023 Board Exam",
     },
     {
@@ -423,7 +427,7 @@ Ardhamatsyendrasana: Sit on mat, extend legs. Bend left knee and place left foot
         topic: "Psychology & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which trait of the Big Five Theory is characterised by emotional instability, anxiety, sadness, and the inability to handle stress?`,
+        question: `Traits like sadness, mood swings and emotional instability are related with ______.`,
         answer: `(d) Neuroticism`,
         source: "CBSE 2023 Board Exam",
     },
@@ -435,7 +439,7 @@ Ardhamatsyendrasana: Sit on mat, extend legs. Bend left knee and place left foot
         topic: "Biomechanics & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which force acts on a body submerged or floating in a fluid, acting upward against gravity?`,
+        question: `Which of the following is NOT the factor affecting projectile trajectory ?`,
         answer: `(c) Buoyant Force`,
         source: "CBSE 2023 Board Exam",
     },
@@ -443,11 +447,11 @@ Ardhamatsyendrasana: Sit on mat, extend legs. Bend left knee and place left foot
         id: "2023_MCQ_4",
         options: ["Joint Structure", "Previous Injury", "Efficiency of Lungs", "Age and Gender"],
         year: 2023,
-        chapter: "Physiology & Injuries in Sports",
-        topic: "Physiology & Injuries in Sports",
+        chapter: "Training in Sports",
+        topic: "Training in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Vital capacity is directly related to which of the following?`,
+        question: `Which of the following factors, does NOT determine flexibility ?`,
         answer: `(c) Efficiency of Lungs`,
         source: "CBSE 2023 Board Exam",
     },
@@ -459,7 +463,7 @@ Ardhamatsyendrasana: Sit on mat, extend legs. Bend left knee and place left foot
         topic: "Training in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which component of physical fitness is most important for a marathon runner?`,
+        question: `Fartlek Training is used to develop ______.`,
         answer: `(a) Endurance`,
         source: "CBSE 2023 Board Exam",
     },
@@ -471,7 +475,7 @@ Ardhamatsyendrasana: Sit on mat, extend legs. Bend left knee and place left foot
         topic: "Training in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which coordinative ability involves coupling two or more movements of different body parts to perform perfect sports movements?`,
+        question: `Which type of coordinative ability is required in games like judo and wrestling ?`,
         answer: `(b) Coupling ability`,
         source: "CBSE 2023 Board Exam",
     },
@@ -483,7 +487,7 @@ Ardhamatsyendrasana: Sit on mat, extend legs. Bend left knee and place left foot
         topic: "Physiology & Injuries in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which substance accumulates in the muscles during high-intensity exercise and contributes to fatigue?`,
+        question: `The ability to tolerate higher concentration of ______ can help in improving endurance performance.`,
         answer: `(a) Lactic acid`,
         source: "CBSE 2023 Board Exam",
     },
@@ -495,21 +499,27 @@ Ardhamatsyendrasana: Sit on mat, extend legs. Bend left knee and place left foot
         topic: "Biomechanics & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Which force pulls objects toward the centre of the earth?`,
+        question: `Centre of Gravity is the average location of an object's ______.`,
         answer: `(a) Weight`,
         source: "CBSE 2023 Board Exam",
     },
     {
         id: "2023_MCQ_9",
-        options: ["Both (A) and (R) are true and (R) is the correct explanation of (A).", "Both (A) and (R) are true, but (R) is not the correct explanation of (A).", "(A) is true, but (R) is false.", "(A) is false, but (R) is true."],
+        options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true, but (R) is not the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true.",
+        ],
         year: 2023,
-        chapter: "Planning in Sports",
-        topic: "Planning in Sports",
+        chapter: "Psychology & Sports",
+        topic: "Psychology & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Given below are two statements, one labelled as Assertion (A) and the other labelled as Reason (R). Read both the statements and choose the appropriate option.
-Assertion (A): Regular physical activity improves cardiovascular health.
-Reason (R): Exercise increases heart rate and strengthens the heart muscle.`,
+        question: `Given below are the two statements labelled Assertion (A) and Reason (R).
+Assertion (A) : Aggression is part of human behaviour and is necessary for an individual to live and struggle for higher achievements.
+Reason (R) : Aggression is inevitable and inseparable in sport activities.
+In the context of the above two statements, which one of the following is correct ?`,
         answer: `(a) Both (A) and (R) are true and (R) is the correct explanation of (A).`,
         source: "CBSE 2023 Board Exam",
     },
@@ -521,7 +531,7 @@ Reason (R): Exercise increases heart rate and strengthens the heart muscle.`,
         topic: "Physiology & Injuries in Sports",
         type: "MCQ",
         marks: 1,
-        question: `What is the primary function of water in the human body?`,
+        question: `Role of water in human body is to ______.`,
         answer: `(a) Regulate body temperature`,
         source: "CBSE 2023 Board Exam",
     },
@@ -533,8 +543,8 @@ Reason (R): Exercise increases heart rate and strengthens the heart muscle.`,
         topic: "Sports & Nutrition",
         type: "MCQ",
         marks: 1,
-        question: `Which vitamins are water-soluble?`,
-        answer: `(b) Vitamin B and C`,
+        question: `Which of the following are water soluble vitamins ?`,
+        answer: `(b) Vitamin B & C`,
         source: "CBSE 2023 Board Exam",
     },
     {
@@ -545,7 +555,7 @@ Reason (R): Exercise increases heart rate and strengthens the heart muscle.`,
         topic: "Yoga & Lifestyle",
         type: "MCQ",
         marks: 1,
-        question: `Which asana resembles a mountain and is performed from Padmasana by raising both hands above the head?`,
+        question: `Which of the following asana is NOT used to cure Asthma ?`,
         answer: `(c) Parvatasana`,
         source: "CBSE 2023 Board Exam",
     },
@@ -553,12 +563,12 @@ Reason (R): Exercise increases heart rate and strengthens the heart muscle.`,
         id: "2023_MCQ_13",
         options: ["18", "17", "20", "16"],
         year: 2023,
-        chapter: "Physical Education & Sports for CWSN",
-        topic: "Physical Education & Sports for CWSN",
+        chapter: "Planning in Sports",
+        topic: "Planning in Sports",
         type: "MCQ",
         marks: 1,
-        question: `What is the minimum age for participating in the Special Olympics?`,
-        answer: `(a) 8 years`,
+        question: `How many total matches will be played in a knock-out fixture of 19 teams ?`,
+        answer: `(a) 18`,
         source: "CBSE 2023 Board Exam",
     },
     {
@@ -569,7 +579,7 @@ Reason (R): Exercise increases heart rate and strengthens the heart muscle.`,
         topic: "Planning in Sports",
         type: "MCQ",
         marks: 1,
-        question: `In which type of tournament is a team eliminated after losing a single match?`,
+        question: `Knock-out tournament is also known as ______.`,
         answer: `(a) Elimination tournament`,
         source: "CBSE 2023 Board Exam",
     },
@@ -581,7 +591,7 @@ Reason (R): Exercise increases heart rate and strengthens the heart muscle.`,
         topic: "Physical Education & Sports for CWSN",
         type: "MCQ",
         marks: 1,
-        question: `In which year were the Special Olympics officially recognised by the International Olympic Committee?`,
+        question: `First Deaflympic Games was organized in the year ______.`,
         answer: `(c) 1924`,
         source: "CBSE 2023 Board Exam",
     },
@@ -589,11 +599,17 @@ Reason (R): Exercise increases heart rate and strengthens the heart muscle.`,
         id: "2023_MCQ_16",
         options: ["I-3, II-1, III-4, IV-2", "I-1, II-3, III-4, IV-2", "I-4, II-2, III-1, IV-3", "I-2, II-3, III-4, IV-1"],
         year: 2023,
-        chapter: "Planning in Sports",
-        topic: "Planning in Sports",
+        chapter: "Children & Women in Sports",
+        topic: "Children & Women in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match the types of runs in List I with their purposes in List II and select the correct option.`,
+        question: `Match the following :
+List – I                          List – II
+I.   Knock Knee / Genu Valgum     1. Increase exaggeration of backward curve
+II.  Kyphosis                     2. Wide gap between the knees when standing with feet together
+III. Lordosis                     3. Knees touch each other in normal standing position
+IV.  Bow legs                     4. Inward curvature of the spine
+Choose the correct option from the following :`,
         answer: `(a) I-3, II-1, III-4, IV-2`,
         source: "CBSE 2023 Board Exam",
     },
@@ -601,11 +617,17 @@ Reason (R): Exercise increases heart rate and strengthens the heart muscle.`,
         id: "2023_MCQ_17",
         options: ["I-2, II-1, III-4, IV-3", "I-2, II-3, III-1, IV-4", "I-1, II-3, III-2, IV-4", "I-2, II-3, III-4, IV-1"],
         year: 2023,
-        chapter: "Biomechanics & Sports",
-        topic: "Biomechanics & Sports",
+        chapter: "Test & Measurement in Sports",
+        topic: "Test & Measurement in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match the types of levers in List I with their features in List II and choose the correct option.`,
+        question: `Match the following :
+List – I                  List – II
+I.   Plate Tapping Test   1. Upper body strength endurance of boys
+II.  Push-up              2. Speed and coordination of limb movement
+III. Partial Curl up      3. Upper body strength endurance of girls
+IV.  Modified push up     4. Abdominal strength
+Choose the correct option from the following :`,
         answer: `(a) I-2, II-1, III-4, IV-3`,
         source: "CBSE 2023 Board Exam",
     },
@@ -617,10 +639,13 @@ Reason (R): Exercise increases heart rate and strengthens the heart muscle.`,
         topic: "Children & Women in Sports",
         type: "MCQ",
         marks: 1,
-        question: `What does the term 'Menarche' refer to?`,
+        question: `Menarche is related to :`,
         answer: `(b) Beginning of menstrual period in women`,
         source: "CBSE 2023 Board Exam",
     },
+
+    // ─── Section B ───────────────────────────────
+
     {
         id: "2023_19",
         year: 2023,
@@ -688,10 +713,10 @@ Types:
         topic: "Sports & Nutrition",
         type: "Short",
         marks: 2,
-        question: `What is BMI? Calculate BMI of a child whose weight is 72 kg and height is 1.68 m.`,
+        question: `What is BMI ? Calculate BMI of a child whose weight is 72 kg and height 1.68 mt.`,
         answer: `Body Mass Index (BMI) is a measure of body fat, based on height and weight of a person.
 
-BMI = Weight (kg) / Height² (m²)
+BMI = Weight (kg) / [Height (m)]²
      = 72 / (1.68 × 1.68)
      = 72 / 2.8224
      = 25.51`,
@@ -707,14 +732,17 @@ BMI = Weight (kg) / Height² (m²)
         question: `Differentiate between Macro and Micro Nutrients.`,
         answer: `Macro Nutrients                              Micro Nutrients
 1. Required in large quantity           1. Required in small quantity
-2. Have calorific value                     2. No calorific value
-3. Consist of energy and body-         3. Consist of protecting elements
+2. Have calorific value                 2. No calorific value
+3. Consist of energy and body-          3. Consist of protecting elements
    building elements
-4. Carbohydrates, fats, protein,       4. Vitamins and minerals
+4. Carbohydrates, fats, protein,        4. Vitamins and minerals
    water
 (Any relevant 2 points)`,
         source: "CBSE 2023 Board Exam",
     },
+
+    // ─── Section C ───────────────────────────────
+
     {
         id: "2023_25",
         year: 2023,
@@ -722,11 +750,11 @@ BMI = Weight (kg) / Height² (m²)
         topic: "Physical Education & Sports for CWSN",
         type: "Short",
         marks: 3,
-        question: `"Participation in physical activities is advantageous for children with special needs." Briefly explain any six advantages.`,
+        question: `"Participation in physical activities is advantageous for children with special need." Briefly explain any six advantages.`,
         answer: `1. Physical improvement
 2. Mental improvement
 3. Increase in self-esteem
-4. Reduce the level of stress, anxiety and depression
+4. Reduce the level of stress, Anxiety and Depression
 5. Reduce the risk of health complications
 6. Improved social interaction
 7. Improved cognitive skills
@@ -765,7 +793,7 @@ Sources: Green leafy vegetables, cabbage, milk
         topic: "Planning in Sports",
         type: "Short",
         marks: 3,
-        question: `Briefly explain the functions of Directing and Controlling in organising a sports event.`,
+        question: `Briefly explain the functions of Directing and Controlling to organize sports event.`,
         answer: `Functions of Directing (any 3):
 1. Requires leadership quality
 2. Making employees aware of their duties and responsibilities
@@ -787,7 +815,7 @@ Functions of Controlling (any 3):
         topic: "Psychology & Sports",
         type: "Short",
         marks: 3,
-        question: `How can we enhance sports performance with the help of self-talk and self-esteem? Explain.`,
+        question: `How can we enhance the sports performance with the help of self-talk and self-esteem ? Explain.`,
         answer: `Self-Esteem (any 3):
 1. Controls negative thoughts
 2. Boosts self-confidence
@@ -815,7 +843,7 @@ Self-Talk (any 3):
         topic: "Physiology & Injuries in Sports",
         type: "Short",
         marks: 3,
-        question: `Elucidate any six effects of exercise on the muscular system.`,
+        question: `Elucidate any six effects of exercise on muscular system.`,
         answer: `1. Increased muscle temperature
 2. Increased blood supply
 3. Increased muscle flexibility
@@ -838,7 +866,7 @@ Self-Talk (any 3):
         topic: "Children & Women in Sports",
         type: "Short",
         marks: 3,
-        question: `What do you understand by round shoulders deformity? Suggest any four corrective measures for round shoulders.`,
+        question: `What do you understand by Round shoulders deformity ? Suggest any four corrective measures for round shoulders.`,
         answer: `Round Shoulder: A postural deformity in which shoulders are bent forward from the ideal alignment, giving a narrow curve to the upper back.
 OR: The shoulders become round and sometimes seem to be bent forward.
 
@@ -853,6 +881,9 @@ Corrective measures (any 4):
 8. Handclasp stretch and planks`,
         source: "CBSE 2023 Board Exam",
     },
+
+    // ─── Section D ───────────────────────────────
+
     {
         id: "2023_31",
         year: 2023,
@@ -860,11 +891,11 @@ Corrective measures (any 4):
         topic: "Planning in Sports",
         type: "Case Study",
         marks: 4,
-        question: `A fixture for a league tournament is shown in the diagram. Based on the fixture, answer the following questions:
-(a) Which method is shown to draw the fixture in a league tournament?
-(b) What is the formula to calculate the number of matches?
-(c) On what basis is the winner decided in a League or Round Robin Tournament?
-(d) If 7 teams participate in a league tournament, how many matches will be played?`,
+        question: `A fixture for a league tournament is shown in the diagram. On the basis of above fixture, answer the following questions:
+(a) Which method is shown in the picture to draw fixture in league tournament ?
+(b) What is the formula to calculate number of matches ?
+(c) In league or Round Robin Tournament winner will be decided on the basis of ______.
+(d) If 7 teams participate in a league Tournament, ______ number of matches will be played.`,
         imageUrl: "/PE_2023_qs_31.png",
         answer: `(a) Staircase method
 (b) N(N-1) / 2
@@ -879,11 +910,13 @@ Corrective measures (any 4):
         topic: "Biomechanics & Sports",
         type: "Case Study",
         marks: 4,
-        question: `Based on the illustration of a ball in motion, answer the following questions:
-(a) Which law of motion is applied to initiate the motion of the ball as depicted in illustration A?
-(b) In illustration B, which force is acting upon the ball to slow it down?
-(c) Which law of motion determines the quality of bounce?
-(d) The _________ of an object directly depends upon the mass of the object and the net force applied on it.`,
+        question: `Study the pictures given below (A = Stationary Ball, B = Moving Ball).
+Based on your above study and your knowledge, answer the following questions:
+(a) Which law of motion will be applied to initiate motion of the ball as depicted in the illustration (A)?
+(b) In illustration (B) which force is acting upon the ball to slow it down?
+(c) Which law of motion will determine the quality of bounce?
+(d) ______ of an object directly depends upon the mass of the object and net force applied on it.
+OR: "When a cricket ball is moving with a certain velocity, the player has to apply retarding force to bring the ball at rest in his hands." Which Newton's Law is applied in this illustration?`,
         imageUrl: "/PE_2023_qs_32.png",
         answer: `(a) Law of Inertia / Newton's first law of motion
 (b) Friction
@@ -899,19 +932,23 @@ OR: Newton's second law of motion / Law of acceleration`,
         topic: "Physical Education & Sports for CWSN",
         type: "Case Study",
         marks: 4,
-        question: `Based on the logos shown in the images, answer the following questions:
-(a) Which picture's logo refers to Special Olympics?
+        question: `In relation to the pictures (A, B, C logos shown), answer the following questions:
+(a) Logo shown in picture ______ refers to Special Olympic.
 (b) Who was the founder of Special Olympics?
-(c) The hand shapes of 'OK', 'Good' and 'Great' that overlap each other in a circle represent the original sign for which event?
-(d) How many countries participated in the first Paralympic Games in Rome (Italy) in 1960?`,
+(c) According to figure 'B', the hand shapes of 'OK', 'Good' and 'Great' that overlap each other in a circle, represent the original sign for ______.
+(d) How many countries participated in the first Paralympic Games in Rome (Italy) in 1960?
+OR: The moto of Paralympics is ______.`,
         imageUrl: "/PE_2023_qs_33.png",
         answer: `(a) C
 (b) Eunice Kennedy Shriver
 (c) Deaf Olympics / Deaflympics
 (d) 23
-OR (alternate): The motto of Paralympics is "Spirit in motion"`,
+OR: Spirit in motion`,
         source: "CBSE 2023 Board Exam",
     },
+
+    // ─── Section E ───────────────────────────────
+
     {
         id: "2023_34",
         year: 2023,
@@ -919,7 +956,7 @@ OR (alternate): The motto of Paralympics is "Spirit in motion"`,
         topic: "Yoga & Lifestyle",
         type: "Long",
         marks: 5,
-        question: `List down any four asanas used for prevention of hypertension. Explain the procedure and contraindications of any one of them with the help of a stick diagram.`,
+        question: `List down any four asanas used for prevention of Hypertension. Explain the procedure and contraindication of any one of them with the help of a stick diagram.`,
         answer: `Asanas for hypertension (any 4):
 Tadasana, Katichakrasana, Uttanpadasana, Ardha Halasana, Sarala Matsyasana, Gomukhasana, Uttan Mandukasana, Vakrasana, Bhujangasana, Makarasana, Shavasana, Nadishodhan Pranayam, Sheetali Pranayam
 
@@ -928,13 +965,13 @@ Procedure of Tadasana (specimen):
 • Take a small gap between feet
 • After deep inhalation, raise both arms
 • Keep arms upward by interlocking fingers
-• Rise on the toes by raising heels
+• Come on the toes by raising heels
 • Feel the pressure of stretching from toes
 • Try to maintain this pose with slow and deep breathing
 
 Contraindications of Tadasana:
-• People suffering from headaches, low blood pressure or insomnia should avoid it
-• People with diarrhoea, neck and spinal injuries should avoid it
+• People suffering from headaches, Low blood pressure and insomnia should avoid this asana
+• People suffering from diarrhoea, neck and spinal injuries should avoid this asana
 (Procedure and any 2 contraindications of any one asana)`,
         source: "CBSE 2023 Board Exam",
     },
@@ -945,8 +982,8 @@ Contraindications of Tadasana:
         topic: "Test & Measurement in Sports",
         type: "Long",
         marks: 5,
-        question: `What is the purpose of the Rikli and Jones Fitness Test? Explain the procedure of any two test items in detail.`,
-        answer: `Purpose: The senior citizen fitness test was developed by Rikli and Jones to assess the fitness of senior citizens. It contains six tests designed to assess lower body strength, upper body strength, lower and upper body flexibility, agility, and aerobic endurance.
+        question: `What is the purpose of Rikli and Jones fitness test ? Explain the procedure of its any two test items in detail.`,
+        answer: `Purpose: The senior citizen fitness test was developed by Rikli and Jones for the purpose of assessment of fitness of senior citizens. This test battery contains six tests designed mainly to assess the lower body strength, upper body strength, lower and upper body flexibility, agility and aerobic endurance.
 
 Six test items:
 1. Chair Stand Test
@@ -957,7 +994,7 @@ Six test items:
 6. Six Minute Walk Test
 
 Chair Stand Test (procedure):
-The chair should be placed against the wall. The individual sits with back straight, arms crossed, and feet firmly on the floor shoulder-width apart. On the command "Go", the individual stands up completely and returns to the initial sitting position (= one stand). The individual is motivated to do the maximum number of stands in 30 seconds. If the individual is halfway up when time ends, it is counted as a full stand.
+The chair should be placed against the wall. The individual sits with back straight, arms crossed, and feet firmly on the floor shoulder-width apart. On the command "Go", the individual will stand up completely, and then return back to the initial position (= one stand). The individual should be motivated to do maximum stands in 30 seconds. If the individual is in halfway of the stand and time is over, it is counted as a full stand.
 (Explain any 2 test items)`,
         source: "CBSE 2023 Board Exam",
     },
@@ -989,7 +1026,7 @@ Methods:
         topic: "Biomechanics & Sports",
         type: "Long",
         marks: 5,
-        question: `What is Friction? Write the advantages and disadvantages of friction by giving suitable examples from sports.`,
+        question: `What is Friction ? Write the advantages and disadvantages of friction by giving suitable examples from sports.`,
         answer: `Friction: A force acting over the area of contact between two surfaces in the direction opposite to that of motion.
 OR: A force that acts parallel to two surfaces.
 OR: A force that resists movement.
@@ -1737,9 +1774,16 @@ Reason (R): It helps in the development of motor skills.`,
         topic: "Physiology & Injuries in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match the types of fractures in List I with their features in List II and choose the correct option.
-List I: (a) Transverse, (b) Oblique, (c) Greenstick, (d) Comminuted
-List II: (i) Bone breaks diagonally, (ii) Bone is crushed into a number of pieces, (iii) Straight break right across a bone, (iv) Soft bone in which the bone bends`,
+        question: `Match the types of fractures in List I with their features in List II and choose the correct option.`,
+        matchTable: {
+            headers: ["Fracture Type", "Feature"],
+            rows: [
+                { left: "(a) Transverse", right: "(i) Bone breaks diagonally" },
+                { left: "(b) Oblique", right: "(ii) Bone is crushed into a number of pieces" },
+                { left: "(c) Greenstick", right: "(iii) Straight break right across a bone" },
+                { left: "(d) Comminuted", right: "(iv) Soft bone in which the bone bends" },
+            ],
+        },
         answer: `(B) a – (iii), b – (i), c – (iv), d – (ii)`,
         source: "CBSE 2025 Board Exam",
     },
@@ -1763,9 +1807,16 @@ List II: (i) Bone breaks diagonally, (ii) Bone is crushed into a number of piece
         topic: "Psychology & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match the traits of the Big Five Theory in List I with their characteristics in List II and choose the correct option.
-List I: (a) Openness, (b) Extroversion, (c) Neuroticism, (d) Agreeableness
-List II: (i) Active, optimistic and social, (ii) Insecure, nervous and anxious, (iii) Creative, focused on tackling new challenges and curious, (iv) Friendly, helpful and trustworthy`,
+        question: `Match the traits of the Big Five Theory in List I with their characteristics in List II and choose the correct option.`,
+        matchTable: {
+            headers: ["Trait", "Characteristic"],
+            rows: [
+                { left: "(a) Openness", right: "(i) Active, optimistic and social" },
+                { left: "(b) Extroversion", right: "(ii) Insecure, nervous and anxious" },
+                { left: "(c) Neuroticism", right: "(iii) Creative, focused on tackling new challenges and curious" },
+                { left: "(d) Agreeableness", right: "(iv) Friendly, helpful and trustworthy" },
+            ],
+        },
         answer: `(B) a - (iii), b - (i), c - (ii), d - (iv)`,
         source: "CBSE 2025 Board Exam",
     },
@@ -2366,10 +2417,16 @@ In the context of the above two statements, which one of the following is correc
         topic: "Physiology & Injuries in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match List I with List II and select the correct answer from the codes given below :
-
-List I: A. Abrasion, B. Fracture, C. Dislocation, D. Strain
-List II: (i) Joint, (ii) Bone, (iii) Muscle, (iv) Skin`,
+        question: `Match List I with List II and select the correct answer from the codes given below :`,
+        matchTable: {
+            headers: ["Injury", "Affected Part"],
+            rows: [
+                { left: "A. Abrasion", right: "(i) Joint" },
+                { left: "B. Fracture", right: "(ii) Bone" },
+                { left: "C. Dislocation", right: "(iii) Muscle" },
+                { left: "D. Strain", right: "(iv) Skin" },
+            ],
+        },
         options: [
             "A-(iv), B-(ii), C-(i), D-(iii)",
             "A-(iv), B-(ii), C-(iii), D-(i)",
@@ -2973,10 +3030,16 @@ Methods of speed development (any 2):
         topic: "Biomechanics & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match the following :
-
-Column I: I. Sliding friction, II. Fluid friction, III. Rolling friction, IV. Static friction
-Column II: 1. Cycling, 2. Ice skating, 3. Try to push heavy object, 4. Swimming`,
+        question: `Match the following types of friction with their examples:`,
+        matchTable: {
+            headers: ["Type of Friction", "Sports Example"],
+            rows: [
+                { left: "I. Sliding friction", right: "1. Cycling" },
+                { left: "II. Fluid friction", right: "2. Ice skating" },
+                { left: "III. Rolling friction", right: "3. Try to push heavy object" },
+                { left: "IV. Static friction", right: "4. Swimming" },
+            ],
+        },
         options: [
             "I-2, II-1, III-3, IV-4",
             "I-2, II-1, III-4, IV-3",
@@ -3690,10 +3753,16 @@ In the context of the above two statements, which one of the following is correc
         topic: "Training in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match List I with List II :
-
-List I: a. Size of muscle, b. Fast Twitch Fibre, c. Aerobic capacity, d. Joint structure
-List II: i. Determines endurance, ii. Determines strength, iii. Determines speed, iv. Determines flexibility`,
+        question: `Match the physiological factors determining fitness with the fitness components:`,
+        matchTable: {
+            headers: ["Physiological Factor", "Fitness Component"],
+            rows: [
+                { left: "a. Size of muscle", right: "i. Determines endurance" },
+                { left: "b. Fast Twitch Fibre", right: "ii. Determines strength" },
+                { left: "c. Aerobic capacity", right: "iii. Determines speed" },
+                { left: "d. Joint structure", right: "iv. Determines flexibility" },
+            ],
+        },
         options: [
             "a-iii, b-iv, c-ii, d-i",
             "a-ii, b-iii, c-i, d-iv",
@@ -3761,10 +3830,16 @@ In the context of the above two statements, which one of the following is correc
         topic: "Biomechanics & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match the items of List I with List II :
-
-List I: a. Polishing, b. Lubrication, c. Shoes and spikes, d. Use of ball bearings
-List II: i. Makes surface slippery, ii. Makes surface smooth, iii. Replaces sliding friction with rolling friction, iv. Designed to increase friction so that better speed is generated`,
+        question: `Match the following methods to increase or decrease friction:`,
+        matchTable: {
+            headers: ["Method", "Effect on Friction"],
+            rows: [
+                { left: "a. Polishing", right: "i. Makes surface slippery" },
+                { left: "b. Lubrication", right: "ii. Makes surface smooth" },
+                { left: "c. Shoes and spikes", right: "iii. Replaces sliding friction with rolling friction" },
+                { left: "d. Use of ball bearings", right: "iv. Designed to increase friction so that better speed is generated" },
+            ],
+        },
         options: [
             "a-iv, b-iii, c-ii, d-i",
             "a-ii, b-i, c-iv, d-iii",
@@ -4439,12 +4514,16 @@ In the context of the above two statements, which one of the following is correc
         topic: "Yoga & Lifestyle",
         type: "MCQ",
         marks: 1,
-        question: `Match the following asanas with the deformities they correct:
-
-I. Garudasana    1. Round shoulder
-II. Gomukhasana  2. Lordosis
-III. Chakrasana  3. Bow legs
-IV. Naukasana    4. Knock knees`,
+        question: `Match the following asanas with the deformities they correct:`,
+        matchTable: {
+            headers: ["Asana", "Deformity Corrected"],
+            rows: [
+                { left: "I. Garudasana", right: "1. Round shoulder" },
+                { left: "II. Gomukhasana", right: "2. Lordosis" },
+                { left: "III. Chakrasana", right: "3. Bow legs" },
+                { left: "IV. Naukasana", right: "4. Knock knees" },
+            ],
+        },
         options: ["I-3, II-4, III-1, IV-2", "I-1, II-3, III-4, IV-2", "I-4, II-2, III-1, IV-3", "I-2, II-3, III-4, IV-1"],
         answer: `I-3, II-4, III-1, IV-2`,
         source: "CBSE 2022-2023 Sample Paper",
@@ -4456,12 +4535,16 @@ IV. Naukasana    4. Knock knees`,
         topic: "Test & Measurement in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match the following Rikli & Jones fitness tests with what they measure:
-
-I. Chair stand test         1. Lower Body strength
-II. Arm curl test           2. Aerobic Endurance
-III. Back scratch test      3. Upper body strength
-IV. Six minute walk test    4. Upper body flexibility`,
+        question: `Match the following Rikli & Jones fitness tests with what they measure:`,
+        matchTable: {
+            headers: ["Test", "Measures"],
+            rows: [
+                { left: "I. Chair stand test", right: "1. Lower Body strength" },
+                { left: "II. Arm curl test", right: "2. Aerobic Endurance" },
+                { left: "III. Back scratch test", right: "3. Upper body strength" },
+                { left: "IV. Six minute walk test", right: "4. Upper body flexibility" },
+            ],
+        },
         options: ["I-1, II-3, III-4, IV-2", "I-2, II-3, III-1, IV-4", "I-1, II-3, III-2, IV-4", "I-2, II-3, III-4, IV-1"],
         answer: `I-1, II-3, III-4, IV-2`,
         source: "CBSE 2022-2023 Sample Paper",
@@ -5019,12 +5102,16 @@ Which one of the following statements is correct?`,
         topic: "Psychology & Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match List I (Big Five personality traits) with List II (characteristics):
-
-1. Extraversion — i. Enthusiasm
-2. Conscientiousness — ii. Responsible
-3. Agreeableness — iii. Compassionate behavior
-4. Neuroticism — iv. Emotional Stability`,
+        question: `Match List I (Big Five personality traits) with List II (characteristics):`,
+        matchTable: {
+            headers: ["Trait", "Characteristic"],
+            rows: [
+                { left: "1. Extraversion", right: "i. Enthusiasm" },
+                { left: "2. Conscientiousness", right: "ii. Responsible" },
+                { left: "3. Agreeableness", right: "iii. Compassionate behavior" },
+                { left: "4. Neuroticism", right: "iv. Emotional Stability" },
+            ],
+        },
         options: [
             "1-i, 2-ii, 3-iii, 4-iv",
             "1-iv, 2-iii, 3-ii, 4-i",
@@ -5586,12 +5673,16 @@ For every action, there is an equal and opposite reaction.
         topic: "Children & Women in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match the following postural deformities with their descriptions:
-
-I. Knock Knee — 1. Increase exaggeration of backward curve
-II. Kyphosis — 2. Wide gap between the knees when standing with feet together
-III. Lordosis — 3. Knees touch each other in normal standing position
-IV. Bow legs — 4. Inward curvature of the spine`,
+        question: `Match the following postural deformities with their descriptions:`,
+        matchTable: {
+            headers: ["Deformity", "Description"],
+            rows: [
+                { left: "I. Knock Knee", right: "1. Increase exaggeration of backward curve" },
+                { left: "II. Kyphosis", right: "2. Wide gap between the knees when standing with feet together" },
+                { left: "III. Lordosis", right: "3. Knees touch each other in normal standing position" },
+                { left: "IV. Bow legs", right: "4. Inward curvature of the spine" },
+            ],
+        },
         options: ["I-3, II-1, III-4, IV-2", "I-1, II-3, III-4, IV-2", "I-4, II-2, III-1, IV-3", "I-2, II-3, III-4, IV-1"],
         answer: `I-3, II-1, III-4, IV-2`,
         source: "CBSE 2024-2025 Sample Paper",
@@ -5676,12 +5767,16 @@ IV. Bow legs — 4. Inward curvature of the spine`,
         topic: "Test & Measurement in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match the following SAI Khelo India fitness tests:
-
-I. Plate Tapping Test — 1. Upper body strength boys
-II. Push up — 2. Reaction time
-III. Partial Curl up — 3. Upper body strength girls
-IV. Modified push up — 4. Abdominal strength`,
+        question: `Match the following SAI Khelo India fitness tests:`,
+        matchTable: {
+            headers: ["Test", "Measures"],
+            rows: [
+                { left: "I. Plate Tapping Test", right: "1. Upper body strength boys" },
+                { left: "II. Push up", right: "2. Reaction time" },
+                { left: "III. Partial Curl up", right: "3. Upper body strength girls" },
+                { left: "IV. Modified push up", right: "4. Abdominal strength" },
+            ],
+        },
         options: ["I-2, II-1, III-4, IV-3", "I-2, II-3, III-1, IV-4", "I-1, II-3, III-2, IV-4", "I-2, II-3, III-4, IV-1"],
         answer: `I-2, II-1, III-4, IV-3`,
         source: "CBSE 2024-2025 Sample Paper",
@@ -6237,7 +6332,16 @@ Why Friction is Necessary in Sports:
         topic: "Children & Women in Sports",
         type: "MCQ",
         marks: 1,
-        question: `Match: (a) Garudasana, (b) Horse riding, (c) Rope skipping, (d) Halasana — with — (i) Flat foot, (ii) Lordosis, (iii) Knock knees, (iv) Bow legs`,
+        question: `Match: (a) Garudasana, (b) Horse riding, (c) Rope skipping, (d) Halasana — with — (i) Flat foot, (ii) Lordosis, (iii) Knock knees, (iv) Bow legs. Choose the correct option.`,
+        matchTable: {
+            headers: ["Exercise / Asana", "Deformity Corrected"],
+            rows: [
+                { left: "(a) Garudasana", right: "(i) Flat foot" },
+                { left: "(b) Horse riding", right: "(ii) Lordosis" },
+                { left: "(c) Rope skipping", right: "(iii) Knock knees" },
+                { left: "(d) Halasana", right: "(iv) Bow legs" },
+            ],
+        },
         options: ["A-(iv), B-(iii), C-(i), D-(ii)", "A-(ii), B-(iv), C-(i), D-(iii)", "A-(iii), B-(i), C-(iii), D-(iv)", "A-(i), B-(ii), C-(iii), D-(iv)"],
         answer: `A-(iv), B-(iii), C-(i), D-(ii)`,
         source: "CBSE 2025-2026 Sample Paper",

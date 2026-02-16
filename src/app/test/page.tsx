@@ -590,6 +590,36 @@ function TestPageContent() {
                     <AnimatePresence mode="wait">
                         <motion.div key={currentIndex} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
                             <p className="text-[15px] dark:text-white leading-relaxed mb-6 whitespace-pre-line">{currentQ.question}</p>
+
+                            {/* Match Table */}
+                            {currentQ.matchTable && (
+                                <div className="mb-6 overflow-hidden rounded-xl border border-gray-200 dark:border-white/[0.1] bg-gray-50 dark:bg-white/[0.02] inline-block">
+                                    <table className="w-auto text-sm text-left">
+                                        <thead className="bg-purple-500/5 dark:bg-purple-500/10 text-xs uppercase text-purple-700 dark:text-purple-300 font-semibold">
+                                            <tr>
+                                                {currentQ.matchTable.headers.map((header, idx) => (
+                                                    <th key={idx} className="px-4 py-3 border-b border-gray-200 dark:border-white/[0.05]">
+                                                        {header}
+                                                    </th>
+                                                ))}
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {currentQ.matchTable.rows.map((row, idx) => (
+                                                <tr key={idx} className="border-b border-gray-200 dark:border-white/[0.05] last:border-0 hover:bg-black/[0.02] dark:hover:bg-white/[0.02]">
+                                                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">
+                                                        {row.left}
+                                                    </td>
+                                                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">
+                                                        {row.right}
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )}
+
                             {currentQ.imageUrl && (
                                 <div className="mb-6 rounded-xl overflow-hidden border border-gray-200 dark:border-white/[0.1] bg-gray-50 dark:bg-white/[0.02]">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
