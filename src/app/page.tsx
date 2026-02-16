@@ -81,7 +81,7 @@ export default function Dashboard() {
         >
           <div>
             <p className="text-2xl font-bold text-gray-900 dark:text-white">
-              {stats.totalQuestions}+
+              400+
             </p>
             <p className="text-[10px] text-purple-600/80 dark:text-purple-300/80 uppercase tracking-wider">
               Questions

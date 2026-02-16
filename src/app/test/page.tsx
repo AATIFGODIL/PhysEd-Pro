@@ -6,6 +6,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { questions } from "@/data/questions";
 import { searchQuestions, parseSearchQuery } from "@/lib/search"; // Added import
 import { useQuiz } from "@/context/QuizContext";
+import { BookmarkButton } from "@/components/BookmarkButton";
 
 type QuestionStatus = "not-seen" | "seen" | "attempted" | "correct" | "wrong";
 
@@ -14,6 +15,9 @@ function TestPageContent() {
     const router = useRouter();
 
     // Params
+    const bookmarkGroupId = searchParams.get("bookmarkGroupId");
+    const { bookmarks, stats, updateQuestionStat } = useQuiz();
+
     const yearParam = searchParams.get("year");
     const year = yearParam ? parseInt(yearParam) : null;
     const type = searchParams.get("type") || "Main";
@@ -31,6 +35,26 @@ function TestPageContent() {
 
     // Filter Questions
     const testQuestions = useMemo(() => {
+        if (bookmarkGroupId) {
+            // Filter by bookmarks
+            const targetIds = bookmarkGroupId === "all"
+                ? Object.keys(bookmarks)
+                : Object.keys(bookmarks).filter(id => bookmarks[id] === bookmarkGroupId);
+
+            const bQuestions = questions.filter(q => targetIds.includes(q.id));
+
+            // Reorder if questionId is present (start with clicked)
+            if (questionId) {
+                const clickedIndex = bQuestions.findIndex(q => q.id === questionId);
+                if (clickedIndex > -1) {
+                    const clickedQ = bQuestions[clickedIndex];
+                    const others = bQuestions.filter(q => q.id !== questionId);
+                    return [clickedQ, ...others];
+                }
+            }
+            return bQuestions;
+        }
+
         if (searchParam) {
             const searchResults = searchQuestions(decodeURIComponent(searchParam));
             // Reorder if questionId is present
@@ -92,7 +116,7 @@ function TestPageContent() {
         }
 
         return [];
-    }, [year, type, chapter, questionId, isPracticeMode, searchParam]);
+    }, [year, type, chapter, questionId, isPracticeMode, searchParam, bookmarkGroupId, bookmarks]);
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -114,7 +138,7 @@ function TestPageContent() {
     const [sidebarOpen, setSidebarOpen] = useState(true);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    const { bookmarks, toggleBookmark, stats, updateQuestionStat } = useQuiz();
+    // const { stats, updateQuestionStat } = useQuiz(); // Moved up
 
     const currentQ = testQuestions[currentIndex];
     const currentChapter = currentQ?.chapter || "Physics";
@@ -204,8 +228,21 @@ function TestPageContent() {
             setCurrentIndex(idx);
             setShowAnswer(false);
             setSelectedOption(null);
+
+            // Update URL with new questionId without reloading
+            const nextQ = testQuestions[idx];
+            if (nextQ) {
+                const params = new URLSearchParams(window.location.search);
+                params.set("questionId", nextQ.id);
+                // Use replace to avoid filling history stack too much, or push if back button should work per question
+                // User asked for "changing question IDs as soon as keyboard command or prev next"
+                // Usually replace is better for rapid navigation, but push allows back button. 
+                // Let's use replace for now to keep history clean, or maybe push?
+                // "change link of the page" implies URL update.
+                window.history.replaceState(null, "", `?${params.toString()}`);
+            }
         }
-    }, [testQuestions.length]);
+    }, [testQuestions]);
 
     const getCorrectOptionLabel = (q: typeof currentQ) => {
         if (!q || q.type !== "MCQ") return null;
@@ -511,9 +548,7 @@ function TestPageContent() {
                         <div className="ml-auto flex gap-1.5">
                             <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-300">{currentQ.source}</span>
                             <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-300/80">{currentQ.type}</span>
-                            <button onClick={() => toggleBookmark(currentQ.id)} className={`p-1.5 rounded-lg ${bookmarks.has(currentQ.id) ? "text-amber-400 bg-amber-400/10" : "text-gray-400"}`}>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill={bookmarks.has(currentQ.id) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /></svg>
-                            </button>
+                            <BookmarkButton questionId={currentQ.id} size={18} className="hover:bg-purple-100 dark:hover:bg-purple-500/20" />
                         </div>
                     </div>
 

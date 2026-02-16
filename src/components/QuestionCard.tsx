@@ -16,9 +16,24 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
     const router = useRouter();
     const [showAnswer, setShowAnswer] = useState(false);
 
-    const { bookmarks, toggleBookmark, stats, updateQuestionStat } = useQuiz();
-    const isBookmarked = bookmarks.has(question.id);
+    const { bookmarks, bookmarkGroups, stats, updateQuestionStat } = useQuiz();
+    const isBookmarked = !!bookmarks[question.id];
+    const groupId = bookmarks[question.id];
+    const group = bookmarkGroups.find(g => g.id === groupId);
+    // Default blue if group not found, but use group color if available
+    const groupColor = group?.color || "#3b82f6";
+
     const questionStat = stats[question.id];
+
+    // Helper to convert hex to rgba for background transparency
+    const getRgba = (hex: string, alpha: number) => {
+        hex = hex.replace("#", "");
+        if (hex.length === 3) hex = hex.split("").map(c => c + c).join("");
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    };
 
     // Timer logic
     const [elapsed, setElapsed] = useState(questionStat?.timeSpent || 0);
@@ -38,8 +53,6 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
             intervalRef.current = setInterval(() => {
                 setElapsed((t) => {
                     const newTime = t + 1;
-                    // Auto-update stats every 5 seconds or just keep local?
-                    // Let's keep local and update on pause/unmount/finish to reduce writes
                     return newTime;
                 });
             }, 1000);
@@ -53,7 +66,7 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
         return () => {
             if (intervalRef.current) clearInterval(intervalRef.current);
         };
-    }, [timerRunning, question.id, updateQuestionStat]); // Removed elapsed dependency to avoid loop, handled in setter
+    }, [timerRunning, question.id, updateQuestionStat]);
 
     // Save time when unmounting if running
     useEffect(() => {
@@ -63,7 +76,6 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
             }
         }
     }, [timerRunning, elapsed, question.id, updateQuestionStat]);
-
 
     const formatTime = (s: number) => {
         const m = Math.floor(s / 60);
@@ -82,13 +94,6 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
         setElapsed(0);
         updateQuestionStat(question.id, { timeSpent: 0 });
     };
-
-    // Parse options if available (legacy support) or use array
-    const options = useMemo(() => {
-        if (question.options) return question.options;
-        // ... (legacy parsing existing in component, or we can just assume new data has options)
-        return question.options;
-    }, [question.options]);
 
     const questionType = useMemo(() => {
         if (question.type === "Case Study") return "Case Study";
@@ -114,22 +119,34 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
     };
 
     // Determine card styling based on status
-    const getStatusStyles = () => {
+    const getStatusClasses = () => {
         if (!questionStat?.attempted) {
             if (isBookmarked) {
-                return "bg-blue-500/[0.03] border-blue-400/20 hover:border-blue-400/40 dark:bg-blue-400/[0.03]";
+                // Return base classes, colors handled by style prop
+                return "transition-colors";
             }
             return "bg-gray-100 dark:bg-white/[0.03] border-gray-200 dark:border-white/[0.08] hover:border-purple-500/30 dark:hover:border-purple-400/20";
         }
 
-        // Subjective questions (Non-MCQ) get very slight yellow hint
+        // ... (rest of attempted logic)
         if (question.type !== "MCQ") {
             return "bg-amber-500/[0.03] border-amber-500/20 hover:border-amber-500/40";
         }
-
         if (questionStat.correct) return "bg-emerald-500/[0.08] border-emerald-500/30 hover:border-emerald-500/50";
         return "bg-red-500/[0.08] border-red-500/30 hover:border-red-500/50";
     };
+
+    const dynamicStyle = useMemo(() => {
+        if (!questionStat?.attempted && isBookmarked) {
+            return {
+                backgroundColor: getRgba(groupColor, 0.05), // Light background
+                borderColor: getRgba(groupColor, 0.3),     // Border
+            };
+        }
+        return {};
+    }, [questionStat?.attempted, isBookmarked, groupColor]);
+
+    // ...
 
     return (
         <motion.div
@@ -139,7 +156,8 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             onClick={handleCardClick}
-            className={`relative rounded-2xl backdrop-blur-[24px] border overflow-hidden cursor-pointer transition-colors ${getStatusStyles()}`}
+            style={dynamicStyle}
+            className={`relative rounded-2xl backdrop-blur-[24px] border overflow-hidden cursor-pointer transition-colors ${getStatusClasses()}`}
         >
             <div className="p-5">
                 {/* Header badges + actions */}
@@ -187,15 +205,7 @@ export function QuestionCard({ question, index, onClick }: QuestionCardProps) {
                         )}
                     </div>
 
-                    {/* Bookmark */}
-                    <button
-                        onClick={(e) => { e.stopPropagation(); toggleBookmark(question.id); }}
-                        className={`p-1.5 rounded-lg transition-all ${isBookmarked ? "text-blue-500 dark:text-blue-400 bg-blue-500/10" : "text-purple-400/50 dark:text-purple-300/50 hover:text-blue-500/60 dark:hover:text-blue-400/60"}`}
-                    >
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill={isBookmarked ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
-                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-                        </svg>
-                    </button>
+
                 </div>
 
                 {/* Question number + text */}
