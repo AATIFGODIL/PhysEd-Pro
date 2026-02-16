@@ -642,6 +642,50 @@ function TestPageContent() {
                                     })}
                                 </div>
                             )}
+
+                            {/* Action Buttons: Show Answer and Check */}
+                            <div className="flex items-center gap-4 mb-6">
+                                {showAnswers && (
+                                    <label className="flex items-center gap-2 cursor-pointer group">
+                                        <div onClick={handleToggleShowAnswer} className={`w-10 h-5 rounded-full transition-all relative ${showAnswer ? "bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]" : "bg-gray-200 dark:bg-white/[0.1]"}`}>
+                                            <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white transition-transform ${showAnswer ? "translate-x-5" : "translate-x-0.5 shadow-sm"}`} />
+                                        </div>
+                                        <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500 dark:text-purple-300/40 group-hover:text-purple-400 transition-colors">Show Answer</span>
+                                    </label>
+                                )}
+
+                                {isPracticeMode && currentQ.type === "MCQ" && (
+                                    <button
+                                        onClick={() => {
+                                            setShowAnswer(true);
+                                            if (selectedOption) {
+                                                const correctLabel = getCorrectOptionLabel(currentQ);
+                                                if (correctLabel) {
+                                                    const isCorrect = selectedOption === correctLabel;
+                                                    setStatusMap((prev) => ({ ...prev, [currentIndex]: isCorrect ? "correct" : "wrong" }));
+                                                    updateQuestionStat(currentQ.id, {
+                                                        attempted: true,
+                                                        correct: isCorrect,
+                                                        selectedOption: selectedOption || undefined,
+                                                        timeSpent: questionTimes[currentIndex] || 0
+                                                    });
+                                                } else {
+                                                    setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
+                                                }
+                                            } else {
+                                                setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
+                                                updateQuestionStat(currentQ.id, {
+                                                    attempted: true,
+                                                    timeSpent: questionTimes[currentIndex] || 0
+                                                });
+                                            }
+                                        }}
+                                        className="px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest bg-emerald-500 hover:bg-emerald-600 text-white transition-all shadow-lg shadow-emerald-500/20 active:scale-95"
+                                    >
+                                        Check Answer
+                                    </button>
+                                )}
+                            </div>
                             {showAnswer && (
                                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={`p-5 rounded-xl border ${statusMap[currentIndex] === 'correct' ? 'bg-emerald-50 dark:bg-emerald-500/[0.06] border-emerald-200 dark:border-emerald-400/15' : statusMap[currentIndex] === 'wrong' ? 'bg-red-50 dark:bg-red-500/[0.06] border-red-200 dark:border-red-400/15' : 'bg-purple-50 dark:bg-purple-500/[0.06] border-purple-200 dark:border-purple-400/15'}`}>
                                     <p className={`text-[10px] uppercase tracking-wider mb-2 font-semibold ${statusMap[currentIndex] === 'correct' ? 'text-emerald-700 dark:text-emerald-400/70' : statusMap[currentIndex] === 'wrong' ? 'text-red-700 dark:text-red-400/70' : 'text-purple-700 dark:text-purple-400/70'}`}>Answer & Solution</p>
@@ -696,55 +740,11 @@ function TestPageContent() {
             {/* Footer */}
             <div className={`p-4 border-t flex items-center justify-between ${showAnswers ? "bg-white dark:bg-white/[0.02] border-gray-200 dark:border-white/[0.06]" : "bg-white/60 dark:bg-white/[0.02] border-purple-100 dark:border-white/[0.06]"}`}>
                 <div className="flex items-center gap-3">
-                    {showAnswers && (
-                        <label className="flex items-center gap-2 cursor-pointer">
-                            <div onClick={handleToggleShowAnswer} className={`w-10 h-5 rounded-full transition-colors relative ${showAnswer ? "bg-emerald-500" : "bg-gray-200 dark:bg-white/[0.1]"}`}>
-                                <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white transition-transform ${showAnswer ? "translate-x-5" : "translate-x-0.5"}`} />
-                            </div>
-                            <span className="text-xs text-gray-500 dark:text-purple-300/80">Show Answer</span>
-                        </label>
-                    )}
+                    {/* Time or progress can go here if needed */}
                 </div>
                 <div className="flex items-center gap-2">
-                    {/* Check Button: Only for Practice Mode and MCQs */}
-                    {isPracticeMode && currentQ.type === "MCQ" && (
-                        <button
-                            onClick={() => {
-                                // Explicit Check for MCQs
-                                setShowAnswer(true);
-
-                                if (selectedOption) {
-                                    const correctLabel = getCorrectOptionLabel(currentQ);
-
-                                    if (correctLabel) {
-                                        const isCorrect = selectedOption === correctLabel;
-                                        setStatusMap((prev) => ({ ...prev, [currentIndex]: isCorrect ? "correct" : "wrong" }));
-                                        updateQuestionStat(currentQ.id, {
-                                            attempted: true,
-                                            correct: isCorrect,
-                                            selectedOption: selectedOption || undefined,
-                                            timeSpent: questionTimes[currentIndex] || 0
-                                        });
-                                    } else {
-                                        // Could not determine correct answer from data
-                                        setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
-                                    }
-                                } else {
-                                    setStatusMap((prev) => ({ ...prev, [currentIndex]: "attempted" }));
-                                    updateQuestionStat(currentQ.id, {
-                                        attempted: true,
-                                        timeSpent: questionTimes[currentIndex] || 0
-                                    });
-                                }
-                            }}
-                            className="px-5 py-2 rounded-lg text-xs font-semibold bg-emerald-500 hover:bg-emerald-600 text-white transition-colors"
-                        >
-                            Check
-                        </button>
-                    )}
-
-                    <button onClick={() => goTo(currentIndex - 1)} disabled={currentIndex === 0} className="px-5 py-2 rounded-lg text-xs bg-white dark:bg-white/[0.06] dark:text-white border dark:border-white/[0.08] disabled:opacity-50">Previous</button>
-                    <button onClick={handleNext} disabled={currentIndex >= testQuestions.length - 1} className="px-5 py-2 rounded-lg text-xs bg-purple-600 dark:bg-purple-500 text-white disabled:opacity-30">Next</button>
+                    <button onClick={() => goTo(currentIndex - 1)} disabled={currentIndex === 0} className="px-5 py-2 rounded-lg text-xs font-medium bg-white dark:bg-white/[0.06] dark:text-white border border-gray-200 dark:border-white/[0.08] disabled:opacity-30 transition-all hover:bg-gray-50 dark:hover:bg-white/[0.1]">Previous</button>
+                    <button onClick={handleNext} disabled={currentIndex >= testQuestions.length - 1} className="px-5 py-2 rounded-lg text-xs font-bold bg-purple-600 dark:bg-purple-500 text-white disabled:opacity-30 transition-all hover:shadow-lg hover:shadow-purple-500/20 active:scale-95">Next</button>
                 </div>
             </div>
         </div>
