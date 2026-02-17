@@ -167,9 +167,23 @@ function YearlyPageContent() {
                 animate={{ opacity: 1, y: 0 }}
                 className="max-w-6xl mx-auto mb-8"
             >
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-                    Previous Year Questions
-                </h1>
+                <div className="flex items-center justify-between gap-4 mb-2">
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                        Previous Year Questions
+                    </h1>
+                    <Link href="/analysis">
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="px-4 py-2 rounded-xl bg-purple-600 dark:bg-purple-500/20 text-white dark:text-purple-300 border border-purple-500/50 dark:border-purple-400/20 text-[10px] md:text-xs font-bold shadow-lg shadow-purple-500/20 flex items-center gap-2 group transition-all"
+                        >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="group-hover:rotate-12 transition-transform">
+                                <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" />
+                            </svg>
+                            Marks Analysis
+                        </motion.button>
+                    </Link>
+                </div>
                 <p className="text-xs text-purple-600/60 dark:text-purple-300/60">
                     Chapter-wise questions with solutions • Years 2022–2026
                 </p>
@@ -693,3 +707,4 @@ export default function YearlyPage() {
 
 
 /* Initial release of PhysEd-Pro */
+  

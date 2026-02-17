@@ -62,3 +62,4 @@ console.log("Chapter-wise weightage in 2025 Board Paper:");
 sortedWeightage.forEach(([chapter, marks]) => {
     console.log(`${chapter}: ${marks} marks`);
 });
+  

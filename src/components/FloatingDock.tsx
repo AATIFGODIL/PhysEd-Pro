@@ -340,8 +340,8 @@ export function FloatingDock() {
         dragStartInfo.current = null;
     };
 
-    // Hide on test page - MOVED AFTER HOOKS
-    if (pathname.startsWith("/test")) return null;
+    // Hide on test page and analysis page
+    if (pathname.startsWith("/test") || pathname.startsWith("/analysis")) return null;
 
     return (
         <motion.div
@@ -399,3 +399,4 @@ export function FloatingDock() {
 
 
 /* Initial release of PhysEd-Pro */
+  

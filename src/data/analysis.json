@@ -1,0 +1,1278 @@
+[
+    {
+        "id": "2026_SQP",
+        "title": "Sample Question Paper (SQP) 2025–26",
+        "badge": "2026 SQP",
+        "year": 2026,
+        "units": [
+            {
+                "id": 1,
+                "name": "Management of Sporting Events",
+                "secA": "2",
+                "secB": "-",
+                "secC": "3",
+                "secD": "4 (Q31)",
+                "secE": "-",
+                "total": 9,
+                "official": "05+04b*"
+            },
+            {
+                "id": 2,
+                "name": "Children & Women in Sports",
+                "secA": "2",
+                "secB": "2",
+                "secC": "3",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 3,
+                "name": "Yoga as Preventive Measure",
+                "secA": "2",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5",
+                "total": 7,
+                "official": "06+01b*"
+            },
+            {
+                "id": 4,
+                "name": "Physical Education & Sports for CWSN",
+                "secA": "1",
+                "secB": "-",
+                "secC": "3",
+                "secD": "4 (Q32)",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 5,
+                "name": "Sports & Nutrition",
+                "secA": "2",
+                "secB": "2",
+                "secC": "3",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 6,
+                "name": "Test & Measurement in Sports",
+                "secA": "1",
+                "secB": "2",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5",
+                "total": 8,
+                "official": "08"
+            },
+            {
+                "id": 7,
+                "name": "Physiology & Injuries in Sport",
+                "secA": "2",
+                "secB": "2",
+                "secC": "-",
+                "secD": "4 (Q33)",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 8,
+                "name": "Biomechanics & Sports",
+                "secA": "2",
+                "secB": "-",
+                "secC": "3",
+                "secD": "-",
+                "secE": "5",
+                "total": 10,
+                "official": "10"
+            },
+            {
+                "id": 9,
+                "name": "Psychology & Sports",
+                "secA": "2",
+                "secB": "2",
+                "secC": "3",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 10,
+                "name": "Training in Sports",
+                "secA": "2",
+                "secB": "2",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5",
+                "total": 9,
+                "official": "09"
+            }
+        ],
+        "footer": {
+            "secA": 18,
+            "secB": 12,
+            "secC": 18,
+            "secD": 12,
+            "secE": 20,
+            "total": 80,
+            "official": "70+10b*"
+        },
+        "notes": "Latest Sample Question Paper for 2025-26 Board Pattern."
+    },
+    {
+        "id": "2025_Main",
+        "title": "Board Examination Paper 2025",
+        "badge": "2025",
+        "year": 2025,
+        "units": [
+            {
+                "id": 1,
+                "name": "Management of Sporting Events",
+                "secA": "2 (Q1,2)",
+                "secB": "-",
+                "secC": "3 (Q25)",
+                "secD": "4 (Q31)",
+                "secE": "-",
+                "total": 9,
+                "official": "05+04b*"
+            },
+            {
+                "id": 2,
+                "name": "Children & Women in Sports",
+                "secA": "2 (Q3,4)",
+                "secB": "2 (Q19)",
+                "secC": "3 (Q26)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 3,
+                "name": "Yoga as Preventive Measure",
+                "secA": "2 (Q5,6)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q34)",
+                "total": 7,
+                "official": "06+01b*"
+            },
+            {
+                "id": 4,
+                "name": "Physical Education & Sports for CWSN",
+                "secA": "2 (Q7,8)",
+                "secB": "2 (Q20)",
+                "secC": "-",
+                "secD": "4 (Q32)",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 5,
+                "name": "Sports & Nutrition",
+                "secA": "2 (Q10,11)",
+                "secB": "2 (Q21)",
+                "secC": "3 (Q28)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 6,
+                "name": "Test & Measurement in Sports",
+                "secA": "1 (Q12)",
+                "secB": "2 (Q22)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q37)",
+                "total": 8,
+                "official": "08"
+            },
+            {
+                "id": 7,
+                "name": "Physiology & Injuries in Sport",
+                "secA": "1 (Q13)",
+                "secB": "-",
+                "secC": "3 (Q29)",
+                "secD": "4 (Q33)",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 8,
+                "name": "Biomechanics & Sports",
+                "secA": "2 (Q9,14)",
+                "secB": "2 (Q24)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q35)",
+                "total": 9,
+                "official": "10"
+            },
+            {
+                "id": 9,
+                "name": "Psychology & Sports",
+                "secA": "2 (Q15,16)",
+                "secB": "-",
+                "secC": "3 (Q30)",
+                "secD": "-",
+                "secE": "-",
+                "total": 5,
+                "official": "07"
+            },
+            {
+                "id": 10,
+                "name": "Training in Sports",
+                "secA": "2 (Q17,18)",
+                "secB": "2 (Q23)",
+                "secC": "3 (Q27)",
+                "secD": "-",
+                "secE": "5 (Q36)",
+                "total": 12,
+                "official": "09"
+            }
+        ],
+        "footer": {
+            "secA": 18,
+            "secB": 12,
+            "secC": 18,
+            "secD": 12,
+            "secE": 20,
+            "total": 80,
+            "official": "70+10b*"
+        },
+        "notes": "Main Board Paper 2025 analysis. Unit 10 carries the highest weightage at 12 marks."
+    },
+    {
+        "id": "PE_C_2025",
+        "title": "Compartment Paper 2025",
+        "badge": "2025 - C",
+        "year": 2025,
+        "units": [
+            {
+                "id": 1,
+                "name": "Management of Sporting Events",
+                "secA": "2 (Q1,2)",
+                "secB": "-",
+                "secC": "3 (Q25)",
+                "secD": "4 (Q31)",
+                "secE": "-",
+                "total": 9,
+                "official": "05+04b*"
+            },
+            {
+                "id": 2,
+                "name": "Children & Women in Sports",
+                "secA": "2 (Q6,13)",
+                "secB": "2 (Q20)",
+                "secC": "3 (Q26)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 3,
+                "name": "Yoga as Preventive Measure",
+                "secA": "2 (Q4,11)",
+                "secB": "2 (Q19)",
+                "secC": "3 (Q28)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "06+01b*"
+            },
+            {
+                "id": 4,
+                "name": "Physical Education & Sports for CWSN",
+                "secA": "1 (Q5)",
+                "secB": "-",
+                "secC": "3 (Q29)",
+                "secD": "4 (Q32)",
+                "secE": "5 (Q36)",
+                "total": 13,
+                "official": "04+04b*"
+            },
+            {
+                "id": 5,
+                "name": "Sports & Nutrition",
+                "secA": "1 (Q7)",
+                "secB": "2 (Q21)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q34)",
+                "total": 8,
+                "official": "07"
+            },
+            {
+                "id": 6,
+                "name": "Test & Measurement in Sports",
+                "secA": "2 (Q8,9)",
+                "secB": "2 (Q22)",
+                "secC": "3 (Q27)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "08"
+            },
+            {
+                "id": 7,
+                "name": "Physiology & Injuries in Sport",
+                "secA": "1 (Q3)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "4 (Q33)",
+                "secE": "-",
+                "total": 5,
+                "official": "04+04b*"
+            },
+            {
+                "id": 8,
+                "name": "Biomechanics & Sports",
+                "secA": "2 (Q12,14)",
+                "secB": "-",
+                "secC": "3 (Q30)",
+                "secD": "-",
+                "secE": "5 (Q35)",
+                "total": 10,
+                "official": "10"
+            },
+            {
+                "id": 9,
+                "name": "Psychology & Sports",
+                "secA": "2 (Q15,16)",
+                "secB": "2 (Q23)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "-",
+                "total": 4,
+                "official": "07"
+            },
+            {
+                "id": 10,
+                "name": "Training in Sports",
+                "secA": "3 (Q10,17,18)",
+                "secB": "2 (Q24)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q37)",
+                "total": 10,
+                "official": "09"
+            }
+        ],
+        "footer": {
+            "secA": 18,
+            "secB": 12,
+            "secC": 18,
+            "secD": 12,
+            "secE": 20,
+            "total": 80,
+            "official": "70+10b*"
+        },
+        "notes": "Unit 4 (CWSN) is exceptionally heavy at 13 marks — far exceeding its official 8."
+    },
+    {
+        "id": "PE_SQP_25",
+        "title": "Sample Question Paper (SQP) 2024–25",
+        "badge": "2025 SQP",
+        "year": 2025,
+        "units": [
+            {
+                "id": 1,
+                "name": "Management of Sporting Events",
+                "secA": "2 (Q1,2)",
+                "secB": "-",
+                "secC": "3 (Q25)",
+                "secD": "4 (Q31)",
+                "secE": "-",
+                "total": 9,
+                "official": "05+04b*"
+            },
+            {
+                "id": 2,
+                "name": "Children & Women in Sports",
+                "secA": "2 (Q3,8)",
+                "secB": "2 (Q19)",
+                "secC": "3 (Q26)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 3,
+                "name": "Yoga as Preventive Measure",
+                "secA": "2 (Q5,6)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q34)",
+                "total": 7,
+                "official": "06+01b*"
+            },
+            {
+                "id": 4,
+                "name": "Physical Education & Sports for CWSN",
+                "secA": "1 (Q7)",
+                "secB": "-",
+                "secC": "3 (Q27)",
+                "secD": "4 (Q32)",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 5,
+                "name": "Sports & Nutrition",
+                "secA": "2 (Q4,9)",
+                "secB": "2 (Q20)",
+                "secC": "3 (Q28)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 6,
+                "name": "Test & Measurement in Sports",
+                "secA": "1 (Q10)",
+                "secB": "2 (Q21)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q35)",
+                "total": 8,
+                "official": "08"
+            },
+            {
+                "id": 7,
+                "name": "Physiology & Injuries in Sport",
+                "secA": "1 (Q12)",
+                "secB": "2 (Q22)",
+                "secC": "-",
+                "secD": "4 (Q33)",
+                "secE": "-",
+                "total": 7,
+                "official": "04+04b*"
+            },
+            {
+                "id": 8,
+                "name": "Biomechanics & Sports",
+                "secA": "2 (Q13,14)",
+                "secB": "-",
+                "secC": "3 (Q29)",
+                "secD": "-",
+                "secE": "5 (Q37)",
+                "total": 10,
+                "official": "10"
+            },
+            {
+                "id": 9,
+                "name": "Psychology & Sports",
+                "secA": "2 (Q15,16)",
+                "secB": "2 (Q23)",
+                "secC": "3 (Q30)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 10,
+                "name": "Training in Sports",
+                "secA": "3 (Q11,17,18)",
+                "secB": "2 (Q24)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q36)",
+                "total": 10,
+                "official": "09"
+            }
+        ],
+        "footer": {
+            "secA": 18,
+            "secB": 12,
+            "secC": 18,
+            "secD": 12,
+            "secE": 20,
+            "total": 80,
+            "official": "70+10b*"
+        },
+        "notes": "Unit 8 (Biomechanics) and Unit 10 (Training) tied highest at 10 marks each."
+    },
+    {
+        "id": "2024_Main",
+        "title": "Board Examination Paper 2024",
+        "badge": "2024",
+        "year": 2024,
+        "units": [
+            {
+                "id": 1,
+                "name": "Management of Sporting Events",
+                "secA": "2 (Q5,11)",
+                "secB": "-",
+                "secC": "3 (Q27)",
+                "secD": "4 (Q33)",
+                "secE": "-",
+                "total": 9,
+                "official": "05+04b*"
+            },
+            {
+                "id": 2,
+                "name": "Children & Women in Sports",
+                "secA": "2 (Q6,12)",
+                "secB": "2 (Q21)",
+                "secC": "6 (Q26+Q29)",
+                "secD": "-",
+                "secE": "-",
+                "total": 10,
+                "official": "07"
+            },
+            {
+                "id": 3,
+                "name": "Yoga as Preventive Measure",
+                "secA": "2 (Q1,13)",
+                "secB": "2 (Q22)",
+                "secC": "3 (Q28)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "06+01b*"
+            },
+            {
+                "id": 4,
+                "name": "Physical Education & Sports for CWSN",
+                "secA": "2 (Q2,14)",
+                "secB": "2 (Q23)",
+                "secC": "-",
+                "secD": "4 (Q31)",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 5,
+                "name": "Sports & Nutrition",
+                "secA": "2 (Q3,4)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q35)",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 6,
+                "name": "Test & Measurement in Sports",
+                "secA": "3 (Q15,16,18)",
+                "secB": "2 (Q20)",
+                "secC": "3 (Q25)",
+                "secD": "-",
+                "secE": "-",
+                "total": 8,
+                "official": "08"
+            },
+            {
+                "id": 7,
+                "name": "Physiology & Injuries in Sport",
+                "secA": "1 (Q7)",
+                "secB": "-",
+                "secC": "3 (Q30)",
+                "secD": "4 (Q32)",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 8,
+                "name": "Biomechanics & Sports",
+                "secA": "1 (Q8)",
+                "secB": "4 (Q19+Q24)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q36)",
+                "total": 10,
+                "official": "10"
+            },
+            {
+                "id": 9,
+                "name": "Psychology & Sports",
+                "secA": "2 (Q9,17)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q34)",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 10,
+                "name": "Training in Sports",
+                "secA": "1 (Q10)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q37)",
+                "total": 6,
+                "official": "09"
+            }
+        ],
+        "footer": {
+            "secA": 18,
+            "secB": 12,
+            "secC": 18,
+            "secD": 12,
+            "secE": 20,
+            "total": 80,
+            "official": "70+10b*"
+        },
+        "notes": "Unit 2 and Unit 8 both carry 10 marks in the 2024 Main Board paper."
+    },
+    {
+        "id": "PE_C_2024",
+        "title": "Compartment Paper 2024",
+        "badge": "2024 - C",
+        "year": 2024,
+        "units": [
+            {
+                "id": 1,
+                "name": "Management of Sporting Events",
+                "secA": "2 (Q6,13)",
+                "secB": "2 (Q19)",
+                "secC": "-",
+                "secD": "4 (Q31)",
+                "secE": "-",
+                "total": 8,
+                "official": "05+04b*"
+            },
+            {
+                "id": 2,
+                "name": "Children & Women in Sports",
+                "secA": "2 (Q2,16)",
+                "secB": "-",
+                "secC": "3 (Q25)",
+                "secD": "-",
+                "secE": "5 (Q34)",
+                "total": 10,
+                "official": "07"
+            },
+            {
+                "id": 3,
+                "name": "Yoga as Preventive Measure",
+                "secA": "2 (Q8,14)",
+                "secB": "2 (Q21)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q36)",
+                "total": 9,
+                "official": "06+01b*"
+            },
+            {
+                "id": 4,
+                "name": "Physical Education & Sports for CWSN",
+                "secA": "2 (Q1,11)",
+                "secB": "2 (Q24)",
+                "secC": "-",
+                "secD": "4 (Q32)",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 5,
+                "name": "Sports & Nutrition",
+                "secA": "2 (Q5,17)",
+                "secB": "2 (Q23)",
+                "secC": "3 (Q29)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 6,
+                "name": "Test & Measurement in Sports",
+                "secA": "3 (Q9,12,18)",
+                "secB": "-",
+                "secC": "6 (Q26+Q28)",
+                "secD": "-",
+                "secE": "-",
+                "total": 9,
+                "official": "08"
+            },
+            {
+                "id": 7,
+                "name": "Physiology & Injuries in Sport",
+                "secA": "1 (Q4)",
+                "secB": "2 (Q20)",
+                "secC": "-",
+                "secD": "4 (Q33)",
+                "secE": "-",
+                "total": 7,
+                "official": "04+04b*"
+            },
+            {
+                "id": 8,
+                "name": "Biomechanics & Sports",
+                "secA": "1 (Q7)",
+                "secB": "-",
+                "secC": "3 (Q27)",
+                "secD": "-",
+                "secE": "5 (Q35)",
+                "total": 9,
+                "official": "10"
+            },
+            {
+                "id": 9,
+                "name": "Psychology & Sports",
+                "secA": "2 (Q3,15)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q37)",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 10,
+                "name": "Training in Sports",
+                "secA": "1 (Q10)",
+                "secB": "2 (Q22)",
+                "secC": "3 (Q30)",
+                "secD": "-",
+                "secE": "-",
+                "total": 6,
+                "official": "09"
+            }
+        ],
+        "footer": {
+            "secA": 18,
+            "secB": 12,
+            "secC": 18,
+            "secD": 12,
+            "secE": 20,
+            "total": 80,
+            "official": "70+10b*"
+        },
+        "notes": "Unit 2 (Children & Women) is unusually heavy at 10 marks vs official 7."
+    },
+    {
+        "id": "PE_SQP_24",
+        "title": "Sample Question Paper (SQP) 2023–24",
+        "badge": "2024 SQP",
+        "year": 2024,
+        "units": [
+            {
+                "id": 1,
+                "name": "Management of Sporting Events",
+                "secA": "2 (Q13,14)",
+                "secB": "-",
+                "secC": "3 (Q27)",
+                "secD": "4 (Q31)",
+                "secE": "-",
+                "total": 9,
+                "official": "05+04b*"
+            },
+            {
+                "id": 2,
+                "name": "Children & Women in Sports",
+                "secA": "2 (Q16,18)",
+                "secB": "-",
+                "secC": "3 (Q30)",
+                "secD": "-",
+                "secE": "-",
+                "total": 5,
+                "official": "07"
+            },
+            {
+                "id": 3,
+                "name": "Yoga as Preventive Measure",
+                "secA": "1 (Q1)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q34)",
+                "total": 6,
+                "official": "06+01b*"
+            },
+            {
+                "id": 4,
+                "name": "Physical Education & Sports for CWSN",
+                "secA": "1 (Q15)",
+                "secB": "-",
+                "secC": "3 (Q25)",
+                "secD": "4 (Q33)",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 5,
+                "name": "Sports & Nutrition",
+                "secA": "2 (Q10,11)",
+                "secB": "2 (Q24)",
+                "secC": "3 (Q26)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 6,
+                "name": "Test & Measurement in Sports",
+                "secA": "1 (Q17)",
+                "secB": "2 (Q23)",
+                "secE": "5 (Q35)",
+                "total": 8,
+                "official": "08"
+            },
+            {
+                "id": 7,
+                "name": "Physiology & Injuries in Sport",
+                "secA": "3 (Q4,7,12)",
+                "secB": "4 (Q19+Q22)",
+                "secC": "3 (Q29)",
+                "secD": "-",
+                "secE": "-",
+                "total": 10,
+                "official": "04+04b*"
+            },
+            {
+                "id": 8,
+                "name": "Biomechanics & Sports",
+                "secA": "2 (Q3,8)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "4 (Q32)",
+                "secE": "5 (Q37)",
+                "total": 11,
+                "official": "10"
+            },
+            {
+                "id": 9,
+                "name": "Psychology & Sports",
+                "secA": "2 (Q2,9)",
+                "secB": "2 (Q20)",
+                "secC": "3 (Q28)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 10,
+                "name": "Training in Sports",
+                "secA": "2 (Q5,6)",
+                "secB": "2 (Q21)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q36)",
+                "total": 9,
+                "official": "09"
+            }
+        ],
+        "footer": {
+            "secA": 18,
+            "secB": 12,
+            "secC": 18,
+            "secD": 12,
+            "secE": 20,
+            "total": 80,
+            "official": "70+10b*"
+        },
+        "notes": "Unit 8 (Biomechanics) is again the highest at 11 marks — consistent across multiple papers. Unit 7 (Physiology) is unusually heavy at 10 marks."
+    },
+    {
+        "id": "PE_2023",
+        "title": "Board Examination Paper 2023",
+        "badge": "2023",
+        "year": 2023,
+        "units": [
+            {
+                "id": 1,
+                "name": "Management of Sporting Events",
+                "secA": "2 (Q13,14)",
+                "secB": "-",
+                "secC": "3 (Q27)",
+                "secD": "4 (Q31)",
+                "secE": "-",
+                "total": 9,
+                "official": "05+04b*"
+            },
+            {
+                "id": 2,
+                "name": "Children & Women in Sports",
+                "secA": "2 (Q16,18)",
+                "secB": "-",
+                "secC": "3 (Q30)",
+                "secD": "-",
+                "secE": "-",
+                "total": 5,
+                "official": "07"
+            },
+            {
+                "id": 3,
+                "name": "Yoga as Preventive Measure",
+                "secA": "2 (Q1,12)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q34)",
+                "total": 7,
+                "official": "06+01b*"
+            },
+            {
+                "id": 4,
+                "name": "Physical Education & Sports for CWSN",
+                "secA": "1 (Q15)",
+                "secB": "-",
+                "secC": "3 (Q25)",
+                "secD": "4 (Q33)",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 5,
+                "name": "Sports & Nutrition",
+                "secA": "2 (Q10,11)",
+                "secB": "4 (Q23+Q24)",
+                "secC": "3 (Q26)",
+                "secD": "-",
+                "secE": "-",
+                "total": 9,
+                "official": "07"
+            },
+            {
+                "id": 6,
+                "name": "Test & Measurement in Sports",
+                "secA": "1 (Q17)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q35)",
+                "total": 6,
+                "official": "08"
+            },
+            {
+                "id": 7,
+                "name": "Physiology & Injuries in Sport",
+                "secA": "1 (Q7)",
+                "secB": "4 (Q19+Q22)",
+                "secC": "3 (Q29)",
+                "secD": "-",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 8,
+                "name": "Biomechanics & Sports",
+                "secA": "2 (Q3,8)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "4 (Q32)",
+                "secE": "5 (Q37)",
+                "total": 11,
+                "official": "10"
+            },
+            {
+                "id": 9,
+                "name": "Psychology & Sports",
+                "secA": "2 (Q2,9)",
+                "secB": "2 (Q20)",
+                "secC": "3 (Q28)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 10,
+                "name": "Training in Sports",
+                "secA": "3 (Q4,5,6)",
+                "secB": "2 (Q21)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q36)",
+                "total": 10,
+                "official": "09"
+            }
+        ],
+        "footer": {
+            "secA": 18,
+            "secB": 12,
+            "secC": 18,
+            "secD": 12,
+            "secE": 20,
+            "total": 80,
+            "official": "70+10b*"
+        },
+        "notes": "Unit 8 (Biomechanics) is the highest at 11 marks. Unit 5 (Nutrition) is unusually heavy at 9 marks with two Sec B questions."
+    },
+    {
+        "id": "PE_C_2023",
+        "title": "Compartment Paper 2023",
+        "badge": "2023 - C",
+        "year": 2023,
+        "units": [
+            {
+                "id": 1,
+                "name": "Management of Sporting Events",
+                "secA": "2 (Q1,13)",
+                "secB": "2 (Q19)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q34)",
+                "total": 9,
+                "official": "05+04b*"
+            },
+            {
+                "id": 2,
+                "name": "Children & Women in Sports",
+                "secA": "2 (Q2,14)",
+                "secB": "2 (Q20)",
+                "secC": "3 (Q27)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 3,
+                "name": "Yoga as Preventive Measure",
+                "secA": "2 (Q3,15)",
+                "secB": "2 (Q21)",
+                "secC": "3 (Q30)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "06+01b*"
+            },
+            {
+                "id": 4,
+                "name": "Physical Education & Sports for CWSN",
+                "secA": "1 (Q4)",
+                "secB": "-",
+                "secC": "3 (Q29)",
+                "secD": "-",
+                "secE": "5 (Q37)",
+                "total": 9,
+                "official": "04+04b*"
+            },
+            {
+                "id": 5,
+                "name": "Sports & Nutrition",
+                "secA": "1 (Q12)",
+                "secB": "2 (Q22)",
+                "secC": "3 (Q26)",
+                "secD": "4 (Q31)",
+                "secE": "-",
+                "total": 10,
+                "official": "07"
+            },
+            {
+                "id": 6,
+                "name": "Test & Measurement in Sports",
+                "secA": "2 (Q6,16)",
+                "secB": "-",
+                "secC": "3 (Q28)",
+                "secD": "4 (Q32)",
+                "secE": "-",
+                "total": 9,
+                "official": "08"
+            },
+            {
+                "id": 7,
+                "name": "Physiology & Injuries in Sport",
+                "secA": "2 (Q7,11)",
+                "secB": "2 (Q23)",
+                "secC": "3 (Q25)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "04+04b*"
+            },
+            {
+                "id": 8,
+                "name": "Biomechanics & Sports",
+                "secA": "2 (Q17,18)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q35)",
+                "total": 7,
+                "official": "10"
+            },
+            {
+                "id": 9,
+                "name": "Psychology & Sports",
+                "secA": "2 (Q8,10)",
+                "secB": "2 (Q24)",
+                "secC": "-",
+                "secD": "4 (Q33)",
+                "secE": "-",
+                "total": 8,
+                "official": "07"
+            },
+            {
+                "id": 10,
+                "name": "Training in Sports",
+                "secA": "2 (Q5,9)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q36)",
+                "total": 7,
+                "official": "09"
+            }
+        ],
+        "footer": {
+            "secA": 18,
+            "secB": 12,
+            "secC": 18,
+            "secD": 12,
+            "secE": 20,
+            "total": 80,
+            "official": "70+10b*"
+        },
+        "notes": "Unit 5 (Nutrition) is unusually heavy at 10 marks including a rare Case D question (Q31 on vitamins/minerals)."
+    },
+    {
+        "id": "PE_SQP_23",
+        "title": "Sample Question Paper (SQP) 2022–23",
+        "badge": "2023 SQP",
+        "year": 2023,
+        "units": [
+            {
+                "id": 1,
+                "name": "Management of Sporting Events",
+                "secA": "2 (Q13,14)",
+                "secB": "-",
+                "secC": "3 (Q27)",
+                "secD": "4 (Q31)",
+                "secE": "-",
+                "total": 9,
+                "official": "05+04b*"
+            },
+            {
+                "id": 2,
+                "name": "Children & Women in Sports",
+                "secA": "1 (Q18)",
+                "secB": "-",
+                "secC": "3 (Q30)",
+                "secD": "-",
+                "secE": "-",
+                "total": 4,
+                "official": "07"
+            },
+            {
+                "id": 3,
+                "name": "Yoga as Preventive Measure",
+                "secA": "3 (Q1,12,16)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "-",
+                "secE": "5 (Q34)",
+                "total": 8,
+                "official": "06+01b*"
+            },
+            {
+                "id": 4,
+                "name": "Physical Education & Sports for CWSN",
+                "secA": "1 (Q15)",
+                "secB": "-",
+                "secC": "3 (Q25)",
+                "secD": "4 (Q33)",
+                "secE": "-",
+                "total": 8,
+                "official": "04+04b*"
+            },
+            {
+                "id": 5,
+                "name": "Sports & Nutrition",
+                "secA": "2 (Q10,11)",
+                "secB": "2 (Q24)",
+                "secC": "3 (Q26)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 6,
+                "name": "Test & Measurement in Sports",
+                "secA": "1 (Q17)",
+                "secB": "2 (Q23)",
+                "secE": "5 (Q35)",
+                "total": 8,
+                "official": "08"
+            },
+            {
+                "id": 7,
+                "name": "Physiology & Injuries in Sport",
+                "secA": "3 (Q4,5,7)",
+                "secB": "4 (Q19+Q22)",
+                "secC": "-",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "04+04b*"
+            },
+            {
+                "id": 8,
+                "name": "Biomechanics & Sports",
+                "secA": "2 (Q3,8)",
+                "secB": "-",
+                "secC": "-",
+                "secD": "4 (Q32)",
+                "secE": "5 (Q37)",
+                "total": 11,
+                "official": "10"
+            },
+            {
+                "id": 9,
+                "name": "Psychology & Sports",
+                "secA": "2 (Q2,9)",
+                "secB": "2 (Q20)",
+                "secC": "3 (Q28)",
+                "secD": "-",
+                "secE": "-",
+                "total": 7,
+                "official": "07"
+            },
+            {
+                "id": 10,
+                "name": "Training in Sports",
+                "secA": "1 (Q6)",
+                "secB": "2 (Q21)",
+                "secC": "3 (Q29)",
+                "secD": "-",
+                "secE": "5 (Q36)",
+                "total": 11,
+                "official": "09"
+            }
+        ],
+        "footer": {
+            "secA": 18,
+            "secB": 12,
+            "secC": 18,
+            "secD": 12,
+            "secE": 20,
+            "total": 80,
+            "official": "70+10b*"
+        },
+        "notes": "Unit 8 (Biomechanics) and Unit 10 (Training) are joint highest at 11 marks each — both well above official weightage."
+    }
+]  
